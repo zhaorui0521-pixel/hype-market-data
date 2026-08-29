@@ -7,10 +7,10 @@
   "binanceStatus": "blocked_403",
   "binanceCircuitBroken": true,
   "binanceLastError": "Binance HTTP 403",
-  "binanceAttemptedAt": "2026-08-29T15:20:27.038Z",
-  "runId": "1788016826311-d1cec24e-cafe-4742-a850-4e0d0c3d811e",
-  "startedAt": "2026-08-29T15:20:26.311Z",
-  "updatedAt": "2026-08-29T15:20:39.144Z",
+  "binanceAttemptedAt": "2026-08-29T15:22:03.544Z",
+  "runId": "1788016921909-845e1e52-b351-483a-bb84-2369f065c58c",
+  "startedAt": "2026-08-29T15:22:01.909Z",
+  "updatedAt": "2026-08-29T15:22:07.464Z",
   "pool": {
     "benchmarkSymbols": [
       "BTC-USDT-SWAP",
@@ -32,14 +32,13 @@
     ],
     "dynamicSymbols": [
       "ZEC-USDT-SWAP",
-      "BEAT-USDT-SWAP",
-      "TRUMP-USDT-SWAP",
       "PUMP-USDT-SWAP",
-      "ENA-USDT-SWAP",
-      "PEPE-USDT-SWAP",
       "HYPE-USDT-SWAP",
       "WLD-USDT-SWAP",
-      "PENGU-USDT-SWAP",
+      "TRUMP-USDT-SWAP",
+      "BEAT-USDT-SWAP",
+      "ENA-USDT-SWAP",
+      "PEPE-USDT-SWAP",
       "DOGE-USDT-SWAP"
     ],
     "publishedSymbols": [
@@ -47,17 +46,54 @@
       "ETH-USDT-SWAP",
       "SOL-USDT-SWAP",
       "ZEC-USDT-SWAP",
-      "BEAT-USDT-SWAP",
-      "TRUMP-USDT-SWAP",
       "PUMP-USDT-SWAP",
-      "ENA-USDT-SWAP",
-      "PEPE-USDT-SWAP",
       "HYPE-USDT-SWAP",
       "WLD-USDT-SWAP",
-      "PENGU-USDT-SWAP",
+      "TRUMP-USDT-SWAP",
+      "BEAT-USDT-SWAP",
+      "ENA-USDT-SWAP",
+      "PEPE-USDT-SWAP",
       "DOGE-USDT-SWAP"
     ],
     "dynamicCountRequested": 10,
+    "scheduler": {
+      "mode": "layered_core_first",
+      "fixedFreshSymbols": [
+        "BTC-USDT-SWAP",
+        "ETH-USDT-SWAP",
+        "SOL-USDT-SWAP"
+      ],
+      "dynamicCandidates": [
+        "TRUMP-USDT-SWAP",
+        "ZEC-USDT-SWAP",
+        "PUMP-USDT-SWAP",
+        "ENA-USDT-SWAP",
+        "BEAT-USDT-SWAP",
+        "WLD-USDT-SWAP",
+        "HYPE-USDT-SWAP",
+        "PEPE-USDT-SWAP",
+        "PENGU-USDT-SWAP",
+        "LIT-USDT-SWAP"
+      ],
+      "dynamicFreshTarget": 5,
+      "freshDynamicAnalyzedSymbols": [
+        "TRUMP-USDT-SWAP",
+        "ZEC-USDT-SWAP",
+        "PUMP-USDT-SWAP",
+        "ENA-USDT-SWAP",
+        "BEAT-USDT-SWAP"
+      ],
+      "cachedOnlyDynamicCandidates": [
+        "WLD-USDT-SWAP",
+        "HYPE-USDT-SWAP",
+        "PEPE-USDT-SWAP",
+        "PENGU-USDT-SWAP",
+        "LIT-USDT-SWAP"
+      ],
+      "freshDynamicSkippedForBudget": [],
+      "coreTimeframeAttempts": 2,
+      "dynamicTimeframeAttempts": 1
+    },
     "selectionMethod": {
       "stageA": "OKX crypto USDT perpetuals + Binance USDⓈ-M perpetuals -> product purification -> cross-exchange confirmation -> liquidity + OI + volatility",
       "qualityGate": {
@@ -88,12 +124,12 @@
         "binanceAvailable": false,
         "binanceStatus": "blocked_403",
         "binanceLastError": "Binance HTTP 403",
-        "binanceAttemptedAt": "2026-08-29T15:20:27.038Z",
+        "binanceAttemptedAt": "2026-08-29T15:22:03.544Z",
         "dualExchangePreferred": true,
         "singleExchangeAllowed": true,
         "singleExchangeRequiresHigherTurnover": 100000000
       },
-      "stageB": "15m/1h structure clarity + cross-timeframe agreement + MA7/25/60 agreement + volume participation + key-level proximity",
+      "stageB": "layered scheduler: BTC/ETH/SOL fresh first; top dynamic candidates fresh; remaining candidates may use <=10m cached 15m/1h MA7/25/60 snapshots",
       "bridgeScoreWeights": {
         "marketQuality": 0.65,
         "technicalOpportunity": 0.35,
@@ -120,11 +156,13 @@
   "dataQuality": {
     "failedSymbols": [],
     "staleSymbols": [
-      "BTC-USDT-SWAP",
-      "ETH-USDT-SWAP",
+      "SOL-USDT-SWAP",
       "HYPE-USDT-SWAP",
       "WLD-USDT-SWAP",
-      "PENGU-USDT-SWAP",
+      "TRUMP-USDT-SWAP",
+      "BEAT-USDT-SWAP",
+      "ENA-USDT-SWAP",
+      "PEPE-USDT-SWAP",
       "DOGE-USDT-SWAP"
     ],
     "retryPolicy": "3 attempts; 429/5xx/50011 exponential backoff + jitter; non-retryable 4xx fail fast",
@@ -134,9 +172,15 @@
     "perSymbolIsolation": true,
     "subrequestBudget": {
       "max": 46,
-      "usedBeforePublish": 40,
+      "usedBeforePublish": 28,
       "githubWriteReserve": 6,
-      "stageBSymbolLimit": 13
+      "stageBSymbolLimit": 13,
+      "dynamicFreshAnalysisCount": 5,
+      "coreTimeframeAttempts": 2,
+      "dynamicTimeframeAttempts": 1,
+      "freshDynamicAnalyzedCount": 5,
+      "cachedOnlyDynamicCount": 5,
+      "freshDynamicSkippedForBudget": []
     },
     "discoveryQuality": {
       "okxInstrumentPurification": true,
@@ -146,7 +190,7 @@
       "binanceAvailable": false,
       "binanceStatus": "blocked_403",
       "binanceLastError": "Binance HTTP 403",
-      "binanceAttemptedAt": "2026-08-29T15:20:27.038Z",
+      "binanceAttemptedAt": "2026-08-29T15:22:03.544Z",
       "requireDualExchange": false,
       "effectiveRequireDualExchange": false,
       "singleExchangeMinTurnoverUsd": 100000000,
@@ -165,203 +209,181 @@
     {
       "rank": 1,
       "symbol": "ZEC-USDT-SWAP",
-      "score": 0.86324,
+      "score": 0.86389,
       "sourceState": "fresh",
       "freshnessFactor": 1,
       "marketQualityScore": 0.97813,
-      "technicalOpportunityScore": 0.649872,
-      "adjustedTechnicalOpportunityScore": 0.649872,
+      "technicalOpportunityScore": 0.651729,
+      "adjustedTechnicalOpportunityScore": 0.651729,
       "liquidityScore": 0.985348,
       "oiScore": 0.989011,
       "volatilityScore": 0.802198,
-      "turnoverUsdEstimate": 505070891.60639995,
+      "turnoverUsdEstimate": 503373648.4074,
       "binanceTurnoverUsdEstimate": 0,
       "crossExchangeConfirmed": false,
       "crossExchangePriceDiffPct": null,
       "crossExchangeScore": 0,
-      "openInterestUsdEstimate": 123779212.3865,
-      "rangePct24h": 0.09267956820026065,
+      "openInterestUsdEstimate": 123776249.1105,
+      "rangePct24h": 0.09294697903822441,
       "binanceRangePct24h": 0,
-      "selectionReason": "1hStructure=range; 15mStructure=higher_highs_higher_lows; structureAgreement=0.5; 1hMA=bullish; 15mMA=bullish; maAgreement=1; structureMA=0.7; volumeParticipation=1; keyLevelProximity=0.129965; discoveryMode=okx_only_degraded; dualExchange=false; priceDiffPct=0; sourceState=fresh"
+      "selectionReason": "1hStructure=range; 15mStructure=higher_highs_higher_lows; structureAgreement=0.5; 1hMA=bullish; 15mMA=bullish; maAgreement=1; structureMA=0.7; volumeParticipation=1; keyLevelProximity=0.148538; discoveryMode=okx_only_degraded; dualExchange=false; priceDiffPct=0; sourceState=fresh"
     },
     {
       "rank": 2,
-      "symbol": "BEAT-USDT-SWAP",
-      "score": 0.824161,
-      "sourceState": "fresh",
-      "freshnessFactor": 1,
-      "marketQualityScore": 0.94652,
-      "technicalOpportunityScore": 0.596922,
-      "adjustedTechnicalOpportunityScore": 0.596922,
-      "liquidityScore": 0.96337,
-      "oiScore": 0.882784,
-      "volatilityScore": 1,
-      "turnoverUsdEstimate": 114583490.9264,
-      "binanceTurnoverUsdEstimate": 0,
-      "crossExchangeConfirmed": false,
-      "crossExchangePriceDiffPct": null,
-      "crossExchangeScore": 0,
-      "openInterestUsdEstimate": 8156834.281199999,
-      "rangePct24h": 0.3349514563106795,
-      "binanceRangePct24h": 0,
-      "selectionReason": "1hStructure=higher_highs_higher_lows; 15mStructure=lower_highs_lower_lows; structureAgreement=0.15; 1hMA=neutral; 15mMA=neutral; maAgreement=0.55; structureMA=0.5; volumeParticipation=0.392362; keyLevelProximity=0.980676; discoveryMode=okx_only_degraded; dualExchange=false; priceDiffPct=0; sourceState=fresh"
-    },
-    {
-      "rank": 3,
-      "symbol": "TRUMP-USDT-SWAP",
-      "score": 0.81388,
-      "sourceState": "fresh",
-      "freshnessFactor": 1,
-      "marketQualityScore": 0.984615,
-      "technicalOpportunityScore": 0.4968,
-      "adjustedTechnicalOpportunityScore": 0.4968,
-      "liquidityScore": 0.989011,
-      "oiScore": 0.967033,
-      "volatilityScore": 0.970696,
-      "turnoverUsdEstimate": 993043779.3024001,
-      "binanceTurnoverUsdEstimate": 0,
-      "crossExchangeConfirmed": false,
-      "crossExchangePriceDiffPct": null,
-      "crossExchangeScore": 0,
-      "openInterestUsdEstimate": 33732877.5288,
-      "rangePct24h": 0.19695898161244696,
-      "binanceRangePct24h": 0,
-      "selectionReason": "1hStructure=range; 15mStructure=range; structureAgreement=0.5; 1hMA=neutral; 15mMA=neutral; maAgreement=0.55; structureMA=0.5; volumeParticipation=0.61626; keyLevelProximity=0.974865; discoveryMode=okx_only_degraded; dualExchange=false; priceDiffPct=0; sourceState=fresh"
-    },
-    {
-      "rank": 4,
       "symbol": "PUMP-USDT-SWAP",
-      "score": 0.807297,
+      "score": 0.805276,
       "sourceState": "fresh",
       "freshnessFactor": 1,
       "marketQualityScore": 0.976557,
-      "technicalOpportunityScore": 0.492957,
-      "adjustedTechnicalOpportunityScore": 0.492957,
+      "technicalOpportunityScore": 0.487184,
+      "adjustedTechnicalOpportunityScore": 0.487184,
       "liquidityScore": 0.970696,
       "oiScore": 0.970696,
       "volatilityScore": 0.85348,
-      "turnoverUsdEstimate": 130874833.44,
+      "turnoverUsdEstimate": 131283561.344,
       "binanceTurnoverUsdEstimate": 0,
       "crossExchangeConfirmed": false,
       "crossExchangePriceDiffPct": null,
       "crossExchangeScore": 0,
-      "openInterestUsdEstimate": 36231853.194,
-      "rangePct24h": 0.09993818256748407,
+      "openInterestUsdEstimate": 36378289.549,
+      "rangePct24h": 0.09987644151565078,
       "binanceRangePct24h": 0,
-      "selectionReason": "1hStructure=range; 15mStructure=range; structureAgreement=0.5; 1hMA=neutral; 15mMA=bullish; maAgreement=0.55; structureMA=0.5; volumeParticipation=1; keyLevelProximity=0.360825; discoveryMode=okx_only_degraded; dualExchange=false; priceDiffPct=0; sourceState=fresh"
+      "selectionReason": "1hStructure=range; 15mStructure=range; structureAgreement=0.5; 1hMA=neutral; 15mMA=bullish; maAgreement=0.55; structureMA=0.5; volumeParticipation=1; keyLevelProximity=0.303093; discoveryMode=okx_only_degraded; dualExchange=false; priceDiffPct=0; sourceState=fresh"
     },
     {
-      "rank": 5,
-      "symbol": "ENA-USDT-SWAP",
-      "score": 0.801572,
-      "sourceState": "fresh",
-      "freshnessFactor": 1,
-      "marketQualityScore": 0.958242,
-      "technicalOpportunityScore": 0.510612,
-      "adjustedTechnicalOpportunityScore": 0.510612,
-      "liquidityScore": 0.967033,
-      "oiScore": 0.915751,
-      "volatilityScore": 0.908425,
-      "turnoverUsdEstimate": 129075659.3295,
-      "binanceTurnoverUsdEstimate": 0,
-      "crossExchangeConfirmed": false,
-      "crossExchangePriceDiffPct": null,
-      "crossExchangeScore": 0,
-      "openInterestUsdEstimate": 15286375.9008,
-      "rangePct24h": 0.12360074626865669,
-      "binanceRangePct24h": 0,
-      "selectionReason": "1hStructure=range; 15mStructure=range; structureAgreement=0.5; 1hMA=neutral; 15mMA=neutral; maAgreement=0.55; structureMA=0.5; volumeParticipation=0.728684; keyLevelProximity=0.94434; discoveryMode=okx_only_degraded; dualExchange=false; priceDiffPct=0; sourceState=fresh"
-    },
-    {
-      "rank": 6,
-      "symbol": "PEPE-USDT-SWAP",
-      "score": 0.75895,
-      "sourceState": "fresh",
-      "freshnessFactor": 1,
-      "marketQualityScore": 0.891015,
-      "technicalOpportunityScore": 0.513686,
-      "adjustedTechnicalOpportunityScore": 0.513686,
-      "liquidityScore": 0.959707,
-      "oiScore": 0.959707,
-      "volatilityScore": 0.52381,
-      "turnoverUsdEstimate": 88496711.004,
-      "binanceTurnoverUsdEstimate": 0,
-      "crossExchangeConfirmed": false,
-      "crossExchangePriceDiffPct": null,
-      "crossExchangeScore": 0,
-      "openInterestUsdEstimate": 30681277.2,
-      "rangePct24h": 0.061991069083267646,
-      "binanceRangePct24h": 0,
-      "selectionReason": "1hStructure=range; 15mStructure=range; structureAgreement=0.5; 1hMA=bearish; 15mMA=neutral; maAgreement=0.55; structureMA=0.5; volumeParticipation=0.745974; keyLevelProximity=0.949153; discoveryMode=okx_only_degraded; dualExchange=false; priceDiffPct=0; sourceState=fresh"
-    },
-    {
-      "rank": 7,
+      "rank": 3,
       "symbol": "HYPE-USDT-SWAP",
-      "score": 0.72857,
-      "sourceState": "degraded",
-      "freshnessFactor": 0.55,
+      "score": 0.771966,
+      "sourceState": "recent_cached",
+      "freshnessFactor": 0.75,
       "marketQualityScore": 0.937276,
       "technicalOpportunityScore": 0.61995,
-      "adjustedTechnicalOpportunityScore": 0.340973,
+      "adjustedTechnicalOpportunityScore": 0.464963,
       "liquidityScore": 0.981685,
       "oiScore": 0.985348,
       "volatilityScore": 0.641026,
-      "turnoverUsdEstimate": 347720595.0368,
+      "turnoverUsdEstimate": 347266350.9,
       "binanceTurnoverUsdEstimate": 0,
       "crossExchangeConfirmed": false,
       "crossExchangePriceDiffPct": null,
       "crossExchangeScore": 0,
-      "openInterestUsdEstimate": 122060761.1712,
-      "rangePct24h": 0.06878961199567163,
+      "openInterestUsdEstimate": 122178116.06,
+      "rangePct24h": 0.06892812887236675,
       "binanceRangePct24h": 0,
-      "selectionReason": "1hStructure=higher_highs_higher_lows; 15mStructure=lower_highs_lower_lows; structureAgreement=0.15; 1hMA=neutral; 15mMA=bullish; maAgreement=0.55; structureMA=0.38; volumeParticipation=0.941207; keyLevelProximity=0.507692; discoveryMode=okx_only_degraded; dualExchange=false; priceDiffPct=0; sourceState=degraded"
+      "selectionReason": "1hStructure=higher_highs_higher_lows; 15mStructure=lower_highs_lower_lows; structureAgreement=0.15; 1hMA=neutral; 15mMA=bullish; maAgreement=0.55; structureMA=0.38; volumeParticipation=0.941207; keyLevelProximity=0.507692; discoveryMode=okx_only_degraded; dualExchange=false; priceDiffPct=0; sourceState=recent_cached"
+    },
+    {
+      "rank": 4,
+      "symbol": "WLD-USDT-SWAP",
+      "score": 0.76694,
+      "sourceState": "recent_cached",
+      "freshnessFactor": 0.75,
+      "marketQualityScore": 0.938548,
+      "technicalOpportunityScore": 0.597653,
+      "adjustedTechnicalOpportunityScore": 0.44824,
+      "liquidityScore": 0.956044,
+      "oiScore": 0.96337,
+      "volatilityScore": 0.728938,
+      "turnoverUsdEstimate": 62122269.0651,
+      "binanceTurnoverUsdEstimate": 0,
+      "crossExchangeConfirmed": false,
+      "crossExchangePriceDiffPct": null,
+      "crossExchangeScore": 0,
+      "openInterestUsdEstimate": 31367433.762,
+      "rangePct24h": 0.0797500000000001,
+      "binanceRangePct24h": 0,
+      "selectionReason": "1hStructure=range; 15mStructure=lower_highs_lower_lows; structureAgreement=0.5; 1hMA=bearish; 15mMA=neutral; maAgreement=0.55; structureMA=0.5; volumeParticipation=0.820232; keyLevelProximity=0.977429; discoveryMode=okx_only_degraded; dualExchange=false; priceDiffPct=0; sourceState=recent_cached"
+    },
+    {
+      "rank": 5,
+      "symbol": "TRUMP-USDT-SWAP",
+      "score": 0.735634,
+      "sourceState": "degraded",
+      "freshnessFactor": 0.55,
+      "marketQualityScore": 0.984615,
+      "technicalOpportunityScore": 0.4968,
+      "adjustedTechnicalOpportunityScore": 0.27324,
+      "liquidityScore": 0.989011,
+      "oiScore": 0.967033,
+      "volatilityScore": 0.967033,
+      "turnoverUsdEstimate": 990102186.3936,
+      "binanceTurnoverUsdEstimate": 0,
+      "crossExchangeConfirmed": false,
+      "crossExchangePriceDiffPct": null,
+      "crossExchangeScore": 0,
+      "openInterestUsdEstimate": 33862188.7316,
+      "rangePct24h": 0.1948915325402379,
+      "binanceRangePct24h": 0,
+      "selectionReason": "1hStructure=range; 15mStructure=range; structureAgreement=0.5; 1hMA=neutral; 15mMA=neutral; maAgreement=0.55; structureMA=0.5; volumeParticipation=0.61626; keyLevelProximity=0.974865; discoveryMode=okx_only_degraded; dualExchange=false; priceDiffPct=0; sourceState=degraded"
+    },
+    {
+      "rank": 6,
+      "symbol": "BEAT-USDT-SWAP",
+      "score": 0.729867,
+      "sourceState": "degraded",
+      "freshnessFactor": 0.55,
+      "marketQualityScore": 0.94652,
+      "technicalOpportunityScore": 0.595473,
+      "adjustedTechnicalOpportunityScore": 0.32751,
+      "liquidityScore": 0.96337,
+      "oiScore": 0.882784,
+      "volatilityScore": 1,
+      "turnoverUsdEstimate": 114356205.847,
+      "binanceTurnoverUsdEstimate": 0,
+      "crossExchangeConfirmed": false,
+      "crossExchangePriceDiffPct": null,
+      "crossExchangeScore": 0,
+      "openInterestUsdEstimate": 8144979.896,
+      "rangePct24h": 0.3363119415109666,
+      "binanceRangePct24h": 0,
+      "selectionReason": "1hStructure=higher_highs_higher_lows; 15mStructure=lower_highs_lower_lows; structureAgreement=0.15; 1hMA=neutral; 15mMA=neutral; maAgreement=0.55; structureMA=0.5; volumeParticipation=0.392362; keyLevelProximity=0.966184; discoveryMode=okx_only_degraded; dualExchange=false; priceDiffPct=0; sourceState=degraded"
+    },
+    {
+      "rank": 7,
+      "symbol": "ENA-USDT-SWAP",
+      "score": 0.720206,
+      "sourceState": "degraded",
+      "freshnessFactor": 0.55,
+      "marketQualityScore": 0.958242,
+      "technicalOpportunityScore": 0.505706,
+      "adjustedTechnicalOpportunityScore": 0.278138,
+      "liquidityScore": 0.967033,
+      "oiScore": 0.915751,
+      "volatilityScore": 0.908425,
+      "turnoverUsdEstimate": 128686275.27209999,
+      "binanceTurnoverUsdEstimate": 0,
+      "crossExchangeConfirmed": false,
+      "crossExchangePriceDiffPct": null,
+      "crossExchangeScore": 0,
+      "openInterestUsdEstimate": 15334750.535,
+      "rangePct24h": 0.12324864833439915,
+      "binanceRangePct24h": 0,
+      "selectionReason": "1hStructure=range; 15mStructure=range; structureAgreement=0.5; 1hMA=neutral; 15mMA=neutral; maAgreement=0.55; structureMA=0.5; volumeParticipation=0.728684; keyLevelProximity=0.895283; discoveryMode=okx_only_degraded; dualExchange=false; priceDiffPct=0; sourceState=degraded"
     },
     {
       "rank": 8,
-      "symbol": "WLD-USDT-SWAP",
-      "score": 0.724544,
-      "sourceState": "degraded",
-      "freshnessFactor": 0.55,
-      "marketQualityScore": 0.937686,
-      "technicalOpportunityScore": 0.597653,
-      "adjustedTechnicalOpportunityScore": 0.328709,
-      "liquidityScore": 0.956044,
-      "oiScore": 0.96337,
-      "volatilityScore": 0.725275,
-      "turnoverUsdEstimate": 62247770.2752,
+      "symbol": "PEPE-USDT-SWAP",
+      "score": 0.714563,
+      "sourceState": "recent_cached",
+      "freshnessFactor": 0.75,
+      "marketQualityScore": 0.891877,
+      "technicalOpportunityScore": 0.513686,
+      "adjustedTechnicalOpportunityScore": 0.385265,
+      "liquidityScore": 0.959707,
+      "oiScore": 0.959707,
+      "volatilityScore": 0.527473,
+      "turnoverUsdEstimate": 88159807.872,
       "binanceTurnoverUsdEstimate": 0,
       "crossExchangeConfirmed": false,
       "crossExchangePriceDiffPct": null,
       "crossExchangeScore": 0,
-      "openInterestUsdEstimate": 31320154.272,
-      "rangePct24h": 0.07973006748312932,
+      "openInterestUsdEstimate": 30733228.13,
+      "rangePct24h": 0.062056271364712055,
       "binanceRangePct24h": 0,
-      "selectionReason": "1hStructure=range; 15mStructure=lower_highs_lower_lows; structureAgreement=0.5; 1hMA=bearish; 15mMA=neutral; maAgreement=0.55; structureMA=0.5; volumeParticipation=0.820232; keyLevelProximity=0.977429; discoveryMode=okx_only_degraded; dualExchange=false; priceDiffPct=0; sourceState=degraded"
+      "selectionReason": "1hStructure=range; 15mStructure=range; structureAgreement=0.5; 1hMA=bearish; 15mMA=neutral; maAgreement=0.55; structureMA=0.5; volumeParticipation=0.745974; keyLevelProximity=0.949153; discoveryMode=okx_only_degraded; dualExchange=false; priceDiffPct=0; sourceState=recent_cached"
     },
     {
       "rank": 9,
-      "symbol": "PENGU-USDT-SWAP",
-      "score": 0.620374,
-      "sourceState": "degraded",
-      "freshnessFactor": 0.55,
-      "marketQualityScore": 0.890261,
-      "technicalOpportunityScore": 0.216646,
-      "adjustedTechnicalOpportunityScore": 0.119155,
-      "liquidityScore": 0.89011,
-      "oiScore": 0.886447,
-      "volatilityScore": 0.761905,
-      "turnoverUsdEstimate": 20872167.945,
-      "binanceTurnoverUsdEstimate": 0,
-      "crossExchangeConfirmed": false,
-      "crossExchangePriceDiffPct": null,
-      "crossExchangeScore": 0,
-      "openInterestUsdEstimate": 8214852.5424,
-      "rangePct24h": 0.08502364687335776,
-      "binanceRangePct24h": 0,
-      "selectionReason": "1hStructure=range; 15mStructure=higher_highs_higher_lows; structureAgreement=0.5; 1hMA=neutral; 15mMA=neutral; maAgreement=0.55; structureMA=0.5; volumeParticipation=0.632851; keyLevelProximity=0.904365; discoveryMode=okx_only_degraded; dualExchange=false; priceDiffPct=0; sourceState=degraded"
-    },
-    {
-      "rank": 10,
       "symbol": "DOGE-USDT-SWAP",
       "score": 0.601209,
       "sourceState": "stale_fallback",
@@ -372,13 +394,13 @@
       "liquidityScore": 0.974359,
       "oiScore": 0.978022,
       "volatilityScore": 0.084249,
-      "turnoverUsdEstimate": 191892431.7082,
+      "turnoverUsdEstimate": 191629231.63300002,
       "binanceTurnoverUsdEstimate": 0,
       "crossExchangeConfirmed": false,
       "crossExchangePriceDiffPct": null,
       "crossExchangeScore": 0,
-      "openInterestUsdEstimate": 88099537.51499999,
-      "rangePct24h": 0.04329400984995998,
+      "openInterestUsdEstimate": 88179428.59699997,
+      "rangePct24h": 0.04336851766865541,
       "binanceRangePct24h": 0,
       "selectionReason": "1hStructure=lower_highs_lower_lows; 15mStructure=range; structureAgreement=0.5; 1hMA=neutral; 15mMA=neutral; maAgreement=0.55; structureMA=0.5; volumeParticipation=1; keyLevelProximity=0.820106; discoveryMode=okx_only_degraded; dualExchange=false; priceDiffPct=0; sourceState=stale_fallback"
     }
@@ -388,39 +410,38 @@
     "ETH-USDT-SWAP",
     "SOL-USDT-SWAP",
     "ZEC-USDT-SWAP",
-    "BEAT-USDT-SWAP",
-    "TRUMP-USDT-SWAP",
     "PUMP-USDT-SWAP",
-    "ENA-USDT-SWAP",
-    "PEPE-USDT-SWAP",
     "HYPE-USDT-SWAP",
     "WLD-USDT-SWAP",
-    "PENGU-USDT-SWAP",
+    "TRUMP-USDT-SWAP",
+    "BEAT-USDT-SWAP",
+    "ENA-USDT-SWAP",
+    "PEPE-USDT-SWAP",
     "DOGE-USDT-SWAP"
   ],
   "markets": {
     "BTC-USDT-SWAP": {
       "ok": true,
       "symbol": "BTC-USDT-SWAP",
-      "updatedAt": "2026-08-29T15:20:31.439Z",
-      "price": 77903.8,
+      "updatedAt": "2026-08-29T15:22:05.345Z",
+      "price": 77916.7,
       "high24h": 79486.3,
       "low24h": 76847.3,
-      "open24h": 79414.8,
-      "changePct24h": -0.019026680165409975,
-      "contractVolume24h": 6534236.12,
-      "baseVolume24h": 65342.3612,
-      "quoteVolume24hEstimate": 5090418238.45256,
-      "turnoverUsdEstimate": 5090418238.45256,
-      "openInterestUsdEstimate": 2236769869.073858,
+      "open24h": 79307.3,
+      "changePct24h": -0.01753432533953376,
+      "contractVolume24h": 6520897.4,
+      "baseVolume24h": 65208.974,
+      "quoteVolume24hEstimate": 5080868064.4658,
+      "turnoverUsdEstimate": 5080868064.4658,
+      "openInterestUsdEstimate": 2237514790.2607584,
       "fetch15mOk": true,
-      "fetch1hOk": false,
-      "retryCount15m": 2,
-      "retryCount1h": 2,
-      "partial": true,
-      "stale": true,
-      "staleReason": "BTC-USDT-SWAP 1H fresh fetch failed after 3 attempts: OKX HTTP 429",
-      "lastSuccessfulAt": "2026-08-29T15:20:29.416Z",
+      "fetch1hOk": true,
+      "retryCount15m": 1,
+      "retryCount1h": 0,
+      "partial": false,
+      "stale": false,
+      "staleReason": null,
+      "lastSuccessfulAt": "2026-08-29T15:22:05.345Z",
       "timeframeStatus": {
         "15m": {
           "fetchOk": true,
@@ -430,22 +451,22 @@
           "status": "fresh"
         },
         "1h": {
-          "fetchOk": false,
-          "usedFallback": true,
-          "fallbackAgeMinutes": 5.057717,
+          "fetchOk": true,
+          "usedFallback": false,
+          "fallbackAgeMinutes": 0,
           "realtimeWeight": 1,
-          "status": "fallback_fresh"
+          "status": "fresh"
         }
       },
       "freshness": {
-        "status": "fallback_fresh",
-        "tickerTs": 1788016826667,
-        "tickerAgeMs": 4772,
-        "oiTs": 1788016827137,
-        "oiAgeMs": 4302,
+        "status": "fresh",
+        "tickerTs": 1788016923565,
+        "tickerAgeMs": 1780,
+        "oiTs": 1788016924535,
+        "oiAgeMs": 810,
         "lastClosed15mTs": 1788015600000,
         "lastClosed1hTs": 1788012000000,
-        "fallbackAgeMinutes": 5.057717
+        "fallbackAgeMinutes": 0
       },
       "timeframe15m": {
         "candleCount": 119,
@@ -787,32 +808,32 @@
     "ETH-USDT-SWAP": {
       "ok": true,
       "symbol": "ETH-USDT-SWAP",
-      "updatedAt": "2026-08-29T15:20:35.536Z",
-      "price": 2444.3,
+      "updatedAt": "2026-08-29T15:22:05.526Z",
+      "price": 2444.38,
       "high24h": 2511.75,
       "low24h": 2405.17,
-      "open24h": 2506.55,
-      "changePct24h": -0.024834932476910494,
-      "contractVolume24h": 19511436.7,
-      "baseVolume24h": 1951143.67,
-      "quoteVolume24hEstimate": 4769180472.581,
-      "turnoverUsdEstimate": 4769180472.581,
-      "openInterestUsdEstimate": 1533027477.4880044,
-      "fetch15mOk": false,
+      "open24h": 2503.94,
+      "changePct24h": -0.02378651245636874,
+      "contractVolume24h": 19482789.9,
+      "baseVolume24h": 1948278.99,
+      "quoteVolume24hEstimate": 4762334197.5762005,
+      "turnoverUsdEstimate": 4762334197.5762005,
+      "openInterestUsdEstimate": 1533551066.7292042,
+      "fetch15mOk": true,
       "fetch1hOk": true,
-      "retryCount15m": 2,
-      "retryCount1h": 2,
-      "partial": true,
-      "stale": true,
-      "staleReason": "ETH-USDT-SWAP 15m fresh fetch failed after 3 attempts: OKX HTTP 429",
-      "lastSuccessfulAt": "2026-08-29T15:20:35.536Z",
+      "retryCount15m": 0,
+      "retryCount1h": 0,
+      "partial": false,
+      "stale": false,
+      "staleReason": null,
+      "lastSuccessfulAt": "2026-08-29T15:22:05.526Z",
       "timeframeStatus": {
         "15m": {
-          "fetchOk": false,
-          "usedFallback": true,
-          "fallbackAgeMinutes": 5.056967,
+          "fetchOk": true,
+          "usedFallback": false,
+          "fallbackAgeMinutes": 0,
           "realtimeWeight": 1,
-          "status": "fallback_fresh"
+          "status": "fresh"
         },
         "1h": {
           "fetchOk": true,
@@ -823,14 +844,14 @@
         }
       },
       "freshness": {
-        "status": "fallback_fresh",
-        "tickerTs": 1788016826672,
-        "tickerAgeMs": 8864,
-        "oiTs": 1788016827137,
-        "oiAgeMs": 8399,
+        "status": "fresh",
+        "tickerTs": 1788016923569,
+        "tickerAgeMs": 1957,
+        "oiTs": 1788016924535,
+        "oiAgeMs": 991,
         "lastClosed15mTs": 1788015600000,
         "lastClosed1hTs": 1788012000000,
-        "fallbackAgeMinutes": 5.056967
+        "fallbackAgeMinutes": 0
       },
       "timeframe15m": {
         "candleCount": 119,
@@ -1172,50 +1193,50 @@
     "SOL-USDT-SWAP": {
       "ok": true,
       "symbol": "SOL-USDT-SWAP",
-      "updatedAt": "2026-08-29T15:20:36.549Z",
-      "price": 104.94,
+      "updatedAt": "2026-08-29T15:22:06.979Z",
+      "price": 105.09,
       "high24h": 107.87,
       "low24h": 102.2,
-      "open24h": 107.08,
-      "changePct24h": -0.019985057900635046,
-      "contractVolume24h": 9759805.89,
-      "baseVolume24h": 9759805.89,
-      "quoteVolume24hEstimate": 1024194030.0966,
-      "turnoverUsdEstimate": 1024194030.0966,
-      "openInterestUsdEstimate": 341071824.1396001,
-      "fetch15mOk": true,
-      "fetch1hOk": true,
-      "retryCount15m": 0,
+      "open24h": 106.87,
+      "changePct24h": -0.0166557499766071,
+      "contractVolume24h": 9534551.61,
+      "baseVolume24h": 9534551.61,
+      "quoteVolume24hEstimate": 1001986028.6948999,
+      "turnoverUsdEstimate": 1001986028.6948999,
+      "openInterestUsdEstimate": 341890230.9292001,
+      "fetch15mOk": false,
+      "fetch1hOk": false,
+      "retryCount15m": 1,
       "retryCount1h": 1,
-      "partial": false,
-      "stale": false,
-      "staleReason": null,
+      "partial": true,
+      "stale": true,
+      "staleReason": "SOL-USDT-SWAP 15m fresh fetch failed after 2 attempts: OKX HTTP 429 | SOL-USDT-SWAP 1H fresh fetch failed after 2 attempts: OKX HTTP 429",
       "lastSuccessfulAt": "2026-08-29T15:20:36.549Z",
       "timeframeStatus": {
         "15m": {
-          "fetchOk": true,
-          "usedFallback": false,
-          "fallbackAgeMinutes": 0,
+          "fetchOk": false,
+          "usedFallback": true,
+          "fallbackAgeMinutes": 1.495117,
           "realtimeWeight": 1,
-          "status": "fresh"
+          "status": "fallback_fresh"
         },
         "1h": {
-          "fetchOk": true,
-          "usedFallback": false,
-          "fallbackAgeMinutes": 0,
+          "fetchOk": false,
+          "usedFallback": true,
+          "fallbackAgeMinutes": 1.507167,
           "realtimeWeight": 1,
-          "status": "fresh"
+          "status": "fallback_fresh"
         }
       },
       "freshness": {
-        "status": "fresh",
-        "tickerTs": 1788016826770,
-        "tickerAgeMs": 9779,
-        "oiTs": 1788016827137,
-        "oiAgeMs": 9412,
+        "status": "fallback_fresh",
+        "tickerTs": 1788016923464,
+        "tickerAgeMs": 3515,
+        "oiTs": 1788016924535,
+        "oiAgeMs": 2444,
         "lastClosed15mTs": 1788015600000,
         "lastClosed1hTs": 1788012000000,
-        "fallbackAgeMinutes": 0
+        "fallbackAgeMinutes": 1.507167
       },
       "timeframe15m": {
         "candleCount": 119,
@@ -1557,17 +1578,17 @@
     "ZEC-USDT-SWAP": {
       "ok": true,
       "symbol": "ZEC-USDT-SWAP",
-      "updatedAt": "2026-08-29T15:20:37.072Z",
-      "price": 837.52,
+      "updatedAt": "2026-08-29T15:22:07.176Z",
+      "price": 836.82,
       "high24h": 852,
       "low24h": 776.62,
-      "open24h": 813.34,
-      "changePct24h": 0.02972926451422523,
-      "contractVolume24h": 60305532,
-      "baseVolume24h": 603055.32,
-      "quoteVolume24hEstimate": 505070891.60639995,
-      "turnoverUsdEstimate": 505070891.60639995,
-      "openInterestUsdEstimate": 123779212.3865,
+      "open24h": 811,
+      "changePct24h": 0.031837237977805244,
+      "contractVolume24h": 60153157,
+      "baseVolume24h": 601531.57,
+      "quoteVolume24hEstimate": 503373648.4074,
+      "turnoverUsdEstimate": 503373648.4074,
+      "openInterestUsdEstimate": 123776249.1105,
       "fetch15mOk": true,
       "fetch1hOk": true,
       "retryCount15m": 0,
@@ -1575,7 +1596,7 @@
       "partial": false,
       "stale": false,
       "staleReason": null,
-      "lastSuccessfulAt": "2026-08-29T15:20:37.072Z",
+      "lastSuccessfulAt": "2026-08-29T15:22:07.176Z",
       "timeframeStatus": {
         "15m": {
           "fetchOk": true,
@@ -1594,10 +1615,10 @@
       },
       "freshness": {
         "status": "fresh",
-        "tickerTs": 1788016826765,
-        "tickerAgeMs": 10307,
-        "oiTs": 1788016827137,
-        "oiAgeMs": 9935,
+        "tickerTs": 1788016923624,
+        "tickerAgeMs": 3552,
+        "oiTs": 1788016924535,
+        "oiAgeMs": 2641,
         "lastClosed15mTs": 1788015600000,
         "lastClosed1hTs": 1788012000000,
         "fallbackAgeMinutes": 0
@@ -1939,790 +1960,20 @@
         ]
       }
     },
-    "BEAT-USDT-SWAP": {
-      "ok": true,
-      "symbol": "BEAT-USDT-SWAP",
-      "updatedAt": "2026-08-29T15:20:37.865Z",
-      "price": 0.1373,
-      "high24h": 0.1626,
-      "low24h": 0.1212,
-      "open24h": 0.1236,
-      "changePct24h": 0.1108414239482201,
-      "contractVolume24h": 83454836.8,
-      "baseVolume24h": 834548368,
-      "quoteVolume24hEstimate": 114583490.9264,
-      "turnoverUsdEstimate": 114583490.9264,
-      "openInterestUsdEstimate": 8156834.281199999,
-      "fetch15mOk": true,
-      "fetch1hOk": true,
-      "retryCount15m": 0,
-      "retryCount1h": 0,
-      "partial": false,
-      "stale": false,
-      "staleReason": null,
-      "lastSuccessfulAt": "2026-08-29T15:20:37.865Z",
-      "timeframeStatus": {
-        "15m": {
-          "fetchOk": true,
-          "usedFallback": false,
-          "fallbackAgeMinutes": 0,
-          "realtimeWeight": 1,
-          "status": "fresh"
-        },
-        "1h": {
-          "fetchOk": true,
-          "usedFallback": false,
-          "fallbackAgeMinutes": 0,
-          "realtimeWeight": 1,
-          "status": "fresh"
-        }
-      },
-      "freshness": {
-        "status": "fresh",
-        "tickerTs": 1788016826663,
-        "tickerAgeMs": 11202,
-        "oiTs": 1788016827137,
-        "oiAgeMs": 10728,
-        "lastClosed15mTs": 1788015600000,
-        "lastClosed1hTs": 1788012000000,
-        "fallbackAgeMinutes": 0
-      },
-      "timeframe15m": {
-        "candleCount": 119,
-        "ma": {
-          "ma7": 0.13771428571428562,
-          "ma25": 0.141464,
-          "ma60": 0.1412599999999998,
-          "slope5": {
-            "ma7": -0.0025857142857143023,
-            "ma25": -0.0043279999999999985,
-            "ma60": 0.0005716666666666648
-          },
-          "order": "mixed",
-          "direction": "mixed"
-        },
-        "structure": {
-          "state": "lower_highs_lower_lows",
-          "confidence": "high",
-          "previousHigh": 0.1626,
-          "recentHigh": 0.1426,
-          "previousLow": 0.1377,
-          "recentLow": 0.13,
-          "atr": 0.0031428571428571456,
-          "pivotHighCount": 7,
-          "pivotLowCount": 8,
-          "lastClose": 0.137,
-          "lastCloseTs": 1788015600000
-        },
-        "levels": {
-          "recentResistance": 0.1377,
-          "secondaryResistance": 0.1426,
-          "recentSupport": 0.1361,
-          "secondarySupport": 0.13,
-          "recentResistanceTouches": 1,
-          "secondaryResistanceTouches": 1,
-          "recentSupportTouches": 1,
-          "secondarySupportTouches": 1,
-          "zoneTolerance": 0.0009428571428571436,
-          "aboveAllConfirmedResistance": false,
-          "belowAllConfirmedSupport": false
-        },
-        "volume": {
-          "lastVolume": 551082,
-          "average20": 1081894.3300000003,
-          "ratio": 0.5093676754919307
-        },
-        "recentCandles": [
-          {
-            "ts": 1788005700000,
-            "time": "2026-08-29T12:15:00.000Z",
-            "open": 0.1396,
-            "high": 0.1409,
-            "low": 0.1382,
-            "close": 0.1387,
-            "volume": 776628.8,
-            "quoteVolume": 1082817.992
-          },
-          {
-            "ts": 1788006600000,
-            "time": "2026-08-29T12:30:00.000Z",
-            "open": 0.1387,
-            "high": 0.1407,
-            "low": 0.1385,
-            "close": 0.1402,
-            "volume": 489408,
-            "quoteVolume": 684198.3466
-          },
-          {
-            "ts": 1788007500000,
-            "time": "2026-08-29T12:45:00.000Z",
-            "open": 0.1402,
-            "high": 0.1414,
-            "low": 0.1396,
-            "close": 0.1398,
-            "volume": 417838.9,
-            "quoteVolume": 586773.1595
-          },
-          {
-            "ts": 1788008400000,
-            "time": "2026-08-29T13:00:00.000Z",
-            "open": 0.1397,
-            "high": 0.1414,
-            "low": 0.1392,
-            "close": 0.1413,
-            "volume": 464176.1,
-            "quoteVolume": 651967.0543
-          },
-          {
-            "ts": 1788009300000,
-            "time": "2026-08-29T13:15:00.000Z",
-            "open": 0.1413,
-            "high": 0.1414,
-            "low": 0.1399,
-            "close": 0.1402,
-            "volume": 324158,
-            "quoteVolume": 455432.8248
-          },
-          {
-            "ts": 1788010200000,
-            "time": "2026-08-29T13:30:00.000Z",
-            "open": 0.1402,
-            "high": 0.1416,
-            "low": 0.1387,
-            "close": 0.1407,
-            "volume": 641741.3,
-            "quoteVolume": 900641.5487
-          },
-          {
-            "ts": 1788011100000,
-            "time": "2026-08-29T13:45:00.000Z",
-            "open": 0.1407,
-            "high": 0.1426,
-            "low": 0.1402,
-            "close": 0.1412,
-            "volume": 538539.7,
-            "quoteVolume": 761812.9848
-          },
-          {
-            "ts": 1788012000000,
-            "time": "2026-08-29T14:00:00.000Z",
-            "open": 0.1411,
-            "high": 0.1413,
-            "low": 0.13,
-            "close": 0.1351,
-            "volume": 2875006.5,
-            "quoteVolume": 3874499.3427
-          },
-          {
-            "ts": 1788012900000,
-            "time": "2026-08-29T14:15:00.000Z",
-            "open": 0.1351,
-            "high": 0.137,
-            "low": 0.134,
-            "close": 0.1362,
-            "volume": 792212.1,
-            "quoteVolume": 1076438.2992
-          },
-          {
-            "ts": 1788013800000,
-            "time": "2026-08-29T14:30:00.000Z",
-            "open": 0.1363,
-            "high": 0.1374,
-            "low": 0.1355,
-            "close": 0.137,
-            "volume": 576885.2,
-            "quoteVolume": 787266.5781
-          },
-          {
-            "ts": 1788014700000,
-            "time": "2026-08-29T14:45:00.000Z",
-            "open": 0.137,
-            "high": 0.1384,
-            "low": 0.1365,
-            "close": 0.1368,
-            "volume": 597081.9,
-            "quoteVolume": 821555.5143
-          },
-          {
-            "ts": 1788015600000,
-            "time": "2026-08-29T15:00:00.000Z",
-            "open": 0.1368,
-            "high": 0.1378,
-            "low": 0.1354,
-            "close": 0.137,
-            "volume": 551082,
-            "quoteVolume": 752077.1823
-          }
-        ]
-      },
-      "timeframe1h": {
-        "candleCount": 119,
-        "ma": {
-          "ma7": 0.14271428571428568,
-          "ma25": 0.135804,
-          "ma60": 0.12811666666666666,
-          "slope5": {
-            "ma7": -0.004757142857142932,
-            "ma25": 0.002840000000000009,
-            "ma60": 0.0012883333333333635
-          },
-          "order": "bullish",
-          "direction": "mixed"
-        },
-        "structure": {
-          "state": "higher_highs_higher_lows",
-          "confidence": "high",
-          "previousHigh": 0.1377,
-          "recentHigh": 0.1626,
-          "previousLow": 0.1269,
-          "recentLow": 0.1361,
-          "atr": 0.010307142857142857,
-          "pivotHighCount": 6,
-          "pivotLowCount": 5,
-          "lastClose": 0.1368,
-          "lastCloseTs": 1788012000000
-        },
-        "levels": {
-          "recentResistance": 0.1377,
-          "secondaryResistance": 0.1626,
-          "recentSupport": 0.1361,
-          "secondarySupport": 0.1269,
-          "recentResistanceTouches": 1,
-          "secondaryResistanceTouches": 1,
-          "recentSupportTouches": 1,
-          "secondarySupportTouches": 1,
-          "zoneTolerance": 0.003092142857142857,
-          "aboveAllConfirmedResistance": false,
-          "belowAllConfirmedSupport": false
-        },
-        "volume": {
-          "lastVolume": 4841185.7,
-          "average20": 3735186.534999999,
-          "ratio": 1.2961027928957238
-        },
-        "recentCandles": [
-          {
-            "ts": 1787972400000,
-            "time": "2026-08-29T03:00:00.000Z",
-            "open": 0.1289,
-            "high": 0.1334,
-            "low": 0.1275,
-            "close": 0.1326,
-            "volume": 1140567.1,
-            "quoteVolume": 1489245.5184
-          },
-          {
-            "ts": 1787976000000,
-            "time": "2026-08-29T04:00:00.000Z",
-            "open": 0.1326,
-            "high": 0.1424,
-            "low": 0.1319,
-            "close": 0.1387,
-            "volume": 3112740.6,
-            "quoteVolume": 4250510.4583
-          },
-          {
-            "ts": 1787979600000,
-            "time": "2026-08-29T05:00:00.000Z",
-            "open": 0.1386,
-            "high": 0.1545,
-            "low": 0.1376,
-            "close": 0.1523,
-            "volume": 7939858.2,
-            "quoteVolume": 11665277.636
-          },
-          {
-            "ts": 1787983200000,
-            "time": "2026-08-29T06:00:00.000Z",
-            "open": 0.1522,
-            "high": 0.1555,
-            "low": 0.1423,
-            "close": 0.1501,
-            "volume": 9891590.4,
-            "quoteVolume": 14677449.5756
-          },
-          {
-            "ts": 1787986800000,
-            "time": "2026-08-29T07:00:00.000Z",
-            "open": 0.1501,
-            "high": 0.1596,
-            "low": 0.1472,
-            "close": 0.1566,
-            "volume": 8246626.3,
-            "quoteVolume": 12769216.8174
-          },
-          {
-            "ts": 1787990400000,
-            "time": "2026-08-29T08:00:00.000Z",
-            "open": 0.1566,
-            "high": 0.1608,
-            "low": 0.1507,
-            "close": 0.1587,
-            "volume": 7276799.5,
-            "quoteVolume": 11432786.2839
-          },
-          {
-            "ts": 1787994000000,
-            "time": "2026-08-29T09:00:00.000Z",
-            "open": 0.1587,
-            "high": 0.1626,
-            "low": 0.1383,
-            "close": 0.1433,
-            "volume": 11831416.2,
-            "quoteVolume": 17807875.9128
-          },
-          {
-            "ts": 1787997600000,
-            "time": "2026-08-29T10:00:00.000Z",
-            "open": 0.1434,
-            "high": 0.1452,
-            "low": 0.1361,
-            "close": 0.1376,
-            "volume": 7399010.6,
-            "quoteVolume": 10372236.2485
-          },
-          {
-            "ts": 1788001200000,
-            "time": "2026-08-29T11:00:00.000Z",
-            "open": 0.1376,
-            "high": 0.1436,
-            "low": 0.1372,
-            "close": 0.1416,
-            "volume": 4771436.7,
-            "quoteVolume": 6723942.0616
-          },
-          {
-            "ts": 1788004800000,
-            "time": "2026-08-29T12:00:00.000Z",
-            "open": 0.1416,
-            "high": 0.1421,
-            "low": 0.1377,
-            "close": 0.1398,
-            "volume": 2657638.5,
-            "quoteVolume": 3716789.2081
-          },
-          {
-            "ts": 1788008400000,
-            "time": "2026-08-29T13:00:00.000Z",
-            "open": 0.1397,
-            "high": 0.1426,
-            "low": 0.1387,
-            "close": 0.1412,
-            "volume": 1968615.1,
-            "quoteVolume": 2769854.4126
-          },
-          {
-            "ts": 1788012000000,
-            "time": "2026-08-29T14:00:00.000Z",
-            "open": 0.1411,
-            "high": 0.1413,
-            "low": 0.13,
-            "close": 0.1368,
-            "volume": 4841185.7,
-            "quoteVolume": 6559759.7343
-          }
-        ]
-      }
-    },
-    "TRUMP-USDT-SWAP": {
-      "ok": true,
-      "symbol": "TRUMP-USDT-SWAP",
-      "updatedAt": "2026-08-29T15:20:36.808Z",
-      "price": 2.688,
-      "high24h": 3.069,
-      "low24h": 2.512,
-      "open24h": 2.828,
-      "changePct24h": -0.049504950495049396,
-      "contractVolume24h": 3694359298,
-      "baseVolume24h": 369435929.8,
-      "quoteVolume24hEstimate": 993043779.3024001,
-      "turnoverUsdEstimate": 993043779.3024001,
-      "openInterestUsdEstimate": 33732877.5288,
-      "fetch15mOk": true,
-      "fetch1hOk": true,
-      "retryCount15m": 0,
-      "retryCount1h": 0,
-      "partial": false,
-      "stale": false,
-      "staleReason": null,
-      "lastSuccessfulAt": "2026-08-29T15:20:36.808Z",
-      "timeframeStatus": {
-        "15m": {
-          "fetchOk": true,
-          "usedFallback": false,
-          "fallbackAgeMinutes": 0,
-          "realtimeWeight": 1,
-          "status": "fresh"
-        },
-        "1h": {
-          "fetchOk": true,
-          "usedFallback": false,
-          "fallbackAgeMinutes": 0,
-          "realtimeWeight": 1,
-          "status": "fresh"
-        }
-      },
-      "freshness": {
-        "status": "fresh",
-        "tickerTs": 1788016826762,
-        "tickerAgeMs": 10046,
-        "oiTs": 1788016827137,
-        "oiAgeMs": 9671,
-        "lastClosed15mTs": 1788015600000,
-        "lastClosed1hTs": 1788012000000,
-        "fallbackAgeMinutes": 0
-      },
-      "timeframe15m": {
-        "candleCount": 119,
-        "ma": {
-          "ma7": 2.6990000000000003,
-          "ma25": 2.7199199999999992,
-          "ma60": 2.777650000000001,
-          "slope5": {
-            "ma7": 0.006714285714286117,
-            "ma25": -0.007319999999999549,
-            "ma60": -0.0021333333333335425
-          },
-          "order": "bearish",
-          "direction": "mixed"
-        },
-        "structure": {
-          "state": "range",
-          "confidence": "medium",
-          "previousHigh": 2.774,
-          "recentHigh": 2.716,
-          "previousLow": 2.655,
-          "recentLow": 2.672,
-          "atr": 0.03350000000000002,
-          "pivotHighCount": 7,
-          "pivotLowCount": 8,
-          "lastClose": 2.689,
-          "lastCloseTs": 1788015600000
-        },
-        "levels": {
-          "recentResistance": 2.716,
-          "secondaryResistance": 2.7716000000000003,
-          "recentSupport": 2.681,
-          "secondarySupport": 2.6702068965517243,
-          "recentResistanceTouches": 1,
-          "secondaryResistanceTouches": 2,
-          "recentSupportTouches": 1,
-          "secondarySupportTouches": 2,
-          "zoneTolerance": 0.010050000000000007,
-          "aboveAllConfirmedResistance": false,
-          "belowAllConfirmedSupport": false
-        },
-        "volume": {
-          "lastVolume": 33913117,
-          "average20": 22274544.2,
-          "ratio": 1.5225055424478675
-        },
-        "recentCandles": [
-          {
-            "ts": 1788005700000,
-            "time": "2026-08-29T12:15:00.000Z",
-            "open": 2.727,
-            "high": 2.738,
-            "low": 2.71,
-            "close": 2.716,
-            "volume": 17369498,
-            "quoteVolume": 4732491.1141
-          },
-          {
-            "ts": 1788006600000,
-            "time": "2026-08-29T12:30:00.000Z",
-            "open": 2.715,
-            "high": 2.719,
-            "low": 2.682,
-            "close": 2.7,
-            "volume": 28434797,
-            "quoteVolume": 7688505.8157
-          },
-          {
-            "ts": 1788007500000,
-            "time": "2026-08-29T12:45:00.000Z",
-            "open": 2.7,
-            "high": 2.709,
-            "low": 2.655,
-            "close": 2.681,
-            "volume": 52893792,
-            "quoteVolume": 14180827.7079
-          },
-          {
-            "ts": 1788008400000,
-            "time": "2026-08-29T13:00:00.000Z",
-            "open": 2.681,
-            "high": 2.693,
-            "low": 2.662,
-            "close": 2.683,
-            "volume": 29578671,
-            "quoteVolume": 7920877.1641
-          },
-          {
-            "ts": 1788009300000,
-            "time": "2026-08-29T13:15:00.000Z",
-            "open": 2.684,
-            "high": 2.716,
-            "low": 2.683,
-            "close": 2.701,
-            "volume": 35180294,
-            "quoteVolume": 9502914.2263
-          },
-          {
-            "ts": 1788010200000,
-            "time": "2026-08-29T13:30:00.000Z",
-            "open": 2.701,
-            "high": 2.707,
-            "low": 2.677,
-            "close": 2.678,
-            "volume": 17496225,
-            "quoteVolume": 4706344.9118
-          },
-          {
-            "ts": 1788011100000,
-            "time": "2026-08-29T13:45:00.000Z",
-            "open": 2.678,
-            "high": 2.698,
-            "low": 2.672,
-            "close": 2.687,
-            "volume": 16298749,
-            "quoteVolume": 4378431.3909
-          },
-          {
-            "ts": 1788012000000,
-            "time": "2026-08-29T14:00:00.000Z",
-            "open": 2.687,
-            "high": 2.699,
-            "low": 2.682,
-            "close": 2.687,
-            "volume": 13219715,
-            "quoteVolume": 3554853.2501
-          },
-          {
-            "ts": 1788012900000,
-            "time": "2026-08-29T14:15:00.000Z",
-            "open": 2.687,
-            "high": 2.708,
-            "low": 2.678,
-            "close": 2.7,
-            "volume": 20314140,
-            "quoteVolume": 5471171.926
-          },
-          {
-            "ts": 1788013800000,
-            "time": "2026-08-29T14:30:00.000Z",
-            "open": 2.7,
-            "high": 2.737,
-            "low": 2.688,
-            "close": 2.727,
-            "volume": 31774461,
-            "quoteVolume": 8619665.1198
-          },
-          {
-            "ts": 1788014700000,
-            "time": "2026-08-29T14:45:00.000Z",
-            "open": 2.727,
-            "high": 2.743,
-            "low": 2.718,
-            "close": 2.725,
-            "volume": 37509929,
-            "quoteVolume": 10237555.4624
-          },
-          {
-            "ts": 1788015600000,
-            "time": "2026-08-29T15:00:00.000Z",
-            "open": 2.725,
-            "high": 2.727,
-            "low": 2.683,
-            "close": 2.689,
-            "volume": 33913117,
-            "quoteVolume": 9165897.0031
-          }
-        ]
-      },
-      "timeframe1h": {
-        "candleCount": 119,
-        "ma": {
-          "ma7": 2.7227142857142863,
-          "ma25": 2.7379600000000015,
-          "ma60": 2.633966666666666,
-          "slope5": {
-            "ma7": -0.10128571428571398,
-            "ma25": -0.002680000000001126,
-            "ma60": 0.03621666666666723
-          },
-          "order": "mixed",
-          "direction": "mixed"
-        },
-        "structure": {
-          "state": "range",
-          "confidence": "medium",
-          "previousHigh": 3.069,
-          "recentHigh": 2.774,
-          "previousLow": 2.512,
-          "recentLow": 2.655,
-          "atr": 0.1097857142857143,
-          "pivotHighCount": 8,
-          "pivotLowCount": 7,
-          "lastClose": 2.725,
-          "lastCloseTs": 1788012000000
-        },
-        "levels": {
-          "recentResistance": 2.774,
-          "secondaryResistance": 2.825,
-          "recentSupport": 2.655,
-          "secondarySupport": 2.619138888888889,
-          "recentResistanceTouches": 1,
-          "secondaryResistanceTouches": 1,
-          "recentSupportTouches": 1,
-          "secondarySupportTouches": 2,
-          "zoneTolerance": 0.03293571428571429,
-          "aboveAllConfirmedResistance": false,
-          "belowAllConfirmedSupport": false
-        },
-        "volume": {
-          "lastVolume": 102818245,
-          "average20": 148158622.95,
-          "ratio": 0.6939740863729458
-        },
-        "recentCandles": [
-          {
-            "ts": 1787972400000,
-            "time": "2026-08-29T03:00:00.000Z",
-            "open": 2.811,
-            "high": 2.904,
-            "low": 2.81,
-            "close": 2.838,
-            "volume": 212610208,
-            "quoteVolume": 60709429.4501
-          },
-          {
-            "ts": 1787976000000,
-            "time": "2026-08-29T04:00:00.000Z",
-            "open": 2.839,
-            "high": 3.069,
-            "low": 2.83,
-            "close": 2.991,
-            "volume": 398462356,
-            "quoteVolume": 118468712.2159
-          },
-          {
-            "ts": 1787979600000,
-            "time": "2026-08-29T05:00:00.000Z",
-            "open": 2.991,
-            "high": 3.054,
-            "low": 2.903,
-            "close": 2.939,
-            "volume": 294963978,
-            "quoteVolume": 88249188.6397
-          },
-          {
-            "ts": 1787983200000,
-            "time": "2026-08-29T06:00:00.000Z",
-            "open": 2.939,
-            "high": 2.944,
-            "low": 2.63,
-            "close": 2.763,
-            "volume": 449896998,
-            "quoteVolume": 123903787.1912
-          },
-          {
-            "ts": 1787986800000,
-            "time": "2026-08-29T07:00:00.000Z",
-            "open": 2.762,
-            "high": 2.806,
-            "low": 2.715,
-            "close": 2.744,
-            "volume": 183914635,
-            "quoteVolume": 50790875.6037
-          },
-          {
-            "ts": 1787990400000,
-            "time": "2026-08-29T08:00:00.000Z",
-            "open": 2.743,
-            "high": 2.757,
-            "low": 2.668,
-            "close": 2.746,
-            "volume": 118348272,
-            "quoteVolume": 32290540.2538
-          },
-          {
-            "ts": 1787994000000,
-            "time": "2026-08-29T09:00:00.000Z",
-            "open": 2.745,
-            "high": 2.769,
-            "low": 2.722,
-            "close": 2.747,
-            "volume": 60442174,
-            "quoteVolume": 16603885.1489
-          },
-          {
-            "ts": 1787997600000,
-            "time": "2026-08-29T10:00:00.000Z",
-            "open": 2.747,
-            "high": 2.774,
-            "low": 2.729,
-            "close": 2.744,
-            "volume": 54409048,
-            "quoteVolume": 14953893.9864
-          },
-          {
-            "ts": 1788001200000,
-            "time": "2026-08-29T11:00:00.000Z",
-            "open": 2.743,
-            "high": 2.749,
-            "low": 2.706,
-            "close": 2.729,
-            "volume": 63012448,
-            "quoteVolume": 17214503.6606
-          },
-          {
-            "ts": 1788004800000,
-            "time": "2026-08-29T12:00:00.000Z",
-            "open": 2.73,
-            "high": 2.738,
-            "low": 2.655,
-            "close": 2.681,
-            "volume": 126697204,
-            "quoteVolume": 34198551.8449
-          },
-          {
-            "ts": 1788008400000,
-            "time": "2026-08-29T13:00:00.000Z",
-            "open": 2.681,
-            "high": 2.716,
-            "low": 2.662,
-            "close": 2.687,
-            "volume": 98553939,
-            "quoteVolume": 26508567.6931
-          },
-          {
-            "ts": 1788012000000,
-            "time": "2026-08-29T14:00:00.000Z",
-            "open": 2.687,
-            "high": 2.743,
-            "low": 2.678,
-            "close": 2.725,
-            "volume": 102818245,
-            "quoteVolume": 27883245.7583
-          }
-        ]
-      }
-    },
     "PUMP-USDT-SWAP": {
       "ok": true,
       "symbol": "PUMP-USDT-SWAP",
-      "updatedAt": "2026-08-29T15:20:37.337Z",
-      "price": 0.00477,
+      "updatedAt": "2026-08-29T15:22:07.361Z",
+      "price": 0.004784,
       "high24h": 0.004897,
       "low24h": 0.004412,
-      "open24h": 0.004853,
-      "changePct24h": -0.017102822996084843,
-      "contractVolume24h": 27437072,
-      "baseVolume24h": 27437072000,
-      "quoteVolume24hEstimate": 130874833.44,
-      "turnoverUsdEstimate": 130874833.44,
-      "openInterestUsdEstimate": 36231853.194,
+      "open24h": 0.004856,
+      "changePct24h": -0.014827018121911041,
+      "contractVolume24h": 27442216,
+      "baseVolume24h": 27442216000,
+      "quoteVolume24hEstimate": 131283561.344,
+      "turnoverUsdEstimate": 131283561.344,
+      "openInterestUsdEstimate": 36378289.549,
       "fetch15mOk": true,
       "fetch1hOk": true,
       "retryCount15m": 0,
@@ -2730,7 +1981,7 @@
       "partial": false,
       "stale": false,
       "staleReason": null,
-      "lastSuccessfulAt": "2026-08-29T15:20:37.337Z",
+      "lastSuccessfulAt": "2026-08-29T15:22:07.361Z",
       "timeframeStatus": {
         "15m": {
           "fetchOk": true,
@@ -2749,10 +2000,10 @@
       },
       "freshness": {
         "status": "fresh",
-        "tickerTs": 1788016826662,
-        "tickerAgeMs": 10675,
-        "oiTs": 1788016827137,
-        "oiAgeMs": 10200,
+        "tickerTs": 1788016923564,
+        "tickerAgeMs": 3797,
+        "oiTs": 1788016924535,
+        "oiAgeMs": 2826,
         "lastClosed15mTs": 1788015600000,
         "lastClosed1hTs": 1788012000000,
         "fallbackAgeMinutes": 0
@@ -3094,776 +2345,6 @@
         ]
       }
     },
-    "ENA-USDT-SWAP": {
-      "ok": true,
-      "symbol": "ENA-USDT-SWAP",
-      "updatedAt": "2026-08-29T15:20:37.601Z",
-      "price": 0.15769,
-      "high24h": 0.17446,
-      "low24h": 0.15326,
-      "open24h": 0.17152,
-      "changePct24h": -0.08063199626865676,
-      "contractVolume24h": 81854055,
-      "baseVolume24h": 818540550,
-      "quoteVolume24hEstimate": 129075659.3295,
-      "turnoverUsdEstimate": 129075659.3295,
-      "openInterestUsdEstimate": 15286375.9008,
-      "fetch15mOk": true,
-      "fetch1hOk": true,
-      "retryCount15m": 0,
-      "retryCount1h": 0,
-      "partial": false,
-      "stale": false,
-      "staleReason": null,
-      "lastSuccessfulAt": "2026-08-29T15:20:37.601Z",
-      "timeframeStatus": {
-        "15m": {
-          "fetchOk": true,
-          "usedFallback": false,
-          "fallbackAgeMinutes": 0,
-          "realtimeWeight": 1,
-          "status": "fresh"
-        },
-        "1h": {
-          "fetchOk": true,
-          "usedFallback": false,
-          "fallbackAgeMinutes": 0,
-          "realtimeWeight": 1,
-          "status": "fresh"
-        }
-      },
-      "freshness": {
-        "status": "fresh",
-        "tickerTs": 1788016826767,
-        "tickerAgeMs": 10834,
-        "oiTs": 1788016827137,
-        "oiAgeMs": 10464,
-        "lastClosed15mTs": 1788015600000,
-        "lastClosed1hTs": 1788012000000,
-        "fallbackAgeMinutes": 0
-      },
-      "timeframe15m": {
-        "candleCount": 119,
-        "ma": {
-          "ma7": 0.15629,
-          "ma25": 0.1555772,
-          "ma60": 0.15853799999999998,
-          "slope5": {
-            "ma7": 0.0013642857142857345,
-            "ma25": -0.0000015999999999627423,
-            "ma60": -0.0004883333333333129
-          },
-          "order": "mixed",
-          "direction": "mixed"
-        },
-        "structure": {
-          "state": "range",
-          "confidence": "medium",
-          "previousHigh": 0.1571,
-          "recentHigh": 0.15575,
-          "previousLow": 0.15326,
-          "recentLow": 0.15468,
-          "atr": 0.0011992857142857141,
-          "pivotHighCount": 8,
-          "pivotLowCount": 8,
-          "lastClose": 0.15761,
-          "lastCloseTs": 1788015600000
-        },
-        "levels": {
-          "recentResistance": 0.16095,
-          "secondaryResistance": 0.16138,
-          "recentSupport": 0.1571,
-          "secondarySupport": 0.15474125000000002,
-          "recentResistanceTouches": 1,
-          "secondaryResistanceTouches": 1,
-          "recentSupportTouches": 1,
-          "secondarySupportTouches": 2,
-          "zoneTolerance": 0.00035978571428571423,
-          "aboveAllConfirmedResistance": false,
-          "belowAllConfirmedSupport": false
-        },
-        "volume": {
-          "lastVolume": 824353,
-          "average20": 554884.9,
-          "ratio": 1.4856288214006184
-        },
-        "recentCandles": [
-          {
-            "ts": 1788005700000,
-            "time": "2026-08-29T12:15:00.000Z",
-            "open": 0.15539,
-            "high": 0.15575,
-            "low": 0.15433,
-            "close": 0.15492,
-            "volume": 430681,
-            "quoteVolume": 667950.0426
-          },
-          {
-            "ts": 1788006600000,
-            "time": "2026-08-29T12:30:00.000Z",
-            "open": 0.15492,
-            "high": 0.1553,
-            "low": 0.15447,
-            "close": 0.1548,
-            "volume": 289120,
-            "quoteVolume": 447916.2948
-          },
-          {
-            "ts": 1788007500000,
-            "time": "2026-08-29T12:45:00.000Z",
-            "open": 0.15481,
-            "high": 0.15529,
-            "low": 0.15447,
-            "close": 0.15504,
-            "volume": 419344,
-            "quoteVolume": 649503.6959
-          },
-          {
-            "ts": 1788008400000,
-            "time": "2026-08-29T13:00:00.000Z",
-            "open": 0.15504,
-            "high": 0.15527,
-            "low": 0.15448,
-            "close": 0.15486,
-            "volume": 220630,
-            "quoteVolume": 341426.6646
-          },
-          {
-            "ts": 1788009300000,
-            "time": "2026-08-29T13:15:00.000Z",
-            "open": 0.15485,
-            "high": 0.15539,
-            "low": 0.15457,
-            "close": 0.15471,
-            "volume": 270246,
-            "quoteVolume": 418915.8111
-          },
-          {
-            "ts": 1788010200000,
-            "time": "2026-08-29T13:30:00.000Z",
-            "open": 0.15471,
-            "high": 0.15492,
-            "low": 0.15442,
-            "close": 0.15484,
-            "volume": 267713,
-            "quoteVolume": 414211.2536
-          },
-          {
-            "ts": 1788011100000,
-            "time": "2026-08-29T13:45:00.000Z",
-            "open": 0.15483,
-            "high": 0.15548,
-            "low": 0.15463,
-            "close": 0.15531,
-            "volume": 276823,
-            "quoteVolume": 429377.2475
-          },
-          {
-            "ts": 1788012000000,
-            "time": "2026-08-29T14:00:00.000Z",
-            "open": 0.1553,
-            "high": 0.1558,
-            "low": 0.15485,
-            "close": 0.15574,
-            "volume": 368285,
-            "quoteVolume": 572391.7612
-          },
-          {
-            "ts": 1788012900000,
-            "time": "2026-08-29T14:15:00.000Z",
-            "open": 0.15574,
-            "high": 0.15599,
-            "low": 0.15493,
-            "close": 0.15493,
-            "volume": 512047,
-            "quoteVolume": 795980.2722
-          },
-          {
-            "ts": 1788013800000,
-            "time": "2026-08-29T14:30:00.000Z",
-            "open": 0.15493,
-            "high": 0.15722,
-            "low": 0.15468,
-            "close": 0.15698,
-            "volume": 1155836,
-            "quoteVolume": 1802965.0443
-          },
-          {
-            "ts": 1788014700000,
-            "time": "2026-08-29T14:45:00.000Z",
-            "open": 0.15699,
-            "high": 0.15933,
-            "low": 0.15693,
-            "close": 0.15862,
-            "volume": 1444550,
-            "quoteVolume": 2288834.8204
-          },
-          {
-            "ts": 1788015600000,
-            "time": "2026-08-29T15:00:00.000Z",
-            "open": 0.15863,
-            "high": 0.1588,
-            "low": 0.15708,
-            "close": 0.15761,
-            "volume": 824353,
-            "quoteVolume": 1301630.0799
-          }
-        ]
-      },
-      "timeframe1h": {
-        "candleCount": 119,
-        "ma": {
-          "ma7": 0.15581857142857145,
-          "ma25": 0.160154,
-          "ma60": 0.16098100000000012,
-          "slope5": {
-            "ma7": -0.0036185714285714154,
-            "ma25": -0.001790400000000053,
-            "ma60": 0.000845499999999999
-          },
-          "order": "bearish",
-          "direction": "mixed"
-        },
-        "structure": {
-          "state": "range",
-          "confidence": "medium",
-          "previousHigh": 0.16462,
-          "recentHigh": 0.16622,
-          "previousLow": 0.15797,
-          "recentLow": 0.15326,
-          "atr": 0.0032835714285714274,
-          "pivotHighCount": 9,
-          "pivotLowCount": 8,
-          "lastClose": 0.15862,
-          "lastCloseTs": 1788012000000
-        },
-        "levels": {
-          "recentResistance": 0.15949,
-          "secondaryResistance": 0.16462,
-          "recentSupport": 0.15789423076923081,
-          "secondarySupport": 0.15686374999999997,
-          "recentResistanceTouches": 1,
-          "secondaryResistanceTouches": 1,
-          "recentSupportTouches": 3,
-          "secondarySupportTouches": 2,
-          "zoneTolerance": 0.0009850714285714283,
-          "aboveAllConfirmedResistance": false,
-          "belowAllConfirmedSupport": false
-        },
-        "volume": {
-          "lastVolume": 3480718,
-          "average20": 2477582.7,
-          "ratio": 1.4048846886120088
-        },
-        "recentCandles": [
-          {
-            "ts": 1787972400000,
-            "time": "2026-08-29T03:00:00.000Z",
-            "open": 0.16019,
-            "high": 0.16389,
-            "low": 0.15962,
-            "close": 0.1597,
-            "volume": 3045377,
-            "quoteVolume": 4931434.1627
-          },
-          {
-            "ts": 1787976000000,
-            "time": "2026-08-29T04:00:00.000Z",
-            "open": 0.15971,
-            "high": 0.16206,
-            "low": 0.1595,
-            "close": 0.16041,
-            "volume": 1530082,
-            "quoteVolume": 2458861.7004
-          },
-          {
-            "ts": 1787979600000,
-            "time": "2026-08-29T05:00:00.000Z",
-            "open": 0.16041,
-            "high": 0.16622,
-            "low": 0.1603,
-            "close": 0.16411,
-            "volume": 3332006,
-            "quoteVolume": 5456635.1309
-          },
-          {
-            "ts": 1787983200000,
-            "time": "2026-08-29T06:00:00.000Z",
-            "open": 0.1641,
-            "high": 0.16433,
-            "low": 0.15946,
-            "close": 0.16107,
-            "volume": 2706416,
-            "quoteVolume": 4358508.2616
-          },
-          {
-            "ts": 1787986800000,
-            "time": "2026-08-29T07:00:00.000Z",
-            "open": 0.16107,
-            "high": 0.16176,
-            "low": 0.15834,
-            "close": 0.15886,
-            "volume": 2111229,
-            "quoteVolume": 3368283.7372
-          },
-          {
-            "ts": 1787990400000,
-            "time": "2026-08-29T08:00:00.000Z",
-            "open": 0.15886,
-            "high": 0.1589,
-            "low": 0.15482,
-            "close": 0.15517,
-            "volume": 5155746,
-            "quoteVolume": 8069086.2669
-          },
-          {
-            "ts": 1787994000000,
-            "time": "2026-08-29T09:00:00.000Z",
-            "open": 0.15515,
-            "high": 0.1571,
-            "low": 0.15503,
-            "close": 0.15674,
-            "volume": 2135406,
-            "quoteVolume": 3335046.8653
-          },
-          {
-            "ts": 1787997600000,
-            "time": "2026-08-29T10:00:00.000Z",
-            "open": 0.1567,
-            "high": 0.15698,
-            "low": 0.15417,
-            "close": 0.15494,
-            "volume": 3344890,
-            "quoteVolume": 5201985.1785
-          },
-          {
-            "ts": 1788001200000,
-            "time": "2026-08-29T11:00:00.000Z",
-            "open": 0.15494,
-            "high": 0.1557,
-            "low": 0.15326,
-            "close": 0.15491,
-            "volume": 1664506,
-            "quoteVolume": 2574834.2458
-          },
-          {
-            "ts": 1788004800000,
-            "time": "2026-08-29T12:00:00.000Z",
-            "open": 0.15491,
-            "high": 0.15575,
-            "low": 0.15433,
-            "close": 0.15504,
-            "volume": 1572172,
-            "quoteVolume": 2436500.7084
-          },
-          {
-            "ts": 1788008400000,
-            "time": "2026-08-29T13:00:00.000Z",
-            "open": 0.15504,
-            "high": 0.15548,
-            "low": 0.15442,
-            "close": 0.15531,
-            "volume": 1035412,
-            "quoteVolume": 1603930.9768
-          },
-          {
-            "ts": 1788012000000,
-            "time": "2026-08-29T14:00:00.000Z",
-            "open": 0.1553,
-            "high": 0.15933,
-            "low": 0.15468,
-            "close": 0.15862,
-            "volume": 3480718,
-            "quoteVolume": 5460171.8981
-          }
-        ]
-      }
-    },
-    "PEPE-USDT-SWAP": {
-      "ok": true,
-      "symbol": "PEPE-USDT-SWAP",
-      "updatedAt": "2026-08-29T15:20:38.747Z",
-      "price": 0.000003646,
-      "high24h": 0.000003827,
-      "low24h": 0.000003591,
-      "open24h": 0.000003807,
-      "changePct24h": -0.042290517467822496,
-      "contractVolume24h": 2427227.4,
-      "baseVolume24h": 24272274000000,
-      "quoteVolume24hEstimate": 88496711.004,
-      "turnoverUsdEstimate": 88496711.004,
-      "openInterestUsdEstimate": 30681277.2,
-      "fetch15mOk": true,
-      "fetch1hOk": true,
-      "retryCount15m": 0,
-      "retryCount1h": 0,
-      "partial": false,
-      "stale": false,
-      "staleReason": null,
-      "lastSuccessfulAt": "2026-08-29T15:20:38.747Z",
-      "timeframeStatus": {
-        "15m": {
-          "fetchOk": true,
-          "usedFallback": false,
-          "fallbackAgeMinutes": 0,
-          "realtimeWeight": 1,
-          "status": "fresh"
-        },
-        "1h": {
-          "fetchOk": true,
-          "usedFallback": false,
-          "fallbackAgeMinutes": 0,
-          "realtimeWeight": 1,
-          "status": "fresh"
-        }
-      },
-      "freshness": {
-        "status": "fresh",
-        "tickerTs": 1788016826764,
-        "tickerAgeMs": 11983,
-        "oiTs": 1788016827137,
-        "oiAgeMs": 11610,
-        "lastClosed15mTs": 1788015600000,
-        "lastClosed1hTs": 1788012000000,
-        "fallbackAgeMinutes": 0
-      },
-      "timeframe15m": {
-        "candleCount": 119,
-        "ma": {
-          "ma7": 0.0000036422857142857134,
-          "ma25": 0.0000036268000000000006,
-          "ma60": 0.0000036395333333333326,
-          "slope5": {
-            "ma7": 2.428571428571478e-8,
-            "ma25": 7.080000000000617e-9,
-            "ma60": -3.566666666666864e-9
-          },
-          "order": "mixed",
-          "direction": "mixed"
-        },
-        "structure": {
-          "state": "range",
-          "confidence": "medium",
-          "previousHigh": 0.000003663,
-          "recentHigh": 0.000003639,
-          "previousLow": 0.000003591,
-          "recentLow": 0.000003602,
-          "atr": 1.607142857142854e-8,
-          "pivotHighCount": 6,
-          "pivotLowCount": 7,
-          "lastClose": 0.000003651,
-          "lastCloseTs": 1788015600000
-        },
-        "levels": {
-          "recentResistance": 0.000003663,
-          "secondaryResistance": 0.0000036768275862068963,
-          "recentSupport": 0.00000364,
-          "secondarySupport": 0.000003621,
-          "recentResistanceTouches": 1,
-          "secondaryResistanceTouches": 3,
-          "recentSupportTouches": 1,
-          "secondarySupportTouches": 1,
-          "zoneTolerance": 4.821428571428562e-9,
-          "aboveAllConfirmedResistance": false,
-          "belowAllConfirmedSupport": false
-        },
-        "volume": {
-          "lastVolume": 25577,
-          "average20": 18024.785,
-          "ratio": 1.418990573257878
-        },
-        "recentCandles": [
-          {
-            "ts": 1788005700000,
-            "time": "2026-08-29T12:15:00.000Z",
-            "open": 0.000003626,
-            "high": 0.000003639,
-            "low": 0.000003602,
-            "close": 0.000003617,
-            "volume": 58404.1,
-            "quoteVolume": 2114691.921
-          },
-          {
-            "ts": 1788006600000,
-            "time": "2026-08-29T12:30:00.000Z",
-            "open": 0.000003617,
-            "high": 0.000003617,
-            "low": 0.000003606,
-            "close": 0.000003613,
-            "volume": 8183.4,
-            "quoteVolume": 295557.507
-          },
-          {
-            "ts": 1788007500000,
-            "time": "2026-08-29T12:45:00.000Z",
-            "open": 0.000003614,
-            "high": 0.000003618,
-            "low": 0.000003611,
-            "close": 0.000003615,
-            "volume": 4778.9,
-            "quoteVolume": 172716.076
-          },
-          {
-            "ts": 1788008400000,
-            "time": "2026-08-29T13:00:00.000Z",
-            "open": 0.000003615,
-            "high": 0.000003617,
-            "low": 0.00000361,
-            "close": 0.000003617,
-            "volume": 8069.1,
-            "quoteVolume": 291558.643
-          },
-          {
-            "ts": 1788009300000,
-            "time": "2026-08-29T13:15:00.000Z",
-            "open": 0.000003617,
-            "high": 0.000003625,
-            "low": 0.000003615,
-            "close": 0.000003618,
-            "volume": 13179.2,
-            "quoteVolume": 477209.221
-          },
-          {
-            "ts": 1788010200000,
-            "time": "2026-08-29T13:30:00.000Z",
-            "open": 0.000003619,
-            "high": 0.000003626,
-            "low": 0.000003616,
-            "close": 0.000003619,
-            "volume": 6385.9,
-            "quoteVolume": 231262.634
-          },
-          {
-            "ts": 1788011100000,
-            "time": "2026-08-29T13:45:00.000Z",
-            "open": 0.000003619,
-            "high": 0.000003632,
-            "low": 0.000003618,
-            "close": 0.000003627,
-            "volume": 7428.1,
-            "quoteVolume": 269326.698
-          },
-          {
-            "ts": 1788012000000,
-            "time": "2026-08-29T14:00:00.000Z",
-            "open": 0.000003627,
-            "high": 0.000003642,
-            "low": 0.000003626,
-            "close": 0.000003636,
-            "volume": 17120.7,
-            "quoteVolume": 622492.994
-          },
-          {
-            "ts": 1788012900000,
-            "time": "2026-08-29T14:15:00.000Z",
-            "open": 0.000003636,
-            "high": 0.000003645,
-            "low": 0.000003631,
-            "close": 0.000003639,
-            "volume": 17598.9,
-            "quoteVolume": 640343.185
-          },
-          {
-            "ts": 1788013800000,
-            "time": "2026-08-29T14:30:00.000Z",
-            "open": 0.000003638,
-            "high": 0.000003662,
-            "low": 0.000003633,
-            "close": 0.000003653,
-            "volume": 27193,
-            "quoteVolume": 991704.503
-          },
-          {
-            "ts": 1788014700000,
-            "time": "2026-08-29T14:45:00.000Z",
-            "open": 0.000003652,
-            "high": 0.000003675,
-            "low": 0.000003652,
-            "close": 0.000003671,
-            "volume": 53110.1,
-            "quoteVolume": 1948520.233
-          },
-          {
-            "ts": 1788015600000,
-            "time": "2026-08-29T15:00:00.000Z",
-            "open": 0.000003671,
-            "high": 0.000003672,
-            "low": 0.000003647,
-            "close": 0.000003651,
-            "volume": 25577,
-            "quoteVolume": 934951.68
-          }
-        ]
-      },
-      "timeframe1h": {
-        "candleCount": 119,
-        "ma": {
-          "ma7": 0.000003626999999999999,
-          "ma25": 0.00000366168,
-          "ma60": 0.000003776633333333334,
-          "slope5": {
-            "ma7": -2.428571428571732e-9,
-            "ma25": -3.339999999999997e-8,
-            "ma60": -1.68500000000001e-8
-          },
-          "order": "bearish",
-          "direction": "down"
-        },
-        "structure": {
-          "state": "range",
-          "confidence": "medium",
-          "previousHigh": 0.000003849,
-          "recentHigh": 0.000003705,
-          "previousLow": 0.000003591,
-          "recentLow": 0.000003602,
-          "atr": 2.9142857142857095e-8,
-          "pivotHighCount": 8,
-          "pivotLowCount": 13,
-          "lastClose": 0.000003671,
-          "lastCloseTs": 1788012000000
-        },
-        "levels": {
-          "recentResistance": 0.000003705,
-          "secondaryResistance": 0.00000382521052631579,
-          "recentSupport": 0.0000036410833333333335,
-          "secondarySupport": 0.000003621,
-          "recentResistanceTouches": 1,
-          "secondaryResistanceTouches": 2,
-          "recentSupportTouches": 2,
-          "secondarySupportTouches": 1,
-          "zoneTolerance": 8.742857142857128e-9,
-          "aboveAllConfirmedResistance": false,
-          "belowAllConfirmedSupport": false
-        },
-        "volume": {
-          "lastVolume": 115022.7,
-          "average20": 70677.125,
-          "ratio": 1.627438863705902
-        },
-        "recentCandles": [
-          {
-            "ts": 1787972400000,
-            "time": "2026-08-29T03:00:00.000Z",
-            "open": 0.000003673,
-            "high": 0.000003678,
-            "low": 0.000003621,
-            "close": 0.00000363,
-            "volume": 141150.5,
-            "quoteVolume": 5154091.837
-          },
-          {
-            "ts": 1787976000000,
-            "time": "2026-08-29T04:00:00.000Z",
-            "open": 0.000003631,
-            "high": 0.000003656,
-            "low": 0.000003629,
-            "close": 0.000003647,
-            "volume": 58197.5,
-            "quoteVolume": 2120897.767
-          },
-          {
-            "ts": 1787979600000,
-            "time": "2026-08-29T05:00:00.000Z",
-            "open": 0.000003646,
-            "high": 0.000003663,
-            "low": 0.000003643,
-            "close": 0.000003653,
-            "volume": 52599.8,
-            "quoteVolume": 1921464.252
-          },
-          {
-            "ts": 1787983200000,
-            "time": "2026-08-29T06:00:00.000Z",
-            "open": 0.000003654,
-            "high": 0.000003656,
-            "low": 0.000003613,
-            "close": 0.000003625,
-            "volume": 88045.1,
-            "quoteVolume": 3192991.13
-          },
-          {
-            "ts": 1787986800000,
-            "time": "2026-08-29T07:00:00.000Z",
-            "open": 0.000003625,
-            "high": 0.000003635,
-            "low": 0.000003611,
-            "close": 0.000003616,
-            "volume": 63991.8,
-            "quoteVolume": 2317876.353
-          },
-          {
-            "ts": 1787990400000,
-            "time": "2026-08-29T08:00:00.000Z",
-            "open": 0.000003616,
-            "high": 0.000003623,
-            "low": 0.000003591,
-            "close": 0.000003613,
-            "volume": 95181.4,
-            "quoteVolume": 3434088.388
-          },
-          {
-            "ts": 1787994000000,
-            "time": "2026-08-29T09:00:00.000Z",
-            "open": 0.000003613,
-            "high": 0.000003627,
-            "low": 0.00000361,
-            "close": 0.000003622,
-            "volume": 56531.2,
-            "quoteVolume": 2045536.877
-          },
-          {
-            "ts": 1787997600000,
-            "time": "2026-08-29T10:00:00.000Z",
-            "open": 0.000003622,
-            "high": 0.000003636,
-            "low": 0.000003613,
-            "close": 0.000003622,
-            "volume": 87433.9,
-            "quoteVolume": 3172284.045
-          },
-          {
-            "ts": 1788001200000,
-            "time": "2026-08-29T11:00:00.000Z",
-            "open": 0.000003623,
-            "high": 0.000003634,
-            "low": 0.000003617,
-            "close": 0.000003619,
-            "volume": 29406.8,
-            "quoteVolume": 1065684.018
-          },
-          {
-            "ts": 1788004800000,
-            "time": "2026-08-29T12:00:00.000Z",
-            "open": 0.00000362,
-            "high": 0.000003639,
-            "low": 0.000003602,
-            "close": 0.000003615,
-            "volume": 93570,
-            "quoteVolume": 3385949.47
-          },
-          {
-            "ts": 1788008400000,
-            "time": "2026-08-29T13:00:00.000Z",
-            "open": 0.000003615,
-            "high": 0.000003632,
-            "low": 0.00000361,
-            "close": 0.000003627,
-            "volume": 35062.3,
-            "quoteVolume": 1269357.196
-          },
-          {
-            "ts": 1788012000000,
-            "time": "2026-08-29T14:00:00.000Z",
-            "open": 0.000003627,
-            "high": 0.000003675,
-            "low": 0.000003626,
-            "close": 0.000003671,
-            "volume": 115022.7,
-            "quoteVolume": 4203060.915
-          }
-        ]
-      }
-    },
     "HYPE-USDT-SWAP": {
       "ok": true,
       "symbol": "HYPE-USDT-SWAP",
@@ -3884,8 +2365,8 @@
       "retryCount1h": 0,
       "partial": true,
       "stale": true,
-      "staleReason": "HYPE-USDT-SWAP 15m fresh fetch failed after 1 attempts: OKX HTTP 429 | HYPE-USDT-SWAP 1H fresh fetch failed after 1 attempts: OKX HTTP 429",
-      "lastSuccessfulAt": "2026-08-29T15:15:36.152Z",
+      "staleReason": "fresh fetch unavailable",
+      "lastSuccessfulAt": "2026-08-29T15:20:38.480Z",
       "timeframeStatus": {
         "15m": {
           "fetchOk": false,
@@ -3903,14 +2384,14 @@
         }
       },
       "freshness": {
-        "status": "fallback_fresh",
+        "status": "degraded",
         "tickerTs": 1788016826765,
         "tickerAgeMs": 11715,
         "oiTs": 1788016827137,
         "oiAgeMs": 11343,
         "lastClosed15mTs": 1788014700000,
         "lastClosed1hTs": 1788012000000,
-        "fallbackAgeMinutes": 5.0388
+        "fallbackAgeMinutes": 1.483067
       },
       "timeframe15m": {
         "candleCount": 119,
@@ -4269,8 +2750,8 @@
       "retryCount1h": 0,
       "partial": true,
       "stale": true,
-      "staleReason": "WLD-USDT-SWAP 15m fresh fetch failed after 1 attempts: OKX HTTP 429 | WLD-USDT-SWAP 1H fresh fetch failed after 1 attempts: OKX HTTP 429",
-      "lastSuccessfulAt": "2026-08-29T15:15:35.888Z",
+      "staleReason": "fresh fetch unavailable",
+      "lastSuccessfulAt": "2026-08-29T15:20:38.130Z",
       "timeframeStatus": {
         "15m": {
           "fetchOk": false,
@@ -4288,14 +2769,14 @@
         }
       },
       "freshness": {
-        "status": "fallback_fresh",
+        "status": "degraded",
         "tickerTs": 1788016826470,
         "tickerAgeMs": 11660,
         "oiTs": 1788016827137,
         "oiAgeMs": 10993,
         "lastClosed15mTs": 1788015600000,
         "lastClosed1hTs": 1788012000000,
-        "fallbackAgeMinutes": 5.037367
+        "fallbackAgeMinutes": 1.4889
       },
       "timeframe15m": {
         "candleCount": 119,
@@ -4634,28 +3115,1183 @@
         ]
       }
     },
-    "PENGU-USDT-SWAP": {
+    "TRUMP-USDT-SWAP": {
       "ok": true,
-      "symbol": "PENGU-USDT-SWAP",
-      "updatedAt": "2026-08-29T15:20:39.013Z",
-      "price": 0.009231,
-      "high24h": 0.009595,
-      "low24h": 0.008786,
-      "open24h": 0.009515,
-      "changePct24h": -0.029847609038360437,
-      "contractVolume24h": 22610950,
-      "baseVolume24h": 2261095000,
-      "quoteVolume24hEstimate": 20872167.945,
-      "turnoverUsdEstimate": 20872167.945,
-      "openInterestUsdEstimate": 8214852.5424,
-      "fetch15mOk": true,
+      "symbol": "TRUMP-USDT-SWAP",
+      "updatedAt": "2026-08-29T15:22:06.989Z",
+      "price": 2.688,
+      "high24h": 3.069,
+      "low24h": 2.512,
+      "open24h": 2.858,
+      "changePct24h": -0.059482155353393955,
+      "contractVolume24h": 3683415872,
+      "baseVolume24h": 368341587.2,
+      "quoteVolume24hEstimate": 990102186.3936,
+      "turnoverUsdEstimate": 990102186.3936,
+      "openInterestUsdEstimate": 33862188.7316,
+      "fetch15mOk": false,
       "fetch1hOk": false,
       "retryCount15m": 0,
       "retryCount1h": 0,
       "partial": true,
       "stale": true,
-      "staleReason": "PENGU-USDT-SWAP 1H unavailable: OKX HTTP 429",
-      "lastSuccessfulAt": "2026-08-29T15:20:38.879Z",
+      "staleReason": "TRUMP-USDT-SWAP 15m fresh fetch failed after 1 attempts: OKX HTTP 429 | TRUMP-USDT-SWAP 1H fresh fetch failed after 1 attempts: OKX HTTP 429",
+      "lastSuccessfulAt": "2026-08-29T15:20:36.808Z",
+      "timeframeStatus": {
+        "15m": {
+          "fetchOk": false,
+          "usedFallback": true,
+          "fallbackAgeMinutes": 1.50295,
+          "realtimeWeight": 1,
+          "status": "fallback_fresh"
+        },
+        "1h": {
+          "fetchOk": false,
+          "usedFallback": true,
+          "fallbackAgeMinutes": 1.503017,
+          "realtimeWeight": 1,
+          "status": "fallback_fresh"
+        }
+      },
+      "freshness": {
+        "status": "fallback_fresh",
+        "tickerTs": 1788016923564,
+        "tickerAgeMs": 3425,
+        "oiTs": 1788016924535,
+        "oiAgeMs": 2454,
+        "lastClosed15mTs": 1788015600000,
+        "lastClosed1hTs": 1788012000000,
+        "fallbackAgeMinutes": 1.503017
+      },
+      "timeframe15m": {
+        "candleCount": 119,
+        "ma": {
+          "ma7": 2.6990000000000003,
+          "ma25": 2.7199199999999992,
+          "ma60": 2.777650000000001,
+          "slope5": {
+            "ma7": 0.006714285714286117,
+            "ma25": -0.007319999999999549,
+            "ma60": -0.0021333333333335425
+          },
+          "order": "bearish",
+          "direction": "mixed"
+        },
+        "structure": {
+          "state": "range",
+          "confidence": "medium",
+          "previousHigh": 2.774,
+          "recentHigh": 2.716,
+          "previousLow": 2.655,
+          "recentLow": 2.672,
+          "atr": 0.03350000000000002,
+          "pivotHighCount": 7,
+          "pivotLowCount": 8,
+          "lastClose": 2.689,
+          "lastCloseTs": 1788015600000
+        },
+        "levels": {
+          "recentResistance": 2.716,
+          "secondaryResistance": 2.7716000000000003,
+          "recentSupport": 2.681,
+          "secondarySupport": 2.6702068965517243,
+          "recentResistanceTouches": 1,
+          "secondaryResistanceTouches": 2,
+          "recentSupportTouches": 1,
+          "secondarySupportTouches": 2,
+          "zoneTolerance": 0.010050000000000007,
+          "aboveAllConfirmedResistance": false,
+          "belowAllConfirmedSupport": false
+        },
+        "volume": {
+          "lastVolume": 33913117,
+          "average20": 22274544.2,
+          "ratio": 1.5225055424478675
+        },
+        "recentCandles": [
+          {
+            "ts": 1788005700000,
+            "time": "2026-08-29T12:15:00.000Z",
+            "open": 2.727,
+            "high": 2.738,
+            "low": 2.71,
+            "close": 2.716,
+            "volume": 17369498,
+            "quoteVolume": 4732491.1141
+          },
+          {
+            "ts": 1788006600000,
+            "time": "2026-08-29T12:30:00.000Z",
+            "open": 2.715,
+            "high": 2.719,
+            "low": 2.682,
+            "close": 2.7,
+            "volume": 28434797,
+            "quoteVolume": 7688505.8157
+          },
+          {
+            "ts": 1788007500000,
+            "time": "2026-08-29T12:45:00.000Z",
+            "open": 2.7,
+            "high": 2.709,
+            "low": 2.655,
+            "close": 2.681,
+            "volume": 52893792,
+            "quoteVolume": 14180827.7079
+          },
+          {
+            "ts": 1788008400000,
+            "time": "2026-08-29T13:00:00.000Z",
+            "open": 2.681,
+            "high": 2.693,
+            "low": 2.662,
+            "close": 2.683,
+            "volume": 29578671,
+            "quoteVolume": 7920877.1641
+          },
+          {
+            "ts": 1788009300000,
+            "time": "2026-08-29T13:15:00.000Z",
+            "open": 2.684,
+            "high": 2.716,
+            "low": 2.683,
+            "close": 2.701,
+            "volume": 35180294,
+            "quoteVolume": 9502914.2263
+          },
+          {
+            "ts": 1788010200000,
+            "time": "2026-08-29T13:30:00.000Z",
+            "open": 2.701,
+            "high": 2.707,
+            "low": 2.677,
+            "close": 2.678,
+            "volume": 17496225,
+            "quoteVolume": 4706344.9118
+          },
+          {
+            "ts": 1788011100000,
+            "time": "2026-08-29T13:45:00.000Z",
+            "open": 2.678,
+            "high": 2.698,
+            "low": 2.672,
+            "close": 2.687,
+            "volume": 16298749,
+            "quoteVolume": 4378431.3909
+          },
+          {
+            "ts": 1788012000000,
+            "time": "2026-08-29T14:00:00.000Z",
+            "open": 2.687,
+            "high": 2.699,
+            "low": 2.682,
+            "close": 2.687,
+            "volume": 13219715,
+            "quoteVolume": 3554853.2501
+          },
+          {
+            "ts": 1788012900000,
+            "time": "2026-08-29T14:15:00.000Z",
+            "open": 2.687,
+            "high": 2.708,
+            "low": 2.678,
+            "close": 2.7,
+            "volume": 20314140,
+            "quoteVolume": 5471171.926
+          },
+          {
+            "ts": 1788013800000,
+            "time": "2026-08-29T14:30:00.000Z",
+            "open": 2.7,
+            "high": 2.737,
+            "low": 2.688,
+            "close": 2.727,
+            "volume": 31774461,
+            "quoteVolume": 8619665.1198
+          },
+          {
+            "ts": 1788014700000,
+            "time": "2026-08-29T14:45:00.000Z",
+            "open": 2.727,
+            "high": 2.743,
+            "low": 2.718,
+            "close": 2.725,
+            "volume": 37509929,
+            "quoteVolume": 10237555.4624
+          },
+          {
+            "ts": 1788015600000,
+            "time": "2026-08-29T15:00:00.000Z",
+            "open": 2.725,
+            "high": 2.727,
+            "low": 2.683,
+            "close": 2.689,
+            "volume": 33913117,
+            "quoteVolume": 9165897.0031
+          }
+        ]
+      },
+      "timeframe1h": {
+        "candleCount": 119,
+        "ma": {
+          "ma7": 2.7227142857142863,
+          "ma25": 2.7379600000000015,
+          "ma60": 2.633966666666666,
+          "slope5": {
+            "ma7": -0.10128571428571398,
+            "ma25": -0.002680000000001126,
+            "ma60": 0.03621666666666723
+          },
+          "order": "mixed",
+          "direction": "mixed"
+        },
+        "structure": {
+          "state": "range",
+          "confidence": "medium",
+          "previousHigh": 3.069,
+          "recentHigh": 2.774,
+          "previousLow": 2.512,
+          "recentLow": 2.655,
+          "atr": 0.1097857142857143,
+          "pivotHighCount": 8,
+          "pivotLowCount": 7,
+          "lastClose": 2.725,
+          "lastCloseTs": 1788012000000
+        },
+        "levels": {
+          "recentResistance": 2.774,
+          "secondaryResistance": 2.825,
+          "recentSupport": 2.655,
+          "secondarySupport": 2.619138888888889,
+          "recentResistanceTouches": 1,
+          "secondaryResistanceTouches": 1,
+          "recentSupportTouches": 1,
+          "secondarySupportTouches": 2,
+          "zoneTolerance": 0.03293571428571429,
+          "aboveAllConfirmedResistance": false,
+          "belowAllConfirmedSupport": false
+        },
+        "volume": {
+          "lastVolume": 102818245,
+          "average20": 148158622.95,
+          "ratio": 0.6939740863729458
+        },
+        "recentCandles": [
+          {
+            "ts": 1787972400000,
+            "time": "2026-08-29T03:00:00.000Z",
+            "open": 2.811,
+            "high": 2.904,
+            "low": 2.81,
+            "close": 2.838,
+            "volume": 212610208,
+            "quoteVolume": 60709429.4501
+          },
+          {
+            "ts": 1787976000000,
+            "time": "2026-08-29T04:00:00.000Z",
+            "open": 2.839,
+            "high": 3.069,
+            "low": 2.83,
+            "close": 2.991,
+            "volume": 398462356,
+            "quoteVolume": 118468712.2159
+          },
+          {
+            "ts": 1787979600000,
+            "time": "2026-08-29T05:00:00.000Z",
+            "open": 2.991,
+            "high": 3.054,
+            "low": 2.903,
+            "close": 2.939,
+            "volume": 294963978,
+            "quoteVolume": 88249188.6397
+          },
+          {
+            "ts": 1787983200000,
+            "time": "2026-08-29T06:00:00.000Z",
+            "open": 2.939,
+            "high": 2.944,
+            "low": 2.63,
+            "close": 2.763,
+            "volume": 449896998,
+            "quoteVolume": 123903787.1912
+          },
+          {
+            "ts": 1787986800000,
+            "time": "2026-08-29T07:00:00.000Z",
+            "open": 2.762,
+            "high": 2.806,
+            "low": 2.715,
+            "close": 2.744,
+            "volume": 183914635,
+            "quoteVolume": 50790875.6037
+          },
+          {
+            "ts": 1787990400000,
+            "time": "2026-08-29T08:00:00.000Z",
+            "open": 2.743,
+            "high": 2.757,
+            "low": 2.668,
+            "close": 2.746,
+            "volume": 118348272,
+            "quoteVolume": 32290540.2538
+          },
+          {
+            "ts": 1787994000000,
+            "time": "2026-08-29T09:00:00.000Z",
+            "open": 2.745,
+            "high": 2.769,
+            "low": 2.722,
+            "close": 2.747,
+            "volume": 60442174,
+            "quoteVolume": 16603885.1489
+          },
+          {
+            "ts": 1787997600000,
+            "time": "2026-08-29T10:00:00.000Z",
+            "open": 2.747,
+            "high": 2.774,
+            "low": 2.729,
+            "close": 2.744,
+            "volume": 54409048,
+            "quoteVolume": 14953893.9864
+          },
+          {
+            "ts": 1788001200000,
+            "time": "2026-08-29T11:00:00.000Z",
+            "open": 2.743,
+            "high": 2.749,
+            "low": 2.706,
+            "close": 2.729,
+            "volume": 63012448,
+            "quoteVolume": 17214503.6606
+          },
+          {
+            "ts": 1788004800000,
+            "time": "2026-08-29T12:00:00.000Z",
+            "open": 2.73,
+            "high": 2.738,
+            "low": 2.655,
+            "close": 2.681,
+            "volume": 126697204,
+            "quoteVolume": 34198551.8449
+          },
+          {
+            "ts": 1788008400000,
+            "time": "2026-08-29T13:00:00.000Z",
+            "open": 2.681,
+            "high": 2.716,
+            "low": 2.662,
+            "close": 2.687,
+            "volume": 98553939,
+            "quoteVolume": 26508567.6931
+          },
+          {
+            "ts": 1788012000000,
+            "time": "2026-08-29T14:00:00.000Z",
+            "open": 2.687,
+            "high": 2.743,
+            "low": 2.678,
+            "close": 2.725,
+            "volume": 102818245,
+            "quoteVolume": 27883245.7583
+          }
+        ]
+      }
+    },
+    "BEAT-USDT-SWAP": {
+      "ok": true,
+      "symbol": "BEAT-USDT-SWAP",
+      "updatedAt": "2026-08-29T15:22:07.464Z",
+      "price": 0.137,
+      "high24h": 0.1626,
+      "low24h": 0.1212,
+      "open24h": 0.1231,
+      "changePct24h": 0.11291632818846474,
+      "contractVolume24h": 83471683.1,
+      "baseVolume24h": 834716831,
+      "quoteVolume24hEstimate": 114356205.847,
+      "turnoverUsdEstimate": 114356205.847,
+      "openInterestUsdEstimate": 8144979.896,
+      "fetch15mOk": false,
+      "fetch1hOk": false,
+      "retryCount15m": 0,
+      "retryCount1h": 0,
+      "partial": true,
+      "stale": true,
+      "staleReason": "BEAT-USDT-SWAP 15m fresh fetch failed after 1 attempts: OKX HTTP 429 | BEAT-USDT-SWAP 1H fresh fetch failed after 1 attempts: OKX HTTP 429",
+      "lastSuccessfulAt": "2026-08-29T15:20:37.865Z",
+      "timeframeStatus": {
+        "15m": {
+          "fetchOk": false,
+          "usedFallback": true,
+          "fallbackAgeMinutes": 1.493267,
+          "realtimeWeight": 1,
+          "status": "fallback_fresh"
+        },
+        "1h": {
+          "fetchOk": false,
+          "usedFallback": true,
+          "fallbackAgeMinutes": 1.493317,
+          "realtimeWeight": 1,
+          "status": "fallback_fresh"
+        }
+      },
+      "freshness": {
+        "status": "fallback_fresh",
+        "tickerTs": 1788016923565,
+        "tickerAgeMs": 3899,
+        "oiTs": 1788016924535,
+        "oiAgeMs": 2929,
+        "lastClosed15mTs": 1788015600000,
+        "lastClosed1hTs": 1788012000000,
+        "fallbackAgeMinutes": 1.493317
+      },
+      "timeframe15m": {
+        "candleCount": 119,
+        "ma": {
+          "ma7": 0.13771428571428562,
+          "ma25": 0.141464,
+          "ma60": 0.1412599999999998,
+          "slope5": {
+            "ma7": -0.0025857142857143023,
+            "ma25": -0.0043279999999999985,
+            "ma60": 0.0005716666666666648
+          },
+          "order": "mixed",
+          "direction": "mixed"
+        },
+        "structure": {
+          "state": "lower_highs_lower_lows",
+          "confidence": "high",
+          "previousHigh": 0.1626,
+          "recentHigh": 0.1426,
+          "previousLow": 0.1377,
+          "recentLow": 0.13,
+          "atr": 0.0031428571428571456,
+          "pivotHighCount": 7,
+          "pivotLowCount": 8,
+          "lastClose": 0.137,
+          "lastCloseTs": 1788015600000
+        },
+        "levels": {
+          "recentResistance": 0.1377,
+          "secondaryResistance": 0.1426,
+          "recentSupport": 0.1361,
+          "secondarySupport": 0.13,
+          "recentResistanceTouches": 1,
+          "secondaryResistanceTouches": 1,
+          "recentSupportTouches": 1,
+          "secondarySupportTouches": 1,
+          "zoneTolerance": 0.0009428571428571436,
+          "aboveAllConfirmedResistance": false,
+          "belowAllConfirmedSupport": false
+        },
+        "volume": {
+          "lastVolume": 551082,
+          "average20": 1081894.3300000003,
+          "ratio": 0.5093676754919307
+        },
+        "recentCandles": [
+          {
+            "ts": 1788005700000,
+            "time": "2026-08-29T12:15:00.000Z",
+            "open": 0.1396,
+            "high": 0.1409,
+            "low": 0.1382,
+            "close": 0.1387,
+            "volume": 776628.8,
+            "quoteVolume": 1082817.992
+          },
+          {
+            "ts": 1788006600000,
+            "time": "2026-08-29T12:30:00.000Z",
+            "open": 0.1387,
+            "high": 0.1407,
+            "low": 0.1385,
+            "close": 0.1402,
+            "volume": 489408,
+            "quoteVolume": 684198.3466
+          },
+          {
+            "ts": 1788007500000,
+            "time": "2026-08-29T12:45:00.000Z",
+            "open": 0.1402,
+            "high": 0.1414,
+            "low": 0.1396,
+            "close": 0.1398,
+            "volume": 417838.9,
+            "quoteVolume": 586773.1595
+          },
+          {
+            "ts": 1788008400000,
+            "time": "2026-08-29T13:00:00.000Z",
+            "open": 0.1397,
+            "high": 0.1414,
+            "low": 0.1392,
+            "close": 0.1413,
+            "volume": 464176.1,
+            "quoteVolume": 651967.0543
+          },
+          {
+            "ts": 1788009300000,
+            "time": "2026-08-29T13:15:00.000Z",
+            "open": 0.1413,
+            "high": 0.1414,
+            "low": 0.1399,
+            "close": 0.1402,
+            "volume": 324158,
+            "quoteVolume": 455432.8248
+          },
+          {
+            "ts": 1788010200000,
+            "time": "2026-08-29T13:30:00.000Z",
+            "open": 0.1402,
+            "high": 0.1416,
+            "low": 0.1387,
+            "close": 0.1407,
+            "volume": 641741.3,
+            "quoteVolume": 900641.5487
+          },
+          {
+            "ts": 1788011100000,
+            "time": "2026-08-29T13:45:00.000Z",
+            "open": 0.1407,
+            "high": 0.1426,
+            "low": 0.1402,
+            "close": 0.1412,
+            "volume": 538539.7,
+            "quoteVolume": 761812.9848
+          },
+          {
+            "ts": 1788012000000,
+            "time": "2026-08-29T14:00:00.000Z",
+            "open": 0.1411,
+            "high": 0.1413,
+            "low": 0.13,
+            "close": 0.1351,
+            "volume": 2875006.5,
+            "quoteVolume": 3874499.3427
+          },
+          {
+            "ts": 1788012900000,
+            "time": "2026-08-29T14:15:00.000Z",
+            "open": 0.1351,
+            "high": 0.137,
+            "low": 0.134,
+            "close": 0.1362,
+            "volume": 792212.1,
+            "quoteVolume": 1076438.2992
+          },
+          {
+            "ts": 1788013800000,
+            "time": "2026-08-29T14:30:00.000Z",
+            "open": 0.1363,
+            "high": 0.1374,
+            "low": 0.1355,
+            "close": 0.137,
+            "volume": 576885.2,
+            "quoteVolume": 787266.5781
+          },
+          {
+            "ts": 1788014700000,
+            "time": "2026-08-29T14:45:00.000Z",
+            "open": 0.137,
+            "high": 0.1384,
+            "low": 0.1365,
+            "close": 0.1368,
+            "volume": 597081.9,
+            "quoteVolume": 821555.5143
+          },
+          {
+            "ts": 1788015600000,
+            "time": "2026-08-29T15:00:00.000Z",
+            "open": 0.1368,
+            "high": 0.1378,
+            "low": 0.1354,
+            "close": 0.137,
+            "volume": 551082,
+            "quoteVolume": 752077.1823
+          }
+        ]
+      },
+      "timeframe1h": {
+        "candleCount": 119,
+        "ma": {
+          "ma7": 0.14271428571428568,
+          "ma25": 0.135804,
+          "ma60": 0.12811666666666666,
+          "slope5": {
+            "ma7": -0.004757142857142932,
+            "ma25": 0.002840000000000009,
+            "ma60": 0.0012883333333333635
+          },
+          "order": "bullish",
+          "direction": "mixed"
+        },
+        "structure": {
+          "state": "higher_highs_higher_lows",
+          "confidence": "high",
+          "previousHigh": 0.1377,
+          "recentHigh": 0.1626,
+          "previousLow": 0.1269,
+          "recentLow": 0.1361,
+          "atr": 0.010307142857142857,
+          "pivotHighCount": 6,
+          "pivotLowCount": 5,
+          "lastClose": 0.1368,
+          "lastCloseTs": 1788012000000
+        },
+        "levels": {
+          "recentResistance": 0.1377,
+          "secondaryResistance": 0.1626,
+          "recentSupport": 0.1361,
+          "secondarySupport": 0.1269,
+          "recentResistanceTouches": 1,
+          "secondaryResistanceTouches": 1,
+          "recentSupportTouches": 1,
+          "secondarySupportTouches": 1,
+          "zoneTolerance": 0.003092142857142857,
+          "aboveAllConfirmedResistance": false,
+          "belowAllConfirmedSupport": false
+        },
+        "volume": {
+          "lastVolume": 4841185.7,
+          "average20": 3735186.534999999,
+          "ratio": 1.2961027928957238
+        },
+        "recentCandles": [
+          {
+            "ts": 1787972400000,
+            "time": "2026-08-29T03:00:00.000Z",
+            "open": 0.1289,
+            "high": 0.1334,
+            "low": 0.1275,
+            "close": 0.1326,
+            "volume": 1140567.1,
+            "quoteVolume": 1489245.5184
+          },
+          {
+            "ts": 1787976000000,
+            "time": "2026-08-29T04:00:00.000Z",
+            "open": 0.1326,
+            "high": 0.1424,
+            "low": 0.1319,
+            "close": 0.1387,
+            "volume": 3112740.6,
+            "quoteVolume": 4250510.4583
+          },
+          {
+            "ts": 1787979600000,
+            "time": "2026-08-29T05:00:00.000Z",
+            "open": 0.1386,
+            "high": 0.1545,
+            "low": 0.1376,
+            "close": 0.1523,
+            "volume": 7939858.2,
+            "quoteVolume": 11665277.636
+          },
+          {
+            "ts": 1787983200000,
+            "time": "2026-08-29T06:00:00.000Z",
+            "open": 0.1522,
+            "high": 0.1555,
+            "low": 0.1423,
+            "close": 0.1501,
+            "volume": 9891590.4,
+            "quoteVolume": 14677449.5756
+          },
+          {
+            "ts": 1787986800000,
+            "time": "2026-08-29T07:00:00.000Z",
+            "open": 0.1501,
+            "high": 0.1596,
+            "low": 0.1472,
+            "close": 0.1566,
+            "volume": 8246626.3,
+            "quoteVolume": 12769216.8174
+          },
+          {
+            "ts": 1787990400000,
+            "time": "2026-08-29T08:00:00.000Z",
+            "open": 0.1566,
+            "high": 0.1608,
+            "low": 0.1507,
+            "close": 0.1587,
+            "volume": 7276799.5,
+            "quoteVolume": 11432786.2839
+          },
+          {
+            "ts": 1787994000000,
+            "time": "2026-08-29T09:00:00.000Z",
+            "open": 0.1587,
+            "high": 0.1626,
+            "low": 0.1383,
+            "close": 0.1433,
+            "volume": 11831416.2,
+            "quoteVolume": 17807875.9128
+          },
+          {
+            "ts": 1787997600000,
+            "time": "2026-08-29T10:00:00.000Z",
+            "open": 0.1434,
+            "high": 0.1452,
+            "low": 0.1361,
+            "close": 0.1376,
+            "volume": 7399010.6,
+            "quoteVolume": 10372236.2485
+          },
+          {
+            "ts": 1788001200000,
+            "time": "2026-08-29T11:00:00.000Z",
+            "open": 0.1376,
+            "high": 0.1436,
+            "low": 0.1372,
+            "close": 0.1416,
+            "volume": 4771436.7,
+            "quoteVolume": 6723942.0616
+          },
+          {
+            "ts": 1788004800000,
+            "time": "2026-08-29T12:00:00.000Z",
+            "open": 0.1416,
+            "high": 0.1421,
+            "low": 0.1377,
+            "close": 0.1398,
+            "volume": 2657638.5,
+            "quoteVolume": 3716789.2081
+          },
+          {
+            "ts": 1788008400000,
+            "time": "2026-08-29T13:00:00.000Z",
+            "open": 0.1397,
+            "high": 0.1426,
+            "low": 0.1387,
+            "close": 0.1412,
+            "volume": 1968615.1,
+            "quoteVolume": 2769854.4126
+          },
+          {
+            "ts": 1788012000000,
+            "time": "2026-08-29T14:00:00.000Z",
+            "open": 0.1411,
+            "high": 0.1413,
+            "low": 0.13,
+            "close": 0.1368,
+            "volume": 4841185.7,
+            "quoteVolume": 6559759.7343
+          }
+        ]
+      }
+    },
+    "ENA-USDT-SWAP": {
+      "ok": true,
+      "symbol": "ENA-USDT-SWAP",
+      "updatedAt": "2026-08-29T15:22:07.458Z",
+      "price": 0.15821,
+      "high24h": 0.17446,
+      "low24h": 0.15326,
+      "open24h": 0.17201,
+      "changePct24h": -0.08022789372710892,
+      "contractVolume24h": 81338901,
+      "baseVolume24h": 813389010,
+      "quoteVolume24hEstimate": 128686275.27209999,
+      "turnoverUsdEstimate": 128686275.27209999,
+      "openInterestUsdEstimate": 15334750.535,
+      "fetch15mOk": false,
+      "fetch1hOk": false,
+      "retryCount15m": 0,
+      "retryCount1h": 0,
+      "partial": true,
+      "stale": true,
+      "staleReason": "ENA-USDT-SWAP 15m fresh fetch failed after 1 attempts: OKX HTTP 429 | ENA-USDT-SWAP 1H fresh fetch failed after 1 attempts: OKX HTTP 429",
+      "lastSuccessfulAt": "2026-08-29T15:20:37.601Z",
+      "timeframeStatus": {
+        "15m": {
+          "fetchOk": false,
+          "usedFallback": true,
+          "fallbackAgeMinutes": 1.49755,
+          "realtimeWeight": 1,
+          "status": "fallback_fresh"
+        },
+        "1h": {
+          "fetchOk": false,
+          "usedFallback": true,
+          "fallbackAgeMinutes": 1.497617,
+          "realtimeWeight": 1,
+          "status": "fallback_fresh"
+        }
+      },
+      "freshness": {
+        "status": "fallback_fresh",
+        "tickerTs": 1788016923564,
+        "tickerAgeMs": 3894,
+        "oiTs": 1788016924535,
+        "oiAgeMs": 2923,
+        "lastClosed15mTs": 1788015600000,
+        "lastClosed1hTs": 1788012000000,
+        "fallbackAgeMinutes": 1.497617
+      },
+      "timeframe15m": {
+        "candleCount": 119,
+        "ma": {
+          "ma7": 0.15629,
+          "ma25": 0.1555772,
+          "ma60": 0.15853799999999998,
+          "slope5": {
+            "ma7": 0.0013642857142857345,
+            "ma25": -0.0000015999999999627423,
+            "ma60": -0.0004883333333333129
+          },
+          "order": "mixed",
+          "direction": "mixed"
+        },
+        "structure": {
+          "state": "range",
+          "confidence": "medium",
+          "previousHigh": 0.1571,
+          "recentHigh": 0.15575,
+          "previousLow": 0.15326,
+          "recentLow": 0.15468,
+          "atr": 0.0011992857142857141,
+          "pivotHighCount": 8,
+          "pivotLowCount": 8,
+          "lastClose": 0.15761,
+          "lastCloseTs": 1788015600000
+        },
+        "levels": {
+          "recentResistance": 0.16095,
+          "secondaryResistance": 0.16138,
+          "recentSupport": 0.1571,
+          "secondarySupport": 0.15474125000000002,
+          "recentResistanceTouches": 1,
+          "secondaryResistanceTouches": 1,
+          "recentSupportTouches": 1,
+          "secondarySupportTouches": 2,
+          "zoneTolerance": 0.00035978571428571423,
+          "aboveAllConfirmedResistance": false,
+          "belowAllConfirmedSupport": false
+        },
+        "volume": {
+          "lastVolume": 824353,
+          "average20": 554884.9,
+          "ratio": 1.4856288214006184
+        },
+        "recentCandles": [
+          {
+            "ts": 1788005700000,
+            "time": "2026-08-29T12:15:00.000Z",
+            "open": 0.15539,
+            "high": 0.15575,
+            "low": 0.15433,
+            "close": 0.15492,
+            "volume": 430681,
+            "quoteVolume": 667950.0426
+          },
+          {
+            "ts": 1788006600000,
+            "time": "2026-08-29T12:30:00.000Z",
+            "open": 0.15492,
+            "high": 0.1553,
+            "low": 0.15447,
+            "close": 0.1548,
+            "volume": 289120,
+            "quoteVolume": 447916.2948
+          },
+          {
+            "ts": 1788007500000,
+            "time": "2026-08-29T12:45:00.000Z",
+            "open": 0.15481,
+            "high": 0.15529,
+            "low": 0.15447,
+            "close": 0.15504,
+            "volume": 419344,
+            "quoteVolume": 649503.6959
+          },
+          {
+            "ts": 1788008400000,
+            "time": "2026-08-29T13:00:00.000Z",
+            "open": 0.15504,
+            "high": 0.15527,
+            "low": 0.15448,
+            "close": 0.15486,
+            "volume": 220630,
+            "quoteVolume": 341426.6646
+          },
+          {
+            "ts": 1788009300000,
+            "time": "2026-08-29T13:15:00.000Z",
+            "open": 0.15485,
+            "high": 0.15539,
+            "low": 0.15457,
+            "close": 0.15471,
+            "volume": 270246,
+            "quoteVolume": 418915.8111
+          },
+          {
+            "ts": 1788010200000,
+            "time": "2026-08-29T13:30:00.000Z",
+            "open": 0.15471,
+            "high": 0.15492,
+            "low": 0.15442,
+            "close": 0.15484,
+            "volume": 267713,
+            "quoteVolume": 414211.2536
+          },
+          {
+            "ts": 1788011100000,
+            "time": "2026-08-29T13:45:00.000Z",
+            "open": 0.15483,
+            "high": 0.15548,
+            "low": 0.15463,
+            "close": 0.15531,
+            "volume": 276823,
+            "quoteVolume": 429377.2475
+          },
+          {
+            "ts": 1788012000000,
+            "time": "2026-08-29T14:00:00.000Z",
+            "open": 0.1553,
+            "high": 0.1558,
+            "low": 0.15485,
+            "close": 0.15574,
+            "volume": 368285,
+            "quoteVolume": 572391.7612
+          },
+          {
+            "ts": 1788012900000,
+            "time": "2026-08-29T14:15:00.000Z",
+            "open": 0.15574,
+            "high": 0.15599,
+            "low": 0.15493,
+            "close": 0.15493,
+            "volume": 512047,
+            "quoteVolume": 795980.2722
+          },
+          {
+            "ts": 1788013800000,
+            "time": "2026-08-29T14:30:00.000Z",
+            "open": 0.15493,
+            "high": 0.15722,
+            "low": 0.15468,
+            "close": 0.15698,
+            "volume": 1155836,
+            "quoteVolume": 1802965.0443
+          },
+          {
+            "ts": 1788014700000,
+            "time": "2026-08-29T14:45:00.000Z",
+            "open": 0.15699,
+            "high": 0.15933,
+            "low": 0.15693,
+            "close": 0.15862,
+            "volume": 1444550,
+            "quoteVolume": 2288834.8204
+          },
+          {
+            "ts": 1788015600000,
+            "time": "2026-08-29T15:00:00.000Z",
+            "open": 0.15863,
+            "high": 0.1588,
+            "low": 0.15708,
+            "close": 0.15761,
+            "volume": 824353,
+            "quoteVolume": 1301630.0799
+          }
+        ]
+      },
+      "timeframe1h": {
+        "candleCount": 119,
+        "ma": {
+          "ma7": 0.15581857142857145,
+          "ma25": 0.160154,
+          "ma60": 0.16098100000000012,
+          "slope5": {
+            "ma7": -0.0036185714285714154,
+            "ma25": -0.001790400000000053,
+            "ma60": 0.000845499999999999
+          },
+          "order": "bearish",
+          "direction": "mixed"
+        },
+        "structure": {
+          "state": "range",
+          "confidence": "medium",
+          "previousHigh": 0.16462,
+          "recentHigh": 0.16622,
+          "previousLow": 0.15797,
+          "recentLow": 0.15326,
+          "atr": 0.0032835714285714274,
+          "pivotHighCount": 9,
+          "pivotLowCount": 8,
+          "lastClose": 0.15862,
+          "lastCloseTs": 1788012000000
+        },
+        "levels": {
+          "recentResistance": 0.15949,
+          "secondaryResistance": 0.16462,
+          "recentSupport": 0.15789423076923081,
+          "secondarySupport": 0.15686374999999997,
+          "recentResistanceTouches": 1,
+          "secondaryResistanceTouches": 1,
+          "recentSupportTouches": 3,
+          "secondarySupportTouches": 2,
+          "zoneTolerance": 0.0009850714285714283,
+          "aboveAllConfirmedResistance": false,
+          "belowAllConfirmedSupport": false
+        },
+        "volume": {
+          "lastVolume": 3480718,
+          "average20": 2477582.7,
+          "ratio": 1.4048846886120088
+        },
+        "recentCandles": [
+          {
+            "ts": 1787972400000,
+            "time": "2026-08-29T03:00:00.000Z",
+            "open": 0.16019,
+            "high": 0.16389,
+            "low": 0.15962,
+            "close": 0.1597,
+            "volume": 3045377,
+            "quoteVolume": 4931434.1627
+          },
+          {
+            "ts": 1787976000000,
+            "time": "2026-08-29T04:00:00.000Z",
+            "open": 0.15971,
+            "high": 0.16206,
+            "low": 0.1595,
+            "close": 0.16041,
+            "volume": 1530082,
+            "quoteVolume": 2458861.7004
+          },
+          {
+            "ts": 1787979600000,
+            "time": "2026-08-29T05:00:00.000Z",
+            "open": 0.16041,
+            "high": 0.16622,
+            "low": 0.1603,
+            "close": 0.16411,
+            "volume": 3332006,
+            "quoteVolume": 5456635.1309
+          },
+          {
+            "ts": 1787983200000,
+            "time": "2026-08-29T06:00:00.000Z",
+            "open": 0.1641,
+            "high": 0.16433,
+            "low": 0.15946,
+            "close": 0.16107,
+            "volume": 2706416,
+            "quoteVolume": 4358508.2616
+          },
+          {
+            "ts": 1787986800000,
+            "time": "2026-08-29T07:00:00.000Z",
+            "open": 0.16107,
+            "high": 0.16176,
+            "low": 0.15834,
+            "close": 0.15886,
+            "volume": 2111229,
+            "quoteVolume": 3368283.7372
+          },
+          {
+            "ts": 1787990400000,
+            "time": "2026-08-29T08:00:00.000Z",
+            "open": 0.15886,
+            "high": 0.1589,
+            "low": 0.15482,
+            "close": 0.15517,
+            "volume": 5155746,
+            "quoteVolume": 8069086.2669
+          },
+          {
+            "ts": 1787994000000,
+            "time": "2026-08-29T09:00:00.000Z",
+            "open": 0.15515,
+            "high": 0.1571,
+            "low": 0.15503,
+            "close": 0.15674,
+            "volume": 2135406,
+            "quoteVolume": 3335046.8653
+          },
+          {
+            "ts": 1787997600000,
+            "time": "2026-08-29T10:00:00.000Z",
+            "open": 0.1567,
+            "high": 0.15698,
+            "low": 0.15417,
+            "close": 0.15494,
+            "volume": 3344890,
+            "quoteVolume": 5201985.1785
+          },
+          {
+            "ts": 1788001200000,
+            "time": "2026-08-29T11:00:00.000Z",
+            "open": 0.15494,
+            "high": 0.1557,
+            "low": 0.15326,
+            "close": 0.15491,
+            "volume": 1664506,
+            "quoteVolume": 2574834.2458
+          },
+          {
+            "ts": 1788004800000,
+            "time": "2026-08-29T12:00:00.000Z",
+            "open": 0.15491,
+            "high": 0.15575,
+            "low": 0.15433,
+            "close": 0.15504,
+            "volume": 1572172,
+            "quoteVolume": 2436500.7084
+          },
+          {
+            "ts": 1788008400000,
+            "time": "2026-08-29T13:00:00.000Z",
+            "open": 0.15504,
+            "high": 0.15548,
+            "low": 0.15442,
+            "close": 0.15531,
+            "volume": 1035412,
+            "quoteVolume": 1603930.9768
+          },
+          {
+            "ts": 1788012000000,
+            "time": "2026-08-29T14:00:00.000Z",
+            "open": 0.1553,
+            "high": 0.15933,
+            "low": 0.15468,
+            "close": 0.15862,
+            "volume": 3480718,
+            "quoteVolume": 5460171.8981
+          }
+        ]
+      }
+    },
+    "PEPE-USDT-SWAP": {
+      "ok": true,
+      "symbol": "PEPE-USDT-SWAP",
+      "updatedAt": "2026-08-29T15:20:38.747Z",
+      "price": 0.000003646,
+      "high24h": 0.000003827,
+      "low24h": 0.000003591,
+      "open24h": 0.000003807,
+      "changePct24h": -0.042290517467822496,
+      "contractVolume24h": 2427227.4,
+      "baseVolume24h": 24272274000000,
+      "quoteVolume24hEstimate": 88496711.004,
+      "turnoverUsdEstimate": 88496711.004,
+      "openInterestUsdEstimate": 30681277.2,
+      "fetch15mOk": true,
+      "fetch1hOk": true,
+      "retryCount15m": 0,
+      "retryCount1h": 0,
+      "partial": false,
+      "stale": true,
+      "staleReason": "fresh fetch unavailable",
+      "lastSuccessfulAt": "2026-08-29T15:20:38.747Z",
       "timeframeStatus": {
         "15m": {
           "fetchOk": true,
@@ -4665,192 +4301,359 @@
           "status": "fresh"
         },
         "1h": {
-          "fetchOk": false,
+          "fetchOk": true,
           "usedFallback": false,
-          "fallbackAgeMinutes": null,
-          "realtimeWeight": 0,
-          "status": "failed"
+          "fallbackAgeMinutes": 0,
+          "realtimeWeight": 1,
+          "status": "fresh"
         }
       },
       "freshness": {
-        "status": "fallback_fresh",
-        "tickerTs": 1788016826668,
-        "tickerAgeMs": 12345,
+        "status": "degraded",
+        "tickerTs": 1788016826764,
+        "tickerAgeMs": 11983,
         "oiTs": 1788016827137,
-        "oiAgeMs": 11876,
+        "oiAgeMs": 11610,
         "lastClosed15mTs": 1788015600000,
-        "lastClosed1hTs": null,
-        "fallbackAgeMinutes": 0
+        "lastClosed1hTs": 1788012000000,
+        "fallbackAgeMinutes": 1.478617
       },
       "timeframe15m": {
         "candleCount": 119,
         "ma": {
-          "ma7": 0.00912928571428571,
-          "ma25": 0.00903188,
-          "ma60": 0.00909555,
+          "ma7": 0.0000036422857142857134,
+          "ma25": 0.0000036268000000000006,
+          "ma60": 0.0000036395333333333326,
           "slope5": {
-            "ma7": 0.00010585714285714365,
-            "ma25": 0.00003964000000000224,
-            "ma60": -0.0000014999999999997654
+            "ma7": 2.428571428571478e-8,
+            "ma25": 7.080000000000617e-9,
+            "ma60": -3.566666666666864e-9
           },
           "order": "mixed",
           "direction": "mixed"
         },
         "structure": {
-          "state": "higher_highs_higher_lows",
-          "confidence": "high",
-          "previousHigh": 0.009028,
-          "recentHigh": 0.009066,
-          "previousLow": 0.008786,
-          "recentLow": 0.008959,
-          "atr": 0.000055142857142857025,
-          "pivotHighCount": 7,
-          "pivotLowCount": 9,
-          "lastClose": 0.009218,
+          "state": "range",
+          "confidence": "medium",
+          "previousHigh": 0.000003663,
+          "recentHigh": 0.000003639,
+          "previousLow": 0.000003591,
+          "recentLow": 0.000003602,
+          "atr": 1.607142857142854e-8,
+          "pivotHighCount": 6,
+          "pivotLowCount": 7,
+          "lastClose": 0.000003651,
           "lastCloseTs": 1788015600000
         },
         "levels": {
-          "recentResistance": 0.009269684210526315,
-          "secondaryResistance": 0.00929,
-          "recentSupport": 0.009156,
-          "secondarySupport": 0.009133,
-          "recentResistanceTouches": 2,
-          "secondaryResistanceTouches": 1,
+          "recentResistance": 0.000003663,
+          "secondaryResistance": 0.0000036768275862068963,
+          "recentSupport": 0.00000364,
+          "secondarySupport": 0.000003621,
+          "recentResistanceTouches": 1,
+          "secondaryResistanceTouches": 3,
           "recentSupportTouches": 1,
           "secondarySupportTouches": 1,
-          "zoneTolerance": 0.000016542857142857107,
+          "zoneTolerance": 4.821428571428562e-9,
           "aboveAllConfirmedResistance": false,
           "belowAllConfirmedSupport": false
         },
         "volume": {
-          "lastVolume": 304149,
-          "average20": 156195.45,
-          "ratio": 1.9472334181309376
+          "lastVolume": 25577,
+          "average20": 18024.785,
+          "ratio": 1.418990573257878
         },
         "recentCandles": [
           {
             "ts": 1788005700000,
             "time": "2026-08-29T12:15:00.000Z",
-            "open": 0.00903,
-            "high": 0.009066,
-            "low": 0.009011,
-            "close": 0.009028,
-            "volume": 180681,
-            "quoteVolume": 163348.821
+            "open": 0.000003626,
+            "high": 0.000003639,
+            "low": 0.000003602,
+            "close": 0.000003617,
+            "volume": 58404.1,
+            "quoteVolume": 2114691.921
           },
           {
             "ts": 1788006600000,
             "time": "2026-08-29T12:30:00.000Z",
-            "open": 0.009029,
-            "high": 0.009034,
-            "low": 0.009008,
-            "close": 0.009029,
-            "volume": 34446,
-            "quoteVolume": 31075.2319
+            "open": 0.000003617,
+            "high": 0.000003617,
+            "low": 0.000003606,
+            "close": 0.000003613,
+            "volume": 8183.4,
+            "quoteVolume": 295557.507
           },
           {
             "ts": 1788007500000,
             "time": "2026-08-29T12:45:00.000Z",
-            "open": 0.009029,
-            "high": 0.009031,
-            "low": 0.009006,
-            "close": 0.009018,
-            "volume": 48156,
-            "quoteVolume": 43436.5985
+            "open": 0.000003614,
+            "high": 0.000003618,
+            "low": 0.000003611,
+            "close": 0.000003615,
+            "volume": 4778.9,
+            "quoteVolume": 172716.076
           },
           {
             "ts": 1788008400000,
             "time": "2026-08-29T13:00:00.000Z",
-            "open": 0.009019,
-            "high": 0.009021,
-            "low": 0.008959,
-            "close": 0.008999,
-            "volume": 244440,
-            "quoteVolume": 219573.0686
+            "open": 0.000003615,
+            "high": 0.000003617,
+            "low": 0.00000361,
+            "close": 0.000003617,
+            "volume": 8069.1,
+            "quoteVolume": 291558.643
           },
           {
             "ts": 1788009300000,
             "time": "2026-08-29T13:15:00.000Z",
-            "open": 0.008997,
-            "high": 0.009044,
-            "low": 0.008989,
-            "close": 0.009022,
-            "volume": 184906,
-            "quoteVolume": 166960.2204
+            "open": 0.000003617,
+            "high": 0.000003625,
+            "low": 0.000003615,
+            "close": 0.000003618,
+            "volume": 13179.2,
+            "quoteVolume": 477209.221
           },
           {
             "ts": 1788010200000,
             "time": "2026-08-29T13:30:00.000Z",
-            "open": 0.009022,
-            "high": 0.009042,
-            "low": 0.009014,
-            "close": 0.009024,
-            "volume": 96376,
-            "quoteVolume": 86977.7256
+            "open": 0.000003619,
+            "high": 0.000003626,
+            "low": 0.000003616,
+            "close": 0.000003619,
+            "volume": 6385.9,
+            "quoteVolume": 231262.634
           },
           {
             "ts": 1788011100000,
             "time": "2026-08-29T13:45:00.000Z",
-            "open": 0.009024,
-            "high": 0.009059,
-            "low": 0.009024,
-            "close": 0.009044,
-            "volume": 65192,
-            "quoteVolume": 58960.9411
+            "open": 0.000003619,
+            "high": 0.000003632,
+            "low": 0.000003618,
+            "close": 0.000003627,
+            "volume": 7428.1,
+            "quoteVolume": 269326.698
           },
           {
             "ts": 1788012000000,
             "time": "2026-08-29T14:00:00.000Z",
-            "open": 0.009047,
-            "high": 0.009083,
-            "low": 0.009044,
-            "close": 0.009069,
-            "volume": 99643,
-            "quoteVolume": 90343.8277
+            "open": 0.000003627,
+            "high": 0.000003642,
+            "low": 0.000003626,
+            "close": 0.000003636,
+            "volume": 17120.7,
+            "quoteVolume": 622492.994
           },
           {
             "ts": 1788012900000,
             "time": "2026-08-29T14:15:00.000Z",
-            "open": 0.009069,
-            "high": 0.009134,
-            "low": 0.009065,
-            "close": 0.009112,
-            "volume": 134953,
-            "quoteVolume": 122776.9019
+            "open": 0.000003636,
+            "high": 0.000003645,
+            "low": 0.000003631,
+            "close": 0.000003639,
+            "volume": 17598.9,
+            "quoteVolume": 640343.185
           },
           {
             "ts": 1788013800000,
             "time": "2026-08-29T14:30:00.000Z",
-            "open": 0.009113,
-            "high": 0.009196,
-            "low": 0.009107,
-            "close": 0.009168,
-            "volume": 315702,
-            "quoteVolume": 288907.648
+            "open": 0.000003638,
+            "high": 0.000003662,
+            "low": 0.000003633,
+            "close": 0.000003653,
+            "volume": 27193,
+            "quoteVolume": 991704.503
           },
           {
             "ts": 1788014700000,
             "time": "2026-08-29T14:45:00.000Z",
-            "open": 0.009169,
-            "high": 0.009327,
-            "low": 0.009169,
-            "close": 0.00927,
-            "volume": 749528,
-            "quoteVolume": 694448.2146
+            "open": 0.000003652,
+            "high": 0.000003675,
+            "low": 0.000003652,
+            "close": 0.000003671,
+            "volume": 53110.1,
+            "quoteVolume": 1948520.233
           },
           {
             "ts": 1788015600000,
             "time": "2026-08-29T15:00:00.000Z",
-            "open": 0.009271,
-            "high": 0.009279,
-            "low": 0.009211,
-            "close": 0.009218,
-            "volume": 304149,
-            "quoteVolume": 280785.6966
+            "open": 0.000003671,
+            "high": 0.000003672,
+            "low": 0.000003647,
+            "close": 0.000003651,
+            "volume": 25577,
+            "quoteVolume": 934951.68
           }
         ]
       },
-      "timeframe1h": null
+      "timeframe1h": {
+        "candleCount": 119,
+        "ma": {
+          "ma7": 0.000003626999999999999,
+          "ma25": 0.00000366168,
+          "ma60": 0.000003776633333333334,
+          "slope5": {
+            "ma7": -2.428571428571732e-9,
+            "ma25": -3.339999999999997e-8,
+            "ma60": -1.68500000000001e-8
+          },
+          "order": "bearish",
+          "direction": "down"
+        },
+        "structure": {
+          "state": "range",
+          "confidence": "medium",
+          "previousHigh": 0.000003849,
+          "recentHigh": 0.000003705,
+          "previousLow": 0.000003591,
+          "recentLow": 0.000003602,
+          "atr": 2.9142857142857095e-8,
+          "pivotHighCount": 8,
+          "pivotLowCount": 13,
+          "lastClose": 0.000003671,
+          "lastCloseTs": 1788012000000
+        },
+        "levels": {
+          "recentResistance": 0.000003705,
+          "secondaryResistance": 0.00000382521052631579,
+          "recentSupport": 0.0000036410833333333335,
+          "secondarySupport": 0.000003621,
+          "recentResistanceTouches": 1,
+          "secondaryResistanceTouches": 2,
+          "recentSupportTouches": 2,
+          "secondarySupportTouches": 1,
+          "zoneTolerance": 8.742857142857128e-9,
+          "aboveAllConfirmedResistance": false,
+          "belowAllConfirmedSupport": false
+        },
+        "volume": {
+          "lastVolume": 115022.7,
+          "average20": 70677.125,
+          "ratio": 1.627438863705902
+        },
+        "recentCandles": [
+          {
+            "ts": 1787972400000,
+            "time": "2026-08-29T03:00:00.000Z",
+            "open": 0.000003673,
+            "high": 0.000003678,
+            "low": 0.000003621,
+            "close": 0.00000363,
+            "volume": 141150.5,
+            "quoteVolume": 5154091.837
+          },
+          {
+            "ts": 1787976000000,
+            "time": "2026-08-29T04:00:00.000Z",
+            "open": 0.000003631,
+            "high": 0.000003656,
+            "low": 0.000003629,
+            "close": 0.000003647,
+            "volume": 58197.5,
+            "quoteVolume": 2120897.767
+          },
+          {
+            "ts": 1787979600000,
+            "time": "2026-08-29T05:00:00.000Z",
+            "open": 0.000003646,
+            "high": 0.000003663,
+            "low": 0.000003643,
+            "close": 0.000003653,
+            "volume": 52599.8,
+            "quoteVolume": 1921464.252
+          },
+          {
+            "ts": 1787983200000,
+            "time": "2026-08-29T06:00:00.000Z",
+            "open": 0.000003654,
+            "high": 0.000003656,
+            "low": 0.000003613,
+            "close": 0.000003625,
+            "volume": 88045.1,
+            "quoteVolume": 3192991.13
+          },
+          {
+            "ts": 1787986800000,
+            "time": "2026-08-29T07:00:00.000Z",
+            "open": 0.000003625,
+            "high": 0.000003635,
+            "low": 0.000003611,
+            "close": 0.000003616,
+            "volume": 63991.8,
+            "quoteVolume": 2317876.353
+          },
+          {
+            "ts": 1787990400000,
+            "time": "2026-08-29T08:00:00.000Z",
+            "open": 0.000003616,
+            "high": 0.000003623,
+            "low": 0.000003591,
+            "close": 0.000003613,
+            "volume": 95181.4,
+            "quoteVolume": 3434088.388
+          },
+          {
+            "ts": 1787994000000,
+            "time": "2026-08-29T09:00:00.000Z",
+            "open": 0.000003613,
+            "high": 0.000003627,
+            "low": 0.00000361,
+            "close": 0.000003622,
+            "volume": 56531.2,
+            "quoteVolume": 2045536.877
+          },
+          {
+            "ts": 1787997600000,
+            "time": "2026-08-29T10:00:00.000Z",
+            "open": 0.000003622,
+            "high": 0.000003636,
+            "low": 0.000003613,
+            "close": 0.000003622,
+            "volume": 87433.9,
+            "quoteVolume": 3172284.045
+          },
+          {
+            "ts": 1788001200000,
+            "time": "2026-08-29T11:00:00.000Z",
+            "open": 0.000003623,
+            "high": 0.000003634,
+            "low": 0.000003617,
+            "close": 0.000003619,
+            "volume": 29406.8,
+            "quoteVolume": 1065684.018
+          },
+          {
+            "ts": 1788004800000,
+            "time": "2026-08-29T12:00:00.000Z",
+            "open": 0.00000362,
+            "high": 0.000003639,
+            "low": 0.000003602,
+            "close": 0.000003615,
+            "volume": 93570,
+            "quoteVolume": 3385949.47
+          },
+          {
+            "ts": 1788008400000,
+            "time": "2026-08-29T13:00:00.000Z",
+            "open": 0.000003615,
+            "high": 0.000003632,
+            "low": 0.00000361,
+            "close": 0.000003627,
+            "volume": 35062.3,
+            "quoteVolume": 1269357.196
+          },
+          {
+            "ts": 1788012000000,
+            "time": "2026-08-29T14:00:00.000Z",
+            "open": 0.000003627,
+            "high": 0.000003675,
+            "low": 0.000003626,
+            "close": 0.000003671,
+            "volume": 115022.7,
+            "quoteVolume": 4203060.915
+          }
+        ]
+      }
     },
     "DOGE-USDT-SWAP": {
       "ok": true,
@@ -4898,7 +4701,7 @@
         "oiAgeMs": 9126,
         "lastClosed15mTs": 1788014700000,
         "lastClosed1hTs": 1788012000000,
-        "fallbackAgeMinutes": 10.0512
+        "fallbackAgeMinutes": 11.5232
       },
       "timeframe15m": {
         "candleCount": 119,
