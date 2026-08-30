@@ -1,16 +1,16 @@
 {
   "ok": true,
   "partial": true,
-  "mode": "cron_lite_free_plan",
+  "mode": "cron_lite_round_robin",
   "source": "OKX official public API; Binance Cron probe only",
-  "discoveryMode": "cron_lite_okx_only_degraded",
+  "discoveryMode": "cron_round_robin_okx_only_degraded",
   "binanceAvailable": false,
   "binanceStatus": "blocked_403",
   "binanceLastError": "Binance HTTP 403",
-  "binanceAttemptedAt": "2026-08-30T17:00:51.109Z",
-  "runId": "1788109251109-7fcb0f69-8ddf-40dc-a107-267d2c759fec",
-  "startedAt": "2026-08-30T17:00:51.109Z",
-  "updatedAt": "2026-08-30T17:01:07.726Z",
+  "binanceAttemptedAt": "2026-08-30T17:05:48.292Z",
+  "runId": "1788109548292-f63a71b3-77e5-4834-b9d9-e24da4777efa",
+  "startedAt": "2026-08-30T17:05:48.292Z",
+  "updatedAt": "2026-08-30T17:05:54.717Z",
   "pool": {
     "benchmarkSymbols": [
       "BTC-USDT-SWAP",
@@ -27,23 +27,30 @@
     "dynamicSymbols": [],
     "publishedSymbols": [],
     "scheduler": {
-      "mode": "cron_lite_free_plan",
+      "mode": "cron_lite_round_robin",
       "fullMode": "manual_/run",
-      "scheduledTime": "2026-08-30T17:00:47.000Z",
+      "scheduledTime": "2026-08-30T17:05:47.000Z",
+      "refreshIndex": 1,
+      "refreshSymbol": "ETH-USDT-SWAP",
+      "refreshEveryMinutes": 15,
+      "carriedForwardSymbols": [
+        "BTC-USDT-SWAP",
+        "SOL-USDT-SWAP"
+      ],
       "candleLimit": 70,
       "deepDynamicDiscovery": false,
       "binanceProbeOnly": true,
+      "coreStateFile": "cron_core_state.json",
       "okxPacing": {
         "startJitterMs": [
+          700,
+          1200
+        ],
+        "tickerTo15mGapMs": 500,
+        "fifteenTo1hGapMs": 700,
+        "rateLimitBackoffMs": [
           1800,
           3000
-        ],
-        "tickerTo15mGapMs": 900,
-        "fifteenTo1hGapMs": 1100,
-        "interSymbolGapMs": 1800,
-        "rateLimitBackoffMs": [
-          2500,
-          4000
         ],
         "maxAttemptsPerRequest": 2
       }
@@ -55,29 +62,17 @@
       "ETH-USDT-SWAP",
       "SOL-USDT-SWAP"
     ],
-    "staleSymbols": []
+    "staleSymbols": [],
+    "refreshSymbol": "ETH-USDT-SWAP",
+    "refreshError": "OKX HTTP 429"
   },
   "markets": {
-    "BTC-USDT-SWAP": {
-      "symbol": "BTC-USDT-SWAP",
-      "status": "failed",
-      "stale": true,
-      "error": "OKX HTTP 429",
-      "updatedAt": "2026-08-30T17:00:55.405Z"
-    },
     "ETH-USDT-SWAP": {
       "symbol": "ETH-USDT-SWAP",
       "status": "failed",
       "stale": true,
       "error": "OKX HTTP 429",
-      "updatedAt": "2026-08-30T17:01:00.419Z"
-    },
-    "SOL-USDT-SWAP": {
-      "symbol": "SOL-USDT-SWAP",
-      "status": "failed",
-      "stale": true,
-      "error": "OKX HTTP 429",
-      "updatedAt": "2026-08-30T17:01:05.926Z"
+      "updatedAt": "2026-08-30T17:05:54.717Z"
     }
   }
 }
