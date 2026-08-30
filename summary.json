@@ -1,6 +1,6 @@
 {
   "ok": true,
-  "partial": false,
+  "partial": true,
   "mode": "cron_lite_round_robin",
   "source": "sidecar-first exchange transport with direct fallback",
   "transport": {
@@ -11,10 +11,10 @@
   "binanceAvailable": true,
   "binanceStatus": "available_via_sidecar",
   "binanceLastError": null,
-  "binanceAttemptedAt": "2026-08-30T18:35:48.351Z",
-  "runId": "1788114948351-3d26e7d5-97be-415a-9ed8-ebebdd6b43b5",
-  "startedAt": "2026-08-30T18:35:48.351Z",
-  "updatedAt": "2026-08-30T18:35:51.342Z",
+  "binanceAttemptedAt": "2026-08-30T18:40:48.212Z",
+  "runId": "1788115248212-34a1a567-a6f4-49db-a15a-7a6ba38db335",
+  "startedAt": "2026-08-30T18:40:48.212Z",
+  "updatedAt": "2026-08-30T18:40:51.839Z",
   "pool": {
     "benchmarkSymbols": [
       "BTC-USDT-SWAP",
@@ -37,13 +37,13 @@
     "scheduler": {
       "mode": "cron_lite_round_robin",
       "fullMode": "manual_/run",
-      "scheduledTime": "2026-08-30T18:35:47.000Z",
-      "refreshIndex": 1,
-      "refreshSymbol": "ETH-USDT-SWAP",
+      "scheduledTime": "2026-08-30T18:40:47.000Z",
+      "refreshIndex": 2,
+      "refreshSymbol": "SOL-USDT-SWAP",
       "refreshEveryMinutes": 15,
       "carriedForwardSymbols": [
         "BTC-USDT-SWAP",
-        "SOL-USDT-SWAP"
+        "ETH-USDT-SWAP"
       ],
       "candleLimit": 70,
       "deepDynamicDiscovery": false,
@@ -66,10 +66,12 @@
   },
   "dataQuality": {
     "failedSymbols": [],
-    "staleSymbols": [],
+    "staleSymbols": [
+      "BTC-USDT-SWAP"
+    ],
     "closedCandlesOnly": true,
     "cronCpuStrategy": "V6.3.1 round-robin: refresh only one of BTC/ETH/SOL per 5m Cron; carry the other two from tiny cron_core_state.json; each core target refreshes every 15m",
-    "refreshSymbol": "ETH-USDT-SWAP",
+    "refreshSymbol": "SOL-USDT-SWAP",
     "refreshError": null,
     "subrequestBudget": {
       "max": 24,
@@ -113,30 +115,30 @@
         "volumeRatio": 3.479467
       },
       "updatedAt": "2026-08-30T18:35:51.342Z",
-      "cacheAgeMinutes": 0,
-      "sourceState": "fresh_round_robin"
+      "cacheAgeMinutes": 5.008,
+      "sourceState": "carried_forward"
     },
     "SOL-USDT-SWAP": {
       "symbol": "SOL-USDT-SWAP",
       "status": "fresh",
       "stale": false,
       "staleReason": null,
-      "price": 106.51,
+      "price": 106.69,
       "high24h": 107.46,
       "low24h": 104.33,
-      "open24h": 104.93,
-      "tickerTs": 1788114349266,
+      "open24h": 105.04,
+      "tickerTs": 1788115248568,
       "timeframe15m": {
-        "lastClosedTs": 1788112800000,
-        "lastClose": 106.19,
-        "ma7": 106.34,
-        "ma25": 106.3664,
-        "ma60": 105.523333,
+        "lastClosedTs": 1788113700000,
+        "lastClose": 106.67,
+        "ma7": 106.345714,
+        "ma25": 106.4056,
+        "ma60": 105.5475,
         "maState": "mixed",
-        "structure": "LH_LL",
+        "structure": "range",
         "support": 105.15,
         "resistance": 107.46,
-        "volumeRatio": 1.012958
+        "volumeRatio": 0.393605
       },
       "timeframe1h": {
         "lastClosedTs": 1788109200000,
@@ -150,15 +152,15 @@
         "resistance": 107.46,
         "volumeRatio": 2.736206
       },
-      "updatedAt": "2026-08-30T18:25:51.738Z",
-      "cacheAgeMinutes": 9.993,
-      "sourceState": "carried_forward"
+      "updatedAt": "2026-08-30T18:40:51.839Z",
+      "cacheAgeMinutes": 0,
+      "sourceState": "fresh_round_robin"
     },
     "BTC-USDT-SWAP": {
       "symbol": "BTC-USDT-SWAP",
       "status": "fresh",
-      "stale": false,
-      "staleReason": null,
+      "stale": true,
+      "staleReason": "cache_age_10.0m",
       "price": 79105.5,
       "high24h": 79387.8,
       "low24h": 77916,
@@ -189,7 +191,7 @@
         "volumeRatio": 2.305162
       },
       "updatedAt": "2026-08-30T18:30:51.354Z",
-      "cacheAgeMinutes": 5,
+      "cacheAgeMinutes": 10.008,
       "sourceState": "carried_forward"
     }
   },
