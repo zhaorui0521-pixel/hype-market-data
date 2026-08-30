@@ -7,10 +7,10 @@
   "binanceAvailable": false,
   "binanceStatus": "blocked_403",
   "binanceLastError": "Binance HTTP 403",
-  "binanceAttemptedAt": "2026-08-30T17:10:48.231Z",
-  "runId": "1788109848231-ec2860cb-b2f3-4255-a356-89fb631ccb9c",
-  "startedAt": "2026-08-30T17:10:48.231Z",
-  "updatedAt": "2026-08-30T17:10:55.145Z",
+  "binanceAttemptedAt": "2026-08-30T17:15:48.252Z",
+  "runId": "1788110148252-05fc30b2-c142-4bc7-8dd3-38c37b50119c",
+  "startedAt": "2026-08-30T17:15:48.252Z",
+  "updatedAt": "2026-08-30T17:15:50.587Z",
   "pool": {
     "benchmarkSymbols": [
       "BTC-USDT-SWAP",
@@ -31,13 +31,13 @@
     "scheduler": {
       "mode": "cron_lite_round_robin",
       "fullMode": "manual_/run",
-      "scheduledTime": "2026-08-30T17:10:47.000Z",
-      "refreshIndex": 2,
-      "refreshSymbol": "SOL-USDT-SWAP",
+      "scheduledTime": "2026-08-30T17:15:47.000Z",
+      "refreshIndex": 0,
+      "refreshSymbol": "BTC-USDT-SWAP",
       "refreshEveryMinutes": 15,
       "carriedForwardSymbols": [
-        "BTC-USDT-SWAP",
-        "ETH-USDT-SWAP"
+        "ETH-USDT-SWAP",
+        "SOL-USDT-SWAP"
       ],
       "candleLimit": 70,
       "deepDynamicDiscovery": false,
@@ -66,11 +66,11 @@
     "staleSymbols": [],
     "closedCandlesOnly": true,
     "cronCpuStrategy": "V6.2.9 round-robin: refresh only one of BTC/ETH/SOL per 5m Cron; carry the other two from tiny cron_core_state.json; each core target refreshes every 15m",
-    "refreshSymbol": "SOL-USDT-SWAP",
-    "refreshError": null,
+    "refreshSymbol": "BTC-USDT-SWAP",
+    "refreshError": "OKX HTTP 429",
     "subrequestBudget": {
       "max": 24,
-      "usedBeforePublish": 9,
+      "usedBeforePublish": 6,
       "githubWriteReserve": 5
     }
   },
@@ -117,8 +117,15 @@
         "volumeRatio": 2.671552
       },
       "updatedAt": "2026-08-30T17:10:55.145Z",
-      "cacheAgeMinutes": 0,
-      "sourceState": "fresh_round_robin"
+      "cacheAgeMinutes": 4.924,
+      "sourceState": "carried_forward"
+    },
+    "BTC-USDT-SWAP": {
+      "symbol": "BTC-USDT-SWAP",
+      "status": "failed",
+      "stale": true,
+      "error": "OKX HTTP 429",
+      "updatedAt": "2026-08-30T17:15:50.587Z"
     }
   },
   "note": "V6.2.9 Cron refreshes one core symbol per 5-minute run to reduce OKX 429 pressure. Manual /run remains full discovery/scoring."
