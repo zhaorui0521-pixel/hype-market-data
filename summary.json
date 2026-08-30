@@ -7,10 +7,10 @@
   "binanceAvailable": false,
   "binanceStatus": "blocked_403",
   "binanceLastError": "Binance HTTP 403",
-  "binanceAttemptedAt": "2026-08-30T16:10:48.329Z",
-  "runId": "1788106248329-4e34b5e4-cc8a-4d6b-ad8e-64543dd28a49",
-  "startedAt": "2026-08-30T16:10:48.329Z",
-  "updatedAt": "2026-08-30T16:10:58.030Z",
+  "binanceAttemptedAt": "2026-08-30T16:15:48.455Z",
+  "runId": "1788106548455-75a0ab5a-ec2b-47fc-865a-589a5b9ea0bc",
+  "startedAt": "2026-08-30T16:15:48.455Z",
+  "updatedAt": "2026-08-30T16:16:02.265Z",
   "pool": {
     "benchmarkSymbols": [
       "BTC-USDT-SWAP",
@@ -25,11 +25,13 @@
       "SOL-USDT-SWAP"
     ],
     "dynamicSymbols": [],
-    "publishedSymbols": [],
+    "publishedSymbols": [
+      "ETH-USDT-SWAP"
+    ],
     "scheduler": {
       "mode": "cron_lite_free_plan",
       "fullMode": "manual_/run",
-      "scheduledTime": "2026-08-30T16:10:47.000Z",
+      "scheduledTime": "2026-08-30T16:15:47.000Z",
       "candleLimit": 70,
       "deepDynamicDiscovery": false,
       "binanceProbeOnly": true,
@@ -52,7 +54,6 @@
   "dataQuality": {
     "failedSymbols": [
       "BTC-USDT-SWAP",
-      "ETH-USDT-SWAP",
       "SOL-USDT-SWAP"
     ],
     "staleSymbols": [],
@@ -60,7 +61,7 @@
     "cronCpuStrategy": "Free-plan lite + paced OKX: no Stage-A universe ranking; BTC/ETH/SOL only; staggered requests; one 429 retry; 70 candles/timeframe; lightweight MA7/25/60 + levels + volume",
     "subrequestBudget": {
       "max": 24,
-      "usedBeforePublish": 11,
+      "usedBeforePublish": 17,
       "githubWriteReserve": 4
     }
   },
@@ -70,21 +71,50 @@
       "status": "failed",
       "stale": true,
       "error": "OKX HTTP 429",
-      "updatedAt": "2026-08-30T16:10:52.656Z"
+      "updatedAt": "2026-08-30T16:15:52.510Z"
     },
     "ETH-USDT-SWAP": {
       "symbol": "ETH-USDT-SWAP",
-      "status": "failed",
-      "stale": true,
-      "error": "OKX HTTP 429",
-      "updatedAt": "2026-08-30T16:10:54.990Z"
+      "status": "fresh",
+      "stale": false,
+      "staleReason": null,
+      "price": 2515.23,
+      "high24h": 2519.34,
+      "low24h": 2444.17,
+      "open24h": 2449.96,
+      "tickerTs": 1788106554190,
+      "timeframe15m": {
+        "lastClosedTs": 1788105600000,
+        "lastClose": 2509.44,
+        "ma7": 2480.862857,
+        "ma25": 2468.4464,
+        "ma60": 2460.865,
+        "maState": "bullish",
+        "structure": "range",
+        "support": 2455.38,
+        "resistance": 2513.88,
+        "volumeRatio": 7.396853
+      },
+      "timeframe1h": {
+        "lastClosedTs": 1788102000000,
+        "lastClose": 2479.68,
+        "ma7": 2466.768571,
+        "ma25": 2457.0436,
+        "ma60": 2456.866333,
+        "maState": "bullish",
+        "structure": "HH_HL",
+        "support": 2447.72,
+        "resistance": 2483.24,
+        "volumeRatio": 1.955472
+      },
+      "updatedAt": "2026-08-30T16:15:57.161Z"
     },
     "SOL-USDT-SWAP": {
       "symbol": "SOL-USDT-SWAP",
       "status": "failed",
       "stale": true,
       "error": "OKX HTTP 429",
-      "updatedAt": "2026-08-30T16:10:57.430Z"
+      "updatedAt": "2026-08-30T16:16:01.665Z"
     }
   },
   "note": "Cron Lite keeps core data fresh under Cloudflare Free CPU limits. Open /run manually for full dynamic discovery and scoring."
