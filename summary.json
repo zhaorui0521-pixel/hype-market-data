@@ -7,10 +7,10 @@
   "binanceAvailable": false,
   "binanceStatus": "blocked_403",
   "binanceLastError": "Binance HTTP 403",
-  "binanceAttemptedAt": "2026-08-30T17:15:48.252Z",
-  "runId": "1788110148252-05fc30b2-c142-4bc7-8dd3-38c37b50119c",
-  "startedAt": "2026-08-30T17:15:48.252Z",
-  "updatedAt": "2026-08-30T17:15:50.587Z",
+  "binanceAttemptedAt": "2026-08-30T17:20:48.353Z",
+  "runId": "1788110448353-c41e1714-3c2a-4109-9e8e-3a59e34f183a",
+  "startedAt": "2026-08-30T17:20:48.353Z",
+  "updatedAt": "2026-08-30T17:20:51.804Z",
   "pool": {
     "benchmarkSymbols": [
       "BTC-USDT-SWAP",
@@ -26,17 +26,18 @@
     ],
     "dynamicSymbols": [],
     "publishedSymbols": [
+      "ETH-USDT-SWAP",
       "SOL-USDT-SWAP"
     ],
     "scheduler": {
       "mode": "cron_lite_round_robin",
       "fullMode": "manual_/run",
-      "scheduledTime": "2026-08-30T17:15:47.000Z",
-      "refreshIndex": 0,
-      "refreshSymbol": "BTC-USDT-SWAP",
+      "scheduledTime": "2026-08-30T17:20:47.000Z",
+      "refreshIndex": 1,
+      "refreshSymbol": "ETH-USDT-SWAP",
       "refreshEveryMinutes": 15,
       "carriedForwardSymbols": [
-        "ETH-USDT-SWAP",
+        "BTC-USDT-SWAP",
         "SOL-USDT-SWAP"
       ],
       "candleLimit": 70,
@@ -60,27 +61,32 @@
   },
   "dataQuality": {
     "failedSymbols": [
-      "BTC-USDT-SWAP",
+      "BTC-USDT-SWAP"
+    ],
+    "staleSymbols": [
       "ETH-USDT-SWAP"
     ],
-    "staleSymbols": [],
     "closedCandlesOnly": true,
     "cronCpuStrategy": "V6.2.9 round-robin: refresh only one of BTC/ETH/SOL per 5m Cron; carry the other two from tiny cron_core_state.json; each core target refreshes every 15m",
-    "refreshSymbol": "BTC-USDT-SWAP",
+    "refreshSymbol": "ETH-USDT-SWAP",
     "refreshError": "OKX HTTP 429",
     "subrequestBudget": {
       "max": 24,
-      "usedBeforePublish": 6,
+      "usedBeforePublish": 7,
       "githubWriteReserve": 5
     }
   },
   "markets": {
     "ETH-USDT-SWAP": {
       "symbol": "ETH-USDT-SWAP",
-      "status": "failed",
+      "status": "cached_after_refresh_failure",
       "stale": true,
       "error": "OKX HTTP 429",
-      "updatedAt": "2026-08-30T17:05:54.717Z"
+      "updatedAt": "2026-08-30T17:05:54.717Z",
+      "staleReason": "refresh_failed: OKX HTTP 429",
+      "refreshFailedAt": "2026-08-30T17:20:51.804Z",
+      "cacheAgeMinutes": 14.951,
+      "sourceState": "cached_after_refresh_failure"
     },
     "SOL-USDT-SWAP": {
       "symbol": "SOL-USDT-SWAP",
@@ -117,7 +123,7 @@
         "volumeRatio": 2.671552
       },
       "updatedAt": "2026-08-30T17:10:55.145Z",
-      "cacheAgeMinutes": 4.924,
+      "cacheAgeMinutes": 9.944,
       "sourceState": "carried_forward"
     },
     "BTC-USDT-SWAP": {
