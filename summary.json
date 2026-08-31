@@ -1,6 +1,6 @@
 {
   "ok": true,
-  "partial": false,
+  "partial": true,
   "mode": "cron_lite_round_robin",
   "source": "sidecar-first exchange transport with direct fallback",
   "transport": {
@@ -11,10 +11,10 @@
   "binanceAvailable": true,
   "binanceStatus": "available_via_sidecar",
   "binanceLastError": null,
-  "binanceAttemptedAt": "2026-08-31T19:45:48.135Z",
-  "runId": "1788205548135-3d2a90a1-6446-425f-a753-ded037ebfb27",
-  "startedAt": "2026-08-31T19:45:48.135Z",
-  "updatedAt": "2026-08-31T19:45:51.147Z",
+  "binanceAttemptedAt": "2026-08-31T19:50:48.149Z",
+  "runId": "1788205848149-4df235aa-3384-445a-911e-5afd3f64ead9",
+  "startedAt": "2026-08-31T19:50:48.149Z",
+  "updatedAt": "2026-08-31T19:50:51.387Z",
   "pool": {
     "benchmarkSymbols": [
       "BTC-USDT-SWAP",
@@ -37,12 +37,12 @@
     "scheduler": {
       "mode": "cron_lite_round_robin",
       "fullMode": "manual_/run",
-      "scheduledTime": "2026-08-31T19:45:47.000Z",
-      "refreshIndex": 0,
-      "refreshSymbol": "BTC-USDT-SWAP",
+      "scheduledTime": "2026-08-31T19:50:47.000Z",
+      "refreshIndex": 1,
+      "refreshSymbol": "ETH-USDT-SWAP",
       "refreshEveryMinutes": 15,
       "carriedForwardSymbols": [
-        "ETH-USDT-SWAP",
+        "BTC-USDT-SWAP",
         "SOL-USDT-SWAP"
       ],
       "candleLimit": 70,
@@ -66,10 +66,12 @@
   },
   "dataQuality": {
     "failedSymbols": [],
-    "staleSymbols": [],
+    "staleSymbols": [
+      "SOL-USDT-SWAP"
+    ],
     "closedCandlesOnly": true,
     "cronCpuStrategy": "V6.3.1 round-robin: refresh only one of BTC/ETH/SOL per 5m Cron; carry the other two from tiny cron_core_state.json; each core target refreshes every 15m",
-    "refreshSymbol": "BTC-USDT-SWAP",
+    "refreshSymbol": "ETH-USDT-SWAP",
     "refreshError": null,
     "subrequestBudget": {
       "max": 24,
@@ -83,22 +85,22 @@
       "status": "fresh",
       "stale": false,
       "staleReason": null,
-      "price": 2484.18,
+      "price": 2481.38,
       "high24h": 2507.87,
       "low24h": 2386,
-      "open24h": 2503.33,
-      "tickerTs": 1788204948370,
+      "open24h": 2498.58,
+      "tickerTs": 1788205848074,
       "timeframe15m": {
-        "lastClosedTs": 1788203700000,
-        "lastClose": 2484.35,
-        "ma7": 2478.581429,
-        "ma25": 2465.6012,
-        "ma60": 2451.831833,
+        "lastClosedTs": 1788204600000,
+        "lastClose": 2479.25,
+        "ma7": 2479.318571,
+        "ma25": 2466.7784,
+        "ma60": 2452.912,
         "maState": "bullish",
-        "structure": "HH_HL",
-        "support": 2442.77,
+        "structure": "range",
+        "support": 2456.96,
         "resistance": 2489.76,
-        "volumeRatio": 0.383419
+        "volumeRatio": 0.364008
       },
       "timeframe1h": {
         "lastClosedTs": 1788199200000,
@@ -112,15 +114,15 @@
         "resistance": 2489.76,
         "volumeRatio": 0.813673
       },
-      "updatedAt": "2026-08-31T19:35:51.438Z",
-      "cacheAgeMinutes": 9.995,
-      "sourceState": "carried_forward"
+      "updatedAt": "2026-08-31T19:50:51.387Z",
+      "cacheAgeMinutes": 0,
+      "sourceState": "fresh_round_robin"
     },
     "SOL-USDT-SWAP": {
       "symbol": "SOL-USDT-SWAP",
       "status": "fresh",
-      "stale": false,
-      "staleReason": null,
+      "stale": true,
+      "staleReason": "cache_age_10.0m",
       "price": 103.81,
       "high24h": 105.95,
       "low24h": 100.2,
@@ -151,7 +153,7 @@
         "volumeRatio": 1.098885
       },
       "updatedAt": "2026-08-31T19:40:51.375Z",
-      "cacheAgeMinutes": 4.996,
+      "cacheAgeMinutes": 10,
       "sourceState": "carried_forward"
     },
     "BTC-USDT-SWAP": {
@@ -189,8 +191,8 @@
         "volumeRatio": 0.748195
       },
       "updatedAt": "2026-08-31T19:45:51.147Z",
-      "cacheAgeMinutes": 0,
-      "sourceState": "fresh_round_robin"
+      "cacheAgeMinutes": 5.004,
+      "sourceState": "carried_forward"
     }
   },
   "note": "V6.3.1 Cron refreshes one core symbol per 5-minute run to reduce OKX 429 pressure. Manual /run remains full discovery/scoring."
