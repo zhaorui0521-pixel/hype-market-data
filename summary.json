@@ -1,6 +1,6 @@
 {
   "ok": true,
-  "partial": false,
+  "partial": true,
   "mode": "cron_lite_round_robin",
   "source": "sidecar-first exchange transport with direct fallback",
   "transport": {
@@ -11,10 +11,10 @@
   "binanceAvailable": true,
   "binanceStatus": "available_via_sidecar",
   "binanceLastError": null,
-  "binanceAttemptedAt": "2026-08-31T01:45:48.153Z",
-  "runId": "1788140748153-70bde3cd-6538-4e36-9baf-4b3dbc8cb45d",
-  "startedAt": "2026-08-31T01:45:48.153Z",
-  "updatedAt": "2026-08-31T01:45:51.109Z",
+  "binanceAttemptedAt": "2026-08-31T01:50:48.389Z",
+  "runId": "1788141048389-d408bfd1-96db-402c-bea5-1ba81a604088",
+  "startedAt": "2026-08-31T01:50:48.389Z",
+  "updatedAt": "2026-08-31T01:50:51.355Z",
   "pool": {
     "benchmarkSymbols": [
       "BTC-USDT-SWAP",
@@ -37,12 +37,12 @@
     "scheduler": {
       "mode": "cron_lite_round_robin",
       "fullMode": "manual_/run",
-      "scheduledTime": "2026-08-31T01:45:47.000Z",
-      "refreshIndex": 0,
-      "refreshSymbol": "BTC-USDT-SWAP",
+      "scheduledTime": "2026-08-31T01:50:47.000Z",
+      "refreshIndex": 1,
+      "refreshSymbol": "ETH-USDT-SWAP",
       "refreshEveryMinutes": 15,
       "carriedForwardSymbols": [
-        "ETH-USDT-SWAP",
+        "BTC-USDT-SWAP",
         "SOL-USDT-SWAP"
       ],
       "candleLimit": 70,
@@ -66,10 +66,12 @@
   },
   "dataQuality": {
     "failedSymbols": [],
-    "staleSymbols": [],
+    "staleSymbols": [
+      "SOL-USDT-SWAP"
+    ],
     "closedCandlesOnly": true,
     "cronCpuStrategy": "V6.3.1 round-robin: refresh only one of BTC/ETH/SOL per 5m Cron; carry the other two from tiny cron_core_state.json; each core target refreshes every 15m",
-    "refreshSymbol": "BTC-USDT-SWAP",
+    "refreshSymbol": "ETH-USDT-SWAP",
     "refreshError": null,
     "subrequestBudget": {
       "max": 24,
@@ -83,22 +85,22 @@
       "status": "fresh",
       "stale": false,
       "staleReason": null,
-      "price": 2415.93,
+      "price": 2417.97,
       "high24h": 2534.48,
       "low24h": 2386,
-      "open24h": 2454.99,
-      "tickerTs": 1788140148467,
+      "open24h": 2457.76,
+      "tickerTs": 1788141048819,
       "timeframe15m": {
-        "lastClosedTs": 1788138900000,
-        "lastClose": 2419.41,
-        "ma7": 2422.794286,
-        "ma25": 2461.5172,
-        "ma60": 2474.7335,
+        "lastClosedTs": 1788139800000,
+        "lastClose": 2417.82,
+        "ma7": 2423.097143,
+        "ma25": 2458.0256,
+        "ma60": 2474.086,
         "maState": "bearish",
-        "structure": "HH_HL",
+        "structure": "range",
         "support": 2386,
-        "resistance": 2503.63,
-        "volumeRatio": 0.423393
+        "resistance": 2499.16,
+        "volumeRatio": 0.515458
       },
       "timeframe1h": {
         "lastClosedTs": 1788134400000,
@@ -112,15 +114,15 @@
         "resistance": 2534.48,
         "volumeRatio": 1.663901
       },
-      "updatedAt": "2026-08-31T01:35:51.392Z",
-      "cacheAgeMinutes": 9.995,
-      "sourceState": "carried_forward"
+      "updatedAt": "2026-08-31T01:50:51.355Z",
+      "cacheAgeMinutes": 0,
+      "sourceState": "fresh_round_robin"
     },
     "SOL-USDT-SWAP": {
       "symbol": "SOL-USDT-SWAP",
       "status": "fresh",
-      "stale": false,
-      "staleReason": null,
+      "stale": true,
+      "staleReason": "cache_age_10.0m",
       "price": 101.78,
       "high24h": 107.46,
       "low24h": 100.2,
@@ -151,7 +153,7 @@
         "volumeRatio": 1.357807
       },
       "updatedAt": "2026-08-31T01:40:51.167Z",
-      "cacheAgeMinutes": 4.999,
+      "cacheAgeMinutes": 10.003,
       "sourceState": "carried_forward"
     },
     "BTC-USDT-SWAP": {
@@ -189,8 +191,8 @@
         "volumeRatio": 1.764734
       },
       "updatedAt": "2026-08-31T01:45:51.109Z",
-      "cacheAgeMinutes": 0,
-      "sourceState": "fresh_round_robin"
+      "cacheAgeMinutes": 5.004,
+      "sourceState": "carried_forward"
     }
   },
   "note": "V6.3.1 Cron refreshes one core symbol per 5-minute run to reduce OKX 429 pressure. Manual /run remains full discovery/scoring."
