@@ -1,6 +1,6 @@
 {
   "ok": true,
-  "partial": false,
+  "partial": true,
   "mode": "cron_lite_round_robin",
   "source": "sidecar-first exchange transport with direct fallback",
   "transport": {
@@ -11,10 +11,10 @@
   "binanceAvailable": true,
   "binanceStatus": "available_via_sidecar",
   "binanceLastError": null,
-  "binanceAttemptedAt": "2026-08-31T15:25:48.222Z",
-  "runId": "1788189948222-ae49e948-61e3-4be5-b515-a3bb83a49810",
-  "startedAt": "2026-08-31T15:25:48.222Z",
-  "updatedAt": "2026-08-31T15:25:51.229Z",
+  "binanceAttemptedAt": "2026-08-31T15:30:48.855Z",
+  "runId": "1788190248855-267cf2b7-e34d-43fe-b164-5f9b59d9beb6",
+  "startedAt": "2026-08-31T15:30:48.855Z",
+  "updatedAt": "2026-08-31T15:30:51.866Z",
   "pool": {
     "benchmarkSymbols": [
       "BTC-USDT-SWAP",
@@ -37,13 +37,13 @@
     "scheduler": {
       "mode": "cron_lite_round_robin",
       "fullMode": "manual_/run",
-      "scheduledTime": "2026-08-31T15:25:47.000Z",
-      "refreshIndex": 2,
-      "refreshSymbol": "SOL-USDT-SWAP",
+      "scheduledTime": "2026-08-31T15:30:47.000Z",
+      "refreshIndex": 0,
+      "refreshSymbol": "BTC-USDT-SWAP",
       "refreshEveryMinutes": 15,
       "carriedForwardSymbols": [
-        "BTC-USDT-SWAP",
-        "ETH-USDT-SWAP"
+        "ETH-USDT-SWAP",
+        "SOL-USDT-SWAP"
       ],
       "candleLimit": 70,
       "deepDynamicDiscovery": false,
@@ -66,10 +66,12 @@
   },
   "dataQuality": {
     "failedSymbols": [],
-    "staleSymbols": [],
+    "staleSymbols": [
+      "ETH-USDT-SWAP"
+    ],
     "closedCandlesOnly": true,
     "cronCpuStrategy": "V6.3.1 round-robin: refresh only one of BTC/ETH/SOL per 5m Cron; carry the other two from tiny cron_core_state.json; each core target refreshes every 15m",
-    "refreshSymbol": "SOL-USDT-SWAP",
+    "refreshSymbol": "BTC-USDT-SWAP",
     "refreshError": null,
     "subrequestBudget": {
       "max": 24,
@@ -81,8 +83,8 @@
     "ETH-USDT-SWAP": {
       "symbol": "ETH-USDT-SWAP",
       "status": "fresh",
-      "stale": false,
-      "staleReason": null,
+      "stale": true,
+      "staleReason": "cache_age_10.0m",
       "price": 2460.01,
       "high24h": 2534.48,
       "low24h": 2386,
@@ -113,7 +115,7 @@
         "volumeRatio": 1.80082
       },
       "updatedAt": "2026-08-31T15:20:51.315Z",
-      "cacheAgeMinutes": 4.999,
+      "cacheAgeMinutes": 10.009,
       "sourceState": "carried_forward"
     },
     "SOL-USDT-SWAP": {
@@ -151,30 +153,30 @@
         "volumeRatio": 1.198196
       },
       "updatedAt": "2026-08-31T15:25:51.229Z",
-      "cacheAgeMinutes": 0,
-      "sourceState": "fresh_round_robin"
+      "cacheAgeMinutes": 5.011,
+      "sourceState": "carried_forward"
     },
     "BTC-USDT-SWAP": {
       "symbol": "BTC-USDT-SWAP",
       "status": "fresh",
       "stale": false,
       "staleReason": null,
-      "price": 78240.5,
+      "price": 78466,
       "high24h": 79387.8,
       "low24h": 76916.6,
-      "open24h": 78605.3,
-      "tickerTs": 1788189348867,
+      "open24h": 78780,
+      "tickerTs": 1788190249328,
       "timeframe15m": {
-        "lastClosedTs": 1788188400000,
-        "lastClose": 78288.3,
-        "ma7": 78142.457143,
-        "ma25": 78296.444,
-        "ma60": 78050.08,
+        "lastClosedTs": 1788189300000,
+        "lastClose": 78427.9,
+        "ma7": 78208.057143,
+        "ma25": 78289.108,
+        "ma60": 78059.306667,
         "maState": "mixed",
         "structure": "HH_HL",
         "support": 77634.5,
         "resistance": 78721,
-        "volumeRatio": 1.184664
+        "volumeRatio": 0.898795
       },
       "timeframe1h": {
         "lastClosedTs": 1788184800000,
@@ -188,9 +190,9 @@
         "resistance": 79015.9,
         "volumeRatio": 1.944596
       },
-      "updatedAt": "2026-08-31T15:15:51.405Z",
-      "cacheAgeMinutes": 9.997,
-      "sourceState": "carried_forward"
+      "updatedAt": "2026-08-31T15:30:51.866Z",
+      "cacheAgeMinutes": 0,
+      "sourceState": "fresh_round_robin"
     }
   },
   "note": "V6.3.1 Cron refreshes one core symbol per 5-minute run to reduce OKX 429 pressure. Manual /run remains full discovery/scoring."
