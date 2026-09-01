@@ -1,6 +1,6 @@
 {
   "ok": true,
-  "partial": true,
+  "partial": false,
   "mode": "cron_lite_round_robin",
   "source": "sidecar-first exchange transport with direct fallback",
   "transport": {
@@ -11,10 +11,10 @@
   "binanceAvailable": true,
   "binanceStatus": "available_via_sidecar",
   "binanceLastError": null,
-  "binanceAttemptedAt": "2026-09-01T04:05:48.325Z",
-  "runId": "1788235548325-540e67c2-d11f-4e89-a497-6e4b425ff52a",
-  "startedAt": "2026-09-01T04:05:48.325Z",
-  "updatedAt": "2026-09-01T04:05:51.317Z",
+  "binanceAttemptedAt": "2026-09-01T04:10:48.493Z",
+  "runId": "1788235848493-c929a341-d4b4-4ecd-b444-80ad7f120b39",
+  "startedAt": "2026-09-01T04:10:48.493Z",
+  "updatedAt": "2026-09-01T04:10:51.487Z",
   "pool": {
     "benchmarkSymbols": [
       "BTC-USDT-SWAP",
@@ -37,13 +37,13 @@
     "scheduler": {
       "mode": "cron_lite_round_robin",
       "fullMode": "manual_/run",
-      "scheduledTime": "2026-09-01T04:05:47.000Z",
-      "refreshIndex": 1,
-      "refreshSymbol": "ETH-USDT-SWAP",
+      "scheduledTime": "2026-09-01T04:10:47.000Z",
+      "refreshIndex": 2,
+      "refreshSymbol": "SOL-USDT-SWAP",
       "refreshEveryMinutes": 15,
       "carriedForwardSymbols": [
         "BTC-USDT-SWAP",
-        "SOL-USDT-SWAP"
+        "ETH-USDT-SWAP"
       ],
       "candleLimit": 70,
       "deepDynamicDiscovery": false,
@@ -66,12 +66,10 @@
   },
   "dataQuality": {
     "failedSymbols": [],
-    "staleSymbols": [
-      "SOL-USDT-SWAP"
-    ],
+    "staleSymbols": [],
     "closedCandlesOnly": true,
     "cronCpuStrategy": "V6.3.1 round-robin: refresh only one of BTC/ETH/SOL per 5m Cron; carry the other two from tiny cron_core_state.json; each core target refreshes every 15m",
-    "refreshSymbol": "ETH-USDT-SWAP",
+    "refreshSymbol": "SOL-USDT-SWAP",
     "refreshError": null,
     "subrequestBudget": {
       "max": 24,
@@ -115,46 +113,46 @@
         "volumeRatio": 1.011104
       },
       "updatedAt": "2026-09-01T04:05:51.317Z",
-      "cacheAgeMinutes": 0,
-      "sourceState": "fresh_round_robin"
+      "cacheAgeMinutes": 5.003,
+      "sourceState": "carried_forward"
     },
     "SOL-USDT-SWAP": {
       "symbol": "SOL-USDT-SWAP",
       "status": "fresh",
-      "stale": true,
-      "staleReason": "cache_age_10.0m",
-      "price": 103.6,
+      "stale": false,
+      "staleReason": null,
+      "price": 103.63,
       "high24h": 104.97,
       "low24h": 100.83,
-      "open24h": 101.93,
-      "tickerTs": 1788234948069,
+      "open24h": 101.44,
+      "tickerTs": 1788235849068,
       "timeframe15m": {
-        "lastClosedTs": 1788233400000,
-        "lastClose": 103.85,
-        "ma7": 103.29,
-        "ma25": 103.2296,
-        "ma60": 103.259833,
+        "lastClosedTs": 1788234300000,
+        "lastClose": 103.59,
+        "ma7": 103.371429,
+        "ma25": 103.2232,
+        "ma60": 103.274667,
         "maState": "mixed",
         "structure": "HH_HL",
         "support": 102.62,
         "resistance": 104.18,
-        "volumeRatio": 3.934778
+        "volumeRatio": 0.812784
       },
       "timeframe1h": {
-        "lastClosedTs": 1788228000000,
-        "lastClose": 103.33,
-        "ma7": 103.297143,
-        "ma25": 102.9824,
-        "ma60": 104.168833,
+        "lastClosedTs": 1788231600000,
+        "lastClose": 103.59,
+        "ma7": 103.284286,
+        "ma25": 103.07,
+        "ma60": 104.146,
         "maState": "mixed",
         "structure": "LH_LL",
         "support": 102.05,
         "resistance": 104.97,
-        "volumeRatio": 0.625961
+        "volumeRatio": 1.000694
       },
-      "updatedAt": "2026-09-01T03:55:51.225Z",
-      "cacheAgeMinutes": 10.002,
-      "sourceState": "carried_forward"
+      "updatedAt": "2026-09-01T04:10:51.487Z",
+      "cacheAgeMinutes": 0,
+      "sourceState": "fresh_round_robin"
     },
     "BTC-USDT-SWAP": {
       "symbol": "BTC-USDT-SWAP",
@@ -191,7 +189,7 @@
         "volumeRatio": 0.784516
       },
       "updatedAt": "2026-09-01T04:00:51.881Z",
-      "cacheAgeMinutes": 4.991,
+      "cacheAgeMinutes": 9.993,
       "sourceState": "carried_forward"
     }
   },
