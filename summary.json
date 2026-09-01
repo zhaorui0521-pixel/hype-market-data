@@ -11,10 +11,10 @@
   "binanceAvailable": true,
   "binanceStatus": "available_via_sidecar",
   "binanceLastError": null,
-  "binanceAttemptedAt": "2026-09-01T03:00:48.721Z",
-  "runId": "1788231648721-5dbbd57c-f50b-45ec-8df2-dadc1e905947",
-  "startedAt": "2026-09-01T03:00:48.721Z",
-  "updatedAt": "2026-09-01T03:00:52.303Z",
+  "binanceAttemptedAt": "2026-09-01T03:05:48.276Z",
+  "runId": "1788231948276-df7c1ee2-74b3-42ef-9e13-c68eb18d9d49",
+  "startedAt": "2026-09-01T03:05:48.276Z",
+  "updatedAt": "2026-09-01T03:05:51.236Z",
   "pool": {
     "benchmarkSymbols": [
       "BTC-USDT-SWAP",
@@ -37,12 +37,12 @@
     "scheduler": {
       "mode": "cron_lite_round_robin",
       "fullMode": "manual_/run",
-      "scheduledTime": "2026-09-01T03:00:47.000Z",
-      "refreshIndex": 0,
-      "refreshSymbol": "BTC-USDT-SWAP",
+      "scheduledTime": "2026-09-01T03:05:47.000Z",
+      "refreshIndex": 1,
+      "refreshSymbol": "ETH-USDT-SWAP",
       "refreshEveryMinutes": 15,
       "carriedForwardSymbols": [
-        "ETH-USDT-SWAP",
+        "BTC-USDT-SWAP",
         "SOL-USDT-SWAP"
       ],
       "candleLimit": 70,
@@ -67,11 +67,11 @@
   "dataQuality": {
     "failedSymbols": [],
     "staleSymbols": [
-      "ETH-USDT-SWAP"
+      "SOL-USDT-SWAP"
     ],
     "closedCandlesOnly": true,
     "cronCpuStrategy": "V6.3.1 round-robin: refresh only one of BTC/ETH/SOL per 5m Cron; carry the other two from tiny cron_core_state.json; each core target refreshes every 15m",
-    "refreshSymbol": "BTC-USDT-SWAP",
+    "refreshSymbol": "ETH-USDT-SWAP",
     "refreshError": null,
     "subrequestBudget": {
       "max": 24,
@@ -83,46 +83,46 @@
     "ETH-USDT-SWAP": {
       "symbol": "ETH-USDT-SWAP",
       "status": "fresh",
-      "stale": true,
-      "staleReason": "cache_age_10.0m",
-      "price": 2461.6,
+      "stale": false,
+      "staleReason": null,
+      "price": 2464.81,
       "high24h": 2489.76,
-      "low24h": 2400.63,
-      "open24h": 2404.61,
-      "tickerTs": 1788231048368,
+      "low24h": 2408.42,
+      "open24h": 2409,
+      "tickerTs": 1788231948268,
       "timeframe15m": {
-        "lastClosedTs": 1788229800000,
-        "lastClose": 2459.78,
-        "ma7": 2461.457143,
-        "ma25": 2468.4024,
-        "ma60": 2466.133667,
+        "lastClosedTs": 1788230700000,
+        "lastClose": 2463.87,
+        "ma7": 2461.01,
+        "ma25": 2468.0524,
+        "ma60": 2466.4475,
         "maState": "mixed",
         "structure": "LH_LL",
         "support": 2452.92,
-        "resistance": 2482.25,
-        "volumeRatio": 0.571285
+        "resistance": 2479.7,
+        "volumeRatio": 0.628167
       },
       "timeframe1h": {
-        "lastClosedTs": 1788224400000,
-        "lastClose": 2461.82,
-        "ma7": 2471.058571,
-        "ma25": 2451.8708,
-        "ma60": 2458.319333,
+        "lastClosedTs": 1788228000000,
+        "lastClose": 2463.87,
+        "ma7": 2468.634286,
+        "ma25": 2453.9308,
+        "ma60": 2458.594,
         "maState": "mixed",
         "structure": "LH_LL",
-        "support": 2430.06,
+        "support": 2432.27,
         "resistance": 2489.76,
-        "volumeRatio": 0.658984
+        "volumeRatio": 0.672828
       },
-      "updatedAt": "2026-09-01T02:50:51.345Z",
-      "cacheAgeMinutes": 10.016,
-      "sourceState": "carried_forward"
+      "updatedAt": "2026-09-01T03:05:51.236Z",
+      "cacheAgeMinutes": 0,
+      "sourceState": "fresh_round_robin"
     },
     "SOL-USDT-SWAP": {
       "symbol": "SOL-USDT-SWAP",
       "status": "fresh",
-      "stale": false,
-      "staleReason": null,
+      "stale": true,
+      "staleReason": "cache_age_10.0m",
       "price": 103.29,
       "high24h": 104.97,
       "low24h": 100.83,
@@ -153,7 +153,7 @@
         "volumeRatio": 0.632743
       },
       "updatedAt": "2026-09-01T02:55:51.195Z",
-      "cacheAgeMinutes": 5.018,
+      "cacheAgeMinutes": 10.001,
       "sourceState": "carried_forward"
     },
     "BTC-USDT-SWAP": {
@@ -191,8 +191,8 @@
         "volumeRatio": 0.78762
       },
       "updatedAt": "2026-09-01T03:00:52.303Z",
-      "cacheAgeMinutes": 0,
-      "sourceState": "fresh_round_robin"
+      "cacheAgeMinutes": 4.982,
+      "sourceState": "carried_forward"
     }
   },
   "note": "V6.3.1 Cron refreshes one core symbol per 5-minute run to reduce OKX 429 pressure. Manual /run remains full discovery/scoring."
