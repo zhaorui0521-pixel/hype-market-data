@@ -1,15 +1,20 @@
 {
   "ok": true,
   "partial": false,
-  "source": "OKX + Binance official public APIs",
-  "discoveryMode": "dual_exchange",
+  "mode": "cron_lite_round_robin",
+  "source": "sidecar-first exchange transport with direct fallback",
+  "transport": {
+    "okx": "sidecar_preferred",
+    "binance": "sidecar_preferred"
+  },
+  "discoveryMode": "cron_round_robin_okx_plus_binance_probe",
   "binanceAvailable": true,
-  "binanceStatus": "ok",
-  "binanceCircuitBroken": false,
+  "binanceStatus": "available_via_sidecar",
   "binanceLastError": null,
-  "binanceAttemptedAt": "2026-09-02T13:31:05.149Z",
-  "runId": "1788355864796-79c53687-456f-4491-ae76-59cc69f857a4",
-  "updatedAt": "2026-09-02T13:31:25.889Z",
+  "binanceAttemptedAt": "2026-09-02T13:35:11.461Z",
+  "runId": "1788356111461-0cf11419-0124-4776-8179-e40a0174fd79",
+  "startedAt": "2026-09-02T13:35:11.461Z",
+  "updatedAt": "2026-09-02T13:35:15.386Z",
   "pool": {
     "benchmarkSymbols": [
       "BTC-USDT-SWAP",
@@ -23,30 +28,12 @@
       "ETH-USDT-SWAP",
       "SOL-USDT-SWAP"
     ],
-    "watchContenders": [
-      "HYPE-USDT-SWAP",
-      "XRP-USDT-SWAP",
-      "ENA-USDT-SWAP",
-      "DOGE-USDT-SWAP"
-    ],
-    "dynamicSymbols": [
-      "UNI-USDT-SWAP",
-      "TRUMP-USDT-SWAP",
-      "FIL-USDT-SWAP",
-      "ZEC-USDT-SWAP",
-      "ENA-USDT-SWAP"
-    ],
+    "dynamicSymbols": [],
     "publishedSymbols": [
       "BTC-USDT-SWAP",
       "ETH-USDT-SWAP",
-      "SOL-USDT-SWAP",
-      "UNI-USDT-SWAP",
-      "TRUMP-USDT-SWAP",
-      "FIL-USDT-SWAP",
-      "ZEC-USDT-SWAP",
-      "ENA-USDT-SWAP"
+      "SOL-USDT-SWAP"
     ],
-    "dynamicCountRequested": 10,
     "evidenceLayer": {
       "bitget": {
         "mode": "shadow_evidence_only",
@@ -54,238 +41,56 @@
         "affectsScore": false,
         "cronLiteEnabled": false,
         "cronBehavior": "carry_forward_only",
-        "maxSymbols": 4,
-        "requestedSymbols": [
-          "BTC-USDT-SWAP",
-          "UNI-USDT-SWAP",
-          "TRUMP-USDT-SWAP",
-          "FIL-USDT-SWAP"
-        ],
-        "status": "ok"
+        "status": "carried_forward",
+        "sourceStatus": "ok",
+        "freshness": {
+          "state": "carried_forward",
+          "sourceRunId": "1788355864796-79c53687-456f-4491-ae76-59cc69f857a4",
+          "sourceUpdatedAt": "2026-09-02T13:31:25.889Z",
+          "carriedAt": "2026-09-02T13:35:15.386Z",
+          "ageMinutes": 3.825
+        }
       }
     },
     "scheduler": {
-      "mode": "layered_core_first",
-      "fixedFreshSymbols": [
+      "mode": "cron_lite_round_robin",
+      "fullMode": "manual_/run",
+      "scheduledTime": "2026-09-02T13:35:10.000Z",
+      "refreshIndex": 1,
+      "refreshSymbol": "ETH-USDT-SWAP",
+      "refreshEveryMinutes": 15,
+      "carriedForwardSymbols": [
         "BTC-USDT-SWAP",
-        "ETH-USDT-SWAP",
         "SOL-USDT-SWAP"
       ],
-      "dynamicCandidates": [
-        "UNI-USDT-SWAP",
-        "ZEC-USDT-SWAP",
-        "TRUMP-USDT-SWAP",
-        "FIL-USDT-SWAP",
-        "ENA-USDT-SWAP",
-        "ARB-USDT-SWAP",
-        "LIT-USDT-SWAP",
-        "PUMP-USDT-SWAP",
-        "NEAR-USDT-SWAP",
-        "USELESS-USDT-SWAP"
-      ],
-      "dynamicFreshTarget": 5,
-      "freshDynamicAnalyzedSymbols": [
-        "UNI-USDT-SWAP",
-        "ZEC-USDT-SWAP",
-        "TRUMP-USDT-SWAP",
-        "FIL-USDT-SWAP",
-        "ENA-USDT-SWAP"
-      ],
-      "cachedOnlyDynamicCandidates": [
-        "ARB-USDT-SWAP",
-        "LIT-USDT-SWAP",
-        "PUMP-USDT-SWAP",
-        "NEAR-USDT-SWAP",
-        "USELESS-USDT-SWAP"
-      ],
-      "freshDynamicSkippedForBudget": [],
-      "coreTimeframeAttempts": 2,
-      "dynamicTimeframeAttempts": 1,
+      "candleLimit": 70,
+      "deepDynamicDiscovery": false,
+      "binanceProbeOnly": true,
+      "coreStateFile": "cron_core_state.json",
       "okxPacing": {
-        "stageBStartDelayMs": 550,
-        "interTimeframeDelayMs": 320,
-        "interSymbolDelayMs": 380,
-        "rateLimitBackoffBaseMs": 1200
+        "startJitterMs": [
+          700,
+          1200
+        ],
+        "tickerTo15mGapMs": 500,
+        "fifteenTo1hGapMs": 700,
+        "rateLimitBackoffMs": [
+          1800,
+          3000
+        ],
+        "maxAttemptsPerRequest": 2
       }
-    },
-    "selectionMethod": {
-      "stageA": "OKX crypto USDT perpetuals + Binance USDⓈ-M perpetuals -> product purification -> cross-exchange confirmation -> liquidity + OI + volatility",
-      "qualityGate": {
-        "minTurnoverUsd": 20000000,
-        "minOiUsd": 5000000,
-        "minLiquidityPercentile": 0.35,
-        "minOiPercentile": 0.25,
-        "requireDualExchange": false,
-        "effectiveRequireDualExchange": false,
-        "singleExchangeMinTurnoverUsd": 100000000
-      },
-      "purification": {
-        "okxCryptoOnly": "instCategory === 1",
-        "okxRuleType": "normal/rebase_contract only; pre_market/xperp futures are not part of SWAP discovery",
-        "excludedBases": [
-          "SOXL"
-        ],
-        "binanceContractType": "PERPETUAL",
-        "binanceQuoteAsset": "USDT",
-        "binanceStatus": "TRADING"
-      },
-      "crossExchangeDiscovery": {
-        "exchanges": [
-          "OKX",
-          "Binance"
-        ],
-        "discoveryMode": "dual_exchange",
-        "binanceAvailable": true,
-        "binanceStatus": "ok",
-        "binanceLastError": null,
-        "binanceAttemptedAt": "2026-09-02T13:31:05.149Z",
-        "dualExchangePreferred": true,
-        "singleExchangeAllowed": true,
-        "singleExchangeRequiresHigherTurnover": 100000000
-      },
-      "stageB": "layered scheduler: BTC/ETH/SOL fresh first; top dynamic candidates fresh; remaining candidates may use <=10m cached 15m/1h MA7/25/60 snapshots",
-      "bridgeScoreWeights": {
-        "marketQuality": 0.65,
-        "technicalOpportunity": 0.35,
-        "marketQualityBreakdown": {
-          "okxLiquidity": 0.3,
-          "binanceLiquidity": 0.2,
-          "openInterest": 0.2,
-          "volatility": 0.15,
-          "crossExchangeConfirmation": 0.1,
-          "crossExchangePriceConsistency": 0.05
-        },
-        "technicalBreakdown": {
-          "structureClarity": 0.25,
-          "structureAgreement": 0.2,
-          "maAgreement": 0.2,
-          "structureMaAgreement": 0.1,
-          "volumeParticipation": 0.15,
-          "keyLevelProximity": 0.1
-        }
-      },
-      "finalModelLayer": "BTC/ETH environment fit + exact key-level interpretation + 5m trigger + R:R"
     }
   },
   "dataQuality": {
     "failedSymbols": [],
-    "staleSymbols": []
+    "staleSymbols": [],
+    "refreshSymbol": "ETH-USDT-SWAP",
+    "refreshError": null
   },
-  "selection": [
-    {
-      "rank": 1,
-      "symbol": "UNI-USDT-SWAP",
-      "score": 0.841848,
-      "sourceState": "fresh",
-      "freshnessFactor": 1,
-      "marketQualityScore": 0.983001,
-      "technicalOpportunityScore": 0.579708,
-      "adjustedTechnicalOpportunityScore": 0.579708,
-      "liquidityScore": 0.981685,
-      "oiScore": 0.970696,
-      "volatilityScore": 0.959707,
-      "turnoverUsdEstimate": 371183875.18299997,
-      "binanceTurnoverUsdEstimate": 576336942.487,
-      "crossExchangeConfirmed": true,
-      "crossExchangePriceDiffPct": 0.000172,
-      "crossExchangeScore": 1,
-      "openInterestUsdEstimate": 39875858.4,
-      "rangePct24h": 0.14062500000000008,
-      "binanceRangePct24h": 0.14236171319576899,
-      "selectionReason": "1hStructure=higher_highs_higher_lows; 15mStructure=range; structureAgreement=0.5; 1hMA=neutral; 15mMA=neutral; maAgreement=0.55; structureMA=0.5; volumeParticipation=0.375931; keyLevelProximity=0.945679; discoveryMode=dual_exchange; dualExchange=true; priceDiffPct=0.000172; sourceState=fresh"
-    },
-    {
-      "rank": 2,
-      "symbol": "TRUMP-USDT-SWAP",
-      "score": 0.833585,
-      "sourceState": "fresh",
-      "freshnessFactor": 1,
-      "marketQualityScore": 0.965362,
-      "technicalOpportunityScore": 0.588855,
-      "adjustedTechnicalOpportunityScore": 0.588855,
-      "liquidityScore": 0.974359,
-      "oiScore": 0.948718,
-      "volatilityScore": 0.831502,
-      "turnoverUsdEstimate": 224283971.89080003,
-      "binanceTurnoverUsdEstimate": 190769314.20787,
-      "crossExchangeConfirmed": true,
-      "crossExchangePriceDiffPct": 0.000454,
-      "crossExchangeScore": 1,
-      "openInterestUsdEstimate": 25202021.2732,
-      "rangePct24h": 0.0963651732882503,
-      "binanceRangePct24h": 0.09445150360016955,
-      "selectionReason": "1hStructure=lower_highs_lower_lows; 15mStructure=range; structureAgreement=0.5; 1hMA=bearish; 15mMA=neutral; maAgreement=0.55; structureMA=0.8; volumeParticipation=0.288417; keyLevelProximity=0.868421; discoveryMode=dual_exchange; dualExchange=true; priceDiffPct=0.000454; sourceState=fresh"
-    },
-    {
-      "rank": 3,
-      "symbol": "FIL-USDT-SWAP",
-      "score": 0.831115,
-      "sourceState": "fresh",
-      "freshnessFactor": 1,
-      "marketQualityScore": 0.962396,
-      "technicalOpportunityScore": 0.587306,
-      "adjustedTechnicalOpportunityScore": 0.587306,
-      "liquidityScore": 0.970696,
-      "oiScore": 0.912088,
-      "volatilityScore": 0.981685,
-      "turnoverUsdEstimate": 217300682.25673997,
-      "binanceTurnoverUsdEstimate": 325535228.028372,
-      "crossExchangeConfirmed": true,
-      "crossExchangePriceDiffPct": 0.000652,
-      "crossExchangeScore": 1,
-      "openInterestUsdEstimate": 15175761.63046,
-      "rangePct24h": 0.16685763391578334,
-      "binanceRangePct24h": 0.16826992103374025,
-      "selectionReason": "1hStructure=higher_highs_higher_lows; 15mStructure=lower_highs_lower_lows; structureAgreement=0.15; 1hMA=neutral; 15mMA=neutral; maAgreement=0.55; structureMA=0.5; volumeParticipation=0.346277; keyLevelProximity=0.953648; discoveryMode=dual_exchange; dualExchange=true; priceDiffPct=0.000652; sourceState=fresh"
-    },
-    {
-      "rank": 4,
-      "symbol": "ZEC-USDT-SWAP",
-      "score": 0.796721,
-      "sourceState": "fresh",
-      "freshnessFactor": 1,
-      "marketQualityScore": 0.979209,
-      "technicalOpportunityScore": 0.457815,
-      "adjustedTechnicalOpportunityScore": 0.457815,
-      "liquidityScore": 0.989011,
-      "oiScore": 0.985348,
-      "volatilityScore": 0.813187,
-      "turnoverUsdEstimate": 598925432.7112,
-      "binanceTurnoverUsdEstimate": 1184630040.16,
-      "crossExchangeConfirmed": true,
-      "crossExchangePriceDiffPct": 0.001135,
-      "crossExchangeScore": 1,
-      "openInterestUsdEstimate": 104707566.621,
-      "rangePct24h": 0.08958620770981464,
-      "binanceRangePct24h": 0.09033355381271853,
-      "selectionReason": "1hStructure=range; 15mStructure=range; structureAgreement=0.5; 1hMA=bearish; 15mMA=neutral; maAgreement=0.55; structureMA=0.5; volumeParticipation=0.392603; keyLevelProximity=0.920495; discoveryMode=dual_exchange; dualExchange=true; priceDiffPct=0.001135; sourceState=fresh"
-    },
-    {
-      "rank": 5,
-      "symbol": "ENA-USDT-SWAP",
-      "score": 0.788775,
-      "sourceState": "fresh",
-      "freshnessFactor": 1,
-      "marketQualityScore": 0.958816,
-      "technicalOpportunityScore": 0.472984,
-      "adjustedTechnicalOpportunityScore": 0.472984,
-      "liquidityScore": 0.952381,
-      "oiScore": 0.908425,
-      "volatilityScore": 0.864469,
-      "turnoverUsdEstimate": 89130108.7824,
-      "binanceTurnoverUsdEstimate": 356440076.43953,
-      "crossExchangeConfirmed": true,
-      "crossExchangePriceDiffPct": 0.000601,
-      "crossExchangeScore": 1,
-      "openInterestUsdEstimate": 13425881.8344,
-      "rangePct24h": 0.10237397968720793,
-      "binanceRangePct24h": 0.10112920331898437,
-      "selectionReason": "1hStructure=range; 15mStructure=range; structureAgreement=0.5; 1hMA=neutral; 15mMA=bearish; maAgreement=0.55; structureMA=0.5; volumeParticipation=0.46426; keyLevelProximity=0.964699; discoveryMode=dual_exchange; dualExchange=true; priceDiffPct=0.000601; sourceState=fresh"
-    }
-  ],
   "bitgetEvidence": {
     "ok": true,
-    "status": "ok",
+    "status": "carried_forward",
     "provider": "bitget-public-market-data",
     "mode": "shadow_evidence_only",
     "observedOnly": true,
@@ -485,1056 +290,130 @@
           }
         }
       }
+    },
+    "sourceStatus": "ok",
+    "freshness": {
+      "state": "carried_forward",
+      "sourceRunId": "1788355864796-79c53687-456f-4491-ae76-59cc69f857a4",
+      "sourceUpdatedAt": "2026-09-02T13:31:25.889Z",
+      "carriedAt": "2026-09-02T13:35:15.386Z",
+      "ageMinutes": 3.825
     }
   },
   "markets": {
-    "BTC-USDT-SWAP": {
-      "price": 76805.6,
-      "high24h": 78388,
-      "low24h": 76204.5,
-      "turnoverUsdEstimate": 6899964779.18848,
-      "openInterestUsdEstimate": 2261378428.3539886,
-      "freshness": {
-        "status": "fresh",
-        "tickerTs": 1788355865031,
-        "tickerAgeMs": 5141,
-        "oiTs": 1788355865759,
-        "oiAgeMs": 4413,
-        "lastClosed15mTs": 1788354900000,
-        "lastClosed1hTs": 1788350400000,
-        "fallbackAgeMinutes": 0
-      },
-      "fetch15mOk": true,
-      "fetch1hOk": true,
-      "retryCount15m": 0,
-      "retryCount1h": 0,
-      "partial": false,
+    "ETH-USDT-SWAP": {
+      "symbol": "ETH-USDT-SWAP",
+      "status": "fresh",
       "stale": false,
       "staleReason": null,
-      "lastSuccessfulAt": "2026-09-02T13:31:10.172Z",
-      "timeframeStatus": {
-        "15m": {
-          "fetchOk": true,
-          "usedFallback": false,
-          "fallbackAgeMinutes": 0,
-          "realtimeWeight": 1,
-          "status": "fresh"
-        },
-        "1h": {
-          "fetchOk": true,
-          "usedFallback": false,
-          "fallbackAgeMinutes": 0,
-          "realtimeWeight": 1,
-          "status": "fresh"
-        }
-      },
-      "timeframe15m": {
-        "ma": {
-          "ma7": 76779.92857142855,
-          "ma25": 76864.944,
-          "ma60": 77166.21833333335,
-          "slope5": {
-            "ma7": 119.72857142858265,
-            "ma25": -159.9439999999886,
-            "ma60": -31.6383333333506
-          },
-          "order": "bearish",
-          "direction": "mixed"
-        },
-        "structure": {
-          "state": "range",
-          "confidence": "medium",
-          "previousHigh": 77730,
-          "recentHigh": 77029.7,
-          "previousLow": 76204.5,
-          "recentLow": 76567.9,
-          "atr": 249.21428571428572,
-          "pivotHighCount": 6,
-          "pivotLowCount": 10,
-          "lastClose": 76837,
-          "lastCloseTs": 1788354900000
-        },
-        "levels": {
-          "recentResistance": 77029.7,
-          "secondaryResistance": 77320.40909090907,
-          "recentSupport": 76667.3,
-          "secondarySupport": 76567.9,
-          "recentResistanceTouches": 1,
-          "secondaryResistanceTouches": 3,
-          "recentSupportTouches": 1,
-          "secondarySupportTouches": 1,
-          "zoneTolerance": 76.837,
-          "aboveAllConfirmedResistance": false,
-          "belowAllConfirmedSupport": false
-        },
-        "volume": {
-          "lastVolume": 64252.24,
-          "average20": 120243.42800000003,
-          "ratio": 0.5343513659640508
-        }
-      },
-      "timeframe1h": {
-        "ma": {
-          "ma7": 76944.5714285714,
-          "ma25": 77328.848,
-          "ma60": 77926.84999999992,
-          "slope5": {
-            "ma7": -482.6714285714261,
-            "ma25": -271.82799999999406,
-            "ma60": -125.57833333333838
-          },
-          "order": "bearish",
-          "direction": "down"
-        },
-        "structure": {
-          "state": "lower_highs_lower_lows",
-          "confidence": "high",
-          "previousHigh": 78388,
-          "recentHigh": 77770.8,
-          "previousLow": 76667.3,
-          "recentLow": 76204.5,
-          "atr": 465.5500000000008,
-          "pivotHighCount": 7,
-          "pivotLowCount": 10,
-          "lastClose": 76576.3,
-          "lastCloseTs": 1788350400000
-        },
-        "levels": {
-          "recentResistance": 77709.92903225806,
-          "secondaryResistance": 78180.2,
-          "recentSupport": 76385,
-          "secondarySupport": 76204.5,
-          "recentResistanceTouches": 2,
-          "secondaryResistanceTouches": 1,
-          "recentSupportTouches": 1,
-          "secondarySupportTouches": 1,
-          "zoneTolerance": 139.66500000000025,
-          "aboveAllConfirmedResistance": false,
-          "belowAllConfirmedSupport": false
-        },
-        "volume": {
-          "lastVolume": 394923.78,
-          "average20": 358753.80550000013,
-          "ratio": 1.1008211590942967
-        }
-      }
-    },
-    "ETH-USDT-SWAP": {
-      "price": 2385.62,
+      "price": 2383.51,
       "high24h": 2456.77,
       "low24h": 2355.56,
-      "turnoverUsdEstimate": 8341890140.108239,
-      "openInterestUsdEstimate": 1670518299.170206,
-      "freshness": {
-        "status": "fresh",
-        "tickerTs": 1788355865064,
-        "tickerAgeMs": 6910,
-        "oiTs": 1788355865759,
-        "oiAgeMs": 6215,
-        "lastClosed15mTs": 1788354900000,
-        "lastClosed1hTs": 1788350400000,
-        "fallbackAgeMinutes": 0
-      },
-      "fetch15mOk": true,
-      "fetch1hOk": true,
-      "retryCount15m": 0,
-      "retryCount1h": 0,
-      "partial": false,
-      "stale": false,
-      "staleReason": null,
-      "lastSuccessfulAt": "2026-09-02T13:31:11.974Z",
-      "timeframeStatus": {
-        "15m": {
-          "fetchOk": true,
-          "usedFallback": false,
-          "fallbackAgeMinutes": 0,
-          "realtimeWeight": 1,
-          "status": "fresh"
-        },
-        "1h": {
-          "fetchOk": true,
-          "usedFallback": false,
-          "fallbackAgeMinutes": 0,
-          "realtimeWeight": 1,
-          "status": "fresh"
-        }
-      },
+      "open24h": 2441.8,
+      "tickerTs": 1788356111666,
       "timeframe15m": {
-        "ma": {
-          "ma7": 2381.9542857142865,
-          "ma25": 2387.2912,
-          "ma60": 2402.366833333334,
-          "slope5": {
-            "ma7": 6.78285714285721,
-            "ma25": -7.589199999999892,
-            "ma60": -2.510499999998956
-          },
-          "order": "bearish",
-          "direction": "mixed"
-        },
-        "structure": {
-          "state": "range",
-          "confidence": "medium",
-          "previousHigh": 2429,
-          "recentHigh": 2389.8,
-          "previousLow": 2355.56,
-          "recentLow": 2376,
-          "atr": 8.724999999999975,
-          "pivotHighCount": 8,
-          "pivotLowCount": 11,
-          "lastClose": 2386.95,
-          "lastCloseTs": 1788354900000
-        },
-        "levels": {
-          "recentResistance": 2389.8,
-          "secondaryResistance": 2410,
-          "recentSupport": 2385.05,
-          "secondarySupport": 2382.19,
-          "recentResistanceTouches": 1,
-          "secondaryResistanceTouches": 1,
-          "recentSupportTouches": 1,
-          "secondarySupportTouches": 1,
-          "zoneTolerance": 2.617499999999992,
-          "aboveAllConfirmedResistance": false,
-          "belowAllConfirmedSupport": false
-        },
-        "volume": {
-          "lastVolume": 197244.5,
-          "average20": 556688.4060000001,
-          "ratio": 0.35431760006871776
-        }
+        "lastClosedTs": 1788354900000,
+        "lastClose": 2386.95,
+        "ma7": 2381.954286,
+        "ma25": 2387.2912,
+        "ma60": 2402.366833,
+        "maState": "bearish",
+        "structure": "range",
+        "support": 2355.56,
+        "resistance": 2413,
+        "volumeRatio": 0.354318
       },
       "timeframe1h": {
-        "ma": {
-          "ma7": 2390.645714285714,
-          "ma25": 2413.100799999999,
-          "ma60": 2437.782666666664,
-          "slope5": {
-            "ma7": -22.54428571428525,
-            "ma25": -15.444000000000415,
-            "ma60": -6.415833333333467
-          },
-          "order": "bearish",
-          "direction": "down"
-        },
-        "structure": {
-          "state": "lower_highs_lower_lows",
-          "confidence": "high",
-          "previousHigh": 2463,
-          "recentHigh": 2429,
-          "previousLow": 2385.05,
-          "recentLow": 2355.56,
-          "atr": 18.659999999999986,
-          "pivotHighCount": 6,
-          "pivotLowCount": 11,
-          "lastClose": 2376.82,
-          "lastCloseTs": 1788350400000
-        },
-        "levels": {
-          "recentResistance": 2428.1766666666667,
-          "secondaryResistance": 2456.84,
-          "recentSupport": 2355.56,
-          "secondarySupport": null,
-          "recentResistanceTouches": 2,
-          "secondaryResistanceTouches": 1,
-          "recentSupportTouches": 1,
-          "secondarySupportTouches": 0,
-          "zoneTolerance": 5.597999999999995,
-          "aboveAllConfirmedResistance": false,
-          "belowAllConfirmedSupport": false
-        },
-        "volume": {
-          "lastVolume": 1360835.45,
-          "average20": 1483048.0505,
-          "ratio": 0.9175936339629746
-        }
-      }
+        "lastClosedTs": 1788350400000,
+        "lastClose": 2376.82,
+        "ma7": 2390.645714,
+        "ma25": 2413.1008,
+        "ma60": 2437.782667,
+        "maState": "bearish",
+        "structure": "LH_LL",
+        "support": 2355.56,
+        "resistance": 2438.43,
+        "volumeRatio": 0.917594
+      },
+      "updatedAt": "2026-09-02T13:35:15.386Z",
+      "cacheAgeMinutes": 0,
+      "sourceState": "fresh_round_robin"
     },
     "SOL-USDT-SWAP": {
-      "price": 98.22,
+      "symbol": "SOL-USDT-SWAP",
+      "status": "fresh",
+      "stale": false,
+      "staleReason": null,
+      "price": 98.13,
       "high24h": 102.52,
       "low24h": 97.31,
-      "turnoverUsdEstimate": 1164010419.7668,
-      "openInterestUsdEstimate": 310169398.65180004,
-      "freshness": {
-        "status": "fresh",
-        "tickerTs": 1788355865071,
-        "tickerAgeMs": 8592,
-        "oiTs": 1788355865759,
-        "oiAgeMs": 7904,
-        "lastClosed15mTs": 1788354900000,
-        "lastClosed1hTs": 1788350400000,
-        "fallbackAgeMinutes": 0
-      },
-      "fetch15mOk": true,
-      "fetch1hOk": true,
-      "retryCount15m": 0,
-      "retryCount1h": 0,
-      "partial": false,
-      "stale": false,
-      "staleReason": null,
-      "lastSuccessfulAt": "2026-09-02T13:31:13.663Z",
-      "timeframeStatus": {
-        "15m": {
-          "fetchOk": true,
-          "usedFallback": false,
-          "fallbackAgeMinutes": 0,
-          "realtimeWeight": 1,
-          "status": "fresh"
-        },
-        "1h": {
-          "fetchOk": true,
-          "usedFallback": false,
-          "fallbackAgeMinutes": 0,
-          "realtimeWeight": 1,
-          "status": "fresh"
-        }
-      },
+      "open24h": 101.82,
+      "tickerTs": 1788355512464,
       "timeframe15m": {
-        "ma": {
-          "ma7": 98.01285714285716,
-          "ma25": 98.59680000000002,
-          "ma60": 99.33283333333334,
-          "slope5": {
-            "ma7": 0.004285714285700237,
-            "ma25": -0.40200000000002944,
-            "ma60": -0.1244999999999834
-          },
-          "order": "bearish",
-          "direction": "mixed"
-        },
-        "structure": {
-          "state": "range",
-          "confidence": "medium",
-          "previousHigh": 100.38,
-          "recentHigh": 98.43,
-          "previousLow": 97.31,
-          "recentLow": 97.53,
-          "atr": 0.5178571428571439,
-          "pivotHighCount": 5,
-          "pivotLowCount": 9,
-          "lastClose": 98.22,
-          "lastCloseTs": 1788354900000
-        },
-        "levels": {
-          "recentResistance": 98.43,
-          "secondaryResistance": 99.88478260869564,
-          "recentSupport": 98.09,
-          "secondarySupport": 97.53,
-          "recentResistanceTouches": 1,
-          "secondaryResistanceTouches": 2,
-          "recentSupportTouches": 1,
-          "secondarySupportTouches": 1,
-          "zoneTolerance": 0.15535714285714317,
-          "aboveAllConfirmedResistance": false,
-          "belowAllConfirmedSupport": false
-        },
-        "volume": {
-          "lastVolume": 58026.21,
-          "average20": 139682.11599999998,
-          "ratio": 0.41541617253278157
-        }
+        "lastClosedTs": 1788354000000,
+        "lastClose": 97.89,
+        "ma7": 97.972857,
+        "ma25": 98.6764,
+        "ma60": 99.351667,
+        "maState": "bearish",
+        "structure": "HH_HL",
+        "support": 97.31,
+        "resistance": 99.97,
+        "volumeRatio": 0.450337
       },
       "timeframe1h": {
-        "ma": {
-          "ma7": 98.74000000000002,
-          "ma25": 99.91720000000007,
-          "ma60": 101.67050000000003,
-          "slope5": {
-            "ma7": -1.1428571428571246,
-            "ma25": -0.8056000000000125,
-            "ma60": -0.4199999999999875
-          },
-          "order": "bearish",
-          "direction": "down"
-        },
-        "structure": {
-          "state": "lower_highs_lower_lows",
-          "confidence": "high",
-          "previousHigh": 102.52,
-          "recentHigh": 100.38,
-          "previousLow": 98.86,
-          "recentLow": 98.42,
-          "atr": 0.9214285714285698,
-          "pivotHighCount": 7,
-          "pivotLowCount": 10,
-          "lastClose": 97.63,
-          "lastCloseTs": 1788350400000
-        },
-        "levels": {
-          "recentResistance": 100.51064516129033,
-          "secondaryResistance": 102.52,
-          "recentSupport": null,
-          "secondarySupport": null,
-          "recentResistanceTouches": 2,
-          "secondaryResistanceTouches": 1,
-          "recentSupportTouches": 0,
-          "secondarySupportTouches": 0,
-          "zoneTolerance": 0.2764285714285709,
-          "aboveAllConfirmedResistance": false,
-          "belowAllConfirmedSupport": true
-        },
-        "volume": {
-          "lastVolume": 464686.31,
-          "average20": 491682.89099999995,
-          "ratio": 0.9450935115006881
-        }
-      }
+        "lastClosedTs": 1788350400000,
+        "lastClose": 97.63,
+        "ma7": 98.74,
+        "ma25": 99.9172,
+        "ma60": 101.6705,
+        "maState": "bearish",
+        "structure": "LH_LL",
+        "support": 97.31,
+        "resistance": 101.17,
+        "volumeRatio": 0.945094
+      },
+      "updatedAt": "2026-09-02T13:25:15.586Z",
+      "cacheAgeMinutes": 9.997,
+      "sourceState": "carried_forward"
     },
-    "UNI-USDT-SWAP": {
-      "price": 5.797,
-      "high24h": 6.378,
-      "low24h": 5.568,
-      "turnoverUsdEstimate": 371183875.18299997,
-      "openInterestUsdEstimate": 39875858.4,
-      "freshness": {
-        "status": "fresh",
-        "tickerTs": 1788355865120,
-        "tickerAgeMs": 10373,
-        "oiTs": 1788355865759,
-        "oiAgeMs": 9734,
-        "lastClosed15mTs": 1788354900000,
-        "lastClosed1hTs": 1788350400000,
-        "fallbackAgeMinutes": 0
-      },
-      "fetch15mOk": true,
-      "fetch1hOk": true,
-      "retryCount15m": 0,
-      "retryCount1h": 0,
-      "partial": false,
+    "BTC-USDT-SWAP": {
+      "symbol": "BTC-USDT-SWAP",
+      "status": "fresh",
       "stale": false,
       "staleReason": null,
-      "lastSuccessfulAt": "2026-09-02T13:31:15.493Z",
-      "timeframeStatus": {
-        "15m": {
-          "fetchOk": true,
-          "usedFallback": false,
-          "fallbackAgeMinutes": 0,
-          "realtimeWeight": 1,
-          "status": "fresh"
-        },
-        "1h": {
-          "fetchOk": true,
-          "usedFallback": false,
-          "fallbackAgeMinutes": 0,
-          "realtimeWeight": 1,
-          "status": "fresh"
-        }
-      },
+      "price": 76792.5,
+      "high24h": 78388,
+      "low24h": 76204.5,
+      "open24h": 77947.1,
+      "tickerTs": 1788355813865,
       "timeframe15m": {
-        "ma": {
-          "ma7": 5.8161428571428555,
-          "ma25": 6.033399999999998,
-          "ma60": 6.02526666666667,
-          "slope5": {
-            "ma7": -0.07085714285714317,
-            "ma25": -0.0868000000000011,
-            "ma60": 0.005583333333334828
-          },
-          "order": "mixed",
-          "direction": "mixed"
-        },
-        "structure": {
-          "state": "range",
-          "confidence": "medium",
-          "previousHigh": 6.064,
-          "recentHigh": 5.888,
-          "previousLow": 5.68,
-          "recentLow": 5.775,
-          "atr": 0.09907142857142848,
-          "pivotHighCount": 6,
-          "pivotLowCount": 6,
-          "lastClose": 5.797,
-          "lastCloseTs": 1788354900000
-        },
-        "levels": {
-          "recentResistance": 5.888,
-          "secondaryResistance": 5.936,
-          "recentSupport": 5.775,
-          "secondarySupport": 5.668722222222222,
-          "recentResistanceTouches": 1,
-          "secondaryResistanceTouches": 1,
-          "recentSupportTouches": 1,
-          "secondarySupportTouches": 2,
-          "zoneTolerance": 0.02972142857142854,
-          "aboveAllConfirmedResistance": false,
-          "belowAllConfirmedSupport": false
-        },
-        "volume": {
-          "lastVolume": 365862,
-          "average20": 1108149.8,
-          "ratio": 0.33015572443364605
-        }
+        "lastClosedTs": 1788354900000,
+        "lastClose": 76837,
+        "ma7": 76779.928571,
+        "ma25": 76864.944,
+        "ma60": 77166.218333,
+        "maState": "bearish",
+        "structure": "range",
+        "support": 76204.5,
+        "resistance": 77225.2,
+        "volumeRatio": 0.534351
       },
       "timeframe1h": {
-        "ma": {
-          "ma7": 6.067571428571428,
-          "ma25": 5.8989999999999965,
-          "ma60": 5.540583333333331,
-          "slope5": {
-            "ma7": -0.07114285714285806,
-            "ma25": 0.04227999999999987,
-            "ma60": 0.0631666666666657
-          },
-          "order": "bullish",
-          "direction": "mixed"
-        },
-        "structure": {
-          "state": "higher_highs_higher_lows",
-          "confidence": "high",
-          "previousHigh": 5.819,
-          "recentHigh": 6.378,
-          "previousLow": 5.568,
-          "recentLow": 5.774,
-          "atr": 0.19564285714285715,
-          "pivotHighCount": 7,
-          "pivotLowCount": 8,
-          "lastClose": 5.815,
-          "lastCloseTs": 1788350400000
-        },
-        "levels": {
-          "recentResistance": 5.819,
-          "secondaryResistance": 5.948542857142856,
-          "recentSupport": 5.774,
-          "secondarySupport": 5.6368285714285715,
-          "recentResistanceTouches": 1,
-          "secondaryResistanceTouches": 2,
-          "recentSupportTouches": 1,
-          "secondarySupportTouches": 2,
-          "zoneTolerance": 0.058692857142857144,
-          "aboveAllConfirmedResistance": false,
-          "belowAllConfirmedSupport": false
-        },
-        "volume": {
-          "lastVolume": 4178640,
-          "average20": 2722185.55,
-          "ratio": 1.5350312913092938
-        }
-      }
-    },
-    "TRUMP-USDT-SWAP": {
-      "price": 2.204,
-      "high24h": 2.391,
-      "low24h": 2.163,
-      "turnoverUsdEstimate": 224283971.89080003,
-      "openInterestUsdEstimate": 25202021.2732,
-      "freshness": {
-        "status": "fresh",
-        "tickerTs": 1788355865076,
-        "tickerAgeMs": 13802,
-        "oiTs": 1788355865759,
-        "oiAgeMs": 13119,
-        "lastClosed15mTs": 1788354900000,
-        "lastClosed1hTs": 1788350400000,
-        "fallbackAgeMinutes": 0
+        "lastClosedTs": 1788350400000,
+        "lastClose": 76576.3,
+        "ma7": 76944.571429,
+        "ma25": 77328.848,
+        "ma60": 77926.85,
+        "maState": "bearish",
+        "structure": "LH_LL",
+        "support": 76204.5,
+        "resistance": 77770.8,
+        "volumeRatio": 1.100821
       },
-      "fetch15mOk": true,
-      "fetch1hOk": true,
-      "retryCount15m": 0,
-      "retryCount1h": 0,
-      "partial": false,
-      "stale": false,
-      "staleReason": null,
-      "lastSuccessfulAt": "2026-09-02T13:31:18.878Z",
-      "timeframeStatus": {
-        "15m": {
-          "fetchOk": true,
-          "usedFallback": false,
-          "fallbackAgeMinutes": 0,
-          "realtimeWeight": 1,
-          "status": "fresh"
-        },
-        "1h": {
-          "fetchOk": true,
-          "usedFallback": false,
-          "fallbackAgeMinutes": 0,
-          "realtimeWeight": 1,
-          "status": "fresh"
-        }
-      },
-      "timeframe15m": {
-        "ma": {
-          "ma7": 2.195142857142859,
-          "ma25": 2.213920000000001,
-          "ma60": 2.2429166666666656,
-          "slope5": {
-            "ma7": 0.0008571428571428896,
-            "ma25": -0.011879999999999669,
-            "ma60": -0.005916666666665904
-          },
-          "order": "bearish",
-          "direction": "mixed"
-        },
-        "structure": {
-          "state": "range",
-          "confidence": "medium",
-          "previousHigh": 2.256,
-          "recentHigh": 2.223,
-          "previousLow": 2.163,
-          "recentLow": 2.177,
-          "atr": 0.0197142857142857,
-          "pivotHighCount": 6,
-          "pivotLowCount": 9,
-          "lastClose": 2.203,
-          "lastCloseTs": 1788354900000
-        },
-        "levels": {
-          "recentResistance": 2.2244615384615383,
-          "secondaryResistance": 2.259063829787234,
-          "recentSupport": 2.189,
-          "secondarySupport": 2.177,
-          "recentResistanceTouches": 2,
-          "secondaryResistanceTouches": 3,
-          "recentSupportTouches": 1,
-          "secondarySupportTouches": 1,
-          "zoneTolerance": 0.0059142857142857105,
-          "aboveAllConfirmedResistance": false,
-          "belowAllConfirmedSupport": false
-        },
-        "volume": {
-          "lastVolume": 4314187,
-          "average20": 12069278.65,
-          "ratio": 0.35745193437886197
-        }
-      },
-      "timeframe1h": {
-        "ma": {
-          "ma7": 2.2170000000000014,
-          "ma25": 2.2733200000000013,
-          "ma60": 2.3415333333333335,
-          "slope5": {
-            "ma7": -0.04585714285714282,
-            "ma25": -0.03191999999999995,
-            "ma60": -0.018899999999999473
-          },
-          "order": "bearish",
-          "direction": "down"
-        },
-        "structure": {
-          "state": "lower_highs_lower_lows",
-          "confidence": "high",
-          "previousHigh": 2.391,
-          "recentHigh": 2.315,
-          "previousLow": 2.207,
-          "recentLow": 2.163,
-          "atr": 0.04199999999999991,
-          "pivotHighCount": 8,
-          "pivotLowCount": 9,
-          "lastClose": 2.18,
-          "lastCloseTs": 1788350400000
-        },
-        "levels": {
-          "recentResistance": 2.315,
-          "secondaryResistance": 2.391,
-          "recentSupport": 2.163,
-          "secondarySupport": null,
-          "recentResistanceTouches": 1,
-          "secondaryResistanceTouches": 1,
-          "recentSupportTouches": 1,
-          "secondarySupportTouches": 0,
-          "zoneTolerance": 0.012599999999999974,
-          "aboveAllConfirmedResistance": false,
-          "belowAllConfirmedSupport": false
-        },
-        "volume": {
-          "lastVolume": 41474168,
-          "average20": 42137428.1,
-          "ratio": 0.984259596992347
-        }
-      }
-    },
-    "FIL-USDT-SWAP": {
-      "price": 0.7661,
-      "high24h": 0.8107,
-      "low24h": 0.6942,
-      "turnoverUsdEstimate": 217300682.25673997,
-      "openInterestUsdEstimate": 15175761.63046,
-      "freshness": {
-        "status": "fresh",
-        "tickerTs": 1788355865077,
-        "tickerAgeMs": 15487,
-        "oiTs": 1788355865759,
-        "oiAgeMs": 14805,
-        "lastClosed15mTs": 1788354900000,
-        "lastClosed1hTs": 1788350400000,
-        "fallbackAgeMinutes": 0
-      },
-      "fetch15mOk": true,
-      "fetch1hOk": true,
-      "retryCount15m": 0,
-      "retryCount1h": 0,
-      "partial": false,
-      "stale": false,
-      "staleReason": null,
-      "lastSuccessfulAt": "2026-09-02T13:31:20.564Z",
-      "timeframeStatus": {
-        "15m": {
-          "fetchOk": true,
-          "usedFallback": false,
-          "fallbackAgeMinutes": 0,
-          "realtimeWeight": 1,
-          "status": "fresh"
-        },
-        "1h": {
-          "fetchOk": true,
-          "usedFallback": false,
-          "fallbackAgeMinutes": 0,
-          "realtimeWeight": 1,
-          "status": "fresh"
-        }
-      },
-      "timeframe15m": {
-        "ma": {
-          "ma7": 0.7705857142857141,
-          "ma25": 0.7826919999999993,
-          "ma60": 0.7824883333333339,
-          "slope5": {
-            "ma7": -0.003914285714285648,
-            "ma25": -0.003920000000000146,
-            "ma60": 0.00023333333333330764
-          },
-          "order": "mixed",
-          "direction": "mixed"
-        },
-        "structure": {
-          "state": "lower_highs_lower_lows",
-          "confidence": "high",
-          "previousHigh": 0.7971,
-          "recentHigh": 0.7758,
-          "previousLow": 0.7673,
-          "recentLow": 0.7602,
-          "atr": 0.008535714285714304,
-          "pivotHighCount": 8,
-          "pivotLowCount": 9,
-          "lastClose": 0.765,
-          "lastCloseTs": 1788354900000
-        },
-        "levels": {
-          "recentResistance": 0.7758,
-          "secondaryResistance": 0.7811,
-          "recentSupport": 0.7634,
-          "secondarySupport": 0.7596129032258064,
-          "recentResistanceTouches": 1,
-          "secondaryResistanceTouches": 1,
-          "recentSupportTouches": 1,
-          "secondarySupportTouches": 2,
-          "zoneTolerance": 0.002560714285714291,
-          "aboveAllConfirmedResistance": false,
-          "belowAllConfirmedSupport": false
-        },
-        "volume": {
-          "lastVolume": 18089458,
-          "average20": 25182649.95,
-          "ratio": 0.7183302009882403
-        }
-      },
-      "timeframe1h": {
-        "ma": {
-          "ma7": 0.7858142857142855,
-          "ma25": 0.7665839999999998,
-          "ma60": 0.7163299999999998,
-          "slope5": {
-            "ma7": -0.005371428571428805,
-            "ma25": 0.016747999999999985,
-            "ma60": 0.00893666666666637
-          },
-          "order": "bullish",
-          "direction": "mixed"
-        },
-        "structure": {
-          "state": "higher_highs_higher_lows",
-          "confidence": "high",
-          "previousHigh": 0.7992,
-          "recentHigh": 0.8107,
-          "previousLow": 0.6884,
-          "recentLow": 0.7512,
-          "atr": 0.02026428571428571,
-          "pivotHighCount": 6,
-          "pivotLowCount": 5,
-          "lastClose": 0.7712,
-          "lastCloseTs": 1788350400000
-        },
-        "levels": {
-          "recentResistance": 0.7992,
-          "secondaryResistance": 0.8107,
-          "recentSupport": 0.7512,
-          "secondarySupport": 0.6884,
-          "recentResistanceTouches": 1,
-          "secondaryResistanceTouches": 1,
-          "recentSupportTouches": 1,
-          "secondarySupportTouches": 1,
-          "zoneTolerance": 0.006079285714285713,
-          "aboveAllConfirmedResistance": false,
-          "belowAllConfirmedSupport": false
-        },
-        "volume": {
-          "lastVolume": 84681687,
-          "average20": 131353557.1,
-          "ratio": 0.6446851449598087
-        }
-      }
-    },
-    "ZEC-USDT-SWAP": {
-      "price": 801.98,
-      "high24h": 864.17,
-      "low24h": 788.2,
-      "turnoverUsdEstimate": 598925432.7112,
-      "openInterestUsdEstimate": 104707566.621,
-      "freshness": {
-        "status": "fresh",
-        "tickerTs": 1788355865074,
-        "tickerAgeMs": 12111,
-        "oiTs": 1788355865759,
-        "oiAgeMs": 11426,
-        "lastClosed15mTs": 1788354900000,
-        "lastClosed1hTs": 1788350400000,
-        "fallbackAgeMinutes": 0
-      },
-      "fetch15mOk": true,
-      "fetch1hOk": true,
-      "retryCount15m": 0,
-      "retryCount1h": 0,
-      "partial": false,
-      "stale": false,
-      "staleReason": null,
-      "lastSuccessfulAt": "2026-09-02T13:31:17.185Z",
-      "timeframeStatus": {
-        "15m": {
-          "fetchOk": true,
-          "usedFallback": false,
-          "fallbackAgeMinutes": 0,
-          "realtimeWeight": 1,
-          "status": "fresh"
-        },
-        "1h": {
-          "fetchOk": true,
-          "usedFallback": false,
-          "fallbackAgeMinutes": 0,
-          "realtimeWeight": 1,
-          "status": "fresh"
-        }
-      },
-      "timeframe15m": {
-        "ma": {
-          "ma7": 798.5600000000003,
-          "ma25": 810.3004000000002,
-          "ma60": 823.1768333333332,
-          "slope5": {
-            "ma7": 1.4657142857142844,
-            "ma25": -7.27679999999998,
-            "ma60": -1.9860000000001037
-          },
-          "order": "bearish",
-          "direction": "mixed"
-        },
-        "structure": {
-          "state": "range",
-          "confidence": "medium",
-          "previousHigh": 840,
-          "recentHigh": 805,
-          "previousLow": 788.2,
-          "recentLow": 792.34,
-          "atr": 7.3799999999999875,
-          "pivotHighCount": 5,
-          "pivotLowCount": 9,
-          "lastClose": 800.81,
-          "lastCloseTs": 1788354900000
-        },
-        "levels": {
-          "recentResistance": 805,
-          "secondaryResistance": 830.8944444444444,
-          "recentSupport": 792.34,
-          "secondarySupport": 788.2,
-          "recentResistanceTouches": 1,
-          "secondaryResistanceTouches": 2,
-          "recentSupportTouches": 1,
-          "secondarySupportTouches": 1,
-          "zoneTolerance": 2.213999999999996,
-          "aboveAllConfirmedResistance": false,
-          "belowAllConfirmedSupport": false
-        },
-        "volume": {
-          "lastVolume": 469167,
-          "average20": 1169075.95,
-          "ratio": 0.4013143885134238
-        }
-      },
-      "timeframe1h": {
-        "ma": {
-          "ma7": 813.691428571428,
-          "ma25": 829.2556000000001,
-          "ma60": 836.2708333333335,
-          "slope5": {
-            "ma7": -19.974285714285656,
-            "ma25": -8.489999999999895,
-            "ma60": -3.8524999999999636
-          },
-          "order": "bearish",
-          "direction": "down"
-        },
-        "structure": {
-          "state": "range",
-          "confidence": "medium",
-          "previousHigh": 833.93,
-          "recentHigh": 842.49,
-          "previousLow": 836.02,
-          "recentLow": 818.02,
-          "atr": 12.598571428571413,
-          "pivotHighCount": 6,
-          "pivotLowCount": 6,
-          "lastClose": 794.74,
-          "lastCloseTs": 1788350400000
-        },
-        "levels": {
-          "recentResistance": 833.93,
-          "secondaryResistance": 842.49,
-          "recentSupport": null,
-          "secondarySupport": null,
-          "recentResistanceTouches": 1,
-          "secondaryResistanceTouches": 1,
-          "recentSupportTouches": 0,
-          "secondarySupportTouches": 0,
-          "zoneTolerance": 3.7795714285714235,
-          "aboveAllConfirmedResistance": false,
-          "belowAllConfirmedSupport": true
-        },
-        "volume": {
-          "lastVolume": 4304469,
-          "average20": 2873194.95,
-          "ratio": 1.4981472106513343
-        }
-      }
-    },
-    "ENA-USDT-SWAP": {
-      "price": 0.14966,
-      "high24h": 0.1648,
-      "low24h": 0.14837,
-      "turnoverUsdEstimate": 89130108.7824,
-      "openInterestUsdEstimate": 13425881.8344,
-      "freshness": {
-        "status": "fresh",
-        "tickerTs": 1788355865107,
-        "tickerAgeMs": 17147,
-        "oiTs": 1788355865759,
-        "oiAgeMs": 16495,
-        "lastClosed15mTs": 1788354900000,
-        "lastClosed1hTs": 1788350400000,
-        "fallbackAgeMinutes": 0
-      },
-      "fetch15mOk": true,
-      "fetch1hOk": true,
-      "retryCount15m": 0,
-      "retryCount1h": 0,
-      "partial": false,
-      "stale": false,
-      "staleReason": null,
-      "lastSuccessfulAt": "2026-09-02T13:31:22.254Z",
-      "timeframeStatus": {
-        "15m": {
-          "fetchOk": true,
-          "usedFallback": false,
-          "fallbackAgeMinutes": 0,
-          "realtimeWeight": 1,
-          "status": "fresh"
-        },
-        "1h": {
-          "fetchOk": true,
-          "usedFallback": false,
-          "fallbackAgeMinutes": 0,
-          "realtimeWeight": 1,
-          "status": "fresh"
-        }
-      },
-      "timeframe15m": {
-        "ma": {
-          "ma7": 0.15058571428571432,
-          "ma25": 0.15369440000000012,
-          "ma60": 0.15635333333333315,
-          "slope5": {
-            "ma7": -0.0010257142857143242,
-            "ma25": -0.001341999999999982,
-            "ma60": -0.0005946666666666878
-          },
-          "order": "bearish",
-          "direction": "down"
-        },
-        "structure": {
-          "state": "range",
-          "confidence": "medium",
-          "previousHigh": 0.15229,
-          "recentHigh": 0.15289,
-          "previousLow": 0.14937,
-          "recentLow": 0.14837,
-          "atr": 0.001712857142857149,
-          "pivotHighCount": 9,
-          "pivotLowCount": 10,
-          "lastClose": 0.14977,
-          "lastCloseTs": 1788354900000
-        },
-        "levels": {
-          "recentResistance": 0.15229,
-          "secondaryResistance": 0.15289,
-          "recentSupport": 0.14937,
-          "secondarySupport": 0.14837,
-          "recentResistanceTouches": 1,
-          "secondaryResistanceTouches": 1,
-          "recentSupportTouches": 1,
-          "secondarySupportTouches": 1,
-          "zoneTolerance": 0.0005138571428571447,
-          "aboveAllConfirmedResistance": false,
-          "belowAllConfirmedSupport": false
-        },
-        "volume": {
-          "lastVolume": 514254,
-          "average20": 735165.05,
-          "ratio": 0.6995082260779398
-        }
-      },
-      "timeframe1h": {
-        "ma": {
-          "ma7": 0.15375428571428568,
-          "ma25": 0.1577392000000001,
-          "ma60": 0.15353783333333332,
-          "slope5": {
-            "ma7": -0.004518571428571427,
-            "ma25": -0.0005239999999999689,
-            "ma60": -0.00013016666666670895
-          },
-          "order": "mixed",
-          "direction": "down"
-        },
-        "structure": {
-          "state": "range",
-          "confidence": "medium",
-          "previousHigh": 0.16231,
-          "recentHigh": 0.16039,
-          "previousLow": 0.15358,
-          "recentLow": 0.15509,
-          "atr": 0.003917142857142861,
-          "pivotHighCount": 9,
-          "pivotLowCount": 9,
-          "lastClose": 0.14885,
-          "lastCloseTs": 1788350400000
-        },
-        "levels": {
-          "recentResistance": 0.15172,
-          "secondaryResistance": 0.15330642857142857,
-          "recentSupport": 0.14822161764705882,
-          "secondarySupport": 0.1456525,
-          "recentResistanceTouches": 1,
-          "secondaryResistanceTouches": 4,
-          "recentSupportTouches": 4,
-          "secondarySupportTouches": 3,
-          "zoneTolerance": 0.0011751428571428583,
-          "aboveAllConfirmedResistance": false,
-          "belowAllConfirmedSupport": false
-        },
-        "volume": {
-          "lastVolume": 3057227,
-          "average20": 2258214.45,
-          "ratio": 1.3538249212779592
-        }
-      }
+      "updatedAt": "2026-09-02T13:30:17.030Z",
+      "cacheAgeMinutes": 4.973,
+      "sourceState": "carried_forward"
     }
   }
 }
