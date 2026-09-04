@@ -7,10 +7,10 @@
   "binanceStatus": "ok",
   "binanceCircuitBroken": false,
   "binanceLastError": null,
-  "binanceAttemptedAt": "2026-09-04T02:01:12.815Z",
-  "runId": "1788487272654-0702eedf-5cf5-4934-a802-270963f32925",
-  "startedAt": "2026-09-04T02:01:12.654Z",
-  "updatedAt": "2026-09-04T02:01:33.204Z",
+  "binanceAttemptedAt": "2026-09-04T02:10:20.296Z",
+  "runId": "1788487819825-47300f78-a4bb-46b2-b821-3c1468dcb44f",
+  "startedAt": "2026-09-04T02:10:19.825Z",
+  "updatedAt": "2026-09-04T02:10:46.558Z",
   "pool": {
     "benchmarkSymbols": [
       "BTC-USDT-SWAP",
@@ -72,7 +72,7 @@
       }
     },
     "scheduler": {
-      "mode": "layered_core_first",
+      "mode": "layered_core_first_with_anomaly_fast_lane",
       "fixedFreshSymbols": [
         "BTC-USDT-SWAP",
         "ETH-USDT-SWAP",
@@ -81,30 +81,154 @@
       "dynamicCandidates": [
         "ZEC-USDT-SWAP",
         "UNI-USDT-SWAP",
-        "TRUMP-USDT-SWAP",
         "XRP-USDT-SWAP",
+        "TRUMP-USDT-SWAP",
         "DOGE-USDT-SWAP",
-        "USELESS-USDT-SWAP",
-        "PUMP-USDT-SWAP",
-        "LIT-USDT-SWAP",
         "ARB-USDT-SWAP",
-        "WLD-USDT-SWAP"
+        "PUMP-USDT-SWAP",
+        "USELESS-USDT-SWAP",
+        "HYPE-USDT-SWAP",
+        "LIT-USDT-SWAP"
       ],
       "dynamicFreshTarget": 5,
       "freshDynamicAnalyzedSymbols": [
         "ZEC-USDT-SWAP",
         "UNI-USDT-SWAP",
-        "TRUMP-USDT-SWAP",
         "XRP-USDT-SWAP",
+        "TRUMP-USDT-SWAP",
         "DOGE-USDT-SWAP"
       ],
       "cachedOnlyDynamicCandidates": [
-        "USELESS-USDT-SWAP",
-        "PUMP-USDT-SWAP",
-        "LIT-USDT-SWAP",
         "ARB-USDT-SWAP",
-        "WLD-USDT-SWAP"
+        "PUMP-USDT-SWAP",
+        "USELESS-USDT-SWAP",
+        "HYPE-USDT-SWAP",
+        "LIT-USDT-SWAP"
       ],
+      "anomalyFastLane": {
+        "enabled": true,
+        "maxRecheckSymbols": 4,
+        "candidates": [
+          "HYPE-USDT-SWAP",
+          "ENA-USDT-SWAP",
+          "ARB-USDT-SWAP",
+          "PUMP-USDT-SWAP"
+        ],
+        "rechecks": [
+          {
+            "symbol": "HYPE-USDT-SWAP",
+            "ok": true,
+            "promoted": false,
+            "direction": "mixed",
+            "confirmedSignals": 0,
+            "strength": 0.600274,
+            "latestClosedAt": "2026-09-04T02:09:59.999Z",
+            "price": {
+              "latest": 86.91,
+              "change5mPct": -0.041405,
+              "change10mPct": -0.36342,
+              "significant": false
+            },
+            "taker": {
+              "buySellRatio": 0.976058,
+              "significant": false
+            },
+            "openInterest": {
+              "latest": 4623899.03,
+              "change5mPct": 0.132209,
+              "change10mPct": 0.236855,
+              "significant": false
+            },
+            "reason": "no_multi_field_anomaly"
+          },
+          {
+            "symbol": "ENA-USDT-SWAP",
+            "ok": true,
+            "promoted": false,
+            "direction": "mixed",
+            "confirmedSignals": 0,
+            "strength": 0.563847,
+            "latestClosedAt": "2026-09-04T02:09:59.999Z",
+            "price": {
+              "latest": 0.16775,
+              "change5mPct": 0,
+              "change10mPct": -0.486445,
+              "significant": false
+            },
+            "taker": {
+              "buySellRatio": 0.939402,
+              "significant": false
+            },
+            "openInterest": {
+              "latest": 593488853,
+              "change5mPct": 0.024449,
+              "change10mPct": 0.077403,
+              "significant": false
+            },
+            "reason": "no_multi_field_anomaly"
+          },
+          {
+            "symbol": "ARB-USDT-SWAP",
+            "ok": true,
+            "promoted": false,
+            "direction": "bullish",
+            "confirmedSignals": 1,
+            "strength": 2.373937,
+            "latestClosedAt": "2026-09-04T02:09:59.999Z",
+            "price": {
+              "latest": 0.13711,
+              "change5mPct": 0.102212,
+              "change10mPct": 0.204633,
+              "significant": false
+            },
+            "taker": {
+              "buySellRatio": 1.073857,
+              "significant": false
+            },
+            "openInterest": {
+              "latest": 324953681.7,
+              "change5mPct": 0.192097,
+              "change10mPct": 1.169304,
+              "significant": true
+            },
+            "reason": "no_multi_field_anomaly"
+          },
+          {
+            "symbol": "PUMP-USDT-SWAP",
+            "ok": true,
+            "promoted": false,
+            "direction": "bearish",
+            "confirmedSignals": 1,
+            "strength": 1.537441,
+            "latestClosedAt": "2026-09-04T02:09:59.999Z",
+            "price": {
+              "latest": 0.004157,
+              "change5mPct": -0.287839,
+              "change10mPct": -0.216035,
+              "significant": false
+            },
+            "taker": {
+              "buySellRatio": 0.623533,
+              "significant": true
+            },
+            "openInterest": {
+              "latest": 22020777130,
+              "change5mPct": -0.137006,
+              "change10mPct": -0.249602,
+              "significant": false
+            },
+            "reason": "no_multi_field_anomaly"
+          }
+        ],
+        "promotedSymbols": [],
+        "minimumConfirmingFields": 2,
+        "singleFieldCanPromote": false,
+        "fields": [
+          "price_change_5m_10m",
+          "taker_buy_sell_5m",
+          "open_interest_change_5m_10m"
+        ]
+      },
       "freshDynamicSkippedForBudget": [],
       "coreTimeframeAttempts": 2,
       "dynamicTimeframeAttempts": 1,
@@ -145,12 +269,12 @@
         "binanceAvailable": true,
         "binanceStatus": "ok",
         "binanceLastError": null,
-        "binanceAttemptedAt": "2026-09-04T02:01:12.815Z",
+        "binanceAttemptedAt": "2026-09-04T02:10:20.296Z",
         "dualExchangePreferred": true,
         "singleExchangeAllowed": true,
         "singleExchangeRequiresHigherTurnover": 100000000
       },
-      "stageB": "layered scheduler: BTC/ETH/SOL fresh first; top dynamic candidates fresh; remaining candidates may use <=10m cached 15m/1h MA7/25/60 snapshots",
+      "stageB": "layered scheduler: BTC/ETH/SOL core remains first; cached-only/watch candidates receive bounded price+taker+OI anomaly rechecks; multi-field anomalies may enter the five full fresh 15m/1h slots",
       "bridgeScoreWeights": {
         "marketQuality": 0.65,
         "technicalOpportunity": 0.35,
@@ -184,10 +308,11 @@
     "perSymbolIsolation": true,
     "subrequestBudget": {
       "max": 46,
-      "usedBeforePublish": 25,
+      "usedBeforePublish": 33,
       "githubWriteReserve": 6,
       "stageBSymbolLimit": 13,
       "dynamicFreshAnalysisCount": 5,
+      "anomalyRecheckMaxSymbols": 4,
       "coreTimeframeAttempts": 2,
       "dynamicTimeframeAttempts": 1,
       "okxStageBStartDelayMs": 550,
@@ -206,7 +331,7 @@
       "binanceAvailable": true,
       "binanceStatus": "ok",
       "binanceLastError": null,
-      "binanceAttemptedAt": "2026-09-04T02:01:12.815Z",
+      "binanceAttemptedAt": "2026-09-04T02:10:20.296Z",
       "requireDualExchange": false,
       "effectiveRequireDualExchange": false,
       "singleExchangeMinTurnoverUsd": 100000000,
@@ -244,7 +369,7 @@
       "UNIUSDT"
     ],
     "healthyCount": 6,
-    "generatedAt": "2026-09-04T02:01:33.157Z",
+    "generatedAt": "2026-09-04T02:10:46.448Z",
     "symbols": {
       "BTCUSDT": {
         "symbol": "BTCUSDT",
@@ -253,30 +378,30 @@
         "observedOnly": false,
         "affectsScore": true,
         "openInterest": {
-          "baseAmount": 32920.46939999992,
-          "ts": "1788487286465"
+          "baseAmount": 32924.11489999992,
+          "ts": "1788487839254"
         },
         "activeBuySell": {
-          "buyVolume": 12.0876,
-          "sellVolume": 6.1445,
-          "buySellRatio": 1.9672227195052487,
+          "buyVolume": 71.4761,
+          "sellVolume": 90.0997,
+          "buySellRatio": 0.7933000886795406,
           "ts": "1788487200000"
         },
         "topPositionRatio": {
-          "longRatio": 0.4994,
-          "shortRatio": 0.5006,
-          "longShortRatio": 0.9976,
-          "ts": "1788483600000"
+          "longRatio": 0.4987,
+          "shortRatio": 0.5013,
+          "longShortRatio": 0.9948,
+          "ts": "1788487200000"
         },
         "spotWhaleFlow": {
-          "buyVolume": 69.792128,
-          "sellVolume": 58.079924,
-          "netVolume": 11.712204000000007,
-          "buyRatio": 0.5379,
-          "sellRatio": 0.4479
+          "buyVolume": 68.723919,
+          "sellVolume": 66.16871,
+          "netVolume": 2.5552089999999907,
+          "buyRatio": 0.5034,
+          "sellRatio": 0.485
         },
         "funding": {
-          "rate": 0.00005,
+          "rate": 0.000054,
           "intervalHours": 8,
           "nextUpdate": "1788508800000"
         },
@@ -315,27 +440,27 @@
         "observedOnly": false,
         "affectsScore": true,
         "openInterest": {
-          "baseAmount": 776951.2799999997,
-          "ts": "1788487287775"
+          "baseAmount": 777128.4099999997,
+          "ts": "1788487840556"
         },
         "activeBuySell": {
-          "buyVolume": 9.54,
-          "sellVolume": 141.22,
-          "buySellRatio": 0.06755417079733748,
+          "buyVolume": 634.33,
+          "sellVolume": 1136.2,
+          "buySellRatio": 0.5582907938743179,
           "ts": "1788487200000"
         },
         "topPositionRatio": {
           "longRatio": 0.497,
           "shortRatio": 0.503,
           "longShortRatio": 0.988,
-          "ts": "1788483600000"
+          "ts": "1788487200000"
         },
         "spotWhaleFlow": {
-          "buyVolume": 354.7236,
-          "sellVolume": 602.8621,
-          "netVolume": -248.13850000000008,
-          "buyRatio": 0.3491,
-          "sellRatio": 0.593
+          "buyVolume": 321.3866,
+          "sellVolume": 515.4981,
+          "netVolume": -194.11150000000004,
+          "buyRatio": 0.3621,
+          "sellRatio": 0.5804
         },
         "funding": {
           "rate": 0.0001,
@@ -377,27 +502,27 @@
         "observedOnly": false,
         "affectsScore": true,
         "openInterest": {
-          "baseAmount": 4351614.199999961,
-          "ts": "1788487289081"
+          "baseAmount": 4350230.999999962,
+          "ts": "1788487842362"
         },
         "activeBuySell": {
-          "buyVolume": 336,
-          "sellVolume": 3294.8,
-          "buySellRatio": 0.10197887580429768,
+          "buyVolume": 2341.6,
+          "sellVolume": 4927.5,
+          "buySellRatio": 0.4752105530187722,
           "ts": "1788487200000"
         },
         "topPositionRatio": {
-          "longRatio": 0.4959,
-          "shortRatio": 0.5041,
-          "longShortRatio": 0.9837,
-          "ts": "1788483600000"
+          "longRatio": 0.4958,
+          "shortRatio": 0.5042,
+          "longShortRatio": 0.9833,
+          "ts": "1788487200000"
         },
         "spotWhaleFlow": {
-          "buyVolume": 6303.8003,
-          "sellVolume": 4899.2699,
-          "netVolume": 1404.5303999999996,
-          "buyRatio": 0.5121,
-          "sellRatio": 0.3982
+          "buyVolume": 5241.1428,
+          "sellVolume": 4492.6423,
+          "netVolume": 748.5004999999992,
+          "buyRatio": 0.4956,
+          "sellRatio": 0.425
         },
         "funding": {
           "rate": 0.000076,
@@ -439,27 +564,27 @@
         "observedOnly": false,
         "affectsScore": true,
         "openInterest": {
-          "baseAmount": 105154.32999999917,
-          "ts": "1788487290393"
+          "baseAmount": 105104.07299999916,
+          "ts": "1788487843671"
         },
         "activeBuySell": {
-          "buyVolume": 44.665,
-          "sellVolume": 27.777,
-          "buySellRatio": 1.60798502358066,
+          "buyVolume": 300.089,
+          "sellVolume": 203.17,
+          "buySellRatio": 1.47703401092681,
           "ts": "1788487200000"
         },
         "topPositionRatio": {
-          "longRatio": 0.5013,
-          "shortRatio": 0.4987,
-          "longShortRatio": 1.0052,
-          "ts": "1788483600000"
+          "longRatio": 0.5016,
+          "shortRatio": 0.4984,
+          "longShortRatio": 1.0064,
+          "ts": "1788487200000"
         },
         "spotWhaleFlow": {
-          "buyVolume": 24.581,
-          "sellVolume": 54.977,
-          "netVolume": -30.395999999999997,
-          "buyRatio": 0.2424,
-          "sellRatio": 0.5416
+          "buyVolume": 21.348,
+          "sellVolume": 51.503,
+          "netVolume": -30.155,
+          "buyRatio": 0.2301,
+          "sellRatio": 0.5546
         },
         "funding": {
           "rate": 0.0001,
@@ -501,27 +626,27 @@
         "observedOnly": false,
         "affectsScore": true,
         "openInterest": {
-          "baseAmount": 169639016,
-          "ts": "1788487291699"
+          "baseAmount": 170260210,
+          "ts": "1788487844983"
         },
         "activeBuySell": {
-          "buyVolume": 14886,
-          "sellVolume": 70417,
-          "buySellRatio": 0.21139781586832726,
+          "buyVolume": 766991,
+          "sellVolume": 1581965,
+          "buySellRatio": 0.4848343673848663,
           "ts": "1788487200000"
         },
         "topPositionRatio": {
-          "longRatio": 0.4869,
-          "shortRatio": 0.5131,
-          "longShortRatio": 0.9489,
-          "ts": "1788483600000"
+          "longRatio": 0.4871,
+          "shortRatio": 0.5129,
+          "longShortRatio": 0.9496,
+          "ts": "1788487200000"
         },
         "spotWhaleFlow": {
-          "buyVolume": 595567.1876,
-          "sellVolume": 886319.3192,
-          "netVolume": -290752.1316000001,
-          "buyRatio": 0.3745,
-          "sellRatio": 0.557
+          "buyVolume": 629670.0926,
+          "sellVolume": 883804.0654,
+          "netVolume": -254133.9728,
+          "buyRatio": 0.3889,
+          "sellRatio": 0.5456
         },
         "funding": {
           "rate": 0.0001,
@@ -563,27 +688,27 @@
         "observedOnly": false,
         "affectsScore": true,
         "openInterest": {
-          "baseAmount": 3977222,
-          "ts": "1788487293028"
+          "baseAmount": 3983367,
+          "ts": "1788487846306"
         },
         "activeBuySell": {
-          "buyVolume": 30,
-          "sellVolume": 9664,
-          "buySellRatio": 0.003104304635761589,
+          "buyVolume": 6613,
+          "sellVolume": 36584,
+          "buySellRatio": 0.18076208178438663,
           "ts": "1788487200000"
         },
         "topPositionRatio": {
-          "longRatio": 0.4939,
-          "shortRatio": 0.5061,
-          "longShortRatio": 0.9758,
-          "ts": "1788483600000"
+          "longRatio": 0.4952,
+          "shortRatio": 0.5048,
+          "longShortRatio": 0.9809,
+          "ts": "1788487200000"
         },
         "spotWhaleFlow": {
-          "buyVolume": 26275.7273,
-          "sellVolume": 46589.3819,
-          "netVolume": -20313.6546,
-          "buyRatio": 0.3432,
-          "sellRatio": 0.6082
+          "buyVolume": 21244.437,
+          "sellVolume": 43945.0013,
+          "netVolume": -22700.564300000002,
+          "buyRatio": 0.3086,
+          "sellRatio": 0.6379
         },
         "funding": {
           "rate": 0.0001,
@@ -621,17 +746,17 @@
     },
     "modelScores": {
       "BTCUSDT": {
-        "eligible": true,
-        "opportunityScore": 1,
-        "directionalConsensus": "bullish",
+        "eligible": false,
+        "opportunityScore": null,
+        "directionalConsensus": "insufficient_or_conflicting",
         "independentDirectionalFields": 2,
-        "agreeingDirectionalFields": 2,
-        "effectiveWeight": 0.1,
-        "reason": "multi-field bullish agreement 2/2",
+        "agreeingDirectionalFields": 1,
+        "effectiveWeight": 0,
+        "reason": "requires >=2 agreeing independent fields; observed=2; agreeing=1",
         "fields": [
           {
             "field": "activeBuySell",
-            "signal": 1
+            "signal": -1
           },
           {
             "field": "spotWhaleFlow",
@@ -744,25 +869,25 @@
     {
       "rank": 1,
       "symbol": "XRP-USDT-SWAP",
-      "score": 0.871015,
+      "score": 0.863141,
       "sourceState": "fresh",
       "freshnessFactor": 1,
-      "marketQualityScore": 0.973113,
-      "technicalOpportunityScore": 0.640455,
-      "adjustedTechnicalOpportunityScore": 0.640455,
+      "marketQualityScore": 0.974044,
+      "technicalOpportunityScore": 0.613731,
+      "adjustedTechnicalOpportunityScore": 0.613731,
       "liquidityScore": 0.985507,
       "oiScore": 0.981884,
-      "volatilityScore": 0.76087,
-      "turnoverUsdEstimate": 883409085.7199999,
-      "binanceTurnoverUsdEstimate": 1614027088.9335,
+      "volatilityScore": 0.768116,
+      "turnoverUsdEstimate": 884739324.9599999,
+      "binanceTurnoverUsdEstimate": 1614332923.656,
       "crossExchangeConfirmed": true,
-      "crossExchangePriceDiffPct": 0,
+      "crossExchangePriceDiffPct": 0.000069,
       "crossExchangeScore": 1,
-      "openInterestUsdEstimate": 110047821.50249998,
-      "rangePct24h": 0.0981780629932876,
-      "binanceRangePct24h": 0.09807678137204333,
-      "selectionReason": "1hStructure=higher_highs_higher_lows; 15mStructure=lower_highs_lower_lows; structureAgreement=0.15; 1hMA=neutral; 15mMA=neutral; maAgreement=0.55; structureMA=0.5; volumeParticipation=0.683725; keyLevelProximity=0.978963; discoveryMode=dual_exchange; dualExchange=true; priceDiffPct=0; sourceState=fresh; bitget=multi-field bearish agreement 3/3",
-      "preBitgetScore": 0.856683,
+      "openInterestUsdEstimate": 108745875.83859996,
+      "rangePct24h": 0.0981273960483633,
+      "binanceRangePct24h": 0.09827955401314331,
+      "selectionReason": "1hStructure=higher_highs_higher_lows; 15mStructure=lower_highs_lower_lows; structureAgreement=0.15; 1hMA=neutral; 15mMA=neutral; maAgreement=0.55; structureMA=0.5; volumeParticipation=0.683725; keyLevelProximity=0.711726; discoveryMode=dual_exchange; dualExchange=true; priceDiffPct=0.000069; sourceState=fresh; bitget=multi-field bearish agreement 3/3",
+      "preBitgetScore": 0.847934,
       "bitgetModel": {
         "eligible": true,
         "opportunityScore": 1,
@@ -790,25 +915,25 @@
     {
       "rank": 2,
       "symbol": "ZEC-USDT-SWAP",
-      "score": 0.862751,
+      "score": 0.862655,
       "sourceState": "fresh",
       "freshnessFactor": 1,
-      "marketQualityScore": 0.991219,
-      "technicalOpportunityScore": 0.624169,
-      "adjustedTechnicalOpportunityScore": 0.624169,
+      "marketQualityScore": 0.98935,
+      "technicalOpportunityScore": 0.627364,
+      "adjustedTechnicalOpportunityScore": 0.627364,
       "liquidityScore": 0.98913,
       "oiScore": 0.98913,
       "volatilityScore": 0.956522,
-      "turnoverUsdEstimate": 1244519330.6542,
-      "binanceTurnoverUsdEstimate": 2256298237.37,
+      "turnoverUsdEstimate": 1241430883.2822,
+      "binanceTurnoverUsdEstimate": 2258140450.39,
       "crossExchangeConfirmed": true,
-      "crossExchangePriceDiffPct": 0.000191,
+      "crossExchangePriceDiffPct": 0.000565,
       "crossExchangeScore": 1,
-      "openInterestUsdEstimate": 152137207.741,
-      "rangePct24h": 0.2051480335837384,
-      "binanceRangePct24h": 0.2049094814360234,
-      "selectionReason": "1hStructure=higher_highs_higher_lows; 15mStructure=lower_highs_lower_lows; structureAgreement=0.15; 1hMA=bullish; 15mMA=neutral; maAgreement=0.55; structureMA=0.8; volumeParticipation=0.392162; keyLevelProximity=0.953449; discoveryMode=dual_exchange; dualExchange=true; priceDiffPct=0.000191; sourceState=fresh; bitget=requires >=2 agreeing independent fields; observed=2; agreeing=1",
-      "preBitgetScore": 0.862751,
+      "openInterestUsdEstimate": 151927702.1757,
+      "rangePct24h": 0.20468824631664034,
+      "binanceRangePct24h": 0.20477627318221966,
+      "selectionReason": "1hStructure=higher_highs_higher_lows; 15mStructure=lower_highs_lower_lows; structureAgreement=0.15; 1hMA=bullish; 15mMA=neutral; maAgreement=0.55; structureMA=0.8; volumeParticipation=0.392162; keyLevelProximity=0.985401; discoveryMode=dual_exchange; dualExchange=true; priceDiffPct=0.000565; sourceState=fresh; bitget=requires >=2 agreeing independent fields; observed=2; agreeing=1",
+      "preBitgetScore": 0.862655,
       "bitgetModel": {
         "eligible": false,
         "opportunityScore": null,
@@ -832,25 +957,25 @@
     {
       "rank": 3,
       "symbol": "UNI-USDT-SWAP",
-      "score": 0.860133,
+      "score": 0.861059,
       "sourceState": "fresh",
       "freshnessFactor": 1,
-      "marketQualityScore": 0.974084,
+      "marketQualityScore": 0.975667,
       "technicalOpportunityScore": 0.604107,
       "adjustedTechnicalOpportunityScore": 0.604107,
       "liquidityScore": 0.967391,
       "oiScore": 0.971014,
       "volatilityScore": 0.90942,
-      "turnoverUsdEstimate": 265463774.38000003,
-      "binanceTurnoverUsdEstimate": 485300590.642,
+      "turnoverUsdEstimate": 264767311.291,
+      "binanceTurnoverUsdEstimate": 485108417.992,
       "crossExchangeConfirmed": true,
-      "crossExchangePriceDiffPct": 0.000792,
+      "crossExchangePriceDiffPct": 0.000476,
       "crossExchangeScore": 1,
-      "openInterestUsdEstimate": 41434660.02,
-      "rangePct24h": 0.16280295047418328,
-      "binanceRangePct24h": 0.15739603439199865,
-      "selectionReason": "1hStructure=higher_highs_higher_lows; 15mStructure=lower_highs_lower_lows; structureAgreement=0.15; 1hMA=bullish; 15mMA=neutral; maAgreement=0.55; structureMA=0.8; volumeParticipation=0.228819; keyLevelProximity=0.997843; discoveryMode=dual_exchange; dualExchange=true; priceDiffPct=0.000792; sourceState=fresh; bitget=multi-field bearish agreement 2/2",
-      "preBitgetScore": 0.844592,
+      "openInterestUsdEstimate": 41420683.536,
+      "rangePct24h": 0.16127348643006256,
+      "binanceRangePct24h": 0.15608143379154346,
+      "selectionReason": "1hStructure=higher_highs_higher_lows; 15mStructure=lower_highs_lower_lows; structureAgreement=0.15; 1hMA=bullish; 15mMA=neutral; maAgreement=0.55; structureMA=0.8; volumeParticipation=0.228819; keyLevelProximity=0.997843; discoveryMode=dual_exchange; dualExchange=true; priceDiffPct=0.000476; sourceState=fresh; bitget=multi-field bearish agreement 2/2",
+      "preBitgetScore": 0.845621,
       "bitgetModel": {
         "eligible": true,
         "opportunityScore": 1,
@@ -874,25 +999,25 @@
     {
       "rank": 4,
       "symbol": "TRUMP-USDT-SWAP",
-      "score": 0.835486,
+      "score": 0.833403,
       "sourceState": "fresh",
       "freshnessFactor": 1,
-      "marketQualityScore": 0.973772,
-      "technicalOpportunityScore": 0.578669,
-      "adjustedTechnicalOpportunityScore": 0.578669,
+      "marketQualityScore": 0.970234,
+      "technicalOpportunityScore": 0.579288,
+      "adjustedTechnicalOpportunityScore": 0.579288,
       "liquidityScore": 0.978261,
-      "oiScore": 0.949275,
+      "oiScore": 0.952899,
       "volatilityScore": 0.887681,
-      "turnoverUsdEstimate": 382939427.826,
-      "binanceTurnoverUsdEstimate": 339993062.53694,
+      "turnoverUsdEstimate": 382068237.7273,
+      "binanceTurnoverUsdEstimate": 339868363.30001,
       "crossExchangeConfirmed": true,
-      "crossExchangePriceDiffPct": 0,
+      "crossExchangePriceDiffPct": 0.000853,
       "crossExchangeScore": 1,
-      "openInterestUsdEstimate": 28827909.4122,
-      "rangePct24h": 0.14477812640071716,
-      "binanceRangePct24h": 0.14202508960573462,
-      "selectionReason": "1hStructure=higher_highs_higher_lows; 15mStructure=lower_highs_lower_lows; structureAgreement=0.15; 1hMA=neutral; 15mMA=neutral; maAgreement=0.55; structureMA=0.5; volumeParticipation=0.385758; keyLevelProximity=0.80805; discoveryMode=dual_exchange; dualExchange=true; priceDiffPct=0; sourceState=fresh; bitget=Bitget evidence unavailable",
-      "preBitgetScore": 0.835486,
+      "openInterestUsdEstimate": 28937411.2404,
+      "rangePct24h": 0.14471326164874548,
+      "binanceRangePct24h": 0.14240790655884983,
+      "selectionReason": "1hStructure=higher_highs_higher_lows; 15mStructure=lower_highs_lower_lows; structureAgreement=0.15; 1hMA=neutral; 15mMA=neutral; maAgreement=0.55; structureMA=0.5; volumeParticipation=0.385758; keyLevelProximity=0.814241; discoveryMode=dual_exchange; dualExchange=true; priceDiffPct=0.000853; sourceState=fresh; bitget=Bitget evidence unavailable",
+      "preBitgetScore": 0.833403,
       "bitgetModel": {
         "eligible": false,
         "opportunityScore": null,
@@ -906,25 +1031,25 @@
     {
       "rank": 5,
       "symbol": "DOGE-USDT-SWAP",
-      "score": 0.823175,
+      "score": 0.821868,
       "sourceState": "fresh",
       "freshnessFactor": 1,
-      "marketQualityScore": 0.965106,
-      "technicalOpportunityScore": 0.559588,
-      "adjustedTechnicalOpportunityScore": 0.559588,
+      "marketQualityScore": 0.965743,
+      "technicalOpportunityScore": 0.554672,
+      "adjustedTechnicalOpportunityScore": 0.554672,
       "liquidityScore": 0.974638,
       "oiScore": 0.978261,
-      "volatilityScore": 0.753623,
-      "turnoverUsdEstimate": 376654681.152,
-      "binanceTurnoverUsdEstimate": 642330772.52106,
+      "volatilityScore": 0.757246,
+      "turnoverUsdEstimate": 375949056.30420005,
+      "binanceTurnoverUsdEstimate": 642294247.58987,
       "crossExchangeConfirmed": true,
       "crossExchangePriceDiffPct": 0.00023,
       "crossExchangeScore": 1,
-      "openInterestUsdEstimate": 90387974.63220002,
-      "rangePct24h": 0.0967506389193136,
-      "binanceRangePct24h": 0.0967663505956722,
-      "selectionReason": "1hStructure=higher_highs_higher_lows; 15mStructure=lower_highs_lower_lows; structureAgreement=0.15; 1hMA=neutral; 15mMA=neutral; maAgreement=0.55; structureMA=0.5; volumeParticipation=0.278177; keyLevelProximity=0.778616; discoveryMode=dual_exchange; dualExchange=true; priceDiffPct=0.00023; sourceState=fresh; bitget=Bitget evidence unavailable",
-      "preBitgetScore": 0.823175,
+      "openInterestUsdEstimate": 90196486.83,
+      "rangePct24h": 0.09622871046228712,
+      "binanceRangePct24h": 0.09684492630040199,
+      "selectionReason": "1hStructure=higher_highs_higher_lows; 15mStructure=lower_highs_lower_lows; structureAgreement=0.15; 1hMA=neutral; 15mMA=neutral; maAgreement=0.55; structureMA=0.5; volumeParticipation=0.278177; keyLevelProximity=0.729456; discoveryMode=dual_exchange; dualExchange=true; priceDiffPct=0.00023; sourceState=fresh; bitget=Bitget evidence unavailable",
+      "preBitgetScore": 0.821868,
       "bitgetModel": {
         "eligible": false,
         "opportunityScore": null,
@@ -950,17 +1075,17 @@
     "BTC-USDT-SWAP": {
       "ok": true,
       "symbol": "BTC-USDT-SWAP",
-      "updatedAt": "2026-09-04T02:01:15.909Z",
-      "price": 80884.4,
+      "updatedAt": "2026-09-04T02:10:26.166Z",
+      "price": 80764.8,
       "high24h": 82279.9,
       "low24h": 77050,
-      "open24h": 77290.1,
-      "changePct24h": 0.046504015391363035,
-      "contractVolume24h": 12788588.21,
-      "baseVolume24h": 127885.8821,
-      "quoteVolume24hEstimate": 10343972842.12924,
-      "turnoverUsdEstimate": 10343972842.12924,
-      "openInterestUsdEstimate": 2392450698.3451023,
+      "open24h": 77300,
+      "changePct24h": 0.04482276843467015,
+      "contractVolume24h": 12790566.25,
+      "baseVolume24h": 127905.6625,
+      "quoteVolume24hEstimate": 10330275250.68,
+      "turnoverUsdEstimate": 10330275250.68,
+      "openInterestUsdEstimate": 2387651371.2084827,
       "fetch15mOk": true,
       "fetch1hOk": true,
       "retryCount15m": 0,
@@ -968,7 +1093,7 @@
       "partial": false,
       "stale": false,
       "staleReason": null,
-      "lastSuccessfulAt": "2026-09-04T02:01:15.909Z",
+      "lastSuccessfulAt": "2026-09-04T02:10:26.166Z",
       "timeframeStatus": {
         "15m": {
           "fetchOk": true,
@@ -987,10 +1112,10 @@
       },
       "freshness": {
         "status": "fresh",
-        "tickerTs": 1788487272071,
-        "tickerAgeMs": 3838,
-        "oiTs": 1788487273064,
-        "oiAgeMs": 2845,
+        "tickerTs": 1788487821055,
+        "tickerAgeMs": 5111,
+        "oiTs": 1788487821107,
+        "oiAgeMs": 5059,
         "lastClosed15mTs": 1788486300000,
         "lastClosed1hTs": 1788483600000,
         "fallbackAgeMinutes": 0
@@ -1335,17 +1460,17 @@
     "ETH-USDT-SWAP": {
       "ok": true,
       "symbol": "ETH-USDT-SWAP",
-      "updatedAt": "2026-09-04T02:01:17.344Z",
-      "price": 2503.2,
+      "updatedAt": "2026-09-04T02:10:27.852Z",
+      "price": 2501.16,
       "high24h": 2530.5,
       "low24h": 2378.01,
-      "open24h": 2384.94,
-      "changePct24h": 0.049586153110769984,
-      "contractVolume24h": 36253139.95,
-      "baseVolume24h": 3625313.995,
-      "quoteVolume24hEstimate": 9074885992.284,
-      "turnoverUsdEstimate": 9074885992.284,
-      "openInterestUsdEstimate": 1589804427.3768048,
+      "open24h": 2385.4,
+      "changePct24h": 0.04852854867108232,
+      "contractVolume24h": 36249738.31,
+      "baseVolume24h": 3624973.831,
+      "quoteVolume24hEstimate": 9066639547.143959,
+      "turnoverUsdEstimate": 9066639547.143959,
+      "openInterestUsdEstimate": 1592055142.837385,
       "fetch15mOk": true,
       "fetch1hOk": true,
       "retryCount15m": 0,
@@ -1353,7 +1478,7 @@
       "partial": false,
       "stale": false,
       "staleReason": null,
-      "lastSuccessfulAt": "2026-09-04T02:01:17.344Z",
+      "lastSuccessfulAt": "2026-09-04T02:10:27.852Z",
       "timeframeStatus": {
         "15m": {
           "fetchOk": true,
@@ -1372,10 +1497,10 @@
       },
       "freshness": {
         "status": "fresh",
-        "tickerTs": 1788487272068,
-        "tickerAgeMs": 5276,
-        "oiTs": 1788487273064,
-        "oiAgeMs": 4280,
+        "tickerTs": 1788487821067,
+        "tickerAgeMs": 6785,
+        "oiTs": 1788487821107,
+        "oiAgeMs": 6745,
         "lastClosed15mTs": 1788486300000,
         "lastClosed1hTs": 1788483600000,
         "fallbackAgeMinutes": 0
@@ -1720,17 +1845,17 @@
     "SOL-USDT-SWAP": {
       "ok": true,
       "symbol": "SOL-USDT-SWAP",
-      "updatedAt": "2026-09-04T02:01:18.770Z",
-      "price": 103.62,
+      "updatedAt": "2026-09-04T02:10:29.536Z",
+      "price": 103.51,
       "high24h": 105.89,
       "low24h": 99.65,
-      "open24h": 100.02,
-      "changePct24h": 0.035992801439712147,
-      "contractVolume24h": 13049384.86,
-      "baseVolume24h": 13049384.86,
-      "quoteVolume24hEstimate": 1352177259.1932,
-      "turnoverUsdEstimate": 1352177259.1932,
-      "openInterestUsdEstimate": 297138076.95180017,
+      "open24h": 100.17,
+      "changePct24h": 0.03334331636218432,
+      "contractVolume24h": 13039782.02,
+      "baseVolume24h": 13039782.02,
+      "quoteVolume24hEstimate": 1349747836.8902001,
+      "turnoverUsdEstimate": 1349747836.8902001,
+      "openInterestUsdEstimate": 296436337.9004003,
       "fetch15mOk": true,
       "fetch1hOk": true,
       "retryCount15m": 0,
@@ -1738,7 +1863,7 @@
       "partial": false,
       "stale": false,
       "staleReason": null,
-      "lastSuccessfulAt": "2026-09-04T02:01:18.770Z",
+      "lastSuccessfulAt": "2026-09-04T02:10:29.536Z",
       "timeframeStatus": {
         "15m": {
           "fetchOk": true,
@@ -1757,10 +1882,10 @@
       },
       "freshness": {
         "status": "fresh",
-        "tickerTs": 1788487272066,
-        "tickerAgeMs": 6704,
-        "oiTs": 1788487273064,
-        "oiAgeMs": 5706,
+        "tickerTs": 1788487821066,
+        "tickerAgeMs": 8470,
+        "oiTs": 1788487821107,
+        "oiAgeMs": 8429,
         "lastClosed15mTs": 1788486300000,
         "lastClosed1hTs": 1788483600000,
         "fallbackAgeMinutes": 0
@@ -2105,17 +2230,17 @@
     "XRP-USDT-SWAP": {
       "ok": true,
       "symbol": "XRP-USDT-SWAP",
-      "updatedAt": "2026-09-04T02:01:24.412Z",
-      "price": 1.442,
+      "updatedAt": "2026-09-04T02:10:34.663Z",
+      "price": 1.44,
       "high24h": 1.4839,
       "low24h": 1.3508,
-      "open24h": 1.3557,
-      "changePct24h": 0.06365715128715796,
-      "contractVolume24h": 6126276.6,
-      "baseVolume24h": 612627660,
-      "quoteVolume24hEstimate": 883409085.7199999,
-      "turnoverUsdEstimate": 883409085.7199999,
-      "openInterestUsdEstimate": 110047821.50249998,
+      "open24h": 1.3564,
+      "changePct24h": 0.06163373636095539,
+      "contractVolume24h": 6144023.09,
+      "baseVolume24h": 614402309,
+      "quoteVolume24hEstimate": 884739324.9599999,
+      "turnoverUsdEstimate": 884739324.9599999,
+      "openInterestUsdEstimate": 108745875.83859996,
       "fetch15mOk": true,
       "fetch1hOk": true,
       "retryCount15m": 0,
@@ -2123,7 +2248,7 @@
       "partial": false,
       "stale": false,
       "staleReason": null,
-      "lastSuccessfulAt": "2026-09-04T02:01:24.412Z",
+      "lastSuccessfulAt": "2026-09-04T02:10:34.663Z",
       "timeframeStatus": {
         "15m": {
           "fetchOk": true,
@@ -2142,10 +2267,10 @@
       },
       "freshness": {
         "status": "fresh",
-        "tickerTs": 1788487272065,
-        "tickerAgeMs": 12347,
-        "oiTs": 1788487273064,
-        "oiAgeMs": 11348,
+        "tickerTs": 1788487821063,
+        "tickerAgeMs": 13600,
+        "oiTs": 1788487821107,
+        "oiAgeMs": 13556,
         "lastClosed15mTs": 1788486300000,
         "lastClosed1hTs": 1788483600000,
         "fallbackAgeMinutes": 0
@@ -2490,17 +2615,17 @@
     "ZEC-USDT-SWAP": {
       "ok": true,
       "symbol": "ZEC-USDT-SWAP",
-      "updatedAt": "2026-09-04T02:01:20.192Z",
-      "price": 941.14,
+      "updatedAt": "2026-09-04T02:10:31.255Z",
+      "price": 938.47,
       "high24h": 979.64,
       "low24h": 812.51,
-      "open24h": 814.68,
-      "changePct24h": 0.15522659203613695,
-      "contractVolume24h": 132235303,
-      "baseVolume24h": 1322353.03,
-      "quoteVolume24hEstimate": 1244519330.6542,
-      "turnoverUsdEstimate": 1244519330.6542,
-      "openInterestUsdEstimate": 152137207.741,
+      "open24h": 816.51,
+      "changePct24h": 0.14936742967018168,
+      "contractVolume24h": 132282426,
+      "baseVolume24h": 1322824.26,
+      "quoteVolume24hEstimate": 1241430883.2822,
+      "turnoverUsdEstimate": 1241430883.2822,
+      "openInterestUsdEstimate": 151927702.1757,
       "fetch15mOk": true,
       "fetch1hOk": true,
       "retryCount15m": 0,
@@ -2508,7 +2633,7 @@
       "partial": false,
       "stale": false,
       "staleReason": null,
-      "lastSuccessfulAt": "2026-09-04T02:01:20.192Z",
+      "lastSuccessfulAt": "2026-09-04T02:10:31.255Z",
       "timeframeStatus": {
         "15m": {
           "fetchOk": true,
@@ -2527,10 +2652,10 @@
       },
       "freshness": {
         "status": "fresh",
-        "tickerTs": 1788487272161,
-        "tickerAgeMs": 8031,
-        "oiTs": 1788487273064,
-        "oiAgeMs": 7128,
+        "tickerTs": 1788487820965,
+        "tickerAgeMs": 10290,
+        "oiTs": 1788487821107,
+        "oiAgeMs": 10148,
         "lastClosed15mTs": 1788486300000,
         "lastClosed1hTs": 1788483600000,
         "fallbackAgeMinutes": 0
@@ -2875,17 +3000,17 @@
     "UNI-USDT-SWAP": {
       "ok": true,
       "symbol": "UNI-USDT-SWAP",
-      "updatedAt": "2026-09-04T02:01:21.583Z",
+      "updatedAt": "2026-09-04T02:10:32.957Z",
       "price": 6.307,
       "high24h": 6.542,
       "low24h": 5.615,
-      "open24h": 5.694,
-      "changePct24h": 0.10765718299964883,
-      "contractVolume24h": 42090340,
-      "baseVolume24h": 42090340,
-      "quoteVolume24hEstimate": 265463774.38000003,
-      "turnoverUsdEstimate": 265463774.38000003,
-      "openInterestUsdEstimate": 41434660.02,
+      "open24h": 5.748,
+      "changePct24h": 0.09725121781489215,
+      "contractVolume24h": 41979913,
+      "baseVolume24h": 41979913,
+      "quoteVolume24hEstimate": 264767311.291,
+      "turnoverUsdEstimate": 264767311.291,
+      "openInterestUsdEstimate": 41420683.536,
       "fetch15mOk": true,
       "fetch1hOk": true,
       "retryCount15m": 0,
@@ -2893,7 +3018,7 @@
       "partial": false,
       "stale": false,
       "staleReason": null,
-      "lastSuccessfulAt": "2026-09-04T02:01:21.583Z",
+      "lastSuccessfulAt": "2026-09-04T02:10:32.957Z",
       "timeframeStatus": {
         "15m": {
           "fetchOk": true,
@@ -2912,10 +3037,10 @@
       },
       "freshness": {
         "status": "fresh",
-        "tickerTs": 1788487272036,
-        "tickerAgeMs": 9547,
-        "oiTs": 1788487273064,
-        "oiAgeMs": 8519,
+        "tickerTs": 1788487821075,
+        "tickerAgeMs": 11882,
+        "oiTs": 1788487821107,
+        "oiAgeMs": 11850,
         "lastClosed15mTs": 1788486300000,
         "lastClosed1hTs": 1788483600000,
         "fallbackAgeMinutes": 0
@@ -3260,17 +3385,17 @@
     "TRUMP-USDT-SWAP": {
       "ok": true,
       "symbol": "TRUMP-USDT-SWAP",
-      "updatedAt": "2026-09-04T02:01:23.003Z",
-      "price": 2.348,
+      "updatedAt": "2026-09-04T02:10:36.441Z",
+      "price": 2.347,
       "high24h": 2.516,
       "low24h": 2.193,
-      "open24h": 2.231,
-      "changePct24h": 0.05244285073957866,
-      "contractVolume24h": 1630917495,
-      "baseVolume24h": 163091749.5,
-      "quoteVolume24hEstimate": 382939427.826,
-      "turnoverUsdEstimate": 382939427.826,
-      "openInterestUsdEstimate": 28827909.4122,
+      "open24h": 2.232,
+      "changePct24h": 0.051523297491039316,
+      "contractVolume24h": 1627900459,
+      "baseVolume24h": 162790045.9,
+      "quoteVolume24hEstimate": 382068237.7273,
+      "turnoverUsdEstimate": 382068237.7273,
+      "openInterestUsdEstimate": 28937411.2404,
       "fetch15mOk": true,
       "fetch1hOk": true,
       "retryCount15m": 0,
@@ -3278,7 +3403,7 @@
       "partial": false,
       "stale": false,
       "staleReason": null,
-      "lastSuccessfulAt": "2026-09-04T02:01:23.003Z",
+      "lastSuccessfulAt": "2026-09-04T02:10:36.441Z",
       "timeframeStatus": {
         "15m": {
           "fetchOk": true,
@@ -3297,10 +3422,10 @@
       },
       "freshness": {
         "status": "fresh",
-        "tickerTs": 1788487272068,
-        "tickerAgeMs": 10935,
-        "oiTs": 1788487273064,
-        "oiAgeMs": 9939,
+        "tickerTs": 1788487820965,
+        "tickerAgeMs": 15476,
+        "oiTs": 1788487821107,
+        "oiAgeMs": 15334,
         "lastClosed15mTs": 1788486300000,
         "lastClosed1hTs": 1788483600000,
         "fallbackAgeMinutes": 0
@@ -3645,17 +3770,17 @@
     "DOGE-USDT-SWAP": {
       "ok": true,
       "symbol": "DOGE-USDT-SWAP",
-      "updatedAt": "2026-09-04T02:01:25.847Z",
-      "price": 0.08705,
+      "updatedAt": "2026-09-04T02:10:38.600Z",
+      "price": 0.08686,
       "high24h": 0.08995,
-      "low24h": 0.082,
-      "open24h": 0.08217,
-      "changePct24h": 0.05938907143726415,
-      "contractVolume24h": 4326877.44,
-      "baseVolume24h": 4326877440,
-      "quoteVolume24hEstimate": 376654681.152,
-      "turnoverUsdEstimate": 376654681.152,
-      "openInterestUsdEstimate": 90387974.63220002,
+      "low24h": 0.08204,
+      "open24h": 0.0822,
+      "changePct24h": 0.056690997566910116,
+      "contractVolume24h": 4328218.47,
+      "baseVolume24h": 4328218470,
+      "quoteVolume24hEstimate": 375949056.30420005,
+      "turnoverUsdEstimate": 375949056.30420005,
+      "openInterestUsdEstimate": 90196486.83,
       "fetch15mOk": true,
       "fetch1hOk": true,
       "retryCount15m": 0,
@@ -3663,7 +3788,7 @@
       "partial": false,
       "stale": false,
       "staleReason": null,
-      "lastSuccessfulAt": "2026-09-04T02:01:25.847Z",
+      "lastSuccessfulAt": "2026-09-04T02:10:38.600Z",
       "timeframeStatus": {
         "15m": {
           "fetchOk": true,
@@ -3682,10 +3807,10 @@
       },
       "freshness": {
         "status": "fresh",
-        "tickerTs": 1788487272074,
-        "tickerAgeMs": 13773,
-        "oiTs": 1788487273064,
-        "oiAgeMs": 12783,
+        "tickerTs": 1788487821063,
+        "tickerAgeMs": 17537,
+        "oiTs": 1788487821107,
+        "oiAgeMs": 17493,
         "lastClosed15mTs": 1788486300000,
         "lastClosed1hTs": 1788483600000,
         "fallbackAgeMinutes": 0
