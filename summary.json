@@ -7,10 +7,10 @@
   "binanceStatus": "ok",
   "binanceCircuitBroken": false,
   "binanceLastError": null,
-  "binanceAttemptedAt": "2026-09-05T01:00:50.316Z",
-  "runId": "1788570049999-d697bd00-4620-4703-8243-f13a6488ac64",
-  "startedAt": "2026-09-05T01:00:49.999Z",
-  "updatedAt": "2026-09-05T01:01:10.280Z",
+  "binanceAttemptedAt": "2026-09-05T01:50:52.155Z",
+  "runId": "1788573051147-fe7ca989-fc58-4a64-ba1a-33e19ff55271",
+  "startedAt": "2026-09-05T01:50:51.147Z",
+  "updatedAt": "2026-09-05T01:51:17.729Z",
   "pool": {
     "benchmarkSymbols": [
       "BTC-USDT-SWAP",
@@ -34,8 +34,8 @@
       "USELESS-USDT-SWAP",
       "ZEC-USDT-SWAP",
       "LIT-USDT-SWAP",
-      "NEAR-USDT-SWAP",
-      "TRUMP-USDT-SWAP"
+      "TRUMP-USDT-SWAP",
+      "NEAR-USDT-SWAP"
     ],
     "publishedSymbols": [
       "BTC-USDT-SWAP",
@@ -44,10 +44,24 @@
       "USELESS-USDT-SWAP",
       "ZEC-USDT-SWAP",
       "LIT-USDT-SWAP",
-      "NEAR-USDT-SWAP",
-      "TRUMP-USDT-SWAP"
+      "TRUMP-USDT-SWAP",
+      "NEAR-USDT-SWAP"
     ],
     "dynamicCountRequested": 10,
+    "modelVersion": "6.3.7",
+    "decisionArchitecture": {
+      "direction": "structure + MA",
+      "location": "support/resistance + Volume Profile",
+      "capital": "OI + CVD + Volume",
+      "trigger": "5m structure + Taker/CVD",
+      "entryModes": [
+        "pullback",
+        "breakout",
+        "breakout_retest",
+        "none"
+      ],
+      "rule": "position matters but must not suppress valid strong-trend execution; waiting for pullback is not the default"
+    },
     "evidenceLayer": {
       "bitget": {
         "mode": "formal_multi_field_scoring",
@@ -80,22 +94,22 @@
       ],
       "dynamicCandidates": [
         "ZEC-USDT-SWAP",
-        "USELESS-USDT-SWAP",
         "TRUMP-USDT-SWAP",
         "LIT-USDT-SWAP",
+        "USELESS-USDT-SWAP",
         "NEAR-USDT-SWAP",
         "DASH-USDT-SWAP",
         "ARB-USDT-SWAP",
         "ENA-USDT-SWAP",
         "PUMP-USDT-SWAP",
-        "ADA-USDT-SWAP"
+        "UNI-USDT-SWAP"
       ],
       "dynamicFreshTarget": 5,
       "freshDynamicAnalyzedSymbols": [
         "ZEC-USDT-SWAP",
-        "USELESS-USDT-SWAP",
         "TRUMP-USDT-SWAP",
         "LIT-USDT-SWAP",
+        "USELESS-USDT-SWAP",
         "NEAR-USDT-SWAP"
       ],
       "cachedOnlyDynamicCandidates": [
@@ -103,7 +117,7 @@
         "ARB-USDT-SWAP",
         "ENA-USDT-SWAP",
         "PUMP-USDT-SWAP",
-        "ADA-USDT-SWAP"
+        "UNI-USDT-SWAP"
       ],
       "anomalyFastLane": {
         "enabled": true,
@@ -121,22 +135,30 @@
             "promoted": false,
             "direction": "bearish",
             "confirmedSignals": 1,
-            "strength": 1.266456,
-            "latestClosedAt": "2026-09-05T00:59:59.999Z",
+            "strength": 1.288157,
+            "latestClosedAt": "2026-09-05T01:49:59.999Z",
             "price": {
-              "latest": 84.323,
-              "change5mPct": -0.22954,
-              "change10mPct": -0.037935,
+              "latest": 84.027,
+              "change5mPct": -0.236269,
+              "change10mPct": -0.261137,
               "significant": false
             },
             "taker": {
-              "buySellRatio": 0.368294,
+              "buySellRatio": 0.338337,
               "significant": true
             },
+            "cvd": {
+              "available": true,
+              "direction": "bearish",
+              "slope": -12148.28,
+              "latestDelta": -15060.27,
+              "sampleCount": 3,
+              "note": "observational only in Fast Lane; derived from same 5m Binance klines as Taker and therefore not counted as an additional independent promotion field"
+            },
             "openInterest": {
-              "latest": 4406971.64,
-              "change5mPct": 0.036917,
-              "change10mPct": 0.003824,
+              "latest": 4413226.65,
+              "change5mPct": 0.007216,
+              "change10mPct": 0.02702,
               "significant": false
             },
             "reason": "no_multi_field_anomaly"
@@ -147,22 +169,30 @@
             "promoted": false,
             "direction": "bearish",
             "confirmedSignals": 1,
-            "strength": 1.345237,
-            "latestClosedAt": "2026-09-05T00:59:59.999Z",
+            "strength": 1.219443,
+            "latestClosedAt": "2026-09-05T01:49:59.999Z",
             "price": {
-              "latest": 1.3946,
-              "change5mPct": -0.271739,
-              "change10mPct": -0.12175,
+              "latest": 1.3971,
+              "change5mPct": -0.178622,
+              "change10mPct": -0.192885,
               "significant": false
             },
             "taker": {
-              "buySellRatio": 0.470312,
+              "buySellRatio": 0.377142,
               "significant": true
             },
+            "cvd": {
+              "available": true,
+              "direction": "bearish",
+              "slope": -1126504.5,
+              "latestDelta": -1304227.9,
+              "sampleCount": 3,
+              "note": "observational only in Fast Lane; derived from same 5m Binance klines as Taker and therefore not counted as an additional independent promotion field"
+            },
             "openInterest": {
-              "latest": 299403080.5,
-              "change5mPct": 0.073498,
-              "change10mPct": 0.006791,
+              "latest": 298893756.8,
+              "change5mPct": 0.026558,
+              "change10mPct": -0.026452,
               "significant": false
             },
             "reason": "no_multi_field_anomaly"
@@ -173,22 +203,30 @@
             "promoted": false,
             "direction": "bearish",
             "confirmedSignals": 1,
-            "strength": 1.19266,
-            "latestClosedAt": "2026-09-05T00:59:59.999Z",
+            "strength": 1.405922,
+            "latestClosedAt": "2026-09-05T01:49:59.999Z",
             "price": {
-              "latest": 0.1616,
-              "change5mPct": -0.142124,
-              "change10mPct": -0.142124,
+              "latest": 0.16244,
+              "change5mPct": -0.122971,
+              "change10mPct": -0.306861,
               "significant": false
             },
             "taker": {
-              "buySellRatio": 0.585095,
+              "buySellRatio": 0.606627,
               "significant": true
             },
+            "cvd": {
+              "available": true,
+              "direction": "bullish",
+              "slope": 554608,
+              "latestDelta": -500562,
+              "sampleCount": 3,
+              "note": "observational only in Fast Lane; derived from same 5m Binance klines as Taker and therefore not counted as an additional independent promotion field"
+            },
             "openInterest": {
-              "latest": 554390380,
-              "change5mPct": -0.014326,
-              "change10mPct": -0.050536,
+              "latest": 556656674,
+              "change5mPct": -0.099061,
+              "change10mPct": -0.020822,
               "significant": false
             },
             "reason": "no_multi_field_anomaly"
@@ -199,22 +237,30 @@
             "promoted": false,
             "direction": "bearish",
             "confirmedSignals": 1,
-            "strength": 1.238706,
-            "latestClosedAt": "2026-09-05T00:59:59.999Z",
+            "strength": 1.353907,
+            "latestClosedAt": "2026-09-05T01:49:59.999Z",
             "price": {
-              "latest": 0.0846,
-              "change5mPct": -0.200543,
-              "change10mPct": -0.059067,
+              "latest": 0.08462,
+              "change5mPct": -0.282819,
+              "change10mPct": -0.259312,
               "significant": false
             },
             "taker": {
-              "buySellRatio": 0.784077,
+              "buySellRatio": 0.564436,
               "significant": true
             },
+            "cvd": {
+              "available": true,
+              "direction": "bearish",
+              "slope": -3226866,
+              "latestDelta": -7156352,
+              "sampleCount": 3,
+              "note": "observational only in Fast Lane; derived from same 5m Binance klines as Taker and therefore not counted as an additional independent promotion field"
+            },
             "openInterest": {
-              "latest": 2754027774,
-              "change5mPct": -0.007223,
-              "change10mPct": 0.038163,
+              "latest": 2746406740,
+              "change5mPct": 0.071088,
+              "change10mPct": 0.062105,
               "significant": false
             },
             "reason": "no_multi_field_anomaly"
@@ -227,7 +273,11 @@
           "price_change_5m_10m",
           "taker_buy_sell_5m",
           "open_interest_change_5m_10m"
-        ]
+        ],
+        "observationalFields": [
+          "cvd_from_same_binance_5m_klines"
+        ],
+        "cvdDoubleCountProtection": true
       },
       "freshDynamicSkippedForBudget": [],
       "coreTimeframeAttempts": 2,
@@ -269,7 +319,7 @@
         "binanceAvailable": true,
         "binanceStatus": "ok",
         "binanceLastError": null,
-        "binanceAttemptedAt": "2026-09-05T01:00:50.316Z",
+        "binanceAttemptedAt": "2026-09-05T01:50:52.155Z",
         "dualExchangePreferred": true,
         "singleExchangeAllowed": true,
         "singleExchangeRequiresHigherTurnover": 100000000
@@ -295,7 +345,7 @@
           "keyLevelProximity": 0.1
         }
       },
-      "finalModelLayer": "BTC/ETH environment fit + exact key-level interpretation + 5m trigger + R:R"
+      "finalModelLayer": "BTC/ETH environment fit + structure/MA direction + Volume Profile location + OI/CVD/Volume/Taker capital evidence + 5m trigger + failure + R:R + explicit entry mode"
     }
   },
   "dataQuality": {
@@ -308,13 +358,22 @@
     "perSymbolIsolation": true,
     "subrequestBudget": {
       "max": 46,
-      "usedBeforePublish": 33,
+      "usedBeforePublish": 39,
       "githubWriteReserve": 6,
       "stageBSymbolLimit": 13,
       "dynamicFreshAnalysisCount": 5,
       "anomalyRecheckMaxSymbols": 4,
       "coreTimeframeAttempts": 2,
       "dynamicTimeframeAttempts": 1,
+      "capitalEvidenceMaxSymbols": 6,
+      "capitalEvidenceSymbols": [
+        "BTC-USDT-SWAP",
+        "ETH-USDT-SWAP",
+        "SOL-USDT-SWAP",
+        "ZEC-USDT-SWAP",
+        "TRUMP-USDT-SWAP",
+        "LIT-USDT-SWAP"
+      ],
       "okxStageBStartDelayMs": 550,
       "okxInterTimeframeDelayMs": 320,
       "okxInterSymbolDelayMs": 380,
@@ -331,7 +390,7 @@
       "binanceAvailable": true,
       "binanceStatus": "ok",
       "binanceLastError": null,
-      "binanceAttemptedAt": "2026-09-05T01:00:50.316Z",
+      "binanceAttemptedAt": "2026-09-05T01:50:52.155Z",
       "requireDualExchange": false,
       "effectiveRequireDualExchange": false,
       "singleExchangeMinTurnoverUsd": 100000000,
@@ -344,6 +403,11 @@
       "downWeightMinutes": 30,
       "auxiliaryOnlyMinutes": 60,
       "excludeAfterMinutes": 60
+    },
+    "evidencePolicy": {
+      "cvd": "Binance 5m closed klines using takerBuyVolume vs implied takerSellVolume; unavailable is never fabricated and is not a hard veto",
+      "volumeProfile": "15m/1h closed-candle approximate price-volume distribution, 48-bar lookback, POC/VAH/VAL/HVN/LVN",
+      "auxiliaryConflictPolicy": "auxiliary conflicts downgrade confidence only; hard veto reserved for broken main chain, invalid failure condition, bad R:R, or systemic risk"
     }
   },
   "bitgetEvidence": {
@@ -369,7 +433,7 @@
       "LITUSDT"
     ],
     "healthyCount": 6,
-    "generatedAt": "2026-09-05T01:01:10.273Z",
+    "generatedAt": "2026-09-05T01:51:17.654Z",
     "symbols": {
       "BTCUSDT": {
         "symbol": "BTCUSDT",
@@ -378,30 +442,30 @@
         "observedOnly": false,
         "affectsScore": true,
         "openInterest": {
-          "baseAmount": 32997.73479999992,
-          "ts": "1788570063541"
+          "baseAmount": 33085.78199999992,
+          "ts": "1788573070966"
         },
         "activeBuySell": {
-          "buyVolume": 5.8728,
-          "sellVolume": 0.352,
-          "buySellRatio": 16.68409090909091,
+          "buyVolume": 165.5549,
+          "sellVolume": 160.126,
+          "buySellRatio": 1.0339039256585438,
           "ts": "1788570000000"
         },
         "topPositionRatio": {
-          "longRatio": 0.4984,
-          "shortRatio": 0.5016,
-          "longShortRatio": 0.9936,
-          "ts": "1788566400000"
+          "longRatio": 0.4985,
+          "shortRatio": 0.5015,
+          "longShortRatio": 0.994,
+          "ts": "1788570000000"
         },
         "spotWhaleFlow": {
-          "buyVolume": 19.376476,
-          "sellVolume": 17.904989,
-          "netVolume": 1.4714869999999998,
-          "buyRatio": 0.5001,
-          "sellRatio": 0.4624
+          "buyVolume": 31.207915,
+          "sellVolume": 45.994825,
+          "netVolume": -14.786909999999999,
+          "buyRatio": 0.3967,
+          "sellRatio": 0.5845
         },
         "funding": {
-          "rate": 0.000006,
+          "rate": 0.000014,
           "intervalHours": 8,
           "nextUpdate": "1788595200000"
         },
@@ -440,30 +504,30 @@
         "observedOnly": false,
         "affectsScore": true,
         "openInterest": {
-          "baseAmount": 780555.3299999998,
-          "ts": "1788570064837"
+          "baseAmount": 781017.6999999998,
+          "ts": "1788573072259"
         },
         "activeBuySell": {
-          "buyVolume": 10.59,
-          "sellVolume": 7.68,
-          "buySellRatio": 1.37890625,
+          "buyVolume": 4082.62,
+          "sellVolume": 4149.87,
+          "buySellRatio": 0.9837946730861449,
           "ts": "1788570000000"
         },
         "topPositionRatio": {
           "longRatio": 0.4966,
           "shortRatio": 0.5034,
           "longShortRatio": 0.9864,
-          "ts": "1788566400000"
+          "ts": "1788570000000"
         },
         "spotWhaleFlow": {
-          "buyVolume": 151.4132,
-          "sellVolume": 279.0069,
-          "netVolume": -127.59369999999998,
-          "buyRatio": 0.3402,
-          "sellRatio": 0.6267
+          "buyVolume": 388.7853,
+          "sellVolume": 475.8879,
+          "netVolume": -87.1026,
+          "buyRatio": 0.4404,
+          "sellRatio": 0.5388
         },
         "funding": {
-          "rate": 0.000086,
+          "rate": 0.000088,
           "intervalHours": 8,
           "nextUpdate": "1788595200000"
         },
@@ -502,30 +566,30 @@
         "observedOnly": false,
         "affectsScore": true,
         "openInterest": {
-          "baseAmount": 4481533.999999963,
-          "ts": "1788570066223"
+          "baseAmount": 4481863.999999964,
+          "ts": "1788573073570"
         },
         "activeBuySell": {
-          "buyVolume": 326.2,
-          "sellVolume": 104.3,
-          "buySellRatio": 3.12751677852349,
+          "buyVolume": 23248.2,
+          "sellVolume": 20762.3,
+          "buySellRatio": 1.1197314363052264,
           "ts": "1788570000000"
         },
         "topPositionRatio": {
           "longRatio": 0.4943,
           "shortRatio": 0.5057,
           "longShortRatio": 0.9774,
-          "ts": "1788566400000"
+          "ts": "1788570000000"
         },
         "spotWhaleFlow": {
-          "buyVolume": 4693.6831,
-          "sellVolume": 2761.5913,
-          "netVolume": 1932.0918000000001,
-          "buyRatio": 0.6001,
-          "sellRatio": 0.3532
+          "buyVolume": 9023.193,
+          "sellVolume": 6330.8608,
+          "netVolume": 2692.332199999999,
+          "buyRatio": 0.5765,
+          "sellRatio": 0.4047
         },
         "funding": {
-          "rate": -0.000011,
+          "rate": -0.000008,
           "intervalHours": 8,
           "nextUpdate": "1788595200000"
         },
@@ -564,20 +628,20 @@
         "observedOnly": false,
         "affectsScore": true,
         "openInterest": {
-          "baseAmount": 27595401,
-          "ts": "1788570067536"
+          "baseAmount": 27273687,
+          "ts": "1788573074885"
         },
         "activeBuySell": {
-          "buyVolume": 131313,
-          "sellVolume": 71596,
-          "buySellRatio": 1.8340829096597575,
+          "buyVolume": 6316647,
+          "sellVolume": 7078163,
+          "buySellRatio": 0.8924133281474304,
           "ts": "1788570000000"
         },
         "topPositionRatio": {
-          "longRatio": 0.4976,
-          "shortRatio": 0.5024,
-          "longShortRatio": 0.9904,
-          "ts": "1788566400000"
+          "longRatio": 0.4961,
+          "shortRatio": 0.5039,
+          "longShortRatio": 0.9845,
+          "ts": "1788570000000"
         },
         "spotWhaleFlow": null,
         "funding": {
@@ -620,30 +684,30 @@
         "observedOnly": false,
         "affectsScore": true,
         "openInterest": {
-          "baseAmount": 109229.14499999926,
-          "ts": "1788570068840"
+          "baseAmount": 109007.32100000001,
+          "ts": "1788573076204"
         },
         "activeBuySell": {
-          "buyVolume": 7.666,
-          "sellVolume": 72.305,
-          "buySellRatio": 0.1060230966046608,
+          "buyVolume": 1346.754,
+          "sellVolume": 1691.355,
+          "buySellRatio": 0.7962574385625726,
           "ts": "1788570000000"
         },
         "topPositionRatio": {
-          "longRatio": 0.502,
-          "shortRatio": 0.498,
-          "longShortRatio": 1.008,
-          "ts": "1788566400000"
+          "longRatio": 0.5026,
+          "shortRatio": 0.4974,
+          "longShortRatio": 1.0104,
+          "ts": "1788570000000"
         },
         "spotWhaleFlow": {
-          "buyVolume": 113.408,
-          "sellVolume": 79.732,
-          "netVolume": 33.676,
-          "buyRatio": 0.4828,
-          "sellRatio": 0.3396
+          "buyVolume": 59.351,
+          "sellVolume": 156.568,
+          "netVolume": -97.21700000000001,
+          "buyRatio": 0.2211,
+          "sellRatio": 0.5828
         },
         "funding": {
-          "rate": -0.000158,
+          "rate": -0.000071,
           "intervalHours": 8,
           "nextUpdate": "1788595200000"
         },
@@ -682,27 +746,27 @@
         "observedOnly": false,
         "affectsScore": true,
         "openInterest": {
-          "baseAmount": 1525491,
-          "ts": "1788570070145"
+          "baseAmount": 1534474,
+          "ts": "1788573077518"
         },
         "activeBuySell": {
-          "buyVolume": 126,
-          "sellVolume": 51,
-          "buySellRatio": 2.4705882352941178,
+          "buyVolume": 9925,
+          "sellVolume": 27149,
+          "buySellRatio": 0.3655751593060518,
           "ts": "1788570000000"
         },
         "topPositionRatio": {
-          "longRatio": 0.4981,
-          "shortRatio": 0.5019,
-          "longShortRatio": 0.9924,
-          "ts": "1788566400000"
+          "longRatio": 0.4986,
+          "shortRatio": 0.5014,
+          "longShortRatio": 0.9944,
+          "ts": "1788570000000"
         },
         "spotWhaleFlow": {
-          "buyVolume": 6736.66,
-          "sellVolume": 13566.43,
-          "netVolume": -6829.77,
-          "buyRatio": 0.229,
-          "sellRatio": 0.4609
+          "buyVolume": 3584.61,
+          "sellVolume": 9884.82,
+          "netVolume": -6300.209999999999,
+          "buyRatio": 0.1899,
+          "sellRatio": 0.5232
         },
         "funding": {
           "rate": 0.00005,
@@ -740,21 +804,17 @@
     },
     "modelScores": {
       "BTCUSDT": {
-        "eligible": true,
-        "opportunityScore": 1,
-        "directionalConsensus": "bullish",
-        "independentDirectionalFields": 2,
-        "agreeingDirectionalFields": 2,
-        "effectiveWeight": 0.1,
-        "reason": "multi-field bullish agreement 2/2",
+        "eligible": false,
+        "opportunityScore": null,
+        "directionalConsensus": "insufficient_or_conflicting",
+        "independentDirectionalFields": 1,
+        "agreeingDirectionalFields": 1,
+        "effectiveWeight": 0,
+        "reason": "requires >=2 agreeing independent fields; observed=1; agreeing=1",
         "fields": [
           {
-            "field": "activeBuySell",
-            "signal": 1
-          },
-          {
             "field": "spotWhaleFlow",
-            "signal": 1
+            "signal": -1
           }
         ]
       },
@@ -762,15 +822,11 @@
         "eligible": false,
         "opportunityScore": null,
         "directionalConsensus": "insufficient_or_conflicting",
-        "independentDirectionalFields": 2,
+        "independentDirectionalFields": 1,
         "agreeingDirectionalFields": 1,
         "effectiveWeight": 0,
-        "reason": "requires >=2 agreeing independent fields; observed=2; agreeing=1",
+        "reason": "requires >=2 agreeing independent fields; observed=1; agreeing=1",
         "fields": [
-          {
-            "field": "activeBuySell",
-            "signal": 1
-          },
           {
             "field": "spotWhaleFlow",
             "signal": -1
@@ -807,18 +863,18 @@
         "fields": [
           {
             "field": "activeBuySell",
-            "signal": 1
+            "signal": -1
           }
         ]
       },
       "ZECUSDT": {
-        "eligible": false,
-        "opportunityScore": null,
-        "directionalConsensus": "insufficient_or_conflicting",
+        "eligible": true,
+        "opportunityScore": 1,
+        "directionalConsensus": "bearish",
         "independentDirectionalFields": 2,
-        "agreeingDirectionalFields": 1,
-        "effectiveWeight": 0,
-        "reason": "requires >=2 agreeing independent fields; observed=2; agreeing=1",
+        "agreeingDirectionalFields": 2,
+        "effectiveWeight": 0.1,
+        "reason": "multi-field bearish agreement 2/2",
         "fields": [
           {
             "field": "activeBuySell",
@@ -826,22 +882,22 @@
           },
           {
             "field": "spotWhaleFlow",
-            "signal": 1
+            "signal": -1
           }
         ]
       },
       "LITUSDT": {
-        "eligible": false,
-        "opportunityScore": null,
-        "directionalConsensus": "insufficient_or_conflicting",
+        "eligible": true,
+        "opportunityScore": 1,
+        "directionalConsensus": "bearish",
         "independentDirectionalFields": 2,
-        "agreeingDirectionalFields": 1,
-        "effectiveWeight": 0,
-        "reason": "requires >=2 agreeing independent fields; observed=2; agreeing=1",
+        "agreeingDirectionalFields": 2,
+        "effectiveWeight": 0.1,
+        "reason": "multi-field bearish agreement 2/2",
         "fields": [
           {
             "field": "activeBuySell",
-            "signal": 1
+            "signal": -1
           },
           {
             "field": "spotWhaleFlow",
@@ -855,25 +911,25 @@
     {
       "rank": 1,
       "symbol": "USELESS-USDT-SWAP",
-      "score": 0.921871,
+      "score": 0.922557,
       "sourceState": "fresh",
       "freshnessFactor": 1,
-      "marketQualityScore": 0.973137,
-      "technicalOpportunityScore": 0.826662,
-      "adjustedTechnicalOpportunityScore": 0.826662,
+      "marketQualityScore": 0.966748,
+      "technicalOpportunityScore": 0.840489,
+      "adjustedTechnicalOpportunityScore": 0.840489,
       "liquidityScore": 0.985507,
-      "oiScore": 0.916667,
-      "volatilityScore": 0.992754,
-      "turnoverUsdEstimate": 546794662.6042,
-      "binanceTurnoverUsdEstimate": 905508324.90527,
+      "oiScore": 0.913043,
+      "volatilityScore": 0.98913,
+      "turnoverUsdEstimate": 503484888.5108,
+      "binanceTurnoverUsdEstimate": 909606955.31062,
       "crossExchangeConfirmed": true,
-      "crossExchangePriceDiffPct": 0.000373,
+      "crossExchangePriceDiffPct": 0.001506,
       "crossExchangeScore": 1,
-      "openInterestUsdEstimate": 17091510.176,
-      "rangePct24h": 0.4502514544916674,
-      "binanceRangePct24h": 0.4518072289156626,
-      "selectionReason": "1hStructure=higher_highs_higher_lows; 15mStructure=higher_highs_higher_lows; structureAgreement=1; 1hMA=bullish; 15mMA=neutral; maAgreement=0.55; structureMA=0.8; volumeParticipation=0.584411; keyLevelProximity=0.990008; discoveryMode=dual_exchange; dualExchange=true; priceDiffPct=0.000373; sourceState=fresh; bitget=requires >=2 agreeing independent fields; observed=1; agreeing=1",
-      "preBitgetScore": 0.921871,
+      "openInterestUsdEstimate": 15490481.2068,
+      "rangePct24h": 0.42905468896823895,
+      "binanceRangePct24h": 0.42734036541721604,
+      "selectionReason": "1hStructure=higher_highs_higher_lows; 15mStructure=higher_highs_higher_lows; structureAgreement=1; 1hMA=bullish; 15mMA=neutral; maAgreement=0.55; structureMA=0.8; volumeParticipation=0.742244; keyLevelProximity=0.891525; discoveryMode=dual_exchange; dualExchange=true; priceDiffPct=0.001506; sourceState=fresh; bitget=requires >=2 agreeing independent fields; observed=1; agreeing=1",
+      "preBitgetScore": 0.922557,
       "bitgetModel": {
         "eligible": false,
         "opportunityScore": null,
@@ -885,7 +941,7 @@
         "fields": [
           {
             "field": "activeBuySell",
-            "signal": 1
+            "signal": -1
           }
         ]
       }
@@ -893,33 +949,33 @@
     {
       "rank": 2,
       "symbol": "ZEC-USDT-SWAP",
-      "score": 0.918084,
+      "score": 0.919208,
       "sourceState": "fresh",
       "freshnessFactor": 1,
-      "marketQualityScore": 0.994009,
-      "technicalOpportunityScore": 0.777079,
-      "adjustedTechnicalOpportunityScore": 0.777079,
+      "marketQualityScore": 0.99194,
+      "technicalOpportunityScore": 0.758487,
+      "adjustedTechnicalOpportunityScore": 0.758487,
       "liquidityScore": 0.992754,
       "oiScore": 0.98913,
       "volatilityScore": 0.858696,
-      "turnoverUsdEstimate": 1382226300.0512002,
-      "binanceTurnoverUsdEstimate": 3000584313.89,
+      "turnoverUsdEstimate": 1368387134.082,
+      "binanceTurnoverUsdEstimate": 2982411617.77,
       "crossExchangeConfirmed": true,
-      "crossExchangePriceDiffPct": 0.00001,
+      "crossExchangePriceDiffPct": 0.000424,
       "crossExchangeScore": 1,
-      "openInterestUsdEstimate": 159052925.9187,
-      "rangePct24h": 0.1271381701192384,
-      "binanceRangePct24h": 0.12570442415655528,
-      "selectionReason": "1hStructure=higher_highs_higher_lows; 15mStructure=higher_highs_higher_lows; structureAgreement=1; 1hMA=bullish; 15mMA=neutral; maAgreement=0.55; structureMA=0.8; volumeParticipation=0.26835; keyLevelProximity=0.968265; discoveryMode=dual_exchange; dualExchange=true; priceDiffPct=0.00001; sourceState=fresh; bitget=requires >=2 agreeing independent fields; observed=2; agreeing=1",
-      "preBitgetScore": 0.918084,
+      "openInterestUsdEstimate": 159048583.5864,
+      "rangePct24h": 0.1254913239382609,
+      "binanceRangePct24h": 0.12392632793470365,
+      "selectionReason": "1hStructure=higher_highs_higher_lows; 15mStructure=higher_highs_higher_lows; structureAgreement=1; 1hMA=bullish; 15mMA=neutral; maAgreement=0.55; structureMA=0.8; volumeParticipation=0.227661; keyLevelProximity=0.843376; discoveryMode=dual_exchange; dualExchange=true; priceDiffPct=0.000424; sourceState=fresh; bitget=multi-field bearish agreement 2/2",
+      "preBitgetScore": 0.910231,
       "bitgetModel": {
-        "eligible": false,
-        "opportunityScore": null,
-        "directionalConsensus": "insufficient_or_conflicting",
+        "eligible": true,
+        "opportunityScore": 1,
+        "directionalConsensus": "bearish",
         "independentDirectionalFields": 2,
-        "agreeingDirectionalFields": 1,
-        "effectiveWeight": 0,
-        "reason": "requires >=2 agreeing independent fields; observed=2; agreeing=1",
+        "agreeingDirectionalFields": 2,
+        "effectiveWeight": 0.1,
+        "reason": "multi-field bearish agreement 2/2",
         "fields": [
           {
             "field": "activeBuySell",
@@ -927,7 +983,7 @@
           },
           {
             "field": "spotWhaleFlow",
-            "signal": 1
+            "signal": -1
           }
         ]
       }
@@ -935,37 +991,37 @@
     {
       "rank": 3,
       "symbol": "LIT-USDT-SWAP",
-      "score": 0.905124,
+      "score": 0.900529,
       "sourceState": "fresh",
       "freshnessFactor": 1,
-      "marketQualityScore": 0.96675,
-      "technicalOpportunityScore": 0.790675,
-      "adjustedTechnicalOpportunityScore": 0.790675,
+      "marketQualityScore": 0.96927,
+      "technicalOpportunityScore": 0.741289,
+      "adjustedTechnicalOpportunityScore": 0.741289,
       "liquidityScore": 0.967391,
-      "oiScore": 0.967391,
+      "oiScore": 0.963768,
       "volatilityScore": 0.913043,
-      "turnoverUsdEstimate": 159639676.7825,
-      "binanceTurnoverUsdEstimate": 180006857.74648,
+      "turnoverUsdEstimate": 156212727.3432,
+      "binanceTurnoverUsdEstimate": 177230390.83748,
       "crossExchangeConfirmed": true,
-      "crossExchangePriceDiffPct": 0.000521,
+      "crossExchangePriceDiffPct": 0.00019,
       "crossExchangeScore": 1,
-      "openInterestUsdEstimate": 31256807.7773,
-      "rangePct24h": 0.1624877593313748,
-      "binanceRangePct24h": 0.158784247358551,
-      "selectionReason": "1hStructure=higher_highs_higher_lows; 15mStructure=higher_highs_higher_lows; structureAgreement=1; 1hMA=neutral; 15mMA=bullish; maAgreement=0.55; structureMA=0.7; volumeParticipation=0.477568; keyLevelProximity=0.890399; discoveryMode=dual_exchange; dualExchange=true; priceDiffPct=0.000521; sourceState=fresh; bitget=requires >=2 agreeing independent fields; observed=2; agreeing=1",
-      "preBitgetScore": 0.905124,
+      "openInterestUsdEstimate": 30932527.6652,
+      "rangePct24h": 0.16387230133210837,
+      "binanceRangePct24h": 0.15973404500069024,
+      "selectionReason": "1hStructure=higher_highs_higher_lows; 15mStructure=higher_highs_higher_lows; structureAgreement=1; 1hMA=neutral; 15mMA=neutral; maAgreement=0.55; structureMA=0.5; volumeParticipation=0.419743; keyLevelProximity=0.683274; discoveryMode=dual_exchange; dualExchange=true; priceDiffPct=0.00019; sourceState=fresh; bitget=multi-field bearish agreement 2/2",
+      "preBitgetScore": 0.889477,
       "bitgetModel": {
-        "eligible": false,
-        "opportunityScore": null,
-        "directionalConsensus": "insufficient_or_conflicting",
+        "eligible": true,
+        "opportunityScore": 1,
+        "directionalConsensus": "bearish",
         "independentDirectionalFields": 2,
-        "agreeingDirectionalFields": 1,
-        "effectiveWeight": 0,
-        "reason": "requires >=2 agreeing independent fields; observed=2; agreeing=1",
+        "agreeingDirectionalFields": 2,
+        "effectiveWeight": 0.1,
+        "reason": "multi-field bearish agreement 2/2",
         "fields": [
           {
             "field": "activeBuySell",
-            "signal": 1
+            "signal": -1
           },
           {
             "field": "spotWhaleFlow",
@@ -976,26 +1032,26 @@
     },
     {
       "rank": 4,
-      "symbol": "NEAR-USDT-SWAP",
-      "score": 0.834299,
+      "symbol": "TRUMP-USDT-SWAP",
+      "score": 0.840178,
       "sourceState": "fresh",
       "freshnessFactor": 1,
-      "marketQualityScore": 0.963631,
-      "technicalOpportunityScore": 0.59411,
-      "adjustedTechnicalOpportunityScore": 0.59411,
-      "liquidityScore": 0.942029,
+      "marketQualityScore": 0.972975,
+      "technicalOpportunityScore": 0.593555,
+      "adjustedTechnicalOpportunityScore": 0.593555,
+      "liquidityScore": 0.971014,
       "oiScore": 0.960145,
-      "volatilityScore": 0.92029,
-      "turnoverUsdEstimate": 86987081.8,
-      "binanceTurnoverUsdEstimate": 326274065.562,
+      "volatilityScore": 0.913043,
+      "turnoverUsdEstimate": 218001851.46179998,
+      "binanceTurnoverUsdEstimate": 243644765.3648,
       "crossExchangeConfirmed": true,
-      "crossExchangePriceDiffPct": 0.000448,
+      "crossExchangePriceDiffPct": 0,
       "crossExchangeScore": 1,
-      "openInterestUsdEstimate": 30415927.996,
-      "rangePct24h": 0.17892030848329052,
-      "binanceRangePct24h": 0.17756047349459597,
-      "selectionReason": "1hStructure=range; 15mStructure=lower_highs_lower_lows; structureAgreement=0.5; 1hMA=bullish; 15mMA=bullish; maAgreement=1; structureMA=0.38; volumeParticipation=0.759652; keyLevelProximity=0.252874; discoveryMode=dual_exchange; dualExchange=true; priceDiffPct=0.000448; sourceState=fresh; bitget=Bitget evidence unavailable",
-      "preBitgetScore": 0.834299,
+      "openInterestUsdEstimate": 30435311.848,
+      "rangePct24h": 0.13065755764304016,
+      "binanceRangePct24h": 0.19863013698630136,
+      "selectionReason": "1hStructure=range; 15mStructure=higher_highs_higher_lows; structureAgreement=0.5; 1hMA=neutral; 15mMA=neutral; maAgreement=0.55; structureMA=0.5; volumeParticipation=0.856297; keyLevelProximity=0.882353; discoveryMode=dual_exchange; dualExchange=true; priceDiffPct=0; sourceState=fresh; bitget=Bitget evidence unavailable",
+      "preBitgetScore": 0.840178,
       "bitgetModel": {
         "eligible": false,
         "opportunityScore": null,
@@ -1008,26 +1064,26 @@
     },
     {
       "rank": 5,
-      "symbol": "TRUMP-USDT-SWAP",
-      "score": 0.823327,
+      "symbol": "NEAR-USDT-SWAP",
+      "score": 0.827816,
       "sourceState": "fresh",
       "freshnessFactor": 1,
-      "marketQualityScore": 0.969303,
-      "technicalOpportunityScore": 0.552228,
-      "adjustedTechnicalOpportunityScore": 0.552228,
-      "liquidityScore": 0.971014,
+      "marketQualityScore": 0.965945,
+      "technicalOpportunityScore": 0.571292,
+      "adjustedTechnicalOpportunityScore": 0.571292,
+      "liquidityScore": 0.942029,
       "oiScore": 0.956522,
-      "volatilityScore": 0.913043,
-      "turnoverUsdEstimate": 218725483.269,
-      "binanceTurnoverUsdEstimate": 245882633.87808,
+      "volatilityScore": 0.942029,
+      "turnoverUsdEstimate": 90144951.39999999,
+      "binanceTurnoverUsdEstimate": 339852414.35,
       "crossExchangeConfirmed": true,
-      "crossExchangePriceDiffPct": 0.00043,
+      "crossExchangePriceDiffPct": 0,
       "crossExchangeScore": 1,
-      "openInterestUsdEstimate": 30049341.7146,
-      "rangePct24h": 0.13088109495295125,
-      "binanceRangePct24h": 0.198885555079297,
-      "selectionReason": "1hStructure=range; 15mStructure=higher_highs_higher_lows; structureAgreement=0.5; 1hMA=neutral; 15mMA=neutral; maAgreement=0.55; structureMA=0.5; volumeParticipation=0.785575; keyLevelProximity=0.575163; discoveryMode=dual_exchange; dualExchange=true; priceDiffPct=0.00043; sourceState=fresh; bitget=Bitget evidence unavailable",
-      "preBitgetScore": 0.823327,
+      "openInterestUsdEstimate": 30262959.72,
+      "rangePct24h": 0.19214876033057857,
+      "binanceRangePct24h": 0.1907962771458118,
+      "selectionReason": "1hStructure=range; 15mStructure=lower_highs_lower_lows; structureAgreement=0.5; 1hMA=bullish; 15mMA=bullish; maAgreement=1; structureMA=0.38; volumeParticipation=0.564645; keyLevelProximity=0.317204; discoveryMode=dual_exchange; dualExchange=true; priceDiffPct=0; sourceState=fresh; bitget=Bitget evidence unavailable",
+      "preBitgetScore": 0.827816,
       "bitgetModel": {
         "eligible": false,
         "opportunityScore": null,
@@ -1046,24 +1102,130 @@
     "USELESS-USDT-SWAP",
     "ZEC-USDT-SWAP",
     "LIT-USDT-SWAP",
-    "NEAR-USDT-SWAP",
-    "TRUMP-USDT-SWAP"
+    "TRUMP-USDT-SWAP",
+    "NEAR-USDT-SWAP"
   ],
   "markets": {
     "BTC-USDT-SWAP": {
       "ok": true,
       "symbol": "BTC-USDT-SWAP",
-      "updatedAt": "2026-09-05T01:00:54.154Z",
-      "price": 79535.9,
+      "updatedAt": "2026-09-05T01:50:57.377Z",
+      "price": 79537.3,
       "high24h": 81378.8,
       "low24h": 78610.6,
-      "open24h": 80988.6,
-      "changePct24h": -0.017937092380903134,
-      "contractVolume24h": 8962368.56,
-      "baseVolume24h": 89623.6856,
-      "quoteVolume24hEstimate": 7128300495.51304,
-      "turnoverUsdEstimate": 7128300495.51304,
-      "openInterestUsdEstimate": 2182386601.929608,
+      "open24h": 80868.7,
+      "changePct24h": -0.016463724531246258,
+      "contractVolume24h": 8811516.38,
+      "baseVolume24h": 88115.1638,
+      "quoteVolume24hEstimate": 7008442217.70974,
+      "turnoverUsdEstimate": 7008442217.70974,
+      "openInterestUsdEstimate": 2177006247.9760084,
+      "oiEvidence": {
+        "available": true,
+        "currentUsd": 2177006247.976009,
+        "previousUsd": 2182386601.929608,
+        "changePct": -0.246535,
+        "direction": "falling",
+        "currentTs": 1788573052424,
+        "previousUpdatedAt": "2026-09-05T01:00:54.154Z"
+      },
+      "capitalEvidence": {
+        "available": true,
+        "status": "fresh",
+        "provider": "binance-usds-m-5m-klines",
+        "symbol": "BTCUSDT",
+        "latestClosedAt": "2026-09-05T01:49:59.999Z",
+        "cvd": {
+          "available": true,
+          "direction": "bearish",
+          "cumulative": -71.523,
+          "slope": -48.822,
+          "latestDelta": -74.032,
+          "positiveBars": 4,
+          "negativeBars": 7,
+          "sampleCount": 11
+        },
+        "taker": {
+          "available": true,
+          "latestBuySellRatio": 0.481376,
+          "averageBuySellRatio": 1.180344,
+          "bullishBars": 4,
+          "bearishBars": 7,
+          "continuity": "bearish",
+          "sampleCount": 11
+        },
+        "volume": {
+          "available": true,
+          "latest": 211.462,
+          "average": 151.7725,
+          "ratio": 1.393283
+        }
+      },
+      "cvd": {
+        "available": true,
+        "direction": "bearish",
+        "cumulative": -71.523,
+        "slope": -48.822,
+        "latestDelta": -74.032,
+        "positiveBars": 4,
+        "negativeBars": 7,
+        "sampleCount": 11
+      },
+      "taker": {
+        "available": true,
+        "latestBuySellRatio": 0.481376,
+        "averageBuySellRatio": 1.180344,
+        "bullishBars": 4,
+        "bearishBars": 7,
+        "continuity": "bearish",
+        "sampleCount": 11
+      },
+      "mainChainScore": 0,
+      "mainChainTotal": 5,
+      "mainChainAvailableCount": 5,
+      "mainChainPassed": false,
+      "mainChainItems": {
+        "direction": {
+          "passed": false,
+          "available": true
+        },
+        "location": {
+          "passed": false,
+          "available": true
+        },
+        "oi": {
+          "passed": false,
+          "available": true
+        },
+        "cvd": {
+          "passed": false,
+          "available": true
+        },
+        "trigger": {
+          "passed": false,
+          "available": true
+        }
+      },
+      "auxiliaryConflicts": [],
+      "entryMode": "none",
+      "suggestedEntry": {
+        "direction": "neutral",
+        "mode": "none",
+        "zoneLow": null,
+        "zoneHigh": null,
+        "triggerPrice": 79590.7625,
+        "referencePrice": 79537.3,
+        "directBreakoutAllowed": false,
+        "reason": "no sufficiently complete entry chain"
+      },
+      "failureLevel": null,
+      "targets": {
+        "t1": null,
+        "t2": null
+      },
+      "riskReward": null,
+      "decisionDirection": "neutral",
+      "decisionReason": "direction=neutral; votes=0B/2S; mainChain=0/5; cvd=bearish; oi=falling; taker=bearish; entryMode=none",
       "fetch15mOk": true,
       "fetch1hOk": true,
       "retryCount15m": 0,
@@ -1071,7 +1233,7 @@
       "partial": false,
       "stale": false,
       "staleReason": null,
-      "lastSuccessfulAt": "2026-09-05T01:00:54.154Z",
+      "lastSuccessfulAt": "2026-09-05T01:50:56.961Z",
       "timeframeStatus": {
         "15m": {
           "fetchOk": true,
@@ -1090,90 +1252,80 @@
       },
       "freshness": {
         "status": "fresh",
-        "tickerTs": 1788570049561,
-        "tickerAgeMs": 4593,
-        "oiTs": 1788570050550,
-        "oiAgeMs": 3604,
-        "lastClosed15mTs": 1788569100000,
+        "tickerTs": 1788573051769,
+        "tickerAgeMs": 5608,
+        "oiTs": 1788573052424,
+        "oiAgeMs": 4953,
+        "lastClosed15mTs": 1788571800000,
         "lastClosed1hTs": 1788566400000,
         "fallbackAgeMinutes": 0
       },
       "timeframe15m": {
         "candleCount": 119,
         "ma": {
-          "ma7": 79614.37142857141,
-          "ma25": 79655.86000000006,
-          "ma60": 79798.77,
+          "ma7": 79597.34285714282,
+          "ma25": 79648.90000000007,
+          "ma60": 79731.02833333334,
           "slope5": {
-            "ma7": -15.514285714292782,
-            "ma25": 21.871999999988475,
-            "ma60": -122.03833333334478
+            "ma7": -24.44285714288708,
+            "ma25": -5.9760000000096625,
+            "ma60": -118.1733333333541
           },
           "order": "bearish",
-          "direction": "mixed"
+          "direction": "down"
         },
         "structure": {
-          "state": "range",
-          "confidence": "medium",
+          "state": "lower_highs_lower_lows",
+          "confidence": "high",
           "previousHigh": 79776,
           "recentHigh": 79721.3,
-          "previousLow": 79479.1,
-          "recentLow": 79558.7,
-          "atr": 92.18571428571366,
-          "pivotHighCount": 11,
-          "pivotLowCount": 11,
-          "lastClose": 79534.6,
-          "lastCloseTs": 1788569100000
+          "previousLow": 79558.7,
+          "recentLow": 79504.3,
+          "atr": 85.84285714285735,
+          "pivotHighCount": 10,
+          "pivotLowCount": 12,
+          "lastClose": 79593.7,
+          "lastCloseTs": 1788571800000
         },
         "levels": {
-          "recentResistance": 79699.20677966104,
-          "secondaryResistance": 79800.58783783784,
-          "recentSupport": 79479.1,
-          "secondarySupport": 79324,
+          "recentResistance": 79699.34716981133,
+          "secondaryResistance": 79800.49848484849,
+          "recentSupport": 79590.76250000001,
+          "secondarySupport": 79492.3,
           "recentResistanceTouches": 3,
           "secondaryResistanceTouches": 4,
-          "recentSupportTouches": 1,
-          "secondarySupportTouches": 1,
-          "zoneTolerance": 79.53460000000001,
+          "recentSupportTouches": 2,
+          "secondarySupportTouches": 2,
+          "zoneTolerance": 79.5937,
           "aboveAllConfirmedResistance": false,
           "belowAllConfirmedSupport": false
         },
         "volume": {
-          "lastVolume": 39380.01,
-          "average20": 20213.838999999996,
-          "ratio": 1.9481707556887145
+          "lastVolume": 17253.58,
+          "average20": 20837.644,
+          "ratio": 0.8280005167570769
+        },
+        "volumeProfile": {
+          "available": true,
+          "poc": 79650.547917,
+          "vah": 79777.370833,
+          "val": 79168.620833,
+          "hvn": [
+            79650.547917,
+            79599.81875,
+            79498.360417,
+            79549.089583
+          ],
+          "lvn": [
+            78635.964583,
+            78686.69375,
+            78737.422917
+          ],
+          "bucketCount": 24,
+          "lookback": 48,
+          "totalVolume": 3093768
         },
         "recentCandles": [
-          {
-            "ts": 1788559200000,
-            "time": "2026-09-04T22:00:00.000Z",
-            "open": 79588.6,
-            "high": 79652.1,
-            "low": 79588.6,
-            "close": 79650,
-            "volume": 13504,
-            "quoteVolume": 10751361.34002
-          },
-          {
-            "ts": 1788560100000,
-            "time": "2026-09-04T22:15:00.000Z",
-            "open": 79649.9,
-            "high": 79666,
-            "low": 79606.2,
-            "close": 79658.4,
-            "volume": 16130.11,
-            "quoteVolume": 12845074.82536
-          },
-          {
-            "ts": 1788561000000,
-            "time": "2026-09-04T22:30:00.000Z",
-            "open": 79658.5,
-            "high": 79684.6,
-            "low": 79610.7,
-            "close": 79610.7,
-            "volume": 9771.15,
-            "quoteVolume": 7783397.98491
-          },
           {
             "ts": 1788561900000,
             "time": "2026-09-04T22:45:00.000Z",
@@ -1263,6 +1415,36 @@
             "close": 79534.6,
             "volume": 39380.01,
             "quoteVolume": 31331846.84815
+          },
+          {
+            "ts": 1788570000000,
+            "time": "2026-09-05T01:00:00.000Z",
+            "open": 79534.6,
+            "high": 79638.7,
+            "low": 79504.3,
+            "close": 79579.1,
+            "volume": 36738.89,
+            "quoteVolume": 29233303.05706
+          },
+          {
+            "ts": 1788570900000,
+            "time": "2026-09-05T01:15:00.000Z",
+            "open": 79579.1,
+            "high": 79657.7,
+            "low": 79555.2,
+            "close": 79650.2,
+            "volume": 16929.12,
+            "quoteVolume": 13476265.12055
+          },
+          {
+            "ts": 1788571800000,
+            "time": "2026-09-05T01:30:00.000Z",
+            "open": 79650.2,
+            "high": 79667.7,
+            "low": 79566.7,
+            "close": 79593.7,
+            "volume": 17253.58,
+            "quoteVolume": 13736451.90485
           }
         ]
       },
@@ -1310,6 +1492,27 @@
           "lastVolume": 121582.21,
           "average20": 412416.7969999999,
           "ratio": 0.2948042147759565
+        },
+        "volumeProfile": {
+          "available": true,
+          "poc": 81052.964583,
+          "vah": 81610.6625,
+          "val": 78710.633333,
+          "hvn": [
+            81052.964583,
+            80829.885417,
+            81276.04375,
+            79491.410417
+          ],
+          "lvn": [
+            81945.28125,
+            82168.360417,
+            77037.539583,
+            78152.935417
+          ],
+          "bucketCount": 24,
+          "lookback": 48,
+          "totalVolume": 21784556.08
         },
         "recentCandles": [
           {
@@ -1438,17 +1641,123 @@
     "ETH-USDT-SWAP": {
       "ok": true,
       "symbol": "ETH-USDT-SWAP",
-      "updatedAt": "2026-09-05T01:00:55.405Z",
-      "price": 2451.91,
+      "updatedAt": "2026-09-05T01:50:59.344Z",
+      "price": 2451.69,
       "high24h": 2548.37,
       "low24h": 2428.03,
-      "open24h": 2502.55,
-      "changePct24h": -0.020235359932868603,
-      "contractVolume24h": 30480033.59,
-      "baseVolume24h": 3048003.359,
-      "quoteVolume24hEstimate": 7473429915.96569,
-      "turnoverUsdEstimate": 7473429915.96569,
-      "openInterestUsdEstimate": 1480021492.042725,
+      "open24h": 2501.72,
+      "changePct24h": -0.019998241210047386,
+      "contractVolume24h": 30064203.95,
+      "baseVolume24h": 3006420.395,
+      "quoteVolume24hEstimate": 7370810818.21755,
+      "turnoverUsdEstimate": 7370810818.21755,
+      "openInterestUsdEstimate": 1481629567.719845,
+      "oiEvidence": {
+        "available": true,
+        "currentUsd": 1481629567.719845,
+        "previousUsd": 1480021492.042725,
+        "changePct": 0.108652,
+        "direction": "flat",
+        "currentTs": 1788573052424,
+        "previousUpdatedAt": "2026-09-05T01:00:55.405Z"
+      },
+      "capitalEvidence": {
+        "available": true,
+        "status": "fresh",
+        "provider": "binance-usds-m-5m-klines",
+        "symbol": "ETHUSDT",
+        "latestClosedAt": "2026-09-05T01:49:59.999Z",
+        "cvd": {
+          "available": true,
+          "direction": "bearish",
+          "cumulative": -2564.867,
+          "slope": -32.425,
+          "latestDelta": -946.585,
+          "positiveBars": 4,
+          "negativeBars": 7,
+          "sampleCount": 11
+        },
+        "taker": {
+          "available": true,
+          "latestBuySellRatio": 0.517142,
+          "averageBuySellRatio": 0.978672,
+          "bullishBars": 4,
+          "bearishBars": 7,
+          "continuity": "bearish",
+          "sampleCount": 11
+        },
+        "volume": {
+          "available": true,
+          "latest": 2974.175,
+          "average": 3035.281,
+          "ratio": 0.979868
+        }
+      },
+      "cvd": {
+        "available": true,
+        "direction": "bearish",
+        "cumulative": -2564.867,
+        "slope": -32.425,
+        "latestDelta": -946.585,
+        "positiveBars": 4,
+        "negativeBars": 7,
+        "sampleCount": 11
+      },
+      "taker": {
+        "available": true,
+        "latestBuySellRatio": 0.517142,
+        "averageBuySellRatio": 0.978672,
+        "bullishBars": 4,
+        "bearishBars": 7,
+        "continuity": "bearish",
+        "sampleCount": 11
+      },
+      "mainChainScore": 0,
+      "mainChainTotal": 5,
+      "mainChainAvailableCount": 5,
+      "mainChainPassed": false,
+      "mainChainItems": {
+        "direction": {
+          "passed": false,
+          "available": true
+        },
+        "location": {
+          "passed": false,
+          "available": true
+        },
+        "oi": {
+          "passed": false,
+          "available": true
+        },
+        "cvd": {
+          "passed": false,
+          "available": true
+        },
+        "trigger": {
+          "passed": false,
+          "available": true
+        }
+      },
+      "auxiliaryConflicts": [],
+      "entryMode": "none",
+      "suggestedEntry": {
+        "direction": "neutral",
+        "mode": "none",
+        "zoneLow": null,
+        "zoneHigh": null,
+        "triggerPrice": 2449.367027,
+        "referencePrice": 2451.69,
+        "directBreakoutAllowed": false,
+        "reason": "no sufficiently complete entry chain"
+      },
+      "failureLevel": null,
+      "targets": {
+        "t1": null,
+        "t2": null
+      },
+      "riskReward": null,
+      "decisionDirection": "neutral",
+      "decisionReason": "direction=neutral; votes=1B/0S; mainChain=0/5; cvd=bearish; oi=flat; taker=bearish; entryMode=none",
       "fetch15mOk": true,
       "fetch1hOk": true,
       "retryCount15m": 0,
@@ -1456,7 +1765,7 @@
       "partial": false,
       "stale": false,
       "staleReason": null,
-      "lastSuccessfulAt": "2026-09-05T01:00:55.405Z",
+      "lastSuccessfulAt": "2026-09-05T01:50:58.944Z",
       "timeframeStatus": {
         "15m": {
           "fetchOk": true,
@@ -1475,24 +1784,24 @@
       },
       "freshness": {
         "status": "fresh",
-        "tickerTs": 1788570049562,
-        "tickerAgeMs": 5843,
-        "oiTs": 1788570050550,
-        "oiAgeMs": 4855,
-        "lastClosed15mTs": 1788569100000,
+        "tickerTs": 1788573051767,
+        "tickerAgeMs": 7577,
+        "oiTs": 1788573052424,
+        "oiAgeMs": 6920,
+        "lastClosed15mTs": 1788571800000,
         "lastClosed1hTs": 1788566400000,
         "fallbackAgeMinutes": 0
       },
       "timeframe15m": {
         "candleCount": 119,
         "ma": {
-          "ma7": 2452.8942857142843,
-          "ma25": 2452.4004,
-          "ma60": 2463.1283333333317,
+          "ma7": 2452.871428571428,
+          "ma25": 2452.4576,
+          "ma60": 2459.6981666666647,
           "slope5": {
-            "ma7": 1.5271428571422803,
-            "ma25": 1.339600000000246,
-            "ma60": -6.006333333332805
+            "ma7": 0.6314285714279322,
+            "ma25": 0.3415999999997439,
+            "ma60": -5.836499999999887
           },
           "order": "mixed",
           "direction": "mixed"
@@ -1502,63 +1811,54 @@
           "confidence": "high",
           "previousHigh": 2453.33,
           "recentHigh": 2455.88,
-          "previousLow": 2441.87,
-          "recentLow": 2449,
-          "atr": 3.1464285714285842,
-          "pivotHighCount": 13,
-          "pivotLowCount": 8,
-          "lastClose": 2451.16,
-          "lastCloseTs": 1788569100000
+          "previousLow": 2449,
+          "recentLow": 2450.33,
+          "atr": 2.8635714285714067,
+          "pivotHighCount": 12,
+          "pivotLowCount": 9,
+          "lastClose": 2452.77,
+          "lastCloseTs": 1788571800000
         },
         "levels": {
           "recentResistance": 2453.33,
-          "secondaryResistance": 2456.7376190476193,
-          "recentSupport": 2449.009803921569,
+          "secondaryResistance": 2456.7316842105265,
+          "recentSupport": 2449.367027027027,
           "secondarySupport": 2441.87,
           "recentResistanceTouches": 1,
           "secondaryResistanceTouches": 5,
-          "recentSupportTouches": 3,
+          "recentSupportTouches": 4,
           "secondarySupportTouches": 1,
-          "zoneTolerance": 2.45116,
+          "zoneTolerance": 2.45277,
           "aboveAllConfirmedResistance": false,
           "belowAllConfirmedSupport": false
         },
         "volume": {
-          "lastVolume": 72654.76,
-          "average20": 50342.59850000001,
-          "ratio": 1.4432063930907337
+          "lastVolume": 38173.22,
+          "average20": 49477.6425,
+          "ratio": 0.7715246335756599
+        },
+        "volumeProfile": {
+          "available": true,
+          "poc": 2452.498125,
+          "vah": 2457.688333,
+          "val": 2444.342083,
+          "hvn": [
+            2452.498125,
+            2453.981042,
+            2451.015208,
+            2449.532292
+          ],
+          "lvn": [
+            2428.771458,
+            2430.254375,
+            2431.737292,
+            2433.220208
+          ],
+          "bucketCount": 24,
+          "lookback": 48,
+          "totalVolume": 7467681.26
         },
         "recentCandles": [
-          {
-            "ts": 1788559200000,
-            "time": "2026-09-04T22:00:00.000Z",
-            "open": 2450.67,
-            "high": 2453.29,
-            "low": 2450.31,
-            "close": 2451.81,
-            "volume": 38154.35,
-            "quoteVolume": 9355381.80069
-          },
-          {
-            "ts": 1788560100000,
-            "time": "2026-09-04T22:15:00.000Z",
-            "open": 2451.81,
-            "high": 2452.01,
-            "low": 2450,
-            "close": 2451.6,
-            "volume": 26419.25,
-            "quoteVolume": 6475486.32339
-          },
-          {
-            "ts": 1788561000000,
-            "time": "2026-09-04T22:30:00.000Z",
-            "open": 2451.61,
-            "high": 2453.33,
-            "low": 2451.12,
-            "close": 2451.12,
-            "volume": 27831.6,
-            "quoteVolume": 6824880.34299
-          },
           {
             "ts": 1788561900000,
             "time": "2026-09-04T22:45:00.000Z",
@@ -1648,6 +1948,36 @@
             "close": 2451.16,
             "volume": 72654.76,
             "quoteVolume": 17815732.37789
+          },
+          {
+            "ts": 1788570000000,
+            "time": "2026-09-05T01:00:00.000Z",
+            "open": 2451.16,
+            "high": 2454.83,
+            "low": 2450.33,
+            "close": 2452.38,
+            "volume": 90102.91,
+            "quoteVolume": 22104330.31172
+          },
+          {
+            "ts": 1788570900000,
+            "time": "2026-09-05T01:15:00.000Z",
+            "open": 2452.39,
+            "high": 2455,
+            "low": 2451.5,
+            "close": 2454.99,
+            "volume": 64661.73,
+            "quoteVolume": 15862774.48263
+          },
+          {
+            "ts": 1788571800000,
+            "time": "2026-09-05T01:30:00.000Z",
+            "open": 2455,
+            "high": 2455,
+            "low": 2452.3,
+            "close": 2452.77,
+            "volume": 38173.22,
+            "quoteVolume": 9365330.14478
           }
         ]
       },
@@ -1695,6 +2025,26 @@
           "lastVolume": 219184.15,
           "average20": 1409132.6524999999,
           "ratio": 0.15554543400235346
+        },
+        "volumeProfile": {
+          "available": true,
+          "poc": 2507.2025,
+          "vah": 2533.4,
+          "val": 2428.61,
+          "hvn": [
+            2507.2025,
+            2514.6875,
+            2499.7175
+          ],
+          "lvn": [
+            2372.4725,
+            2544.6275,
+            2537.1425,
+            2379.9575
+          ],
+          "bucketCount": 24,
+          "lookback": 48,
+          "totalVolume": 67567819.95
         },
         "recentCandles": [
           {
@@ -1823,17 +2173,123 @@
     "SOL-USDT-SWAP": {
       "ok": true,
       "symbol": "SOL-USDT-SWAP",
-      "updatedAt": "2026-09-05T01:00:56.663Z",
-      "price": 101.79,
+      "updatedAt": "2026-09-05T01:51:01.297Z",
+      "price": 101.9,
       "high24h": 104.76,
       "low24h": 100.08,
-      "open24h": 103.6,
-      "changePct24h": -0.017471042471042357,
-      "contractVolume24h": 9173673.56,
-      "baseVolume24h": 9173673.56,
-      "quoteVolume24hEstimate": 933788231.6724001,
-      "turnoverUsdEstimate": 933788231.6724001,
-      "openInterestUsdEstimate": 287252193.3021001,
+      "open24h": 103.49,
+      "changePct24h": -0.015363803266015937,
+      "contractVolume24h": 9079039.93,
+      "baseVolume24h": 9079039.93,
+      "quoteVolume24hEstimate": 925154168.867,
+      "turnoverUsdEstimate": 925154168.867,
+      "openInterestUsdEstimate": 286624798.6364002,
+      "oiEvidence": {
+        "available": true,
+        "currentUsd": 286624798.6364,
+        "previousUsd": 287252193.3021,
+        "changePct": -0.218412,
+        "direction": "falling",
+        "currentTs": 1788573052424,
+        "previousUpdatedAt": "2026-09-05T01:00:56.663Z"
+      },
+      "capitalEvidence": {
+        "available": true,
+        "status": "fresh",
+        "provider": "binance-usds-m-5m-klines",
+        "symbol": "SOLUSDT",
+        "latestClosedAt": "2026-09-05T01:49:59.999Z",
+        "cvd": {
+          "available": true,
+          "direction": "bullish",
+          "cumulative": -1212.07,
+          "slope": 8599.06,
+          "latestDelta": -21220.51,
+          "positiveBars": 7,
+          "negativeBars": 4,
+          "sampleCount": 11
+        },
+        "taker": {
+          "available": true,
+          "latestBuySellRatio": 0.326506,
+          "averageBuySellRatio": 1.216289,
+          "bullishBars": 7,
+          "bearishBars": 4,
+          "continuity": "bullish",
+          "sampleCount": 11
+        },
+        "volume": {
+          "available": true,
+          "latest": 41795.67,
+          "average": 30153.948,
+          "ratio": 1.386076
+        }
+      },
+      "cvd": {
+        "available": true,
+        "direction": "bullish",
+        "cumulative": -1212.07,
+        "slope": 8599.06,
+        "latestDelta": -21220.51,
+        "positiveBars": 7,
+        "negativeBars": 4,
+        "sampleCount": 11
+      },
+      "taker": {
+        "available": true,
+        "latestBuySellRatio": 0.326506,
+        "averageBuySellRatio": 1.216289,
+        "bullishBars": 7,
+        "bearishBars": 4,
+        "continuity": "bullish",
+        "sampleCount": 11
+      },
+      "mainChainScore": 0,
+      "mainChainTotal": 5,
+      "mainChainAvailableCount": 5,
+      "mainChainPassed": false,
+      "mainChainItems": {
+        "direction": {
+          "passed": false,
+          "available": true
+        },
+        "location": {
+          "passed": false,
+          "available": true
+        },
+        "oi": {
+          "passed": false,
+          "available": true
+        },
+        "cvd": {
+          "passed": false,
+          "available": true
+        },
+        "trigger": {
+          "passed": false,
+          "available": true
+        }
+      },
+      "auxiliaryConflicts": [],
+      "entryMode": "none",
+      "suggestedEntry": {
+        "direction": "neutral",
+        "mode": "none",
+        "zoneLow": null,
+        "zoneHigh": null,
+        "triggerPrice": 101.665143,
+        "referencePrice": 101.9,
+        "directBreakoutAllowed": false,
+        "reason": "no sufficiently complete entry chain"
+      },
+      "failureLevel": null,
+      "targets": {
+        "t1": null,
+        "t2": null
+      },
+      "riskReward": null,
+      "decisionDirection": "neutral",
+      "decisionReason": "direction=neutral; votes=0B/0S; mainChain=0/5; cvd=bullish; oi=falling; taker=bullish; entryMode=none",
       "fetch15mOk": true,
       "fetch1hOk": true,
       "retryCount15m": 0,
@@ -1841,7 +2297,7 @@
       "partial": false,
       "stale": false,
       "staleReason": null,
-      "lastSuccessfulAt": "2026-09-05T01:00:56.663Z",
+      "lastSuccessfulAt": "2026-09-05T01:51:00.900Z",
       "timeframeStatus": {
         "15m": {
           "fetchOk": true,
@@ -1860,24 +2316,24 @@
       },
       "freshness": {
         "status": "fresh",
-        "tickerTs": 1788570049564,
-        "tickerAgeMs": 7099,
-        "oiTs": 1788570050550,
-        "oiAgeMs": 6113,
-        "lastClosed15mTs": 1788569100000,
+        "tickerTs": 1788573051862,
+        "tickerAgeMs": 9435,
+        "oiTs": 1788573052424,
+        "oiAgeMs": 8873,
+        "lastClosed15mTs": 1788571800000,
         "lastClosed1hTs": 1788566400000,
         "fallbackAgeMinutes": 0
       },
       "timeframe15m": {
         "candleCount": 119,
         "ma": {
-          "ma7": 101.80285714285712,
-          "ma25": 101.69000000000004,
-          "ma60": 101.95316666666658,
+          "ma7": 101.84857142857136,
+          "ma25": 101.72120000000001,
+          "ma60": 101.85833333333325,
           "slope5": {
-            "ma7": 0.10571428571428498,
-            "ma25": 0.09200000000001296,
-            "ma60": -0.19716666666666072
+            "ma7": 0.06714285714284074,
+            "ma25": 0.055999999999983174,
+            "ma60": -0.17366666666664798
           },
           "order": "mixed",
           "direction": "mixed"
@@ -1888,62 +2344,53 @@
           "previousHigh": 101.88,
           "recentHigh": 101.91,
           "previousLow": 101.37,
-          "recentLow": 101.66,
-          "atr": 0.19142857142857497,
+          "recentLow": 101.67,
+          "atr": 0.18142857142857288,
           "pivotHighCount": 7,
           "pivotLowCount": 9,
-          "lastClose": 101.77,
-          "lastCloseTs": 1788569100000
+          "lastClose": 102.05,
+          "lastCloseTs": 1788571800000
         },
         "levels": {
-          "recentResistance": 101.86351351351351,
-          "secondaryResistance": 102.06,
-          "recentSupport": 101.66,
+          "recentResistance": 102.06,
+          "secondaryResistance": 102.2,
+          "recentSupport": 101.66514285714285,
           "secondarySupport": 101.53,
-          "recentResistanceTouches": 4,
+          "recentResistanceTouches": 1,
           "secondaryResistanceTouches": 1,
-          "recentSupportTouches": 1,
+          "recentSupportTouches": 2,
           "secondarySupportTouches": 1,
-          "zoneTolerance": 0.10177,
+          "zoneTolerance": 0.10205,
           "aboveAllConfirmedResistance": false,
           "belowAllConfirmedSupport": false
         },
         "volume": {
-          "lastVolume": 52901.54,
-          "average20": 29465.663999999997,
-          "ratio": 1.7953622222801429
+          "lastVolume": 58219.79,
+          "average20": 30058.340999999997,
+          "ratio": 1.9368929908673271
+        },
+        "volumeProfile": {
+          "available": true,
+          "poc": 101.74625,
+          "vah": 101.9525,
+          "val": 101.1275,
+          "hvn": [
+            101.74625,
+            101.58125,
+            101.66375,
+            101.82875
+          ],
+          "lvn": [
+            100.26125,
+            100.34375,
+            100.42625,
+            100.50875
+          ],
+          "bucketCount": 24,
+          "lookback": 48,
+          "totalVolume": 2909676.75
         },
         "recentCandles": [
-          {
-            "ts": 1788559200000,
-            "time": "2026-09-04T22:00:00.000Z",
-            "open": 101.5,
-            "high": 101.68,
-            "low": 101.49,
-            "close": 101.6,
-            "volume": 24188.85,
-            "quoteVolume": 2457397.5821
-          },
-          {
-            "ts": 1788560100000,
-            "time": "2026-09-04T22:15:00.000Z",
-            "open": 101.6,
-            "high": 101.79,
-            "low": 101.52,
-            "close": 101.62,
-            "volume": 24384.92,
-            "quoteVolume": 2478942.318
-          },
-          {
-            "ts": 1788561000000,
-            "time": "2026-09-04T22:30:00.000Z",
-            "open": 101.61,
-            "high": 101.72,
-            "low": 101.55,
-            "close": 101.61,
-            "volume": 13824.07,
-            "quoteVolume": 1405190.3928
-          },
           {
             "ts": 1788561900000,
             "time": "2026-09-04T22:45:00.000Z",
@@ -2033,6 +2480,36 @@
             "close": 101.77,
             "volume": 52901.54,
             "quoteVolume": 5386520.3456
+          },
+          {
+            "ts": 1788570000000,
+            "time": "2026-09-05T01:00:00.000Z",
+            "open": 101.77,
+            "high": 101.96,
+            "low": 101.67,
+            "close": 101.8,
+            "volume": 51735.57,
+            "quoteVolume": 5268368.1836
+          },
+          {
+            "ts": 1788570900000,
+            "time": "2026-09-05T01:15:00.000Z",
+            "open": 101.8,
+            "high": 101.97,
+            "low": 101.76,
+            "close": 101.97,
+            "volume": 30320.95,
+            "quoteVolume": 3087782.4162
+          },
+          {
+            "ts": 1788571800000,
+            "time": "2026-09-05T01:30:00.000Z",
+            "open": 101.97,
+            "high": 102.13,
+            "low": 101.88,
+            "close": 102.05,
+            "volume": 58219.79,
+            "quoteVolume": 5938266.4567
           }
         ]
       },
@@ -2080,6 +2557,27 @@
           "lastVolume": 111897.09,
           "average20": 420552.887,
           "ratio": 0.2660713871166458
+        },
+        "volumeProfile": {
+          "available": true,
+          "poc": 103.765,
+          "vah": 105.89,
+          "val": 101.073333,
+          "hvn": [
+            103.765,
+            104.048333,
+            100.931667,
+            101.215
+          ],
+          "lvn": [
+            99.231667,
+            99.515,
+            102.348333,
+            102.631667
+          ],
+          "bucketCount": 24,
+          "lookback": 48,
+          "totalVolume": 22385793.85
         },
         "recentCandles": [
           {
@@ -2208,17 +2706,125 @@
     "USELESS-USDT-SWAP": {
       "ok": true,
       "symbol": "USELESS-USDT-SWAP",
-      "updatedAt": "2026-09-05T01:00:59.227Z",
-      "price": 0.26822,
+      "updatedAt": "2026-09-05T01:51:08.766Z",
+      "price": 0.24553,
       "high24h": 0.2885,
       "low24h": 0.19718,
-      "open24h": 0.20282,
-      "changePct24h": 0.32245340696183816,
-      "contractVolume24h": 203860511,
-      "baseVolume24h": 2038605110,
-      "quoteVolume24hEstimate": 546794662.6042,
-      "turnoverUsdEstimate": 546794662.6042,
-      "openInterestUsdEstimate": 17091510.176,
+      "open24h": 0.21284,
+      "changePct24h": 0.15358955083630896,
+      "contractVolume24h": 205060436,
+      "baseVolume24h": 2050604360,
+      "quoteVolume24hEstimate": 503484888.5108,
+      "turnoverUsdEstimate": 503484888.5108,
+      "openInterestUsdEstimate": 15490481.2068,
+      "oiEvidence": {
+        "available": true,
+        "currentUsd": 15490481.2068,
+        "previousUsd": 17091510.176,
+        "changePct": -9.367393,
+        "direction": "falling",
+        "currentTs": 1788573052424,
+        "previousUpdatedAt": "2026-09-05T01:00:59.227Z"
+      },
+      "capitalEvidence": {
+        "available": false,
+        "status": "not_requested",
+        "provider": "binance-usds-m-5m-klines",
+        "error": null,
+        "cvd": {
+          "available": false,
+          "direction": "unavailable",
+          "cumulative": null,
+          "slope": null,
+          "latestDelta": null,
+          "positiveBars": 0,
+          "negativeBars": 0,
+          "sampleCount": 0
+        },
+        "taker": {
+          "available": false,
+          "latestBuySellRatio": null,
+          "averageBuySellRatio": null,
+          "bullishBars": 0,
+          "bearishBars": 0,
+          "continuity": "unavailable",
+          "sampleCount": 0
+        },
+        "volume": {
+          "available": false,
+          "latest": null,
+          "average": null,
+          "ratio": null
+        }
+      },
+      "cvd": {
+        "available": false,
+        "direction": "unavailable",
+        "cumulative": null,
+        "slope": null,
+        "latestDelta": null,
+        "positiveBars": 0,
+        "negativeBars": 0,
+        "sampleCount": 0
+      },
+      "taker": {
+        "available": false,
+        "latestBuySellRatio": null,
+        "averageBuySellRatio": null,
+        "bullishBars": 0,
+        "bearishBars": 0,
+        "continuity": "unavailable",
+        "sampleCount": 0
+      },
+      "mainChainScore": 2,
+      "mainChainTotal": 5,
+      "mainChainAvailableCount": 3,
+      "mainChainPassed": false,
+      "mainChainItems": {
+        "direction": {
+          "passed": true,
+          "available": true
+        },
+        "location": {
+          "passed": true,
+          "available": true
+        },
+        "oi": {
+          "passed": false,
+          "available": true
+        },
+        "cvd": {
+          "passed": false,
+          "available": false
+        },
+        "trigger": {
+          "passed": false,
+          "available": false
+        }
+      },
+      "auxiliaryConflicts": [
+        "oi_falling_during_bullish_setup",
+        "cvd_unavailable_not_veto"
+      ],
+      "entryMode": "pullback",
+      "suggestedEntry": {
+        "direction": "bullish",
+        "mode": "pullback",
+        "zoneLow": 0.236626,
+        "zoneHigh": 0.239934,
+        "triggerPrice": 0.250483,
+        "referencePrice": 0.24553,
+        "directBreakoutAllowed": false,
+        "reason": "trend valid but capital confirmation or extension does not justify direct chase"
+      },
+      "failureLevel": 0.233565,
+      "targets": {
+        "t1": 0.250483,
+        "t2": 0.259672
+      },
+      "riskReward": 2.588123,
+      "decisionDirection": "bullish",
+      "decisionReason": "direction=bullish; votes=3B/0S; mainChain=2/5; cvd=unavailable; oi=falling; taker=unavailable; entryMode=pullback",
       "fetch15mOk": true,
       "fetch1hOk": true,
       "retryCount15m": 0,
@@ -2226,7 +2832,7 @@
       "partial": false,
       "stale": false,
       "staleReason": null,
-      "lastSuccessfulAt": "2026-09-05T01:00:59.227Z",
+      "lastSuccessfulAt": "2026-09-05T01:51:08.766Z",
       "timeframeStatus": {
         "15m": {
           "fetchOk": true,
@@ -2245,24 +2851,24 @@
       },
       "freshness": {
         "status": "fresh",
-        "tickerTs": 1788570049470,
-        "tickerAgeMs": 9757,
-        "oiTs": 1788570050550,
-        "oiAgeMs": 8677,
-        "lastClosed15mTs": 1788569100000,
+        "tickerTs": 1788573051870,
+        "tickerAgeMs": 16896,
+        "oiTs": 1788573052424,
+        "oiAgeMs": 16342,
+        "lastClosed15mTs": 1788571800000,
         "lastClosed1hTs": 1788566400000,
         "fallbackAgeMinutes": 0
       },
       "timeframe15m": {
         "candleCount": 119,
         "ma": {
-          "ma7": 0.2626085714285713,
-          "ma25": 0.2531239999999999,
-          "ma60": 0.24893950000000017,
+          "ma7": 0.2621728571428571,
+          "ma25": 0.25534679999999993,
+          "ma60": 0.24946250000000011,
           "slope5": {
-            "ma7": 0.006264285714285722,
-            "ma25": 0.004335200000000011,
-            "ma60": -0.0005969999999999864
+            "ma7": 0.0012100000000000999,
+            "ma25": 0.003770800000000074,
+            "ma60": -0.00003866666666665908
           },
           "order": "bullish",
           "direction": "mixed"
@@ -2270,65 +2876,56 @@
         "structure": {
           "state": "higher_highs_higher_lows",
           "confidence": "high",
-          "previousHigh": 0.25708,
-          "recentHigh": 0.26865,
+          "previousHigh": 0.26865,
+          "recentHigh": 0.27388,
           "previousLow": 0.23502,
           "recentLow": 0.24716,
-          "atr": 0.007504999999999996,
+          "atr": 0.009189285714285709,
           "pivotHighCount": 10,
-          "pivotLowCount": 7,
-          "lastClose": 0.26565,
-          "lastCloseTs": 1788569100000
+          "pivotLowCount": 6,
+          "lastClose": 0.24654,
+          "lastCloseTs": 1788571800000
         },
         "levels": {
-          "recentResistance": 0.26867624999999995,
-          "secondaryResistance": 0.2885,
-          "recentSupport": 0.24716,
-          "secondarySupport": 0.23828,
-          "recentResistanceTouches": 2,
-          "secondaryResistanceTouches": 1,
+          "recentResistance": 0.25048296296296296,
+          "secondaryResistance": 0.25790434782608695,
+          "recentSupport": 0.23828,
+          "secondarySupport": 0.23518722222222221,
+          "recentResistanceTouches": 3,
+          "secondaryResistanceTouches": 3,
           "recentSupportTouches": 1,
-          "secondarySupportTouches": 1,
-          "zoneTolerance": 0.0022514999999999987,
+          "secondarySupportTouches": 2,
+          "zoneTolerance": 0.0027567857142857125,
           "aboveAllConfirmedResistance": false,
           "belowAllConfirmedSupport": false
         },
         "volume": {
-          "lastVolume": 1134535,
-          "average20": 749184.3,
-          "ratio": 1.5143603516517896
+          "lastVolume": 3672846,
+          "average20": 852084.95,
+          "ratio": 4.310422335237819
+        },
+        "volumeProfile": {
+          "available": true,
+          "poc": 0.250001,
+          "vah": 0.264783,
+          "val": 0.235219,
+          "hvn": [
+            0.250001,
+            0.245453,
+            0.243179,
+            0.240905
+          ],
+          "lvn": [
+            0.272743,
+            0.220437,
+            0.270469,
+            0.222711
+          ],
+          "bucketCount": 24,
+          "lookback": 48,
+          "totalVolume": 63417807
         },
         "recentCandles": [
-          {
-            "ts": 1788559200000,
-            "time": "2026-09-04T22:00:00.000Z",
-            "open": 0.25046,
-            "high": 0.25444,
-            "low": 0.2489,
-            "close": 0.25236,
-            "volume": 484647,
-            "quoteVolume": 1217755.5336
-          },
-          {
-            "ts": 1788560100000,
-            "time": "2026-09-04T22:15:00.000Z",
-            "open": 0.25227,
-            "high": 0.2545,
-            "low": 0.25105,
-            "close": 0.25227,
-            "volume": 333558,
-            "quoteVolume": 844239.8337
-          },
-          {
-            "ts": 1788561000000,
-            "time": "2026-09-04T22:30:00.000Z",
-            "open": 0.25227,
-            "high": 0.25633,
-            "low": 0.25221,
-            "close": 0.25408,
-            "volume": 389447,
-            "quoteVolume": 990644.4056
-          },
           {
             "ts": 1788561900000,
             "time": "2026-09-04T22:45:00.000Z",
@@ -2418,6 +3015,36 @@
             "close": 0.26565,
             "volume": 1134535,
             "quoteVolume": 2994525.9544
+          },
+          {
+            "ts": 1788570000000,
+            "time": "2026-09-05T01:00:00.000Z",
+            "open": 0.26555,
+            "high": 0.27388,
+            "low": 0.26555,
+            "close": 0.26758,
+            "volume": 2065571,
+            "quoteVolume": 5572851.4981
+          },
+          {
+            "ts": 1788570900000,
+            "time": "2026-09-05T01:15:00.000Z",
+            "open": 0.26758,
+            "high": 0.27207,
+            "low": 0.26634,
+            "close": 0.26853,
+            "volume": 910555,
+            "quoteVolume": 2455389.6519
+          },
+          {
+            "ts": 1788571800000,
+            "time": "2026-09-05T01:30:00.000Z",
+            "open": 0.26853,
+            "high": 0.2702,
+            "low": 0.24039,
+            "close": 0.24654,
+            "volume": 3672846,
+            "quoteVolume": 9338044.5232
           }
         ]
       },
@@ -2465,6 +3092,27 @@
           "lastVolume": 4630017,
           "average20": 8783821.3,
           "ratio": 0.5271073763761565
+        },
+        "volumeProfile": {
+          "available": true,
+          "poc": 0.24384,
+          "vah": 0.274758,
+          "val": 0.178567,
+          "hvn": [
+            0.24384,
+            0.236969,
+            0.25071,
+            0.154519
+          ],
+          "lvn": [
+            0.285065,
+            0.16826,
+            0.278194,
+            0.127035
+          ],
+          "bucketCount": 24,
+          "lookback": 48,
+          "totalVolume": 367551446
         },
         "recentCandles": [
           {
@@ -2593,17 +3241,123 @@
     "ZEC-USDT-SWAP": {
       "ok": true,
       "symbol": "ZEC-USDT-SWAP",
-      "updatedAt": "2026-09-05T01:00:57.913Z",
-      "price": 1017.92,
+      "updatedAt": "2026-09-05T01:51:03.245Z",
+      "price": 1014.6,
       "high24h": 1052.11,
-      "low24h": 932.37,
-      "open24h": 941.81,
-      "changePct24h": 0.0808124781006785,
-      "contractVolume24h": 135789286,
-      "baseVolume24h": 1357892.86,
-      "quoteVolume24hEstimate": 1382226300.0512002,
-      "turnoverUsdEstimate": 1382226300.0512002,
-      "openInterestUsdEstimate": 159052925.9187,
+      "low24h": 934.3,
+      "open24h": 938.79,
+      "changePct24h": 0.08075288403157262,
+      "contractVolume24h": 134869617,
+      "baseVolume24h": 1348696.17,
+      "quoteVolume24hEstimate": 1368387134.082,
+      "turnoverUsdEstimate": 1368387134.082,
+      "openInterestUsdEstimate": 159048583.5864,
+      "oiEvidence": {
+        "available": true,
+        "currentUsd": 159048583.5864,
+        "previousUsd": 159052925.9187,
+        "changePct": -0.00273,
+        "direction": "flat",
+        "currentTs": 1788573052424,
+        "previousUpdatedAt": "2026-09-05T01:00:57.913Z"
+      },
+      "capitalEvidence": {
+        "available": true,
+        "status": "fresh",
+        "provider": "binance-usds-m-5m-klines",
+        "symbol": "ZECUSDT",
+        "latestClosedAt": "2026-09-05T01:49:59.999Z",
+        "cvd": {
+          "available": true,
+          "direction": "bullish",
+          "cumulative": 205.262,
+          "slope": 98.23,
+          "latestDelta": -841,
+          "positiveBars": 5,
+          "negativeBars": 6,
+          "sampleCount": 11
+        },
+        "taker": {
+          "available": true,
+          "latestBuySellRatio": 0.626955,
+          "averageBuySellRatio": 1.06986,
+          "bullishBars": 5,
+          "bearishBars": 6,
+          "continuity": "mixed",
+          "sampleCount": 11
+        },
+        "volume": {
+          "available": true,
+          "latest": 3667.834,
+          "average": 3142.5654,
+          "ratio": 1.167146
+        }
+      },
+      "cvd": {
+        "available": true,
+        "direction": "bullish",
+        "cumulative": 205.262,
+        "slope": 98.23,
+        "latestDelta": -841,
+        "positiveBars": 5,
+        "negativeBars": 6,
+        "sampleCount": 11
+      },
+      "taker": {
+        "available": true,
+        "latestBuySellRatio": 0.626955,
+        "averageBuySellRatio": 1.06986,
+        "bullishBars": 5,
+        "bearishBars": 6,
+        "continuity": "mixed",
+        "sampleCount": 11
+      },
+      "mainChainScore": 3,
+      "mainChainTotal": 5,
+      "mainChainAvailableCount": 5,
+      "mainChainPassed": false,
+      "mainChainItems": {
+        "direction": {
+          "passed": true,
+          "available": true
+        },
+        "location": {
+          "passed": false,
+          "available": true
+        },
+        "oi": {
+          "passed": true,
+          "available": true
+        },
+        "cvd": {
+          "passed": true,
+          "available": true
+        },
+        "trigger": {
+          "passed": false,
+          "available": true
+        }
+      },
+      "auxiliaryConflicts": [],
+      "entryMode": "none",
+      "suggestedEntry": {
+        "direction": "bullish",
+        "mode": "none",
+        "zoneLow": 996.59435,
+        "zoneHigh": 999.63815,
+        "triggerPrice": 1023.825937,
+        "referencePrice": 1014.6,
+        "directBreakoutAllowed": false,
+        "reason": "no sufficiently complete entry chain"
+      },
+      "failureLevel": 991.949964,
+      "targets": {
+        "t1": 1023.825937,
+        "t2": 1031.533794
+      },
+      "riskReward": 4.169396,
+      "decisionDirection": "bullish",
+      "decisionReason": "direction=bullish; votes=3B/0S; mainChain=3/5; cvd=bullish; oi=flat; taker=mixed; entryMode=none",
       "fetch15mOk": true,
       "fetch1hOk": true,
       "retryCount15m": 0,
@@ -2611,7 +3365,7 @@
       "partial": false,
       "stale": false,
       "staleReason": null,
-      "lastSuccessfulAt": "2026-09-05T01:00:57.913Z",
+      "lastSuccessfulAt": "2026-09-05T01:51:02.844Z",
       "timeframeStatus": {
         "15m": {
           "fetchOk": true,
@@ -2630,24 +3384,24 @@
       },
       "freshness": {
         "status": "fresh",
-        "tickerTs": 1788570049465,
-        "tickerAgeMs": 8448,
-        "oiTs": 1788570050550,
-        "oiAgeMs": 7363,
-        "lastClosed15mTs": 1788569100000,
+        "tickerTs": 1788573051817,
+        "tickerAgeMs": 11428,
+        "oiTs": 1788573052424,
+        "oiAgeMs": 10821,
+        "lastClosed15mTs": 1788571800000,
         "lastClosed1hTs": 1788566400000,
         "fallbackAgeMinutes": 0
       },
       "timeframe15m": {
         "candleCount": 119,
         "ma": {
-          "ma7": 1021.9557142857146,
-          "ma25": 1024.9199999999996,
-          "ma60": 1009.5721666666666,
+          "ma7": 1019.0885714285716,
+          "ma25": 1023.7399999999999,
+          "ma60": 1010.6049999999998,
           "slope5": {
-            "ma7": -0.908571428571463,
-            "ma25": 1.0667999999999438,
-            "ma60": 0.9983333333334485
+            "ma7": -4.131428571428728,
+            "ma25": -1.3467999999996891,
+            "ma60": 1.6113333333330502
           },
           "order": "mixed",
           "direction": "mixed"
@@ -2658,62 +3412,53 @@
           "previousHigh": 1024.61,
           "recentHigh": 1033.6,
           "previousLow": 1011.4,
-          "recentLow": 1013.69,
-          "atr": 8.459999999999996,
-          "pivotHighCount": 12,
+          "recentLow": 1014.21,
+          "atr": 7.707857142857132,
+          "pivotHighCount": 11,
           "pivotLowCount": 9,
-          "lastClose": 1018.03,
-          "lastCloseTs": 1788569100000
+          "lastClose": 1019.2,
+          "lastCloseTs": 1788571800000
         },
         "levels": {
-          "recentResistance": 1023.8058333333333,
-          "secondaryResistance": 1030.885625,
-          "recentSupport": 1016.02,
-          "secondarySupport": 1012.6123529411765,
+          "recentResistance": 1023.8259374999998,
+          "secondaryResistance": 1030.8564285714288,
+          "recentSupport": 1018.72,
+          "secondarySupport": 1016.02,
           "recentResistanceTouches": 2,
           "secondaryResistanceTouches": 2,
           "recentSupportTouches": 1,
-          "secondarySupportTouches": 2,
-          "zoneTolerance": 2.5379999999999985,
+          "secondarySupportTouches": 1,
+          "zoneTolerance": 2.3123571428571394,
           "aboveAllConfirmedResistance": false,
           "belowAllConfirmedSupport": false
         },
         "volume": {
-          "lastVolume": 392026,
-          "average20": 603244.5,
-          "ratio": 0.6498625350086076
+          "lastVolume": 283212,
+          "average20": 539793.45,
+          "ratio": 0.5246673519287794
+        },
+        "volumeProfile": {
+          "available": true,
+          "poc": 1017.913958,
+          "vah": 1041.31125,
+          "val": 998.11625,
+          "hvn": [
+            1017.913958,
+            1025.113125,
+            1021.513542,
+            1028.712708
+          ],
+          "lvn": [
+            1050.310208,
+            967.519792,
+            1046.710625,
+            971.119375
+          ],
+          "bucketCount": 24,
+          "lookback": 48,
+          "totalVolume": 60509684
         },
         "recentCandles": [
-          {
-            "ts": 1788559200000,
-            "time": "2026-09-04T22:00:00.000Z",
-            "open": 1016.79,
-            "high": 1024.61,
-            "low": 1011.4,
-            "close": 1016.96,
-            "volume": 597607,
-            "quoteVolume": 6072056.0139
-          },
-          {
-            "ts": 1788560100000,
-            "time": "2026-09-04T22:15:00.000Z",
-            "open": 1016.95,
-            "high": 1024.25,
-            "low": 1016.49,
-            "close": 1021.7,
-            "volume": 581178,
-            "quoteVolume": 5934881.5406
-          },
-          {
-            "ts": 1788561000000,
-            "time": "2026-09-04T22:30:00.000Z",
-            "open": 1021.74,
-            "high": 1024,
-            "low": 1018.43,
-            "close": 1019.98,
-            "volume": 276262,
-            "quoteVolume": 2821322.0214
-          },
           {
             "ts": 1788561900000,
             "time": "2026-09-04T22:45:00.000Z",
@@ -2803,6 +3548,36 @@
             "close": 1018.03,
             "volume": 392026,
             "quoteVolume": 4000644.0738
+          },
+          {
+            "ts": 1788570000000,
+            "time": "2026-09-05T01:00:00.000Z",
+            "open": 1018.05,
+            "high": 1022.08,
+            "low": 1014.21,
+            "close": 1017.74,
+            "volume": 403827,
+            "quoteVolume": 4111695.5439
+          },
+          {
+            "ts": 1788570900000,
+            "time": "2026-09-05T01:15:00.000Z",
+            "open": 1017.74,
+            "high": 1019.54,
+            "low": 1014.7,
+            "close": 1017.99,
+            "volume": 417380,
+            "quoteVolume": 4241816.365
+          },
+          {
+            "ts": 1788571800000,
+            "time": "2026-09-05T01:30:00.000Z",
+            "open": 1017.99,
+            "high": 1019.8,
+            "low": 1016.05,
+            "close": 1019.2,
+            "volume": 283212,
+            "quoteVolume": 2883606.2707
           }
         ]
       },
@@ -2850,6 +3625,27 @@
           "lastVolume": 2068078,
           "average20": 6333336.9,
           "ratio": 0.32653844768624257
+        },
+        "volumeProfile": {
+          "available": true,
+          "poc": 954.295625,
+          "vah": 1031.5175,
+          "val": 928.555,
+          "hvn": [
+            954.295625,
+            943.999375,
+            964.591875,
+            1016.073125
+          ],
+          "lvn": [
+            882.221875,
+            892.518125,
+            902.814375,
+            913.110625
+          ],
+          "bucketCount": 24,
+          "lookback": 48,
+          "totalVolume": 268173612
         },
         "recentCandles": [
           {
@@ -2978,17 +3774,123 @@
     "LIT-USDT-SWAP": {
       "ok": true,
       "symbol": "LIT-USDT-SWAP",
-      "updatedAt": "2026-09-05T01:01:01.731Z",
-      "price": 4.8025,
+      "updatedAt": "2026-09-05T01:51:07.195Z",
+      "price": 4.7256,
       "high24h": 4.944,
       "low24h": 4.2305,
-      "open24h": 4.3911,
-      "changePct24h": 0.09368950832365477,
-      "contractVolume24h": 33240953,
-      "baseVolume24h": 33240953,
-      "quoteVolume24hEstimate": 159639676.7825,
-      "turnoverUsdEstimate": 159639676.7825,
-      "openInterestUsdEstimate": 31256807.7773,
+      "open24h": 4.354,
+      "changePct24h": 0.08534680753330269,
+      "contractVolume24h": 33056697,
+      "baseVolume24h": 33056697,
+      "quoteVolume24hEstimate": 156212727.3432,
+      "turnoverUsdEstimate": 156212727.3432,
+      "openInterestUsdEstimate": 30932527.6652,
+      "oiEvidence": {
+        "available": true,
+        "currentUsd": 30932527.6652,
+        "previousUsd": 31256807.7773,
+        "changePct": -1.03747,
+        "direction": "falling",
+        "currentTs": 1788573052424,
+        "previousUpdatedAt": "2026-09-05T01:01:01.731Z"
+      },
+      "capitalEvidence": {
+        "available": true,
+        "status": "fresh",
+        "provider": "binance-usds-m-5m-klines",
+        "symbol": "LITUSDT",
+        "latestClosedAt": "2026-09-05T01:49:59.999Z",
+        "cvd": {
+          "available": true,
+          "direction": "bearish",
+          "cumulative": -65395.5,
+          "slope": -53807.9,
+          "latestDelta": -31965.3,
+          "positiveBars": 3,
+          "negativeBars": 8,
+          "sampleCount": 11
+        },
+        "taker": {
+          "available": true,
+          "latestBuySellRatio": 0.642497,
+          "averageBuySellRatio": 0.905852,
+          "bullishBars": 3,
+          "bearishBars": 8,
+          "continuity": "bearish",
+          "sampleCount": 11
+        },
+        "volume": {
+          "available": true,
+          "latest": 146859.9,
+          "average": 75510.72,
+          "ratio": 1.944888
+        }
+      },
+      "cvd": {
+        "available": true,
+        "direction": "bearish",
+        "cumulative": -65395.5,
+        "slope": -53807.9,
+        "latestDelta": -31965.3,
+        "positiveBars": 3,
+        "negativeBars": 8,
+        "sampleCount": 11
+      },
+      "taker": {
+        "available": true,
+        "latestBuySellRatio": 0.642497,
+        "averageBuySellRatio": 0.905852,
+        "bullishBars": 3,
+        "bearishBars": 8,
+        "continuity": "bearish",
+        "sampleCount": 11
+      },
+      "mainChainScore": 0,
+      "mainChainTotal": 5,
+      "mainChainAvailableCount": 5,
+      "mainChainPassed": false,
+      "mainChainItems": {
+        "direction": {
+          "passed": false,
+          "available": true
+        },
+        "location": {
+          "passed": false,
+          "available": true
+        },
+        "oi": {
+          "passed": false,
+          "available": true
+        },
+        "cvd": {
+          "passed": false,
+          "available": true
+        },
+        "trigger": {
+          "passed": false,
+          "available": true
+        }
+      },
+      "auxiliaryConflicts": [],
+      "entryMode": "none",
+      "suggestedEntry": {
+        "direction": "neutral",
+        "mode": "none",
+        "zoneLow": null,
+        "zoneHigh": null,
+        "triggerPrice": 4.7394,
+        "referencePrice": 4.7256,
+        "directBreakoutAllowed": false,
+        "reason": "no sufficiently complete entry chain"
+      },
+      "failureLevel": null,
+      "targets": {
+        "t1": null,
+        "t2": null
+      },
+      "riskReward": null,
+      "decisionDirection": "neutral",
+      "decisionReason": "direction=neutral; votes=2B/0S; mainChain=0/5; cvd=bearish; oi=falling; taker=bearish; entryMode=none",
       "fetch15mOk": true,
       "fetch1hOk": true,
       "retryCount15m": 0,
@@ -2996,7 +3898,7 @@
       "partial": false,
       "stale": false,
       "staleReason": null,
-      "lastSuccessfulAt": "2026-09-05T01:01:01.731Z",
+      "lastSuccessfulAt": "2026-09-05T01:51:06.780Z",
       "timeframeStatus": {
         "15m": {
           "fetchOk": true,
@@ -3015,90 +3917,81 @@
       },
       "freshness": {
         "status": "fresh",
-        "tickerTs": 1788570049464,
-        "tickerAgeMs": 12267,
-        "oiTs": 1788570050550,
-        "oiAgeMs": 11181,
-        "lastClosed15mTs": 1788569100000,
+        "tickerTs": 1788573051868,
+        "tickerAgeMs": 15327,
+        "oiTs": 1788573052424,
+        "oiAgeMs": 14771,
+        "lastClosed15mTs": 1788571800000,
         "lastClosed1hTs": 1788566400000,
         "fallbackAgeMinutes": 0
       },
       "timeframe15m": {
         "candleCount": 119,
         "ma": {
-          "ma7": 4.797471428571426,
-          "ma25": 4.7442959999999985,
-          "ma60": 4.7076150000000005,
+          "ma7": 4.804142857142855,
+          "ma25": 4.735815999999999,
+          "ma60": 4.718336666666669,
           "slope5": {
-            "ma7": 0.08160000000000078,
-            "ma25": 0.004827999999999832,
-            "ma60": 0.021903333333332498
+            "ma7": 0.03138571428571524,
+            "ma25": -0.011199999999999655,
+            "ma60": 0.01952333333333467
           },
           "order": "bullish",
-          "direction": "up"
+          "direction": "mixed"
         },
         "structure": {
           "state": "higher_highs_higher_lows",
           "confidence": "high",
           "previousHigh": 4.725,
-          "recentHigh": 4.8416,
+          "recentHigh": 4.8357,
           "previousLow": 4.6003,
           "recentLow": 4.731,
-          "atr": 0.06878571428571423,
-          "pivotHighCount": 10,
-          "pivotLowCount": 10,
-          "lastClose": 4.7978,
-          "lastCloseTs": 1788569100000
+          "atr": 0.06614285714285709,
+          "pivotHighCount": 9,
+          "pivotLowCount": 9,
+          "lastClose": 4.773,
+          "lastCloseTs": 1788571800000
         },
         "levels": {
-          "recentResistance": 4.8416,
+          "recentResistance": 4.838592156862744,
           "secondaryResistance": 4.8951,
-          "recentSupport": 4.739533333333333,
+          "recentSupport": 4.7394,
           "secondarySupport": 4.6714,
-          "recentResistanceTouches": 1,
+          "recentResistanceTouches": 2,
           "secondaryResistanceTouches": 1,
           "recentSupportTouches": 2,
           "secondarySupportTouches": 1,
-          "zoneTolerance": 0.020635714285714268,
+          "zoneTolerance": 0.019842857142857124,
           "aboveAllConfirmedResistance": false,
           "belowAllConfirmedSupport": false
         },
         "volume": {
-          "lastVolume": 213518,
-          "average20": 210236.35,
-          "ratio": 1.015609336824959
+          "lastVolume": 150153,
+          "average20": 179247.1,
+          "ratio": 0.8376871927077202
+        },
+        "volumeProfile": {
+          "available": true,
+          "poc": 4.695023,
+          "vah": 4.840975,
+          "val": 4.652096,
+          "hvn": [
+            4.695023,
+            4.712194,
+            4.729365,
+            4.677852
+          ],
+          "lvn": [
+            4.935415,
+            4.540485,
+            4.918244,
+            4.557656
+          ],
+          "bucketCount": 24,
+          "lookback": 48,
+          "totalVolume": 16428659
         },
         "recentCandles": [
-          {
-            "ts": 1788559200000,
-            "time": "2026-09-04T22:00:00.000Z",
-            "open": 4.6391,
-            "high": 4.6482,
-            "low": 4.6003,
-            "close": 4.6416,
-            "volume": 148431,
-            "quoteVolume": 686775.5088
-          },
-          {
-            "ts": 1788560100000,
-            "time": "2026-09-04T22:15:00.000Z",
-            "open": 4.6406,
-            "high": 4.725,
-            "low": 4.6331,
-            "close": 4.7138,
-            "volume": 207756,
-            "quoteVolume": 970956.778
-          },
-          {
-            "ts": 1788561000000,
-            "time": "2026-09-04T22:30:00.000Z",
-            "open": 4.7137,
-            "high": 4.7236,
-            "low": 4.6707,
-            "close": 4.7015,
-            "volume": 120807,
-            "quoteVolume": 568021.9546
-          },
           {
             "ts": 1788561900000,
             "time": "2026-09-04T22:45:00.000Z",
@@ -3188,6 +4081,36 @@
             "close": 4.7978,
             "volume": 213518,
             "quoteVolume": 1022084.3504
+          },
+          {
+            "ts": 1788570000000,
+            "time": "2026-09-05T01:00:00.000Z",
+            "open": 4.7972,
+            "high": 4.8357,
+            "low": 4.7802,
+            "close": 4.8013,
+            "volume": 156207,
+            "quoteVolume": 751201.2411
+          },
+          {
+            "ts": 1788570900000,
+            "time": "2026-09-05T01:15:00.000Z",
+            "open": 4.7999,
+            "high": 4.8349,
+            "low": 4.7917,
+            "close": 4.8148,
+            "volume": 161268,
+            "quoteVolume": 776348.8301
+          },
+          {
+            "ts": 1788571800000,
+            "time": "2026-09-05T01:30:00.000Z",
+            "open": 4.8156,
+            "high": 4.8198,
+            "low": 4.7655,
+            "close": 4.773,
+            "volume": 150153,
+            "quoteVolume": 720463.5984
           }
         ]
       },
@@ -3235,6 +4158,27 @@
           "lastVolume": 1204655,
           "average20": 1429304.65,
           "ratio": 0.8428259153847992
+        },
+        "volumeProfile": {
+          "available": true,
+          "poc": 3.903938,
+          "vah": 4.605375,
+          "val": 3.783,
+          "hvn": [
+            3.903938,
+            4.677938,
+            4.726313,
+            4.629563
+          ],
+          "lvn": [
+            4.919813,
+            4.049063,
+            4.097438,
+            4.871438
+          ],
+          "bucketCount": 24,
+          "lookback": 48,
+          "totalVolume": 64272843
         },
         "recentCandles": [
           {
@@ -3360,405 +4304,126 @@
         ]
       }
     },
-    "NEAR-USDT-SWAP": {
-      "ok": true,
-      "symbol": "NEAR-USDT-SWAP",
-      "updatedAt": "2026-09-05T01:01:02.974Z",
-      "price": 2.23,
-      "high24h": 2.25,
-      "low24h": 1.902,
-      "open24h": 1.945,
-      "changePct24h": 0.1465295629820051,
-      "contractVolume24h": 3900766,
-      "baseVolume24h": 39007660,
-      "quoteVolume24hEstimate": 86987081.8,
-      "turnoverUsdEstimate": 86987081.8,
-      "openInterestUsdEstimate": 30415927.996,
-      "fetch15mOk": true,
-      "fetch1hOk": true,
-      "retryCount15m": 0,
-      "retryCount1h": 0,
-      "partial": false,
-      "stale": false,
-      "staleReason": null,
-      "lastSuccessfulAt": "2026-09-05T01:01:02.974Z",
-      "timeframeStatus": {
-        "15m": {
-          "fetchOk": true,
-          "usedFallback": false,
-          "fallbackAgeMinutes": 0,
-          "realtimeWeight": 1,
-          "status": "fresh"
-        },
-        "1h": {
-          "fetchOk": true,
-          "usedFallback": false,
-          "fallbackAgeMinutes": 0,
-          "realtimeWeight": 1,
-          "status": "fresh"
-        }
-      },
-      "freshness": {
-        "status": "fresh",
-        "tickerTs": 1788570049363,
-        "tickerAgeMs": 13611,
-        "oiTs": 1788570050550,
-        "oiAgeMs": 12424,
-        "lastClosed15mTs": 1788569100000,
-        "lastClosed1hTs": 1788566400000,
-        "fallbackAgeMinutes": 0
-      },
-      "timeframe15m": {
-        "candleCount": 119,
-        "ma": {
-          "ma7": 2.205999999999999,
-          "ma25": 2.1389199999999993,
-          "ma60": 2.043316666666668,
-          "slope5": {
-            "ma7": 0.06185714285714283,
-            "ma25": 0.04484000000000066,
-            "ma60": 0.018066666666666453
-          },
-          "order": "bullish",
-          "direction": "up"
-        },
-        "structure": {
-          "state": "lower_highs_lower_lows",
-          "confidence": "high",
-          "previousHigh": 2.187,
-          "recentHigh": 2.144,
-          "previousLow": 2.1,
-          "recentLow": 2.079,
-          "atr": 0.029785714285714242,
-          "pivotHighCount": 6,
-          "pivotLowCount": 6,
-          "lastClose": 2.222,
-          "lastCloseTs": 1788569100000
-        },
-        "levels": {
-          "recentResistance": null,
-          "secondaryResistance": null,
-          "recentSupport": 2.1,
-          "secondarySupport": 2.079,
-          "recentResistanceTouches": 0,
-          "secondaryResistanceTouches": 0,
-          "recentSupportTouches": 1,
-          "secondarySupportTouches": 1,
-          "zoneTolerance": 0.008935714285714273,
-          "aboveAllConfirmedResistance": true,
-          "belowAllConfirmedSupport": false
-        },
-        "volume": {
-          "lastVolume": 77328.5,
-          "average20": 61349.090000000004,
-          "ratio": 1.260466944171462
-        },
-        "recentCandles": [
-          {
-            "ts": 1788559200000,
-            "time": "2026-09-04T22:00:00.000Z",
-            "open": 2.093,
-            "high": 2.132,
-            "low": 2.093,
-            "close": 2.117,
-            "volume": 52617.3,
-            "quoteVolume": 1113632.361
-          },
-          {
-            "ts": 1788560100000,
-            "time": "2026-09-04T22:15:00.000Z",
-            "open": 2.117,
-            "high": 2.144,
-            "low": 2.109,
-            "close": 2.143,
-            "volume": 33624.3,
-            "quoteVolume": 716422.437
-          },
-          {
-            "ts": 1788561000000,
-            "time": "2026-09-04T22:30:00.000Z",
-            "open": 2.142,
-            "high": 2.143,
-            "low": 2.124,
-            "close": 2.129,
-            "volume": 23774.8,
-            "quoteVolume": 507030.648
-          },
-          {
-            "ts": 1788561900000,
-            "time": "2026-09-04T22:45:00.000Z",
-            "open": 2.13,
-            "high": 2.135,
-            "low": 2.119,
-            "close": 2.128,
-            "volume": 27453.1,
-            "quoteVolume": 583959.731
-          },
-          {
-            "ts": 1788562800000,
-            "time": "2026-09-04T23:00:00.000Z",
-            "open": 2.127,
-            "high": 2.14,
-            "low": 2.124,
-            "close": 2.132,
-            "volume": 26130.5,
-            "quoteVolume": 557690.683
-          },
-          {
-            "ts": 1788563700000,
-            "time": "2026-09-04T23:15:00.000Z",
-            "open": 2.133,
-            "high": 2.177,
-            "low": 2.131,
-            "close": 2.175,
-            "volume": 65896,
-            "quoteVolume": 1420365.685
-          },
-          {
-            "ts": 1788564600000,
-            "time": "2026-09-04T23:30:00.000Z",
-            "open": 2.175,
-            "high": 2.195,
-            "low": 2.173,
-            "close": 2.185,
-            "volume": 94191.3,
-            "quoteVolume": 2057434.715
-          },
-          {
-            "ts": 1788565500000,
-            "time": "2026-09-04T23:45:00.000Z",
-            "open": 2.185,
-            "high": 2.197,
-            "low": 2.167,
-            "close": 2.173,
-            "volume": 41921.6,
-            "quoteVolume": 914148.47
-          },
-          {
-            "ts": 1788566400000,
-            "time": "2026-09-05T00:00:00.000Z",
-            "open": 2.172,
-            "high": 2.207,
-            "low": 2.169,
-            "close": 2.203,
-            "volume": 103808.3,
-            "quoteVolume": 2275577.61
-          },
-          {
-            "ts": 1788567300000,
-            "time": "2026-09-05T00:15:00.000Z",
-            "open": 2.203,
-            "high": 2.247,
-            "low": 2.201,
-            "close": 2.243,
-            "volume": 122664.8,
-            "quoteVolume": 2730625.554
-          },
-          {
-            "ts": 1788568200000,
-            "time": "2026-09-05T00:30:00.000Z",
-            "open": 2.242,
-            "high": 2.25,
-            "low": 2.233,
-            "close": 2.241,
-            "volume": 79476.4,
-            "quoteVolume": 1780359.491
-          },
-          {
-            "ts": 1788569100000,
-            "time": "2026-09-05T00:45:00.000Z",
-            "open": 2.24,
-            "high": 2.242,
-            "low": 2.211,
-            "close": 2.222,
-            "volume": 77328.5,
-            "quoteVolume": 1721324.812
-          }
-        ]
-      },
-      "timeframe1h": {
-        "candleCount": 119,
-        "ma": {
-          "ma7": 2.13,
-          "ma25": 2.0092399999999997,
-          "ma60": 1.9485833333333322,
-          "slope5": {
-            "ma7": 0.13385714285714245,
-            "ma25": 0.03524000000000016,
-            "ma60": 0.02496666666666658
-          },
-          "order": "bullish",
-          "direction": "up"
-        },
-        "structure": {
-          "state": "range",
-          "confidence": "medium",
-          "previousHigh": 2.036,
-          "recentHigh": 2.187,
-          "previousLow": 1.969,
-          "recentLow": 1.902,
-          "atr": 0.0685714285714285,
-          "pivotHighCount": 6,
-          "pivotLowCount": 5,
-          "lastClose": 2.222,
-          "lastCloseTs": 1788566400000
-        },
-        "levels": {
-          "recentResistance": null,
-          "secondaryResistance": null,
-          "recentSupport": 1.969,
-          "secondarySupport": 1.913877192982456,
-          "recentResistanceTouches": 0,
-          "secondaryResistanceTouches": 0,
-          "recentSupportTouches": 1,
-          "secondarySupportTouches": 3,
-          "zoneTolerance": 0.02057142857142855,
-          "aboveAllConfirmedResistance": true,
-          "belowAllConfirmedSupport": false
-        },
-        "volume": {
-          "lastVolume": 383278,
-          "average20": 167854.71000000002,
-          "ratio": 2.2833913924726925
-        },
-        "recentCandles": [
-          {
-            "ts": 1788526800000,
-            "time": "2026-09-04T13:00:00.000Z",
-            "open": 1.942,
-            "high": 1.987,
-            "low": 1.935,
-            "close": 1.974,
-            "volume": 139717.5,
-            "quoteVolume": 2735827.111
-          },
-          {
-            "ts": 1788530400000,
-            "time": "2026-09-04T14:00:00.000Z",
-            "open": 1.974,
-            "high": 1.978,
-            "low": 1.902,
-            "close": 1.92,
-            "volume": 129619.3,
-            "quoteVolume": 2501344.201
-          },
-          {
-            "ts": 1788534000000,
-            "time": "2026-09-04T15:00:00.000Z",
-            "open": 1.92,
-            "high": 1.946,
-            "low": 1.913,
-            "close": 1.942,
-            "volume": 68333.2,
-            "quoteVolume": 1320665.066
-          },
-          {
-            "ts": 1788537600000,
-            "time": "2026-09-04T16:00:00.000Z",
-            "open": 1.943,
-            "high": 1.989,
-            "low": 1.94,
-            "close": 1.973,
-            "volume": 86306.2,
-            "quoteVolume": 1696991.238
-          },
-          {
-            "ts": 1788541200000,
-            "time": "2026-09-04T17:00:00.000Z",
-            "open": 1.973,
-            "high": 2.011,
-            "low": 1.963,
-            "close": 1.976,
-            "volume": 142770.8,
-            "quoteVolume": 2833318.186
-          },
-          {
-            "ts": 1788544800000,
-            "time": "2026-09-04T18:00:00.000Z",
-            "open": 1.976,
-            "high": 2.037,
-            "low": 1.976,
-            "close": 2.022,
-            "volume": 146013.8,
-            "quoteVolume": 2931992.086
-          },
-          {
-            "ts": 1788548400000,
-            "time": "2026-09-04T19:00:00.000Z",
-            "open": 2.023,
-            "high": 2.187,
-            "low": 2.012,
-            "close": 2.166,
-            "volume": 480683.4,
-            "quoteVolume": 10173227.708
-          },
-          {
-            "ts": 1788552000000,
-            "time": "2026-09-04T20:00:00.000Z",
-            "open": 2.166,
-            "high": 2.171,
-            "low": 2.1,
-            "close": 2.106,
-            "volume": 333335.1,
-            "quoteVolume": 7096833.319
-          },
-          {
-            "ts": 1788555600000,
-            "time": "2026-09-04T21:00:00.000Z",
-            "open": 2.107,
-            "high": 2.135,
-            "low": 2.079,
-            "close": 2.093,
-            "volume": 105423.9,
-            "quoteVolume": 2224605.563
-          },
-          {
-            "ts": 1788559200000,
-            "time": "2026-09-04T22:00:00.000Z",
-            "open": 2.093,
-            "high": 2.144,
-            "low": 2.093,
-            "close": 2.128,
-            "volume": 137469.5,
-            "quoteVolume": 2921045.177
-          },
-          {
-            "ts": 1788562800000,
-            "time": "2026-09-04T23:00:00.000Z",
-            "open": 2.127,
-            "high": 2.197,
-            "low": 2.124,
-            "close": 2.173,
-            "volume": 228139.4,
-            "quoteVolume": 4949639.553
-          },
-          {
-            "ts": 1788566400000,
-            "time": "2026-09-05T00:00:00.000Z",
-            "open": 2.172,
-            "high": 2.25,
-            "low": 2.169,
-            "close": 2.222,
-            "volume": 383278,
-            "quoteVolume": 8507887.467
-          }
-        ]
-      }
-    },
     "TRUMP-USDT-SWAP": {
       "ok": true,
       "symbol": "TRUMP-USDT-SWAP",
-      "updatedAt": "2026-09-05T01:01:00.481Z",
-      "price": 2.326,
+      "updatedAt": "2026-09-05T01:51:05.211Z",
+      "price": 2.331,
       "high24h": 2.449,
       "low24h": 2.143,
-      "open24h": 2.338,
-      "changePct24h": -0.005132591958939269,
-      "contractVolume24h": 940350315,
-      "baseVolume24h": 94035031.5,
-      "quoteVolume24hEstimate": 218725483.269,
-      "turnoverUsdEstimate": 218725483.269,
-      "openInterestUsdEstimate": 30049341.7146,
+      "open24h": 2.342,
+      "changePct24h": -0.004696840307429599,
+      "contractVolume24h": 935228878,
+      "baseVolume24h": 93522887.8,
+      "quoteVolume24hEstimate": 218001851.46179998,
+      "turnoverUsdEstimate": 218001851.46179998,
+      "openInterestUsdEstimate": 30435311.848,
+      "oiEvidence": {
+        "available": true,
+        "currentUsd": 30435311.848,
+        "previousUsd": 30049341.7146,
+        "changePct": 1.284455,
+        "direction": "rising",
+        "currentTs": 1788573052424,
+        "previousUpdatedAt": "2026-09-05T01:01:00.481Z"
+      },
+      "capitalEvidence": {
+        "available": true,
+        "status": "fresh",
+        "provider": "binance-usds-m-5m-klines",
+        "symbol": "TRUMPUSDT",
+        "latestClosedAt": "2026-09-05T01:49:59.999Z",
+        "cvd": {
+          "available": true,
+          "direction": "bullish",
+          "cumulative": 78661.31,
+          "slope": 97609.57,
+          "latestDelta": 36973.9,
+          "positiveBars": 7,
+          "negativeBars": 4,
+          "sampleCount": 11
+        },
+        "taker": {
+          "available": true,
+          "latestBuySellRatio": 1.208932,
+          "averageBuySellRatio": 1.08936,
+          "bullishBars": 7,
+          "bearishBars": 4,
+          "continuity": "bullish",
+          "sampleCount": 11
+        },
+        "volume": {
+          "available": true,
+          "latest": 390906.76,
+          "average": 295002.367,
+          "ratio": 1.325097
+        }
+      },
+      "cvd": {
+        "available": true,
+        "direction": "bullish",
+        "cumulative": 78661.31,
+        "slope": 97609.57,
+        "latestDelta": 36973.9,
+        "positiveBars": 7,
+        "negativeBars": 4,
+        "sampleCount": 11
+      },
+      "taker": {
+        "available": true,
+        "latestBuySellRatio": 1.208932,
+        "averageBuySellRatio": 1.08936,
+        "bullishBars": 7,
+        "bearishBars": 4,
+        "continuity": "bullish",
+        "sampleCount": 11
+      },
+      "mainChainScore": 0,
+      "mainChainTotal": 5,
+      "mainChainAvailableCount": 5,
+      "mainChainPassed": false,
+      "mainChainItems": {
+        "direction": {
+          "passed": false,
+          "available": true
+        },
+        "location": {
+          "passed": false,
+          "available": true
+        },
+        "oi": {
+          "passed": false,
+          "available": true
+        },
+        "cvd": {
+          "passed": false,
+          "available": true
+        },
+        "trigger": {
+          "passed": false,
+          "available": true
+        }
+      },
+      "auxiliaryConflicts": [],
+      "entryMode": "none",
+      "suggestedEntry": {
+        "direction": "neutral",
+        "mode": "none",
+        "zoneLow": null,
+        "zoneHigh": null,
+        "triggerPrice": 2.309,
+        "referencePrice": 2.331,
+        "directBreakoutAllowed": false,
+        "reason": "no sufficiently complete entry chain"
+      },
+      "failureLevel": null,
+      "targets": {
+        "t1": null,
+        "t2": null
+      },
+      "riskReward": null,
+      "decisionDirection": "neutral",
+      "decisionReason": "direction=neutral; votes=1B/0S; mainChain=0/5; cvd=bullish; oi=rising; taker=bullish; entryMode=none",
       "fetch15mOk": true,
       "fetch1hOk": true,
       "retryCount15m": 0,
@@ -3766,7 +4431,7 @@
       "partial": false,
       "stale": false,
       "staleReason": null,
-      "lastSuccessfulAt": "2026-09-05T01:01:00.481Z",
+      "lastSuccessfulAt": "2026-09-05T01:51:04.812Z",
       "timeframeStatus": {
         "15m": {
           "fetchOk": true,
@@ -3785,90 +4450,81 @@
       },
       "freshness": {
         "status": "fresh",
-        "tickerTs": 1788570049570,
-        "tickerAgeMs": 10911,
-        "oiTs": 1788570050550,
-        "oiAgeMs": 9931,
-        "lastClosed15mTs": 1788569100000,
+        "tickerTs": 1788573051670,
+        "tickerAgeMs": 13541,
+        "oiTs": 1788573052424,
+        "oiAgeMs": 12787,
+        "lastClosed15mTs": 1788571800000,
         "lastClosed1hTs": 1788566400000,
         "fallbackAgeMinutes": 0
       },
       "timeframe15m": {
         "candleCount": 119,
         "ma": {
-          "ma7": 2.311857142857143,
-          "ma25": 2.2833200000000007,
-          "ma60": 2.2853999999999983,
+          "ma7": 2.328142857142858,
+          "ma25": 2.2919600000000013,
+          "ma60": 2.283566666666666,
           "slope5": {
-            "ma7": 0.02971428571428536,
-            "ma25": 0.013720000000000176,
-            "ma60": -0.006116666666666326
+            "ma7": 0.026142857142857245,
+            "ma25": 0.01448000000000027,
+            "ma60": -0.004049999999998999
           },
-          "order": "mixed",
+          "order": "bullish",
           "direction": "mixed"
         },
         "structure": {
           "state": "higher_highs_higher_lows",
           "confidence": "high",
-          "previousHigh": 2.286,
-          "recentHigh": 2.312,
-          "previousLow": 2.242,
-          "recentLow": 2.264,
-          "atr": 0.022500000000000027,
-          "pivotHighCount": 7,
-          "pivotLowCount": 8,
-          "lastClose": 2.323,
-          "lastCloseTs": 1788569100000
+          "previousHigh": 2.312,
+          "recentHigh": 2.349,
+          "previousLow": 2.264,
+          "recentLow": 2.309,
+          "atr": 0.02142857142857148,
+          "pivotHighCount": 8,
+          "pivotLowCount": 9,
+          "lastClose": 2.341,
+          "lastCloseTs": 1788571800000
         },
         "levels": {
-          "recentResistance": 2.391,
-          "secondaryResistance": 2.399,
-          "recentSupport": 2.260719298245614,
-          "secondarySupport": 2.240125,
+          "recentResistance": 2.349,
+          "secondaryResistance": 2.391,
+          "recentSupport": 2.309,
+          "secondarySupport": 2.2607222222222223,
           "recentResistanceTouches": 1,
           "secondaryResistanceTouches": 1,
-          "recentSupportTouches": 3,
-          "secondarySupportTouches": 2,
-          "zoneTolerance": 0.006750000000000008,
+          "recentSupportTouches": 1,
+          "secondarySupportTouches": 3,
+          "zoneTolerance": 0.006428571428571444,
           "aboveAllConfirmedResistance": false,
           "belowAllConfirmedSupport": false
         },
         "volume": {
-          "lastVolume": 7992996,
-          "average20": 4484416.05,
-          "ratio": 1.7823939417931574
+          "lastVolume": 18527766,
+          "average20": 4952707.25,
+          "ratio": 3.740937040040071
+        },
+        "volumeProfile": {
+          "available": true,
+          "poc": 2.256896,
+          "vah": 2.297792,
+          "val": 2.228583,
+          "hvn": [
+            2.256896,
+            2.250604,
+            2.244313,
+            2.263188
+          ],
+          "lvn": [
+            2.357563,
+            2.363854,
+            2.219146,
+            2.225438
+          ],
+          "bucketCount": 24,
+          "lookback": 48,
+          "totalVolume": 289577175
         },
         "recentCandles": [
-          {
-            "ts": 1788559200000,
-            "time": "2026-09-04T22:00:00.000Z",
-            "open": 2.279,
-            "high": 2.289,
-            "low": 2.274,
-            "close": 2.277,
-            "volume": 2804452,
-            "quoteVolume": 639883.8546
-          },
-          {
-            "ts": 1788560100000,
-            "time": "2026-09-04T22:15:00.000Z",
-            "open": 2.277,
-            "high": 2.279,
-            "low": 2.264,
-            "close": 2.267,
-            "volume": 3521124,
-            "quoteVolume": 799409.8552
-          },
-          {
-            "ts": 1788561000000,
-            "time": "2026-09-04T22:30:00.000Z",
-            "open": 2.268,
-            "high": 2.279,
-            "low": 2.268,
-            "close": 2.276,
-            "volume": 2924701,
-            "quoteVolume": 665010.1945
-          },
           {
             "ts": 1788561900000,
             "time": "2026-09-04T22:45:00.000Z",
@@ -3958,6 +4614,36 @@
             "close": 2.323,
             "volume": 7992996,
             "quoteVolume": 1853624.9963
+          },
+          {
+            "ts": 1788570000000,
+            "time": "2026-09-05T01:00:00.000Z",
+            "open": 2.324,
+            "high": 2.333,
+            "low": 2.317,
+            "close": 2.325,
+            "volume": 5258465,
+            "quoteVolume": 1222959.1708
+          },
+          {
+            "ts": 1788570900000,
+            "time": "2026-09-05T01:15:00.000Z",
+            "open": 2.326,
+            "high": 2.337,
+            "low": 2.318,
+            "close": 2.336,
+            "volume": 4427275,
+            "quoteVolume": 1029354.3637
+          },
+          {
+            "ts": 1788571800000,
+            "time": "2026-09-05T01:30:00.000Z",
+            "open": 2.337,
+            "high": 2.367,
+            "low": 2.334,
+            "close": 2.341,
+            "volume": 18527766,
+            "quoteVolume": 4356482.3239
           }
         ]
       },
@@ -4005,6 +4691,27 @@
           "lastVolume": 43845038,
           "average20": 37193425.65,
           "ratio": 1.1788383896819141
+        },
+        "volumeProfile": {
+          "available": true,
+          "poc": 2.383896,
+          "vah": 2.453833,
+          "val": 2.251792,
+          "hvn": [
+            2.383896,
+            2.368354,
+            2.399438,
+            2.352812
+          ],
+          "lvn": [
+            2.150771,
+            2.166312,
+            2.181854,
+            2.477146
+          ],
+          "bucketCount": 24,
+          "lookback": 48,
+          "totalVolume": 2608618790
         },
         "recentCandles": [
           {
@@ -4126,6 +4833,540 @@
             "close": 2.323,
             "volume": 43845038,
             "quoteVolume": 10184622.3587
+          }
+        ]
+      }
+    },
+    "NEAR-USDT-SWAP": {
+      "ok": true,
+      "symbol": "NEAR-USDT-SWAP",
+      "updatedAt": "2026-09-05T01:51:10.315Z",
+      "price": 2.227,
+      "high24h": 2.274,
+      "low24h": 1.902,
+      "open24h": 1.936,
+      "changePct24h": 0.15030991735537186,
+      "contractVolume24h": 4047820,
+      "baseVolume24h": 40478200,
+      "quoteVolume24hEstimate": 90144951.39999999,
+      "turnoverUsdEstimate": 90144951.39999999,
+      "openInterestUsdEstimate": 30262959.72,
+      "oiEvidence": {
+        "available": true,
+        "currentUsd": 30262959.72,
+        "previousUsd": 30415927.996,
+        "changePct": -0.502922,
+        "direction": "falling",
+        "currentTs": 1788573052424,
+        "previousUpdatedAt": "2026-09-05T01:01:02.974Z"
+      },
+      "capitalEvidence": {
+        "available": false,
+        "status": "not_requested",
+        "provider": "binance-usds-m-5m-klines",
+        "error": null,
+        "cvd": {
+          "available": false,
+          "direction": "unavailable",
+          "cumulative": null,
+          "slope": null,
+          "latestDelta": null,
+          "positiveBars": 0,
+          "negativeBars": 0,
+          "sampleCount": 0
+        },
+        "taker": {
+          "available": false,
+          "latestBuySellRatio": null,
+          "averageBuySellRatio": null,
+          "bullishBars": 0,
+          "bearishBars": 0,
+          "continuity": "unavailable",
+          "sampleCount": 0
+        },
+        "volume": {
+          "available": false,
+          "latest": null,
+          "average": null,
+          "ratio": null
+        }
+      },
+      "cvd": {
+        "available": false,
+        "direction": "unavailable",
+        "cumulative": null,
+        "slope": null,
+        "latestDelta": null,
+        "positiveBars": 0,
+        "negativeBars": 0,
+        "sampleCount": 0
+      },
+      "taker": {
+        "available": false,
+        "latestBuySellRatio": null,
+        "averageBuySellRatio": null,
+        "bullishBars": 0,
+        "bearishBars": 0,
+        "continuity": "unavailable",
+        "sampleCount": 0
+      },
+      "mainChainScore": 0,
+      "mainChainTotal": 5,
+      "mainChainAvailableCount": 3,
+      "mainChainPassed": false,
+      "mainChainItems": {
+        "direction": {
+          "passed": false,
+          "available": true
+        },
+        "location": {
+          "passed": false,
+          "available": true
+        },
+        "oi": {
+          "passed": false,
+          "available": true
+        },
+        "cvd": {
+          "passed": false,
+          "available": false
+        },
+        "trigger": {
+          "passed": false,
+          "available": false
+        }
+      },
+      "auxiliaryConflicts": [
+        "cvd_unavailable_not_veto"
+      ],
+      "entryMode": "none",
+      "suggestedEntry": {
+        "direction": "neutral",
+        "mode": "none",
+        "zoneLow": null,
+        "zoneHigh": null,
+        "triggerPrice": 2.1,
+        "referencePrice": 2.227,
+        "directBreakoutAllowed": false,
+        "reason": "no sufficiently complete entry chain"
+      },
+      "failureLevel": null,
+      "targets": {
+        "t1": null,
+        "t2": null
+      },
+      "riskReward": null,
+      "decisionDirection": "neutral",
+      "decisionReason": "direction=neutral; votes=2B/1S; mainChain=0/5; cvd=unavailable; oi=falling; taker=unavailable; entryMode=none",
+      "fetch15mOk": true,
+      "fetch1hOk": true,
+      "retryCount15m": 0,
+      "retryCount1h": 0,
+      "partial": false,
+      "stale": false,
+      "staleReason": null,
+      "lastSuccessfulAt": "2026-09-05T01:51:10.315Z",
+      "timeframeStatus": {
+        "15m": {
+          "fetchOk": true,
+          "usedFallback": false,
+          "fallbackAgeMinutes": 0,
+          "realtimeWeight": 1,
+          "status": "fresh"
+        },
+        "1h": {
+          "fetchOk": true,
+          "usedFallback": false,
+          "fallbackAgeMinutes": 0,
+          "realtimeWeight": 1,
+          "status": "fresh"
+        }
+      },
+      "freshness": {
+        "status": "fresh",
+        "tickerTs": 1788573051868,
+        "tickerAgeMs": 18447,
+        "oiTs": 1788573052424,
+        "oiAgeMs": 17891,
+        "lastClosed15mTs": 1788571800000,
+        "lastClosed1hTs": 1788566400000,
+        "fallbackAgeMinutes": 0
+      },
+      "timeframe15m": {
+        "candleCount": 119,
+        "ma": {
+          "ma7": 2.2315714285714288,
+          "ma25": 2.1608399999999985,
+          "ma60": 2.054950000000001,
+          "slope5": {
+            "ma7": 0.054571428571428715,
+            "ma25": 0.039839999999999876,
+            "ma60": 0.018699999999999495
+          },
+          "order": "bullish",
+          "direction": "up"
+        },
+        "structure": {
+          "state": "lower_highs_lower_lows",
+          "confidence": "high",
+          "previousHigh": 2.187,
+          "recentHigh": 2.144,
+          "previousLow": 2.1,
+          "recentLow": 2.079,
+          "atr": 0.031142857142857076,
+          "pivotHighCount": 6,
+          "pivotLowCount": 5,
+          "lastClose": 2.237,
+          "lastCloseTs": 1788571800000
+        },
+        "levels": {
+          "recentResistance": null,
+          "secondaryResistance": null,
+          "recentSupport": 2.1,
+          "secondarySupport": 2.079,
+          "recentResistanceTouches": 0,
+          "secondaryResistanceTouches": 0,
+          "recentSupportTouches": 1,
+          "secondarySupportTouches": 1,
+          "zoneTolerance": 0.009342857142857123,
+          "aboveAllConfirmedResistance": true,
+          "belowAllConfirmedSupport": false
+        },
+        "volume": {
+          "lastVolume": 36638.2,
+          "average20": 55474.94500000001,
+          "ratio": 0.6604459003970169
+        },
+        "volumeProfile": {
+          "available": true,
+          "poc": 2.12675,
+          "vah": 2.274,
+          "val": 2.0725,
+          "hvn": [
+            2.12675,
+            2.11125,
+            2.17325,
+            2.14225
+          ],
+          "lvn": [
+            2.04925,
+            2.06475,
+            2.08025,
+            2.26625
+          ],
+          "bucketCount": 24,
+          "lookback": 48,
+          "totalVolume": 2457103.3
+        },
+        "recentCandles": [
+          {
+            "ts": 1788561900000,
+            "time": "2026-09-04T22:45:00.000Z",
+            "open": 2.13,
+            "high": 2.135,
+            "low": 2.119,
+            "close": 2.128,
+            "volume": 27453.1,
+            "quoteVolume": 583959.731
+          },
+          {
+            "ts": 1788562800000,
+            "time": "2026-09-04T23:00:00.000Z",
+            "open": 2.127,
+            "high": 2.14,
+            "low": 2.124,
+            "close": 2.132,
+            "volume": 26130.5,
+            "quoteVolume": 557690.683
+          },
+          {
+            "ts": 1788563700000,
+            "time": "2026-09-04T23:15:00.000Z",
+            "open": 2.133,
+            "high": 2.177,
+            "low": 2.131,
+            "close": 2.175,
+            "volume": 65896,
+            "quoteVolume": 1420365.685
+          },
+          {
+            "ts": 1788564600000,
+            "time": "2026-09-04T23:30:00.000Z",
+            "open": 2.175,
+            "high": 2.195,
+            "low": 2.173,
+            "close": 2.185,
+            "volume": 94191.3,
+            "quoteVolume": 2057434.715
+          },
+          {
+            "ts": 1788565500000,
+            "time": "2026-09-04T23:45:00.000Z",
+            "open": 2.185,
+            "high": 2.197,
+            "low": 2.167,
+            "close": 2.173,
+            "volume": 41921.6,
+            "quoteVolume": 914148.47
+          },
+          {
+            "ts": 1788566400000,
+            "time": "2026-09-05T00:00:00.000Z",
+            "open": 2.172,
+            "high": 2.207,
+            "low": 2.169,
+            "close": 2.203,
+            "volume": 103808.3,
+            "quoteVolume": 2275577.61
+          },
+          {
+            "ts": 1788567300000,
+            "time": "2026-09-05T00:15:00.000Z",
+            "open": 2.203,
+            "high": 2.247,
+            "low": 2.201,
+            "close": 2.243,
+            "volume": 122664.8,
+            "quoteVolume": 2730625.554
+          },
+          {
+            "ts": 1788568200000,
+            "time": "2026-09-05T00:30:00.000Z",
+            "open": 2.242,
+            "high": 2.25,
+            "low": 2.233,
+            "close": 2.241,
+            "volume": 79476.4,
+            "quoteVolume": 1780359.491
+          },
+          {
+            "ts": 1788569100000,
+            "time": "2026-09-05T00:45:00.000Z",
+            "open": 2.24,
+            "high": 2.242,
+            "low": 2.211,
+            "close": 2.222,
+            "volume": 77328.5,
+            "quoteVolume": 1721324.812
+          },
+          {
+            "ts": 1788570000000,
+            "time": "2026-09-05T01:00:00.000Z",
+            "open": 2.223,
+            "high": 2.268,
+            "low": 2.219,
+            "close": 2.248,
+            "volume": 70945.4,
+            "quoteVolume": 1593400.018
+          },
+          {
+            "ts": 1788570900000,
+            "time": "2026-09-05T01:15:00.000Z",
+            "open": 2.248,
+            "high": 2.274,
+            "low": 2.225,
+            "close": 2.227,
+            "volume": 73725.9,
+            "quoteVolume": 1659086.6
+          },
+          {
+            "ts": 1788571800000,
+            "time": "2026-09-05T01:30:00.000Z",
+            "open": 2.227,
+            "high": 2.239,
+            "low": 2.217,
+            "close": 2.237,
+            "volume": 36638.2,
+            "quoteVolume": 816121.155
+          }
+        ]
+      },
+      "timeframe1h": {
+        "candleCount": 119,
+        "ma": {
+          "ma7": 2.13,
+          "ma25": 2.0092399999999997,
+          "ma60": 1.9485833333333322,
+          "slope5": {
+            "ma7": 0.13385714285714245,
+            "ma25": 0.03524000000000016,
+            "ma60": 0.02496666666666658
+          },
+          "order": "bullish",
+          "direction": "up"
+        },
+        "structure": {
+          "state": "range",
+          "confidence": "medium",
+          "previousHigh": 2.036,
+          "recentHigh": 2.187,
+          "previousLow": 1.969,
+          "recentLow": 1.902,
+          "atr": 0.0685714285714285,
+          "pivotHighCount": 6,
+          "pivotLowCount": 5,
+          "lastClose": 2.222,
+          "lastCloseTs": 1788566400000
+        },
+        "levels": {
+          "recentResistance": null,
+          "secondaryResistance": null,
+          "recentSupport": 1.969,
+          "secondarySupport": 1.913877192982456,
+          "recentResistanceTouches": 0,
+          "secondaryResistanceTouches": 0,
+          "recentSupportTouches": 1,
+          "secondarySupportTouches": 3,
+          "zoneTolerance": 0.02057142857142855,
+          "aboveAllConfirmedResistance": true,
+          "belowAllConfirmedSupport": false
+        },
+        "volume": {
+          "lastVolume": 383278,
+          "average20": 167854.71000000002,
+          "ratio": 2.2833913924726925
+        },
+        "volumeProfile": {
+          "available": true,
+          "poc": 1.955417,
+          "vah": 2.031167,
+          "val": 1.862833,
+          "hvn": [
+            1.955417,
+            1.989083,
+            1.97225,
+            1.938583
+          ],
+          "lvn": [
+            1.854417,
+            2.056417,
+            2.07325,
+            2.207917
+          ],
+          "bucketCount": 24,
+          "lookback": 48,
+          "totalVolume": 5825505.6
+        },
+        "recentCandles": [
+          {
+            "ts": 1788526800000,
+            "time": "2026-09-04T13:00:00.000Z",
+            "open": 1.942,
+            "high": 1.987,
+            "low": 1.935,
+            "close": 1.974,
+            "volume": 139717.5,
+            "quoteVolume": 2735827.111
+          },
+          {
+            "ts": 1788530400000,
+            "time": "2026-09-04T14:00:00.000Z",
+            "open": 1.974,
+            "high": 1.978,
+            "low": 1.902,
+            "close": 1.92,
+            "volume": 129619.3,
+            "quoteVolume": 2501344.201
+          },
+          {
+            "ts": 1788534000000,
+            "time": "2026-09-04T15:00:00.000Z",
+            "open": 1.92,
+            "high": 1.946,
+            "low": 1.913,
+            "close": 1.942,
+            "volume": 68333.2,
+            "quoteVolume": 1320665.066
+          },
+          {
+            "ts": 1788537600000,
+            "time": "2026-09-04T16:00:00.000Z",
+            "open": 1.943,
+            "high": 1.989,
+            "low": 1.94,
+            "close": 1.973,
+            "volume": 86306.2,
+            "quoteVolume": 1696991.238
+          },
+          {
+            "ts": 1788541200000,
+            "time": "2026-09-04T17:00:00.000Z",
+            "open": 1.973,
+            "high": 2.011,
+            "low": 1.963,
+            "close": 1.976,
+            "volume": 142770.8,
+            "quoteVolume": 2833318.186
+          },
+          {
+            "ts": 1788544800000,
+            "time": "2026-09-04T18:00:00.000Z",
+            "open": 1.976,
+            "high": 2.037,
+            "low": 1.976,
+            "close": 2.022,
+            "volume": 146013.8,
+            "quoteVolume": 2931992.086
+          },
+          {
+            "ts": 1788548400000,
+            "time": "2026-09-04T19:00:00.000Z",
+            "open": 2.023,
+            "high": 2.187,
+            "low": 2.012,
+            "close": 2.166,
+            "volume": 480683.4,
+            "quoteVolume": 10173227.708
+          },
+          {
+            "ts": 1788552000000,
+            "time": "2026-09-04T20:00:00.000Z",
+            "open": 2.166,
+            "high": 2.171,
+            "low": 2.1,
+            "close": 2.106,
+            "volume": 333335.1,
+            "quoteVolume": 7096833.319
+          },
+          {
+            "ts": 1788555600000,
+            "time": "2026-09-04T21:00:00.000Z",
+            "open": 2.107,
+            "high": 2.135,
+            "low": 2.079,
+            "close": 2.093,
+            "volume": 105423.9,
+            "quoteVolume": 2224605.563
+          },
+          {
+            "ts": 1788559200000,
+            "time": "2026-09-04T22:00:00.000Z",
+            "open": 2.093,
+            "high": 2.144,
+            "low": 2.093,
+            "close": 2.128,
+            "volume": 137469.5,
+            "quoteVolume": 2921045.177
+          },
+          {
+            "ts": 1788562800000,
+            "time": "2026-09-04T23:00:00.000Z",
+            "open": 2.127,
+            "high": 2.197,
+            "low": 2.124,
+            "close": 2.173,
+            "volume": 228139.4,
+            "quoteVolume": 4949639.553
+          },
+          {
+            "ts": 1788566400000,
+            "time": "2026-09-05T00:00:00.000Z",
+            "open": 2.172,
+            "high": 2.25,
+            "low": 2.169,
+            "close": 2.222,
+            "volume": 383278,
+            "quoteVolume": 8507887.467
           }
         ]
       }
