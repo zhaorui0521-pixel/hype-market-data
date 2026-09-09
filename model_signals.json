@@ -1,15 +1,17 @@
 {
   "ok": true,
-  "partial": false,
+  "partial": true,
   "source": "OKX + Binance official public APIs",
   "discoveryMode": "dual_exchange",
-  "runId": "1788948026957-b7f75e37-576c-4fca-afac-2e7b307ae57d",
-  "updatedAt": "2026-09-09T10:00:46.692Z",
+  "runId": "1788949819220-d284cf65-f60e-4714-8d22-4137bde45def",
+  "updatedAt": "2026-09-09T10:30:39.259Z",
   "modelVersion": "6.3.16",
   "scoringArchitecture": "weighted_response_persistence_absorption_v6_3_12",
   "dataQuality": {
     "failedSymbols": [],
-    "staleSymbols": [],
+    "staleSymbols": [
+      "USELESS-USDT-SWAP"
+    ],
     "freshnessPolicy": {
       "fullWeightMinutes": 10,
       "downWeightMinutes": 30,
@@ -20,135 +22,129 @@
   "signals": [
     {
       "symbol": "BTC-USDT-SWAP",
-      "weightedScore": 0,
+      "weightedScore": 66.5,
       "weightedScoreMax": 100,
-      "grade": "D",
-      "confirmationTier": "D_no_signal",
+      "grade": "C",
+      "confirmationTier": "C_watch_only",
       "candidateDirection": "bullish",
       "entryMode": "none",
       "suggestedEntry": {
         "direction": "bullish",
         "mode": "none",
-        "zoneLow": 78686.5618,
-        "zoneHigh": 78923.4382,
+        "zoneLow": 78714.534235,
+        "zoneHigh": 78951.744835,
         "triggerPrice": 79275,
-        "referencePrice": 78958.8,
+        "referencePrice": 79070.2,
         "directBreakoutAllowed": false,
-        "reason": "response-persistence chain is incomplete, stale, or absorbed"
+        "reason": "score 50-71 or execution gate incomplete: watch only"
       },
-      "failureLevel": 78479.378467,
+      "failureLevel": 78421.8822,
       "targets": {
-        "t1": 79436.6704,
-        "t2": 79627.084686
+        "t1": 79465.701135,
+        "t2": 79667.393992
       },
-      "riskReward": 1.939891,
+      "riskReward": 1.538116,
       "mainChainPassed": false,
-      "warningOnly": false,
+      "warningOnly": true,
       "strongInternalConfirmation": false,
       "weightedComponents": {
         "structure": 18,
-        "maDynamic": 1.5,
-        "priceResponse": 0,
-        "responsePersistence": 0,
-        "priceOi": 0,
-        "deltaCvd": 0,
+        "maDynamic": 2.5,
+        "priceResponse": 20,
+        "responsePersistence": 8,
+        "priceOi": 12,
+        "deltaCvd": 8,
         "location": 8,
         "volume": 0,
         "takerTrigger": 0
       },
       "penalties": {
         "trendMaturity": 0,
-        "correlationStaleTrend": 18,
-        "responsePersistence": 18,
-        "absorption": 20,
-        "total": 56,
+        "correlationStaleTrend": 0,
+        "responsePersistence": 10,
+        "absorption": 0,
+        "total": 10,
         "maturityReasons": []
       },
       "directionEvidence": {
         "structure15m": "bullish",
         "structure1h": "bullish",
-        "ma15m": "bullish",
+        "ma15m": "neutral",
         "ma1h": "neutral",
         "priceResponse5m": "flat",
-        "priceResponse15m": "bearish",
-        "microDirection": "bearish",
-        "priceResponseAligned": false,
-        "responsePersistenceDirection": "bearish",
-        "responsePersistenceStrength": 0.347575,
+        "priceResponse15m": "bullish",
+        "microDirection": "bullish",
+        "priceResponseAligned": true,
+        "responsePersistenceDirection": "bullish",
+        "responsePersistenceStrength": 0.185004,
         "responseAgeBars": 4,
-        "responsePersistenceAligned": false,
-        "responsePersistenceOpposed": true,
-        "buyerAbsorption": true,
+        "responsePersistenceAligned": true,
+        "responsePersistenceOpposed": false,
+        "buyerAbsorption": false,
         "sellerAbsorption": false,
-        "absorptionAgainstCandidate": true,
-        "cvdDirection": "bearish",
-        "takerDirection": "bullish"
+        "absorptionAgainstCandidate": false,
+        "cvdDirection": "bullish",
+        "takerDirection": "neutral"
       },
       "capitalQuality": {
-        "oiDirection": "falling",
-        "price15Direction": "bearish",
-        "priceOiAligned": false,
+        "oiDirection": "rising",
+        "price15Direction": "bullish",
+        "priceOiAligned": true,
         "deleveragingAligned": false,
         "oiConflict": false,
-        "cvdAligned": false,
-        "volumeRatio": 1.018035,
+        "cvdAligned": true,
+        "volumeRatio": 0.439011,
         "volumeStrong": false
       },
       "trendMaturity": {
-        "change24hPct": 0.338151,
+        "change24hPct": 0.326979,
         "range24hPct": 2.797447,
         "nearHigh24h": false,
         "nearLow24h": false,
-        "ma25DistanceAtr": 1.106325,
+        "ma25DistanceAtr": 0.613408,
         "penalty": 0,
         "reasons": []
       },
       "oiEvidence": {
         "available": true,
-        "currentUsd": 2138350383.400009,
-        "previousUsd": 2155389765.117347,
-        "changePct": -0.790548,
-        "direction": "falling",
-        "currentTs": 1788948027799,
-        "previousUpdatedAt": "2026-09-09T09:30:30.218Z"
+        "currentUsd": 2160899592.407088,
+        "previousUsd": 2138350383.400009,
+        "changePct": 1.054514,
+        "direction": "rising",
+        "currentTs": 1788949820135,
+        "previousUpdatedAt": "2026-09-09T10:00:31.486Z"
       },
       "cvd": {
         "available": true,
         "direction": "bearish",
-        "cumulative": -1693.575,
-        "slope": -1368.014,
-        "shortSlope": -354.468,
-        "shortDirection": "bearish",
-        "latestDelta": 102.055,
-        "positiveBars": 2,
-        "negativeBars": 9,
+        "cumulative": -719.357,
+        "slope": -464.149,
+        "shortSlope": 80.62,
+        "shortDirection": "bullish",
+        "latestDelta": 2.033,
+        "positiveBars": 7,
+        "negativeBars": 4,
         "sampleCount": 11
       },
       "taker": {
         "available": true,
-        "latestBuySellRatio": 1.352943,
-        "averageBuySellRatio": 0.645299,
-        "bullishBars": 2,
-        "bearishBars": 9,
-        "continuity": "bearish",
+        "latestBuySellRatio": 1.012246,
+        "averageBuySellRatio": 1.049234,
+        "bullishBars": 7,
+        "bearishBars": 4,
+        "continuity": "bullish",
         "sampleCount": 11
       },
       "auxiliaryConflicts": [
-        "recent_delta_cvd_against_candidate",
-        "price_not_aligned_with_ma_cluster",
-        "recent_price_response_opposes_structure",
-        "response_persistence_not_confirmed",
-        "response_persistence_reversed",
-        "buyer_absorption_detected",
-        "correlation_stale_trend_penalty_18"
+        "price_not_aligned_with_ma_cluster"
       ],
       "freshness": {
         "status": "fresh",
-        "tickerTs": 1788948026967,
-        "tickerAgeMs": 4519,
-        "oiTs": 1788948027799,
-        "oiAgeMs": 3687,
-        "lastClosed15mTs": 1788947100000,
+        "tickerTs": 1788949819062,
+        "tickerAgeMs": 5023,
+        "oiTs": 1788949820135,
+        "oiAgeMs": 3950,
+        "lastClosed15mTs": 1788948900000,
         "lastClosed1hTs": 1788944400000,
         "fallbackAgeMinutes": 0
       },
@@ -157,8 +153,8 @@
       "bridgeSelection": null,
       "exchangeEvidence": {
         "okx": {
-          "price": 78958.8,
-          "openInterestUsdEstimate": 2138350383.4000087
+          "price": 79070.2,
+          "openInterestUsdEstimate": 2160899592.4070883
         },
         "binance": {
           "available": true,
@@ -166,43 +162,43 @@
         },
         "bitget": null
       },
-      "decisionReason": "candidate=bullish; weighted=0/100; structure=18/18; maDynamic=1.5/8; priceResponse=0/20; responsePersistence=0/20; priceOi=0/12; dCVD=0/8; location=8/8; volume=0/3; trigger=0/3; maturityPenalty=0; correlationPenalty=18; persistencePenalty=18; absorptionPenalty=20; entryMode=none"
+      "decisionReason": "candidate=bullish; weighted=66.5/100; structure=18/18; maDynamic=2.5/8; priceResponse=20/20; responsePersistence=8/20; priceOi=12/12; dCVD=8/8; location=8/8; volume=0/3; trigger=0/3; maturityPenalty=0; correlationPenalty=0; persistencePenalty=10; absorptionPenalty=0; entryMode=none"
     },
     {
       "symbol": "ETH-USDT-SWAP",
-      "weightedScore": 0,
+      "weightedScore": 35.5,
       "weightedScoreMax": 100,
       "grade": "D",
       "confirmationTier": "D_no_signal",
-      "candidateDirection": "neutral",
+      "candidateDirection": "bullish",
       "entryMode": "none",
       "suggestedEntry": {
-        "direction": "neutral",
+        "direction": "bullish",
         "mode": "none",
-        "zoneLow": null,
-        "zoneHigh": null,
-        "triggerPrice": null,
-        "referencePrice": 2491.17,
+        "zoneLow": 2486.37329,
+        "zoneHigh": 2493.84671,
+        "triggerPrice": 2494.47,
+        "referencePrice": 2491.14,
         "directBreakoutAllowed": false,
         "reason": "response-persistence chain is incomplete, stale, or absorbed"
       },
-      "failureLevel": null,
+      "failureLevel": 2482.94204,
       "targets": {
-        "t1": null,
-        "t2": null
+        "t1": 2510.03912,
+        "t2": 2518.388406
       },
-      "riskReward": null,
+      "riskReward": 2.780306,
       "mainChainPassed": false,
       "warningOnly": false,
       "strongInternalConfirmation": false,
       "weightedComponents": {
-        "structure": 0,
-        "maDynamic": 0,
-        "priceResponse": 0,
-        "responsePersistence": 0,
+        "structure": 18,
+        "maDynamic": 2.5,
+        "priceResponse": 4,
+        "responsePersistence": 3,
         "priceOi": 0,
         "deltaCvd": 0,
-        "location": 0,
+        "location": 8,
         "volume": 0,
         "takerTrigger": 0
       },
@@ -219,78 +215,82 @@
         "structure1h": "bullish",
         "ma15m": "neutral",
         "ma1h": "neutral",
-        "priceResponse5m": "bearish",
-        "priceResponse15m": "bearish",
-        "microDirection": "bearish",
+        "priceResponse5m": "flat",
+        "priceResponse15m": "flat",
+        "microDirection": "neutral",
         "priceResponseAligned": false,
-        "responsePersistenceDirection": "bearish",
-        "responsePersistenceStrength": 0.575683,
-        "responseAgeBars": 4,
+        "responsePersistenceDirection": "flat",
+        "responsePersistenceStrength": 0.013347,
+        "responseAgeBars": 0,
         "responsePersistenceAligned": false,
         "responsePersistenceOpposed": false,
         "buyerAbsorption": false,
         "sellerAbsorption": false,
         "absorptionAgainstCandidate": false,
         "cvdDirection": "bearish",
-        "takerDirection": "bearish"
+        "takerDirection": "neutral"
       },
       "capitalQuality": {
-        "oiDirection": "falling",
-        "price15Direction": "bearish",
+        "oiDirection": "rising",
+        "price15Direction": "flat",
         "priceOiAligned": false,
         "deleveragingAligned": false,
         "oiConflict": false,
         "cvdAligned": false,
-        "volumeRatio": 1.155952,
-        "volumeStrong": true
+        "volumeRatio": 0.595189,
+        "volumeStrong": false
       },
       "trendMaturity": {
-        "change24hPct": 0.067082,
+        "change24hPct": 0.045783,
         "range24hPct": 3.38342,
         "nearHigh24h": false,
         "nearLow24h": false,
-        "ma25DistanceAtr": 1.669587,
+        "ma25DistanceAtr": 1.580638,
         "penalty": 0,
         "reasons": []
       },
       "oiEvidence": {
         "available": true,
-        "currentUsd": 1516173098.357846,
-        "previousUsd": 1569638732.768616,
-        "changePct": -3.406238,
-        "direction": "falling",
-        "currentTs": 1788948027799,
-        "previousUpdatedAt": "2026-09-09T09:30:32.101Z"
+        "currentUsd": 1534320018.865867,
+        "previousUsd": 1516173098.357846,
+        "changePct": 1.19689,
+        "direction": "rising",
+        "currentTs": 1788949820135,
+        "previousUpdatedAt": "2026-09-09T10:00:33.382Z"
       },
       "cvd": {
         "available": true,
         "direction": "bearish",
-        "cumulative": -30896.2,
-        "slope": -25637.31,
-        "shortSlope": -3344.398,
+        "cumulative": -30390.527,
+        "slope": -28764.142,
+        "shortSlope": -4550.698,
         "shortDirection": "bearish",
-        "latestDelta": -3628.937,
-        "positiveBars": 1,
-        "negativeBars": 10,
+        "latestDelta": -375.993,
+        "positiveBars": 2,
+        "negativeBars": 9,
         "sampleCount": 11
       },
       "taker": {
         "available": true,
-        "latestBuySellRatio": 0.700473,
-        "averageBuySellRatio": 0.813928,
-        "bullishBars": 1,
-        "bearishBars": 10,
+        "latestBuySellRatio": 0.943242,
+        "averageBuySellRatio": 0.851401,
+        "bullishBars": 2,
+        "bearishBars": 9,
         "continuity": "bearish",
         "sampleCount": 11
       },
-      "auxiliaryConflicts": [],
+      "auxiliaryConflicts": [
+        "recent_delta_cvd_against_candidate",
+        "price_not_aligned_with_ma_cluster",
+        "response_persistence_not_confirmed"
+      ],
       "freshness": {
         "status": "fresh",
-        "tickerTs": 1788948026978,
-        "tickerAgeMs": 6404,
-        "oiTs": 1788948027799,
-        "oiAgeMs": 5583,
-        "lastClosed15mTs": 1788947100000,
+        "tickerTs": 1788949819234,
+        "tickerAgeMs": 6702,
+        "oiTs": 1788949820135,
+        "oiAgeMs": 5801,
+        "lastClosed15mTs": 1788948900000,
         "lastClosed1hTs": 1788944400000,
         "fallbackAgeMinutes": 0
       },
@@ -299,8 +299,8 @@
       "bridgeSelection": null,
       "exchangeEvidence": {
         "okx": {
-          "price": 2491.17,
-          "openInterestUsdEstimate": 1516173098.3578458
+          "price": 2491.14,
+          "openInterestUsdEstimate": 1534320018.865867
         },
         "binance": {
           "available": true,
@@ -308,7 +308,7 @@
         },
         "bitget": null
       },
-      "decisionReason": "candidate=neutral; weighted=0/100; structure=0/18; maDynamic=0/8; priceResponse=0/20; responsePersistence=0/20; priceOi=0/12; dCVD=0/8; location=0/8; volume=0/3; trigger=0/3; maturityPenalty=0; correlationPenalty=0; persistencePenalty=0; absorptionPenalty=0; entryMode=none"
+      "decisionReason": "candidate=bullish; weighted=35.5/100; structure=18/18; maDynamic=2.5/8; priceResponse=4/20; responsePersistence=3/20; priceOi=0/12; dCVD=0/8; location=8/8; volume=0/3; trigger=0/3; maturityPenalty=0; correlationPenalty=0; persistencePenalty=0; absorptionPenalty=0; entryMode=none"
     },
     {
       "symbol": "SOL-USDT-SWAP",
@@ -324,7 +324,7 @@
         "zoneLow": null,
         "zoneHigh": null,
         "triggerPrice": null,
-        "referencePrice": 103.5,
+        "referencePrice": 103.78,
         "directBreakoutAllowed": false,
         "reason": "response-persistence chain is incomplete, stale, or absorbed"
       },
@@ -357,84 +357,84 @@
         "maturityReasons": []
       },
       "directionEvidence": {
-        "structure15m": "neutral",
+        "structure15m": "bearish",
         "structure1h": "bullish",
         "ma15m": "neutral",
         "ma1h": "neutral",
-        "priceResponse5m": "bearish",
-        "priceResponse15m": "bearish",
-        "microDirection": "bearish",
+        "priceResponse5m": "bullish",
+        "priceResponse15m": "bullish",
+        "microDirection": "bullish",
         "priceResponseAligned": false,
-        "responsePersistenceDirection": "bearish",
-        "responsePersistenceStrength": 0.270268,
-        "responseAgeBars": 1,
+        "responsePersistenceDirection": "bullish",
+        "responsePersistenceStrength": 0.231329,
+        "responseAgeBars": 4,
         "responsePersistenceAligned": false,
         "responsePersistenceOpposed": false,
-        "buyerAbsorption": true,
-        "sellerAbsorption": false,
+        "buyerAbsorption": false,
+        "sellerAbsorption": true,
         "absorptionAgainstCandidate": false,
-        "cvdDirection": "bullish",
-        "takerDirection": "bullish"
+        "cvdDirection": "bearish",
+        "takerDirection": "bearish"
       },
       "capitalQuality": {
-        "oiDirection": "falling",
-        "price15Direction": "bearish",
+        "oiDirection": "rising",
+        "price15Direction": "bullish",
         "priceOiAligned": false,
         "deleveragingAligned": false,
         "oiConflict": false,
         "cvdAligned": false,
-        "volumeRatio": 0.536662,
+        "volumeRatio": 0.568561,
         "volumeStrong": false
       },
       "trendMaturity": {
-        "change24hPct": -0.067587,
+        "change24hPct": 0.086797,
         "range24hPct": 3.483909,
         "nearHigh24h": false,
         "nearLow24h": false,
-        "ma25DistanceAtr": 2.273763,
+        "ma25DistanceAtr": 1.419885,
         "penalty": 0,
         "reasons": []
       },
       "oiEvidence": {
         "available": true,
-        "currentUsd": 289293415.02,
-        "previousUsd": 291683581.6916,
-        "changePct": -0.819438,
-        "direction": "falling",
-        "currentTs": 1788948027799,
-        "previousUpdatedAt": "2026-09-09T09:30:34.002Z"
+        "currentUsd": 292924054.0633,
+        "previousUsd": 289293415.02,
+        "changePct": 1.255002,
+        "direction": "rising",
+        "currentTs": 1788949820135,
+        "previousUpdatedAt": "2026-09-09T10:00:35.252Z"
       },
       "cvd": {
         "available": true,
         "direction": "bearish",
-        "cumulative": -136282.85,
-        "slope": -127357.43,
-        "shortSlope": 15857.64,
-        "shortDirection": "bullish",
-        "latestDelta": 4882.78,
-        "positiveBars": 3,
-        "negativeBars": 8,
+        "cumulative": -31086.37,
+        "slope": -6661.03,
+        "shortSlope": -6674.33,
+        "shortDirection": "bearish",
+        "latestDelta": -5870.17,
+        "positiveBars": 7,
+        "negativeBars": 4,
         "sampleCount": 11
       },
       "taker": {
         "available": true,
-        "latestBuySellRatio": 1.243043,
-        "averageBuySellRatio": 0.754044,
-        "bullishBars": 3,
-        "bearishBars": 8,
-        "continuity": "bearish",
+        "latestBuySellRatio": 0.79932,
+        "averageBuySellRatio": 1.08006,
+        "bullishBars": 7,
+        "bearishBars": 4,
+        "continuity": "bullish",
         "sampleCount": 11
       },
       "auxiliaryConflicts": [
-        "buyer_absorption_detected"
+        "seller_absorption_detected"
       ],
       "freshness": {
         "status": "fresh",
-        "tickerTs": 1788948027066,
-        "tickerAgeMs": 8186,
-        "oiTs": 1788948027799,
-        "oiAgeMs": 7453,
-        "lastClosed15mTs": 1788947100000,
+        "tickerTs": 1788949819071,
+        "tickerAgeMs": 8704,
+        "oiTs": 1788949820135,
+        "oiAgeMs": 7640,
+        "lastClosed15mTs": 1788948900000,
         "lastClosed1hTs": 1788944400000,
         "fallbackAgeMinutes": 0
       },
@@ -443,8 +443,8 @@
       "bridgeSelection": null,
       "exchangeEvidence": {
         "okx": {
-          "price": 103.5,
-          "openInterestUsdEstimate": 289293415.02000004
+          "price": 103.78,
+          "openInterestUsdEstimate": 292924054.0633
         },
         "binance": {
           "available": true,
@@ -456,37 +456,37 @@
     },
     {
       "symbol": "ZEC-USDT-SWAP",
-      "weightedScore": 70.5,
+      "weightedScore": 84.5,
       "weightedScoreMax": 100,
-      "grade": "C",
-      "confirmationTier": "C_watch_only",
+      "grade": "B",
+      "confirmationTier": "B_trade_candidate",
       "candidateDirection": "bullish",
-      "entryMode": "none",
+      "entryMode": "pullback",
       "suggestedEntry": {
         "direction": "bullish",
-        "mode": "none",
-        "zoneLow": 1235.575588,
-        "zoneHigh": 1239.730246,
-        "triggerPrice": 1237,
-        "referencePrice": 1240,
+        "mode": "pullback",
+        "zoneLow": 1238.485943,
+        "zoneHigh": 1242.748343,
+        "triggerPrice": 1245.46,
+        "referencePrice": 1242.09,
         "directBreakoutAllowed": false,
-        "reason": "score 50-71 or execution gate incomplete: watch only"
+        "reason": "response-persistence score is tradeable with acceptable location; prefer pullback"
       },
-      "failureLevel": 1228.261471,
+      "failureLevel": 1231.9928,
       "targets": {
-        "t1": 1251.501774,
-        "t2": 1263.042488
+        "t1": 1252.457143,
+        "t2": 1266.665143
       },
-      "riskReward": 1.474625,
-      "mainChainPassed": false,
-      "warningOnly": true,
+      "riskReward": 1.372858,
+      "mainChainPassed": true,
+      "warningOnly": false,
       "strongInternalConfirmation": false,
       "weightedComponents": {
         "structure": 18,
-        "maDynamic": 5.5,
+        "maDynamic": 6.5,
         "priceResponse": 20,
-        "responsePersistence": 16,
-        "priceOi": 3,
+        "responsePersistence": 20,
+        "priceOi": 12,
         "deltaCvd": 0,
         "location": 8,
         "volume": 0,
@@ -503,15 +503,15 @@
       "directionEvidence": {
         "structure15m": "bullish",
         "structure1h": "bullish",
-        "ma15m": "bullish",
+        "ma15m": "neutral",
         "ma1h": "bullish",
         "priceResponse5m": "bullish",
         "priceResponse15m": "bullish",
         "microDirection": "bullish",
         "priceResponseAligned": true,
         "responsePersistenceDirection": "bullish",
-        "responsePersistenceStrength": 0.479744,
-        "responseAgeBars": 1,
+        "responsePersistenceStrength": 0.934559,
+        "responseAgeBars": 3,
         "responsePersistenceAligned": true,
         "responsePersistenceOpposed": false,
         "buyerAbsorption": false,
@@ -521,67 +521,65 @@
         "takerDirection": "neutral"
       },
       "capitalQuality": {
-        "oiDirection": "falling",
+        "oiDirection": "rising",
         "price15Direction": "bullish",
-        "priceOiAligned": false,
-        "deleveragingAligned": true,
+        "priceOiAligned": true,
+        "deleveragingAligned": false,
         "oiConflict": false,
         "cvdAligned": false,
-        "volumeRatio": 0.59157,
+        "volumeRatio": 0.648778,
         "volumeStrong": false
       },
       "trendMaturity": {
-        "change24hPct": 7.896454,
+        "change24hPct": 7.692241,
         "range24hPct": 12.072677,
         "nearHigh24h": false,
         "nearLow24h": false,
-        "ma25DistanceAtr": 0.837141,
+        "ma25DistanceAtr": 0.672804,
         "penalty": 0,
         "reasons": []
       },
       "oiEvidence": {
         "available": true,
-        "currentUsd": 177824022.8196,
-        "previousUsd": 178550873.6589,
-        "changePct": -0.407083,
-        "direction": "falling",
-        "currentTs": 1788948027799,
-        "previousUpdatedAt": "2026-09-09T09:30:35.888Z"
+        "currentUsd": 179752940.2218,
+        "previousUsd": 177824022.8196,
+        "changePct": 1.084734,
+        "direction": "rising",
+        "currentTs": 1788949820135,
+        "previousUpdatedAt": "2026-09-09T10:00:37.202Z"
       },
       "cvd": {
         "available": true,
         "direction": "bearish",
-        "cumulative": -5769.739,
-        "slope": -8129.464,
-        "shortSlope": -3049.606,
+        "cumulative": -4947.943,
+        "slope": -4055.687,
+        "shortSlope": -1390.257,
         "shortDirection": "bearish",
-        "latestDelta": 175.644,
-        "positiveBars": 3,
-        "negativeBars": 8,
+        "latestDelta": -124.748,
+        "positiveBars": 4,
+        "negativeBars": 7,
         "sampleCount": 11
       },
       "taker": {
         "available": true,
-        "latestBuySellRatio": 1.072156,
-        "averageBuySellRatio": 0.886003,
-        "bullishBars": 3,
-        "bearishBars": 8,
+        "latestBuySellRatio": 0.951367,
+        "averageBuySellRatio": 0.902112,
+        "bullishBars": 4,
+        "bearishBars": 7,
         "continuity": "bearish",
         "sampleCount": 11
       },
       "auxiliaryConflicts": [
         "recent_delta_cvd_against_candidate",
-        "price_not_aligned_with_ma_cluster",
-        "seller_absorption_detected",
-        "same_side_move_is_deleveraging_not_fresh_positioning"
+        "seller_absorption_detected"
       ],
       "freshness": {
         "status": "fresh",
-        "tickerTs": 1788948027067,
-        "tickerAgeMs": 10135,
-        "oiTs": 1788948027799,
-        "oiAgeMs": 9403,
-        "lastClosed15mTs": 1788947100000,
+        "tickerTs": 1788949819170,
+        "tickerAgeMs": 10493,
+        "oiTs": 1788949820135,
+        "oiAgeMs": 9528,
+        "lastClosed15mTs": 1788948900000,
         "lastClosed1hTs": 1788944400000,
         "fallbackAgeMinutes": 0
       },
@@ -589,15 +587,15 @@
       "staleReason": null,
       "bridgeSelection": {
         "rank": 1,
-        "score": 0.951572,
+        "score": 0.937655,
         "sourceState": "fresh",
         "crossExchangeConfirmed": true,
-        "crossExchangePriceDiffPct": 0.001865
+        "crossExchangePriceDiffPct": 0.000258
       },
       "exchangeEvidence": {
         "okx": {
-          "price": 1240,
-          "openInterestUsdEstimate": 177824022.8196
+          "price": 1242.09,
+          "openInterestUsdEstimate": 179752940.2218
         },
         "binance": {
           "available": true,
@@ -605,7 +603,307 @@
         },
         "bitget": null
       },
-      "decisionReason": "candidate=bullish; weighted=70.5/100; structure=18/18; maDynamic=5.5/8; priceResponse=20/20; responsePersistence=16/20; priceOi=3/12; dCVD=0/8; location=8/8; volume=0/3; trigger=0/3; maturityPenalty=0; correlationPenalty=0; persistencePenalty=0; absorptionPenalty=0; entryMode=none"
+      "decisionReason": "candidate=bullish; weighted=84.5/100; structure=18/18; maDynamic=6.5/8; priceResponse=20/20; responsePersistence=20/20; priceOi=12/12; dCVD=0/8; location=8/8; volume=0/3; trigger=0/3; maturityPenalty=0; correlationPenalty=0; persistencePenalty=0; absorptionPenalty=0; entryMode=pullback"
+    },
+    {
+      "symbol": "WLD-USDT-SWAP",
+      "weightedScore": 4,
+      "weightedScoreMax": 100,
+      "grade": "D",
+      "confirmationTier": "D_no_signal",
+      "candidateDirection": "neutral",
+      "entryMode": "none",
+      "suggestedEntry": {
+        "direction": "neutral",
+        "mode": "none",
+        "zoneLow": null,
+        "zoneHigh": null,
+        "triggerPrice": null,
+        "referencePrice": 0.4446,
+        "directBreakoutAllowed": false,
+        "reason": "response-persistence chain is incomplete, stale, or absorbed"
+      },
+      "failureLevel": null,
+      "targets": {
+        "t1": null,
+        "t2": null
+      },
+      "riskReward": null,
+      "mainChainPassed": false,
+      "warningOnly": false,
+      "strongInternalConfirmation": false,
+      "weightedComponents": {
+        "structure": 0,
+        "maDynamic": 0,
+        "priceResponse": 4,
+        "responsePersistence": 0,
+        "priceOi": 0,
+        "deltaCvd": 0,
+        "location": 0,
+        "volume": 0,
+        "takerTrigger": 0
+      },
+      "penalties": {
+        "trendMaturity": 0,
+        "correlationStaleTrend": 0,
+        "responsePersistence": 0,
+        "absorption": 0,
+        "total": 0,
+        "maturityReasons": []
+      },
+      "directionEvidence": {
+        "structure15m": "bullish",
+        "structure1h": "bearish",
+        "ma15m": "bearish",
+        "ma1h": "neutral",
+        "priceResponse5m": "bullish",
+        "priceResponse15m": "flat",
+        "microDirection": "neutral",
+        "priceResponseAligned": false,
+        "responsePersistenceDirection": "bullish",
+        "responsePersistenceStrength": 0.965288,
+        "responseAgeBars": 1,
+        "responsePersistenceAligned": false,
+        "responsePersistenceOpposed": false,
+        "buyerAbsorption": false,
+        "sellerAbsorption": true,
+        "absorptionAgainstCandidate": false,
+        "cvdDirection": "bearish",
+        "takerDirection": "bearish"
+      },
+      "capitalQuality": {
+        "oiDirection": "falling",
+        "price15Direction": "bullish",
+        "priceOiAligned": false,
+        "deleveragingAligned": false,
+        "oiConflict": false,
+        "cvdAligned": false,
+        "volumeRatio": 0.49894,
+        "volumeStrong": false
+      },
+      "trendMaturity": {
+        "change24hPct": -7.123459,
+        "range24hPct": 11.888587,
+        "nearHigh24h": false,
+        "nearLow24h": true,
+        "ma25DistanceAtr": 2.340741,
+        "penalty": 0,
+        "reasons": []
+      },
+      "oiEvidence": {
+        "available": true,
+        "currentUsd": 35154553.3255,
+        "previousUsd": 35807017.95,
+        "changePct": -1.82217,
+        "direction": "falling",
+        "currentTs": 1788949820135,
+        "previousUpdatedAt": "2026-09-09T10:00:39.074Z"
+      },
+      "cvd": {
+        "available": true,
+        "direction": "bearish",
+        "cumulative": -11334847,
+        "slope": -10863848,
+        "shortSlope": -2619088,
+        "shortDirection": "bearish",
+        "latestDelta": -94895,
+        "positiveBars": 0,
+        "negativeBars": 11,
+        "sampleCount": 11
+      },
+      "taker": {
+        "available": true,
+        "latestBuySellRatio": 0.919974,
+        "averageBuySellRatio": 0.645987,
+        "bullishBars": 0,
+        "bearishBars": 11,
+        "continuity": "bearish",
+        "sampleCount": 11
+      },
+      "auxiliaryConflicts": [
+        "seller_absorption_detected"
+      ],
+      "freshness": {
+        "status": "fresh",
+        "tickerTs": 1788949819165,
+        "tickerAgeMs": 12365,
+        "oiTs": 1788949820135,
+        "oiAgeMs": 11395,
+        "lastClosed15mTs": 1788948900000,
+        "lastClosed1hTs": 1788944400000,
+        "fallbackAgeMinutes": 0
+      },
+      "stale": false,
+      "staleReason": null,
+      "bridgeSelection": {
+        "rank": 2,
+        "score": 0.862926,
+        "sourceState": "fresh",
+        "crossExchangeConfirmed": true,
+        "crossExchangePriceDiffPct": 0.00045
+      },
+      "exchangeEvidence": {
+        "okx": {
+          "price": 0.4446,
+          "openInterestUsdEstimate": 35154553.3255
+        },
+        "binance": {
+          "available": true,
+          "source": null
+        },
+        "bitget": null
+      },
+      "decisionReason": "candidate=neutral; weighted=4/100; structure=0/18; maDynamic=0/8; priceResponse=4/20; responsePersistence=0/20; priceOi=0/12; dCVD=0/8; location=0/8; volume=0/3; trigger=0/3; maturityPenalty=0; correlationPenalty=0; persistencePenalty=0; absorptionPenalty=0; entryMode=none"
+    },
+    {
+      "symbol": "NEAR-USDT-SWAP",
+      "weightedScore": 5,
+      "weightedScoreMax": 100,
+      "grade": "D",
+      "confirmationTier": "D_no_signal",
+      "candidateDirection": "neutral",
+      "entryMode": "none",
+      "suggestedEntry": {
+        "direction": "neutral",
+        "mode": "none",
+        "zoneLow": null,
+        "zoneHigh": null,
+        "triggerPrice": null,
+        "referencePrice": 2.528,
+        "directBreakoutAllowed": false,
+        "reason": "response-persistence chain is incomplete, stale, or absorbed"
+      },
+      "failureLevel": null,
+      "targets": {
+        "t1": null,
+        "t2": null
+      },
+      "riskReward": null,
+      "mainChainPassed": false,
+      "warningOnly": false,
+      "strongInternalConfirmation": false,
+      "weightedComponents": {
+        "structure": 0,
+        "maDynamic": 0,
+        "priceResponse": 2,
+        "responsePersistence": 0,
+        "priceOi": 1.5,
+        "deltaCvd": 1.5,
+        "location": 0,
+        "volume": 0,
+        "takerTrigger": 0
+      },
+      "penalties": {
+        "trendMaturity": 0,
+        "correlationStaleTrend": 0,
+        "responsePersistence": 0,
+        "absorption": 0,
+        "total": 0,
+        "maturityReasons": []
+      },
+      "directionEvidence": {
+        "structure15m": "bullish",
+        "structure1h": "bearish",
+        "ma15m": "bullish",
+        "ma1h": "neutral",
+        "priceResponse5m": "unavailable",
+        "priceResponse15m": "unavailable",
+        "microDirection": "neutral",
+        "priceResponseAligned": false,
+        "responsePersistenceDirection": "unavailable",
+        "responsePersistenceStrength": 0,
+        "responseAgeBars": 0,
+        "responsePersistenceAligned": false,
+        "responsePersistenceOpposed": false,
+        "buyerAbsorption": false,
+        "sellerAbsorption": false,
+        "absorptionAgainstCandidate": false,
+        "cvdDirection": "neutral",
+        "takerDirection": "neutral"
+      },
+      "capitalQuality": {
+        "oiDirection": "unavailable",
+        "price15Direction": "bullish",
+        "priceOiAligned": false,
+        "deleveragingAligned": false,
+        "oiConflict": false,
+        "cvdAligned": false,
+        "volumeRatio": 3.581774,
+        "volumeStrong": true
+      },
+      "trendMaturity": {
+        "change24hPct": 8.965517,
+        "range24hPct": 13.258929,
+        "nearHigh24h": true,
+        "nearLow24h": false,
+        "ma25DistanceAtr": 3.540571,
+        "penalty": 0,
+        "reasons": []
+      },
+      "oiEvidence": {
+        "available": true,
+        "currentUsd": 35684113.199,
+        "previousUsd": null,
+        "changePct": null,
+        "direction": "unavailable",
+        "currentTs": 1788949820135,
+        "previousUpdatedAt": null
+      },
+      "cvd": {
+        "available": false,
+        "direction": "unavailable",
+        "cumulative": null,
+        "slope": null,
+        "shortSlope": null,
+        "shortDirection": "unavailable",
+        "latestDelta": null,
+        "positiveBars": 0,
+        "negativeBars": 0,
+        "sampleCount": 0
+      },
+      "taker": {
+        "available": false,
+        "latestBuySellRatio": null,
+        "averageBuySellRatio": null,
+        "bullishBars": 0,
+        "bearishBars": 0,
+        "continuity": "unavailable",
+        "sampleCount": 0
+      },
+      "auxiliaryConflicts": [
+        "cvd_unavailable_not_veto"
+      ],
+      "freshness": {
+        "status": "fresh",
+        "tickerTs": 1788949819066,
+        "tickerAgeMs": 13949,
+        "oiTs": 1788949820135,
+        "oiAgeMs": 12880,
+        "lastClosed15mTs": 1788948900000,
+        "lastClosed1hTs": 1788944400000,
+        "fallbackAgeMinutes": 0
+      },
+      "stale": false,
+      "staleReason": null,
+      "bridgeSelection": {
+        "rank": 3,
+        "score": 0.83734,
+        "sourceState": "fresh",
+        "crossExchangeConfirmed": true,
+        "crossExchangePriceDiffPct": 0.000791
+      },
+      "exchangeEvidence": {
+        "okx": {
+          "price": 2.528,
+          "openInterestUsdEstimate": 35684113.19900001
+        },
+        "binance": {
+          "available": false,
+          "source": null
+        },
+        "bitget": null
+      },
+      "decisionReason": "candidate=neutral; weighted=5/100; structure=0/18; maDynamic=0/8; priceResponse=2/20; responsePersistence=0/20; priceOi=1.5/12; dCVD=1.5/8; location=0/8; volume=0/3; trigger=0/3; maturityPenalty=0; correlationPenalty=0; persistencePenalty=0; absorptionPenalty=0; entryMode=none"
     },
     {
       "symbol": "USELESS-USDT-SWAP",
@@ -726,23 +1024,23 @@
         "cvd_unavailable_not_veto"
       ],
       "freshness": {
-        "status": "fresh",
+        "status": "degraded",
         "tickerTs": 1788948027074,
         "tickerAgeMs": 13494,
         "oiTs": 1788948027799,
         "oiAgeMs": 12769,
         "lastClosed15mTs": 1788947100000,
         "lastClosed1hTs": 1788944400000,
-        "fallbackAgeMinutes": 0
+        "fallbackAgeMinutes": 29.978183
       },
-      "stale": false,
-      "staleReason": null,
+      "stale": true,
+      "staleReason": "fresh fetch unavailable",
       "bridgeSelection": {
-        "rank": 2,
-        "score": 0.834179,
-        "sourceState": "fresh",
+        "rank": 4,
+        "score": 0.697127,
+        "sourceState": "stale_fallback",
         "crossExchangeConfirmed": true,
-        "crossExchangePriceDiffPct": 0.002389
+        "crossExchangePriceDiffPct": 0.002366
       },
       "exchangeEvidence": {
         "okx": {
@@ -756,154 +1054,6 @@
         "bitget": null
       },
       "decisionReason": "candidate=neutral; weighted=3.5/100; structure=0/18; maDynamic=0/8; priceResponse=2/20; responsePersistence=0/20; priceOi=0/12; dCVD=1.5/8; location=0/8; volume=0/3; trigger=0/3; maturityPenalty=0; correlationPenalty=0; persistencePenalty=0; absorptionPenalty=0; entryMode=none"
-    },
-    {
-      "symbol": "WLD-USDT-SWAP",
-      "weightedScore": 0,
-      "weightedScoreMax": 100,
-      "grade": "D",
-      "confirmationTier": "D_no_signal",
-      "candidateDirection": "neutral",
-      "entryMode": "none",
-      "suggestedEntry": {
-        "direction": "neutral",
-        "mode": "none",
-        "zoneLow": null,
-        "zoneHigh": null,
-        "triggerPrice": null,
-        "referencePrice": 0.446,
-        "directBreakoutAllowed": false,
-        "reason": "response-persistence chain is incomplete, stale, or absorbed"
-      },
-      "failureLevel": null,
-      "targets": {
-        "t1": null,
-        "t2": null
-      },
-      "riskReward": null,
-      "mainChainPassed": false,
-      "warningOnly": false,
-      "strongInternalConfirmation": false,
-      "weightedComponents": {
-        "structure": 0,
-        "maDynamic": 0,
-        "priceResponse": 0,
-        "responsePersistence": 0,
-        "priceOi": 0,
-        "deltaCvd": 0,
-        "location": 0,
-        "volume": 0,
-        "takerTrigger": 0
-      },
-      "penalties": {
-        "trendMaturity": 0,
-        "correlationStaleTrend": 0,
-        "responsePersistence": 0,
-        "absorption": 0,
-        "total": 0,
-        "maturityReasons": []
-      },
-      "directionEvidence": {
-        "structure15m": "bullish",
-        "structure1h": "bearish",
-        "ma15m": "bearish",
-        "ma1h": "neutral",
-        "priceResponse5m": "bearish",
-        "priceResponse15m": "bearish",
-        "microDirection": "bearish",
-        "priceResponseAligned": false,
-        "responsePersistenceDirection": "bearish",
-        "responsePersistenceStrength": 1,
-        "responseAgeBars": 4,
-        "responsePersistenceAligned": false,
-        "responsePersistenceOpposed": false,
-        "buyerAbsorption": false,
-        "sellerAbsorption": false,
-        "absorptionAgainstCandidate": false,
-        "cvdDirection": "bearish",
-        "takerDirection": "bearish"
-      },
-      "capitalQuality": {
-        "oiDirection": "falling",
-        "price15Direction": "bearish",
-        "priceOiAligned": false,
-        "deleveragingAligned": false,
-        "oiConflict": false,
-        "cvdAligned": false,
-        "volumeRatio": 2.46298,
-        "volumeStrong": true
-      },
-      "trendMaturity": {
-        "change24hPct": -7.641334,
-        "range24hPct": 11.484657,
-        "nearHigh24h": false,
-        "nearLow24h": true,
-        "ma25DistanceAtr": 2.330811,
-        "penalty": 0,
-        "reasons": []
-      },
-      "oiEvidence": {
-        "available": true,
-        "currentUsd": 35807017.95,
-        "previousUsd": 36465180.004,
-        "changePct": -1.804906,
-        "direction": "falling",
-        "currentTs": 1788948027799,
-        "previousUpdatedAt": "2026-09-09T09:30:39.284Z"
-      },
-      "cvd": {
-        "available": true,
-        "direction": "bearish",
-        "cumulative": -7542651,
-        "slope": -7132341,
-        "shortSlope": -2030452,
-        "shortDirection": "bearish",
-        "latestDelta": -1371805,
-        "positiveBars": 0,
-        "negativeBars": 11,
-        "sampleCount": 11
-      },
-      "taker": {
-        "available": true,
-        "latestBuySellRatio": 0.62401,
-        "averageBuySellRatio": 0.599841,
-        "bullishBars": 0,
-        "bearishBars": 11,
-        "continuity": "bearish",
-        "sampleCount": 11
-      },
-      "auxiliaryConflicts": [],
-      "freshness": {
-        "status": "fresh",
-        "tickerTs": 1788948027074,
-        "tickerAgeMs": 12000,
-        "oiTs": 1788948027799,
-        "oiAgeMs": 11275,
-        "lastClosed15mTs": 1788947100000,
-        "lastClosed1hTs": 1788944400000,
-        "fallbackAgeMinutes": 0
-      },
-      "stale": false,
-      "staleReason": null,
-      "bridgeSelection": {
-        "rank": 3,
-        "score": 0.829204,
-        "sourceState": "fresh",
-        "crossExchangeConfirmed": true,
-        "crossExchangePriceDiffPct": 0.001122
-      },
-      "exchangeEvidence": {
-        "okx": {
-          "price": 0.446,
-          "openInterestUsdEstimate": 35807017.95
-        },
-        "binance": {
-          "available": true,
-          "source": null
-        },
-        "bitget": null
-      },
-      "decisionReason": "candidate=neutral; weighted=0/100; structure=0/18; maDynamic=0/8; priceResponse=0/20; responsePersistence=0/20; priceOi=0/12; dCVD=0/8; location=0/8; volume=0/3; trigger=0/3; maturityPenalty=0; correlationPenalty=0; persistencePenalty=0; absorptionPenalty=0; entryMode=none"
     }
   ]
 }
